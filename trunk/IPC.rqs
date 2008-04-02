@@ -1,13 +1,17 @@
-
 [Project]
-Name=IPC
-Description=
-Directory=\\.host\Shared Folders\shared\IPC\IPC\IPC.rqs
 Owner=admin
-Owner Key=1
+Name=IPC
 GUID={ED0252DF-860F-4079-BA9C-C0779FED785B}
-Key=1
-Revision number=1.0000
+CQWebURL=
+Description=
+Owner Key=1
+Revision number=1.0001
 Prefix=
-isVersioned=0
+NbrRequirements=43
+Directory=\\.host\Shared Folders\shared\IPC\IPC svn\IPC.rqs
+Key=1
+
+[Application]
+Data file version=1.0040
+Program Version=9.0.0.1
 

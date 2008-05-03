@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="it.ipc.entity">
+   <class name="IscrizioneCorso">
+      <id name="id" column="ID_IC">
+         <generator class="native"/>
+      </id>
+      <property name="flag"/>
+      <property name="dataIscrizione" type="timestamp" column="DATA_ISCRIZIONE"/>
+      <property name="status"/>
+      
+      <many-to-one name="idStudente" class="Account" column="EMAIL" unique="true"/>
+  	  <many-to-one name="idCorso" class="Corso" column="ID" unique="true"/>
+   </class>
+</hibernate-mapping>

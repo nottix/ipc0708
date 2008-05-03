@@ -1,0 +1,56 @@
+<project name="ipc0708_project" default="compile">
+    <property name="sourcedir" value="${basedir}/src"/>
+	<property name="librarydir" value="${basedir}/lib"/>
+    <property name="targetdir" value="${basedir}/WEB-INF/classes"/>
+	<property name="libtargetdir" value="${basedir}/WEB-INF/lib"/>
+
+    <target name="clean">
+        <delete dir="${targetdir}"/>
+    	<delete dir="${libtargetdir}"/>
+        <mkdir dir="${targetdir}"/>
+    	<mkdir dir="${librarydir}"/>
+    </target>
+	
+	<path id="libraries">
+	  <fileset dir="${librarydir}">
+	    <include name="*.jar"/>
+	  </fileset>
+	</path>
+
+	<target name="copy-resources">
+	   <copy todir="${targetdir}">
+	      <fileset dir="${sourcedir}">
+	         <exclude name="**/*.java"/>
+	      </fileset>
+	   </copy>
+	   <copy todir="${libtargetdir}">
+	      <fileset dir="${librarydir}">
+	    	 <exclude name="servlet*.jar"/>
+	      </fileset>
+	   </copy>
+	</target>
+	
+    <target name="compile" depends="clean, copy-resources">
+      <javac debug="true"
+      	     deprecation="true"
+      		 srcdir="${sourcedir}"
+             destdir="${targetdir}"
+    	     classpathref="libraries"/>
+    </target>
+
+	<target name="run" depends="compile">
+	    <java fork="true" classname="it.ipc.control.Test" classpathref="libraries">
+	        <classpath path="${targetdir}"/>
+	        <arg value="${action}"/>
+	    </java>
+	</target>
+	
+	<target name="war" depends="compile">
+	    <war destfile="provaHibernate.war" webxml="WEB-INF/web.xml">
+	        <lib dir="${librarydir}">
+	          <exclude name="servlet*.jar"/>
+	        </lib>
+	        <classes dir="${targetdir}"/>
+	    </war>
+	</target>
+</project>

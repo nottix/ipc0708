@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="it.ipc.entity">
+  <class name="Account">
+     <id name="email" type="string" column="EMAIL"/>
+  	 <property name="nome" not-null="true"/>
+  	 <property name="cognome" not-null="true"/>
+  	 <property name="password" not-null="true" length="32"/>
+  	 <property name="tipologia" not-null="true"/>
+  	 <property name="status"/>
+  	 <property name="matricola"/>
+  	 <property name="isDirettore" type="boolean" column="IS_DIRETTORE"/>
+  	 <property name="isTitolare" type="boolean" column="IS_TITOLARE"/>
+  	 <property name="canUpload" type="boolean" column="CAN_UPLOAD"/>
+  	 <property name="noteUpload" type="text" column="NOTE_UPLOAD"/>
+  	 <property name="noteStud" type="text" column="NOTE_STUDENTE"/>
+  	 <property name="noteProf" type="text" column="NOTE_PROFESSORE"/>
+  </class>
+</hibernate-mapping>

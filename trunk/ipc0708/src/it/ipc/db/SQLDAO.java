@@ -180,6 +180,23 @@ public class SQLDAO {
 		return aCourse;
 	}
 	
+	public Corso getCorso(String acronimo) throws Exception {
+		Session session = DAOFactory.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+        Query q = session.createQuery("from Account a where a.acronimo = :acronimo");
+        q.setParameter("acronimo", acronimo, Hibernate.STRING);
+		Corso result = (Corso) q.uniqueResult();
+        session.getTransaction().commit();
+        /*Si deve controllare se result è null*/
+        return result;
+    }
+	
+	public Long creazioneCorso(Hashtable data) throws Exception {
+		Corso c = null;
+		c = this.getCorso((String) data.get("acronimo"));
+		return (c == null) ? this.createAndStoreCorso(data) : c.getId();
+	}
+	
 	public Long createAndStoreCorso(Hashtable data) throws Exception {
 		Corso aCourse = this.hashToCorso(null, data);
         Session session = DAOFactory.getSessionFactory().getCurrentSession();

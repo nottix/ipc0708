@@ -11,6 +11,9 @@
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
+<center>
+	<h1>IPC</h1>
+</center>
 <html:form action="Login">
 	<div align="center">
 	<table border="1" width="30%">
@@ -24,8 +27,12 @@
 				<td><html:password property="password"></html:password></td>
 			</tr>
 			<tr>
-				<td><html:reset></html:reset></td>
-				<td align="center"><html:submit></html:submit></td>
+				<td><html:reset value="Reset"></html:reset></td>
+				<td align="center"><html:submit value="Login"></html:submit></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td align="center"></td>
 			</tr>
 		</tbody>
 	</table>

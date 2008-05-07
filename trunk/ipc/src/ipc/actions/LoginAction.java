@@ -29,8 +29,13 @@ public class LoginAction extends Action
 
             LoginForm loginForm = (LoginForm)form;
             LoginController loginController = new LoginController();
-            if(loginController.login(loginForm.getEmail(), loginForm.getPassword()))
+            if(loginController.login(loginForm.getEmail(), loginForm.getPassword())) {
             	System.out.println(loginForm.getEmail() + " logged");
+            }
+            else {
+            	errors.add("name", new ActionError("id"));
+            	loginForm.setMessage("Errato");
+            }
 
         } catch (Exception e) {
 
@@ -46,12 +51,12 @@ public class LoginAction extends Action
             saveErrors(request, errors);
 
             // Forward control to the appropriate 'failure' URI (change name as desired)
-            //	forward = mapping.findForward(non riuscito");
+            forward = mapping.findForward("error");
 
         } else {
 
             // Forward control to the appropriate 'success' URI (change name as desired)
-            forward = mapping.findForward("riuscito");
+            forward = mapping.findForward("success");
 
         }
 

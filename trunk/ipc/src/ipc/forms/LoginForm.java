@@ -27,6 +27,8 @@ public class LoginForm extends ActionForm
 	private String email = null;
 
     private String password = null;
+    
+    private String message = null;
 
     /**
      * Get email
@@ -60,6 +62,14 @@ public class LoginForm extends ActionForm
 	this.password = p;
     }
 
+    public String getMessage() {
+    	return message;
+    }
+    
+    public void setMessage(String m) {
+    	this.message = m;
+    }
+    
     public void reset(ActionMapping mapping, HttpServletRequest request) {
 
 	// Reset values are provided as samples only. Change as appropriate.

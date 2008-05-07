@@ -23,6 +23,10 @@
 	</global-forwards>
 	<action-mappings>
 		<action path="/Login" type="ipc.actions.LoginAction" name="loginForm" scope="request">
+			<forward contextRelative="false" name="error" path="/login.jsp">
+			</forward>
+			<forward contextRelative="false" name="success" path="/welcome.jsp">
+			</forward>
 		</action>
 	</action-mappings>
 

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+
+	<!-- Origini dati -->
+	<data-sources>
+	</data-sources>
+
+	<!-- Bean modulo -->
+	<form-beans>
+		<form-bean name="LoginForm" type="org.apache.struts.action.ActionForm">
+		</form-bean>
+		<form-bean name="loginForm" type="ipc.forms.LoginForm">
+		</form-bean>
+	</form-beans>
+
+	<!-- Eccezioni globali -->
+	<global-exceptions>
+	</global-exceptions>
+
+	<!-- Inoltri globali -->
+	<global-forwards>
+	</global-forwards>
+	<action-mappings>
+		<action path="/Login" type="ipc.actions.LoginAction" name="loginForm" scope="request">
+		</action>
+	</action-mappings>
+
+	<!-- Associazioni azione -->
+
+	<!-- Risorse dei messaggi -->
+	<message-resources parameter="ipc.resources.ApplicationResources"/>
+
+</struts-config>

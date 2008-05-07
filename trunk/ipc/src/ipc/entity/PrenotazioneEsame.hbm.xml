@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="it.ipc.entity">
+   <class name="PrenotazioneEsame">
+      <id name="id" column="ID">
+         <generator class="native"/>
+      </id>
+	  <property name="dataEsame" type="timestamp" column="DATA_ESAME"/>
+	  <property name="dataPrenotazione" type="timestamp" column="DATA_PRENOTAZIONE"/>
+	  <property name="presenzaEsame" type="boolean" column="PRESENZA_ESAME"/>
+	  <property name="votoEsame" type="string" column="VOTO_ESAME"/>
+	  <property name="esaminatore" column="ESAMINATORE"/>
+	  <property name="votoAccettato" type="boolean" column="VOTO_ACCETTATO"/>
+	  <property name="nota" type="text" column="NOTA"/>
+      <property name="status"/>
+  	  
+  	  <many-to-one name="idStudente" class="Account" column="USER_EMAIL" />
+  	  <many-to-one name="idEsame" class="Esame" column="ID_ESAME" />
+   </class>
+</hibernate-mapping>

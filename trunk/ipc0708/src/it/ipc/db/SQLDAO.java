@@ -33,6 +33,14 @@ public class SQLDAO {
         return result;
 	}
 	
+	public String creazioneProfessore(Hashtable data) throws Exception {
+		Account test = null;
+		String ret = "";
+		test = this.getAccount((String) data.get("email"));
+		ret = (test == null) ? this.createAndStoreAccount(data) : test.getEmail();
+		return ret;
+	}
+	
 	private Type getType(Object o) {
 		Type type = null;
 		if(o instanceof String)

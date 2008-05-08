@@ -31,8 +31,9 @@
 				<td align="center"><html:submit value="Login"></html:submit></td>
 			</tr>
 			<tr>
-				<td></td>
-				<td align="center"></td>
+				<td colspan="2"><html:errors /></td></tr>
+			<tr>
+				<td colspan="2" align="center"><html:link page="/richiestaRegStudente.jsp">Registrazione</html:link></td>
 			</tr>
 		</tbody>
 	</table>

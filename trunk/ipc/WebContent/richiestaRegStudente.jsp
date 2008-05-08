@@ -13,7 +13,7 @@
 <body>
 <center>
 <h1>Registrazione</h1>
-<html:form action="/RichiestaRegStudente">
+<html:form action="RichiestaRegStudente">
 <table border="1" width="50%" height="169">
 	<tbody align="center">
 		<tr>
@@ -41,8 +41,8 @@
 			<td><html:text property="email"></html:text></td>
 		</tr>
 		<tr>
-			<td><html:reset></html:reset></td>
-			<td><html:submit value="Richiedi"></html:submit></td>
+			<td><html:reset value="Reset"></html:reset></td>
+			<td><html:submit value="RichiestaRegStudente"></html:submit></td>
 		</tr>
 	</tbody>
 </table>

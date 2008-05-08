@@ -44,6 +44,9 @@
 			<td><html:reset value="Reset"></html:reset></td>
 			<td><html:submit value="RichiestaRegStudente"></html:submit></td>
 		</tr>
+		<tr>
+			<td><html:errors /></td>
+		</tr>
 	</tbody>
 </table>
 </html:form>

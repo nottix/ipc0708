@@ -155,25 +155,25 @@ public class RichiestaRegStudenteForm extends ActionForm
     	ActionErrors errors = new ActionErrors();
 		boolean pwdchk = true;
 		if((nome == null) || (nome.length() == 0))
-			errors.add("nome", new ActionError("Il campo nome non e' definito"));
+			errors.add("nome", new ActionError("nome.error"));
 		if((cognome == null) || (cognome.length() == 0))
-			errors.add("cognome", new ActionError("Il campo cognome non e' definito"));
+			errors.add("cognome", new ActionError("cognome.error"));
 		if((matricola == null) || (matricola.length() == 0))
-			errors.add("matricola", new ActionError("Il campo matricola non e' definito"));
+			errors.add("matricola", new ActionError("matricola.error"));
 		if((password == null) || (password.length() == 0)) {
 			pwdchk = false;
-			errors.add("password", new ActionError("Il campo password non e' definito"));
+			errors.add("password", new ActionError("password.error"));
 		}
 		if((passwordCheck == null) || (passwordCheck.length() == 0)) {
 			pwdchk = false;
-			errors.add("passwordCheck", new ActionError("Il campo passwordCheck non e' definito"));
+			errors.add("passwordCheck", new ActionError("passwordcheck.error"));
 		}
 		if(pwdchk && !password.equals(passwordCheck))
-			errors.add("password", new ActionError("Le due password non coincidono"));
+			errors.add("password", new ActionError("passwordmatch.error"));
 		if((email == null) || (email.length() == 0))
-			errors.add("email", new ActionError("Il campo email non e' definito"));
+			errors.add("email", new ActionError("email.error"));
 		else if(check_email(email) == false)
-			errors.add("email", new ActionError("Il campo email contiene caratteri non validi"));
+			errors.add("email", new ActionError("email.malformed"));
 		return errors;
     }
 

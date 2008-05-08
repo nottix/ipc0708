@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="it.ipc.entity">
+<hibernate-mapping package="ipc.entity">
    <class name="Corso">
       <id name="id" column="ID">
          <generator class="native"/>
@@ -19,7 +19,7 @@
      <!--
 	  <set name="corsiPropedeutici" table="CORSI_PROPEDEUTICI">
 	     <key column="ID"/>
-	     <many-to-many column="ID" class="it.ipc.entity.Corso"/>
+	     <many-to-many column="ID" class="ipc.entity.Corso"/>
 	  </set>
 	 -->
    </class>

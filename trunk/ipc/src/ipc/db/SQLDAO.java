@@ -23,16 +23,13 @@ import org.hibernate.type.Type;
 
 public class SQLDAO {
 	public Account getAccount(String email) throws Exception {
-		System.out.println("getAccount: "+email);
 		Session session = DAOFactory.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         Query q = session.createQuery("from Account a where a.email = :email");
         q.setParameter("email", email, Hibernate.STRING);
         System.out.println("query");
 		Account result = (Account) q.uniqueResult();
-		System.out.println("result: "+result.getEmail());
-        session.getTransaction().commit();
-        System.out.println("commit");
+		session.getTransaction().commit();
         /*Si deve controllare se result è null*/
         return result;
 	}
@@ -42,17 +39,6 @@ public class SQLDAO {
 		String ret = "";
 		test = this.getAccount((String) data.get("email"));
 		ret = (test == null) ? this.createAndStoreAccount(data) : test.getEmail();
-		return ret;
-	}
-	
-	public Boolean creazioneStudente(Hashtable data) throws Exception {
-		Account test = null;
-		Boolean ret = false;
-		test = this.getAccount((String) data.get("email"));
-		if (test == null) {
-			this.createAndStoreAccount(data);
-			ret = true;
-		}
 		return ret;
 	}
 	

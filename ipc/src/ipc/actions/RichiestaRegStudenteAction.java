@@ -39,11 +39,14 @@ public class RichiestaRegStudenteAction extends Action
             ht.put("email", aRegisterRequestStudentForm.getEmail());
             ht.put("status", "pendent");
             ht.put("tipologia", "studente");
+            System.out.println("Richiesta");
             Boolean ret = gestioneStudenteController.richiestaRegStudente(ht);
+            System.out.println("Richiesta fatta");
             if(ret == false) {
+            	System.out.println("False");
             	errors.add("nome", new ActionError("Utente gia' esistente o dati errati"));
             } else {
-            	
+            	System.out.println("True");
             }
             
         } catch (Exception e) {

@@ -2,6 +2,7 @@ package ipc.forms;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
@@ -35,7 +36,7 @@ public class LoginForm extends ActionForm
      * @return String
      */
     public String getEmail() {
-	return email;
+    	return email;
     }
 
     /**
@@ -71,25 +72,20 @@ public class LoginForm extends ActionForm
     }
     
     public void reset(ActionMapping mapping, HttpServletRequest request) {
-
-	// Reset values are provided as samples only. Change as appropriate.
-
-	email = null;
-	password = null;
-
+    	email = null;
+    	password = null;
     }
 
     public ActionErrors validate(ActionMapping mapping,
-	    HttpServletRequest request) {
-
-	ActionErrors errors = new ActionErrors();
-	// Validate the fields in your form, adding
-	// adding each error to this.errors as found, e.g.
-
-	// if ((field == null) || (field.length() == 0)) {
-	//   errors.add("field", new org.apache.struts.action.ActionError("error.field.required"));
-	// }
-	return errors;
-
+    							 HttpServletRequest request) {
+    	ActionErrors errors = new ActionErrors();
+    	System.out.println("email: " + email);
+    	if(this.email == null || this.email.length() == 0)
+    		errors.add("email", new ActionError("login.email.error"));
+    	else if(RichiestaRegStudenteForm.check_email(email))
+    		errors.add("email", new ActionError("login.email.malformed"));
+    	if(this.password == null || this.password.length() == 0)
+    		errors.add("password", new ActionError("login.password.error"));
+    	return errors;
     }
 }

@@ -178,7 +178,7 @@ public class RichiestaRegStudenteForm extends ActionForm
     }
 
     /*If it returns false we have an invalid email!*/
-    private boolean check_email(String email) {
+    public static boolean check_email(String email) {
 		boolean test1 = Pattern.compile("[a-zA-Z0-9_]+[.[a-zA-Z0-9]+]*@[a-zA-Z0-9_]+[.[a-zA-Z]+]+").matcher(email).matches();
 		boolean test2 = Pattern.compile("^\\S+@\\S+$").matcher(email).matches();
 		boolean test3 = Pattern.compile(".+@.+\\.[a-z]+").matcher(email).matches();

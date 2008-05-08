@@ -45,6 +45,17 @@ public class SQLDAO {
 		return ret;
 	}
 	
+	public Boolean creazioneStudente(Hashtable data) throws Exception {
+		Account test = null;
+		Boolean ret = false;
+		test = this.getAccount((String) data.get("email"));
+		if (test == null) {
+			this.createAndStoreAccount(data);
+			ret = true;
+		}
+		return ret;
+	}
+	
 	private Type getType(Object o) {
 		Type type = null;
 		if(o instanceof String)

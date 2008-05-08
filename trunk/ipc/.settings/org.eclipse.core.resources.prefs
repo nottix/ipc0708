@@ -1,5 +1,7 @@
-#Wed May 07 18:42:24 CEST 2008
+#Thu May 08 13:48:40 CEST 2008
 eclipse.preferences.version=1
 encoding//WebContent/creazioneProfessore.jsp=ISO-8859-1
+encoding//WebContent/gestioneStudente.jsp=ISO-8859-1
 encoding//WebContent/login.jsp=ISO-8859-1
+encoding//WebContent/richiestaRegStudente.jsp=ISO-8859-1
 encoding//WebContent/welcome.jsp=ISO-8859-1

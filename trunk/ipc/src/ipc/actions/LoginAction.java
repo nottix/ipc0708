@@ -51,7 +51,7 @@ public class LoginAction extends Action
             saveErrors(request, errors);
 
             // Forward control to the appropriate 'failure' URI (change name as desired)
-            forward = mapping.findForward("error");
+            //forward = mapping.findForward("error");
 
         } else {
 

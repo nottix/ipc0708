@@ -8,8 +8,8 @@
 
 	<!-- Bean modulo -->
 	<form-beans>
-		<form-bean name="LoginForm" type="org.apache.struts.action.ActionForm" >
-		</form-bean>
+		<!--form-bean name="LoginForm" type="org.apache.struts.action.ActionForm" -->
+		<!--/form-bean-->
 		<form-bean name="loginForm" type="ipc.forms.LoginForm">
 		</form-bean>
 		<form-bean name="richiestaRegStudenteForm" type="ipc.forms.RichiestaRegStudenteForm">

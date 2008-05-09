@@ -13,6 +13,7 @@ public class Account {
 	 * Attivo
 	 * Disattivo
 	 * In attesa di conferma
+	 * Richiesta ripristino password
 	 */
 	private String status;
 	/**

@@ -55,7 +55,7 @@ public class Account {
 	}
 	
 	public void setPassword(String password) {
-		this.password = this.convertToMD5(password);
+		this.password = password;
 	}
 	
 	public String getPassword() {
@@ -134,14 +134,14 @@ public class Account {
 		return this.noteProf;
 	}
 	
-	public String convertToMD5(String password) {
+	public static String convertToMD5(String p) {
 		MessageDigest md = null;
 		try {
 			md = MessageDigest.getInstance("MD5");
 		} catch(NoSuchAlgorithmException nsae) {
 			System.exit(1);
 		}
-		md.update(password.getBytes());
+		md.update(p.getBytes());
 		return (new BigInteger(1,md.digest())).toString(16);
 	}
 }

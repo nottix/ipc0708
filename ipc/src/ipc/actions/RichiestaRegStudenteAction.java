@@ -1,7 +1,7 @@
 package ipc.actions;
 
 import java.util.Hashtable;
-import ipc.control.GestioneStudenteController;
+import ipc.control.LoginController;
 import ipc.forms.RichiestaRegStudenteForm;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +27,7 @@ public class RichiestaRegStudenteAction extends Action {
 
         try {
         	RichiestaRegStudenteForm aRegisterRequestStudentForm = (RichiestaRegStudenteForm) form;
-            GestioneStudenteController gestioneStudenteController = new GestioneStudenteController();
+            LoginController loginController = new LoginController();
             Hashtable<String, String> ht = new Hashtable<String, String>();
             ht.put("nome", aRegisterRequestStudentForm.getNome());
             ht.put("cognome", aRegisterRequestStudentForm.getCognome());
@@ -37,7 +37,7 @@ public class RichiestaRegStudenteAction extends Action {
             ht.put("status", "pendent");
             ht.put("tipologia", "studente");
             System.out.println("Richiesta");
-            Boolean ret = gestioneStudenteController.richiestaRegStudente(ht);
+            Boolean ret = loginController.richiestaRegStudente(ht);
             System.out.println("Richiesta fatta");
             if(ret == false) {
             	System.out.println("False");

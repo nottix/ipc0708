@@ -35,6 +35,9 @@
 			<tr>
 				<td colspan="2" align="center"><html:link page="/richiestaRegStudente.jsp">Registrazione</html:link></td>
 			</tr>
+			<tr>
+				<td colspan="2" align="center"><html:link page="/forgotPassword.jsp">Hai perso la password?</html:link></td>
+			</tr>
 		</tbody>
 	</table>
 	</div>

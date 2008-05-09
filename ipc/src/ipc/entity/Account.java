@@ -1,5 +1,9 @@
 package ipc.entity;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class Account {
 	private String nome;
 	private String cognome;
@@ -50,7 +54,7 @@ public class Account {
 	}
 	
 	public void setPassword(String password) {
-		this.password = password;
+		this.password = this.convertToMD5(password);
 	}
 	
 	public String getPassword() {
@@ -127,5 +131,16 @@ public class Account {
 	
 	public String getNoteProf() {
 		return this.noteProf;
+	}
+	
+	public String convertToMD5(String password) {
+		MessageDigest md = null;
+		try {
+			md = MessageDigest.getInstance("MD5");
+		} catch(NoSuchAlgorithmException nsae) {
+			System.exit(1);
+		}
+		md.update(password.getBytes());
+		return (new BigInteger(1,md.digest())).toString(16);
 	}
 }

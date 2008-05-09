@@ -2,7 +2,6 @@ package ipc.actions;
 
 import java.util.Hashtable;
 import ipc.control.GestioneStudenteController;
-import ipc.control.LoginController;
 import ipc.forms.RichiestaRegStudenteForm;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,9 +17,7 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class RichiestaRegStudenteAction extends Action
-
-{
+public class RichiestaRegStudenteAction extends Action {
 
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
             throws Exception {
@@ -35,7 +32,7 @@ public class RichiestaRegStudenteAction extends Action
             ht.put("nome", aRegisterRequestStudentForm.getNome());
             ht.put("cognome", aRegisterRequestStudentForm.getCognome());
             ht.put("matricola", aRegisterRequestStudentForm.getMatricola());
-            ht.put("password", LoginController.convertToMD5(aRegisterRequestStudentForm.getPassword()));
+            ht.put("password", aRegisterRequestStudentForm.getPassword());
             ht.put("email", aRegisterRequestStudentForm.getEmail());
             ht.put("status", "pendent");
             ht.put("tipologia", "studente");
@@ -44,7 +41,7 @@ public class RichiestaRegStudenteAction extends Action
             System.out.println("Richiesta fatta");
             if(ret == false) {
             	System.out.println("False");
-            	errors.add("nome", new ActionError("Utente gia' esistente o dati errati"));
+            	errors.add("nome", new ActionError("user.already.exists"));
             } else {
             	System.out.println("True");
             }

@@ -3,12 +3,10 @@
  */
 package ipc.control;
 
+import java.util.Hashtable;
+
 import ipc.db.SQLDAO;
 import ipc.entity.Account;
-
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 /**
  * @author Simone Notargiacomo
@@ -26,21 +24,40 @@ public class LoginController {
 			System.out.println("email: "+unAccount.getEmail());
 		} catch (Exception e) {}
 		String passDB = unAccount.getPassword();
-		String passEnc = convertToMD5(password);
+		String passEnc = unAccount.convertToMD5(password);
 		if(passEnc.equals(passDB))
 			return Boolean.TRUE;
 		else
 			return Boolean.FALSE;
 	}
 	
-	public static String convertToMD5(String password) {
-		MessageDigest md = null;
-		try {
-			md = MessageDigest.getInstance("MD5");
-		} catch(NoSuchAlgorithmException nsae) {
-			System.exit(1);
-		}
-		md.update(password.getBytes());
-		return (new BigInteger(1,md.digest())).toString(16);
+	public Boolean richiestaNuovaPasswordStudente(Hashtable data) throws Exception {
+		/**
+		 * First Stage:
+		 * check if the data in Hashtable are inconsistent or not
+		 */
+		String tipologia = (String) data.get("tipologia");
+		if(!tipologia.equals("studente"))
+			return false;
+		Boolean isDirettore = (Boolean) data.get("isDirettore");
+		if(isDirettore!=null && isDirettore)
+			return false;
+		Boolean isTitolare = (Boolean) data.get("isTitolare");
+		if(isTitolare!=null && isTitolare)
+			return false;
+		String status = (String) data.get("status");
+		if(!status.equals("ripristino"))
+			return false;
+		/**
+		 * Second stage:
+		 * check if exists this student with associate email
+		 */
+		SQLDAO sqlDAO = new SQLDAO();
+		Account test = null;
+		test = sqlDAO.getAccount((String) data.get("email"));
+		if (test == null)
+			return false;
+		System.out.println("L'account esiste!");
+		return sqlDAO.updateAccount((String) data.get("email"), data);
 	}
 }

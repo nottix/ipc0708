@@ -1324,113 +1324,6 @@
           </edges>
         </contents>
       </eAnnotations>
-      <packagedElement xmi:type="uml:Actor" xmi:id="_GNmMoAfSEd2-ceq6feMsFQ" name="Utente">
-        <generalization xmi:id="_jAQfsAfSEd2-ceq6feMsFQ" general="_J0QxUAfSEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Actor" xmi:id="_J0QxUAfSEd2-ceq6feMsFQ" name="Studente">
-        <generalization xmi:id="_k0h5sAfSEd2-ceq6feMsFQ" general="_GNmMoAfSEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Actor" xmi:id="_LhnD8AfSEd2-ceq6feMsFQ" name="Professore">
-        <generalization xmi:id="_lcc1UAfSEd2-ceq6feMsFQ" general="_GNmMoAfSEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Actor" xmi:id="_Nw93cAfSEd2-ceq6feMsFQ" name="Collaboratore">
-        <generalization xmi:id="_mbq2oAfSEd2-ceq6feMsFQ" general="_LhnD8AfSEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Actor" xmi:id="_QK6xYAfSEd2-ceq6feMsFQ" name="Direttore di Dipartimento">
-        <generalization xmi:id="_nOGZIAfSEd2-ceq6feMsFQ" general="_LhnD8AfSEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Actor" xmi:id="_UIDVUAfSEd2-ceq6feMsFQ" name="Titolare">
-        <generalization xmi:id="_o2Se8AfSEd2-ceq6feMsFQ" general="_Nw93cAfSEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Actor" xmi:id="_XO_REAfSEd2-ceq6feMsFQ" name="Gestore di Sistema">
-        <generalization xmi:id="_qa9WsAfSEd2-ceq6feMsFQ" general="_UIDVUAfSEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:UseCase" xmi:id="_65UCsAfWEd2-ceq6feMsFQ" name="Visualizza Corso"/>
-      <packagedElement xmi:type="uml:UseCase" xmi:id="_-XjrMAfWEd2-ceq6feMsFQ" name="Login"/>
-      <packagedElement xmi:type="uml:Association" xmi:id="_D1abAAfXEd2-ceq6feMsFQ" memberEnd="_D5UqoAfXEd2-ceq6feMsFQ _D6MNUAfXEd2-ceq6feMsFQ" navigableOwnedEnd="_D5UqoAfXEd2-ceq6feMsFQ _D6MNUAfXEd2-ceq6feMsFQ">
-        <ownedEnd xmi:id="_D5UqoAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_65UCsAfWEd2-ceq6feMsFQ" association="_D1abAAfXEd2-ceq6feMsFQ"/>
-        <ownedEnd xmi:id="_D6MNUAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_GNmMoAfSEd2-ceq6feMsFQ" association="_D1abAAfXEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_GBa_kAfXEd2-ceq6feMsFQ" memberEnd="_GBhGMAfXEd2-ceq6feMsFQ _GBhGMQfXEd2-ceq6feMsFQ" navigableOwnedEnd="_GBhGMAfXEd2-ceq6feMsFQ _GBhGMQfXEd2-ceq6feMsFQ">
-        <ownedEnd xmi:id="_GBhGMAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_-XjrMAfWEd2-ceq6feMsFQ" association="_GBa_kAfXEd2-ceq6feMsFQ"/>
-        <ownedEnd xmi:id="_GBhGMQfXEd2-ceq6feMsFQ" name="" visibility="private" type="_GNmMoAfSEd2-ceq6feMsFQ" association="_GBa_kAfXEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:UseCase" xmi:id="_LbL5kAfXEd2-ceq6feMsFQ" name="Creazione Professore"/>
-      <packagedElement xmi:type="uml:UseCase" xmi:id="_NywN4AfXEd2-ceq6feMsFQ" name="Creazione Corso"/>
-      <packagedElement xmi:type="uml:UseCase" xmi:id="_SroBUAfXEd2-ceq6feMsFQ" name="Gestione Query"/>
-      <packagedElement xmi:type="uml:Association" xmi:id="_WahU8AfXEd2-ceq6feMsFQ" memberEnd="_WanbkAfXEd2-ceq6feMsFQ _Wa5vcAfXEd2-ceq6feMsFQ" navigableOwnedEnd="_WanbkAfXEd2-ceq6feMsFQ _Wa5vcAfXEd2-ceq6feMsFQ">
-        <ownedEnd xmi:id="_WanbkAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_LbL5kAfXEd2-ceq6feMsFQ" association="_WahU8AfXEd2-ceq6feMsFQ"/>
-        <ownedEnd xmi:id="_Wa5vcAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_LhnD8AfSEd2-ceq6feMsFQ" association="_WahU8AfXEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_XS3SMAfXEd2-ceq6feMsFQ" memberEnd="_XS9Y0AfXEd2-ceq6feMsFQ _XT0UcAfXEd2-ceq6feMsFQ" navigableOwnedEnd="_XS9Y0AfXEd2-ceq6feMsFQ _XT0UcAfXEd2-ceq6feMsFQ">
-        <ownedEnd xmi:id="_XS9Y0AfXEd2-ceq6feMsFQ" name="" visibility="private" type="_NywN4AfXEd2-ceq6feMsFQ" association="_XS3SMAfXEd2-ceq6feMsFQ"/>
-        <ownedEnd xmi:id="_XT0UcAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_LhnD8AfSEd2-ceq6feMsFQ" association="_XS3SMAfXEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_YJxsEAfXEd2-ceq6feMsFQ" memberEnd="_YKKGkAfXEd2-ceq6feMsFQ _YKKGkQfXEd2-ceq6feMsFQ" navigableOwnedEnd="_YKKGkAfXEd2-ceq6feMsFQ _YKKGkQfXEd2-ceq6feMsFQ">
-        <ownedEnd xmi:id="_YKKGkAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_SroBUAfXEd2-ceq6feMsFQ" association="_YJxsEAfXEd2-ceq6feMsFQ"/>
-        <ownedEnd xmi:id="_YKKGkQfXEd2-ceq6feMsFQ" name="" visibility="private" type="_LhnD8AfSEd2-ceq6feMsFQ" association="_YJxsEAfXEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:UseCase" xmi:id="_e5ZlwAfXEd2-ceq6feMsFQ" name="Gestione Corso"/>
-      <packagedElement xmi:type="uml:UseCase" xmi:id="_otAN0AfXEd2-ceq6feMsFQ" name="Modifica Titolare"/>
-      <packagedElement xmi:type="uml:Association" xmi:id="_rhmcYAfXEd2-ceq6feMsFQ" memberEnd="_rhmcYQfXEd2-ceq6feMsFQ _rhsjAAfXEd2-ceq6feMsFQ" navigableOwnedEnd="_rhmcYQfXEd2-ceq6feMsFQ _rhsjAAfXEd2-ceq6feMsFQ">
-        <ownedEnd xmi:id="_rhmcYQfXEd2-ceq6feMsFQ" name="gestione corso" visibility="private" type="_e5ZlwAfXEd2-ceq6feMsFQ" association="_rhmcYAfXEd2-ceq6feMsFQ"/>
-        <ownedEnd xmi:id="_rhsjAAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_UIDVUAfSEd2-ceq6feMsFQ" association="_rhmcYAfXEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_sLVV4AfXEd2-ceq6feMsFQ" memberEnd="_sLbcgAfXEd2-ceq6feMsFQ _sLbcgQfXEd2-ceq6feMsFQ" navigableOwnedEnd="_sLbcgAfXEd2-ceq6feMsFQ _sLbcgQfXEd2-ceq6feMsFQ">
-        <ownedEnd xmi:id="_sLbcgAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_otAN0AfXEd2-ceq6feMsFQ" association="_sLVV4AfXEd2-ceq6feMsFQ"/>
-        <ownedEnd xmi:id="_sLbcgQfXEd2-ceq6feMsFQ" name="" visibility="private" type="_QK6xYAfSEd2-ceq6feMsFQ" association="_sLVV4AfXEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:UseCase" xmi:id="_EqxgQAfYEd2-ceq6feMsFQ" name="Conferme Iscrizioni"/>
-      <packagedElement xmi:type="uml:Association" xmi:id="_GwAHYAfYEd2-ceq6feMsFQ" memberEnd="_GwGOAAfYEd2-ceq6feMsFQ _GwMUoAfYEd2-ceq6feMsFQ" navigableOwnedEnd="_GwGOAAfYEd2-ceq6feMsFQ _GwMUoAfYEd2-ceq6feMsFQ">
-        <ownedEnd xmi:id="_GwGOAAfYEd2-ceq6feMsFQ" name="" visibility="private" type="_EqxgQAfYEd2-ceq6feMsFQ" association="_GwAHYAfYEd2-ceq6feMsFQ"/>
-        <ownedEnd xmi:id="_GwMUoAfYEd2-ceq6feMsFQ" name="" visibility="private" type="_Nw93cAfSEd2-ceq6feMsFQ" association="_GwAHYAfYEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:UseCase" xmi:id="_J3KFkAfYEd2-ceq6feMsFQ" name="Gestione Esame"/>
-      <packagedElement xmi:type="uml:Association" xmi:id="_QwfU4AfYEd2-ceq6feMsFQ" memberEnd="_Qw3vYAfYEd2-ceq6feMsFQ _Qw3vYQfYEd2-ceq6feMsFQ" navigableOwnedEnd="_Qw3vYAfYEd2-ceq6feMsFQ _Qw3vYQfYEd2-ceq6feMsFQ">
-        <ownedEnd xmi:id="_Qw3vYAfYEd2-ceq6feMsFQ" name="" visibility="private" type="_J3KFkAfYEd2-ceq6feMsFQ" association="_QwfU4AfYEd2-ceq6feMsFQ"/>
-        <ownedEnd xmi:id="_Qw3vYQfYEd2-ceq6feMsFQ" name="" visibility="private" type="_Nw93cAfSEd2-ceq6feMsFQ" association="_QwfU4AfYEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:UseCase" xmi:id="_gHYmYAfYEd2-ceq6feMsFQ" name="Gestione Studente"/>
-      <packagedElement xmi:type="uml:Association" xmi:id="_k0o_sAfYEd2-ceq6feMsFQ" memberEnd="_k0vGUAfYEd2-ceq6feMsFQ _k01M8AfYEd2-ceq6feMsFQ">
-        <ownedEnd xmi:id="_k0vGUAfYEd2-ceq6feMsFQ" name="" visibility="private" type="_gHYmYAfYEd2-ceq6feMsFQ" association="_k0o_sAfYEd2-ceq6feMsFQ"/>
-        <ownedEnd xmi:id="_k01M8AfYEd2-ceq6feMsFQ" name="" visibility="private" type="_J0QxUAfSEd2-ceq6feMsFQ" association="_k0o_sAfYEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Actor" xmi:id="_npcCkAfYEd2-ceq6feMsFQ" name="Sistema Gestione Email"/>
-      <packagedElement xmi:type="uml:Association" xmi:id="_qPI5gAfYEd2-ceq6feMsFQ" memberEnd="_qPI5gQfYEd2-ceq6feMsFQ _qPPAIAfYEd2-ceq6feMsFQ" navigableOwnedEnd="_qPI5gQfYEd2-ceq6feMsFQ _qPPAIAfYEd2-ceq6feMsFQ">
-        <ownedEnd xmi:id="_qPI5gQfYEd2-ceq6feMsFQ" name="" visibility="private" type="_npcCkAfYEd2-ceq6feMsFQ" association="_qPI5gAfYEd2-ceq6feMsFQ"/>
-        <ownedEnd xmi:id="_qPPAIAfYEd2-ceq6feMsFQ" name="" visibility="private" type="_EqxgQAfYEd2-ceq6feMsFQ" association="_qPI5gAfYEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_q1nqsAfYEd2-ceq6feMsFQ" memberEnd="_q1txUAfYEd2-ceq6feMsFQ _q1z38AfYEd2-ceq6feMsFQ" navigableOwnedEnd="_q1txUAfYEd2-ceq6feMsFQ _q1z38AfYEd2-ceq6feMsFQ">
-        <ownedEnd xmi:id="_q1txUAfYEd2-ceq6feMsFQ" name="" visibility="private" type="_npcCkAfYEd2-ceq6feMsFQ" association="_q1nqsAfYEd2-ceq6feMsFQ"/>
-        <ownedEnd xmi:id="_q1z38AfYEd2-ceq6feMsFQ" name="" visibility="private" type="_J3KFkAfYEd2-ceq6feMsFQ" association="_q1nqsAfYEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_sak2UAfYEd2-ceq6feMsFQ" memberEnd="_saq88AfYEd2-ceq6feMsFQ _saq88QfYEd2-ceq6feMsFQ" navigableOwnedEnd="_saq88AfYEd2-ceq6feMsFQ _saq88QfYEd2-ceq6feMsFQ">
-        <ownedEnd xmi:id="_saq88AfYEd2-ceq6feMsFQ" name="" visibility="private" type="_npcCkAfYEd2-ceq6feMsFQ" association="_sak2UAfYEd2-ceq6feMsFQ"/>
-        <ownedEnd xmi:id="_saq88QfYEd2-ceq6feMsFQ" name="" visibility="private" type="_e5ZlwAfXEd2-ceq6feMsFQ" association="_sak2UAfYEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_OmT08AfbEd2-ceq6feMsFQ" memberEnd="_OmsPcAfbEd2-ceq6feMsFQ _OmyWEAfbEd2-ceq6feMsFQ" navigableOwnedEnd="_OmsPcAfbEd2-ceq6feMsFQ _OmyWEAfbEd2-ceq6feMsFQ">
-        <ownedEnd xmi:id="_OmsPcAfbEd2-ceq6feMsFQ" name="modifica titolare" visibility="private" type="_otAN0AfXEd2-ceq6feMsFQ" association="_OmT08AfbEd2-ceq6feMsFQ"/>
-        <ownedEnd xmi:id="_OmyWEAfbEd2-ceq6feMsFQ" name="direttore di dipartimento" visibility="private" type="_QK6xYAfSEd2-ceq6feMsFQ" association="_OmT08AfbEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_SnmgIAfbEd2-ceq6feMsFQ" memberEnd="_SnsmwAfbEd2-ceq6feMsFQ _SoFBQAfbEd2-ceq6feMsFQ" navigableOwnedEnd="_SnsmwAfbEd2-ceq6feMsFQ _SoFBQAfbEd2-ceq6feMsFQ">
-        <ownedEnd xmi:id="_SnsmwAfbEd2-ceq6feMsFQ" name="" visibility="private" type="_otAN0AfXEd2-ceq6feMsFQ" association="_SnmgIAfbEd2-ceq6feMsFQ"/>
-        <ownedEnd xmi:id="_SoFBQAfbEd2-ceq6feMsFQ" name="" visibility="private" type="_QK6xYAfSEd2-ceq6feMsFQ" association="_SnmgIAfbEd2-ceq6feMsFQ"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:UseCase" xmi:id="_0GjuIBbMEd2qfpsdfXKl1g" name="Gestione Account"/>
-      <packagedElement xmi:type="uml:Association" xmi:id="_3MAcIBbMEd2qfpsdfXKl1g" memberEnd="_3MBqQBbMEd2qfpsdfXKl1g _3MDfcBbMEd2qfpsdfXKl1g" navigableOwnedEnd="_3MBqQBbMEd2qfpsdfXKl1g _3MDfcBbMEd2qfpsdfXKl1g">
-        <ownedEnd xmi:id="_3MBqQBbMEd2qfpsdfXKl1g" name="gestione account" visibility="private" type="_0GjuIBbMEd2qfpsdfXKl1g" association="_3MAcIBbMEd2qfpsdfXKl1g"/>
-        <ownedEnd xmi:id="_3MDfcBbMEd2qfpsdfXKl1g" name="gestore di sistema" visibility="private" type="_XO_REAfSEd2-ceq6feMsFQ" association="_3MAcIBbMEd2qfpsdfXKl1g"/>
-      </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_9FCFABbMEd2qfpsdfXKl1g" memberEnd="_9FCsEBbMEd2qfpsdfXKl1g _9FEhQBbMEd2qfpsdfXKl1g" navigableOwnedEnd="_9FCsEBbMEd2qfpsdfXKl1g">
-        <ownedEnd xmi:id="_9FCsEBbMEd2qfpsdfXKl1g" name="gestione account" visibility="private" type="_0GjuIBbMEd2qfpsdfXKl1g" association="_9FCFABbMEd2qfpsdfXKl1g">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9FD6MRbMEd2qfpsdfXKl1g" value="1"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9FD6MBbMEd2qfpsdfXKl1g"/>
-        </ownedEnd>
-        <ownedEnd xmi:id="_9FEhQBbMEd2qfpsdfXKl1g" name="" visibility="private" type="_XO_REAfSEd2-ceq6feMsFQ" association="_9FCFABbMEd2qfpsdfXKl1g">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9FFIURbMEd2qfpsdfXKl1g" value="*"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9FFIUBbMEd2qfpsdfXKl1g"/>
-        </ownedEnd>
-      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:SendOperationEvent" xmi:id="_MkX9QBUfEd2k0ZKCF8bEpw" name="Eventodioperazionediinvio1"/>
     <packagedElement xmi:type="uml:ReceiveOperationEvent" xmi:id="_MkeD4BUfEd2k0ZKCF8bEpw" name="Eventodioperazionediricezione1"/>
@@ -1534,6 +1427,185 @@
     <packagedElement xmi:type="uml:ReceiveOperationEvent" xmi:id="_RR25kBafEd2WWry1GFTufg" name="Eventodioperazionediricezione50"/>
     <packagedElement xmi:type="uml:SendOperationEvent" xmi:id="_YlSq8BafEd2WWry1GFTufg" name="Eventodioperazionediinvio51"/>
     <packagedElement xmi:type="uml:ReceiveOperationEvent" xmi:id="_YlTSABafEd2WWry1GFTufg" name="Eventodioperazionediricezione51"/>
+    <packagedElement xmi:type="uml:Package" xmi:id="_9oDesB3AEd20OddMOkbRkQ" name="Actors">
+      <eAnnotations xmi:id="_9oQ6EB3AEd20OddMOkbRkQ" source="uml2.diagrams" references="_9oQ6ER3AEd20OddMOkbRkQ">
+        <contents xmi:type="notation:Diagram" xmi:id="_9oQ6ER3AEd20OddMOkbRkQ" type="Freeform" name="Principale">
+          <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_9oQ6Eh3AEd20OddMOkbRkQ"/>
+          <element xsi:nil="true"/>
+        </contents>
+      </eAnnotations>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_Nw93cAfSEd2-ceq6feMsFQ" name="Collaboratore">
+        <generalization xmi:id="_mbq2oAfSEd2-ceq6feMsFQ" general="_LhnD8AfSEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_QK6xYAfSEd2-ceq6feMsFQ" name="Direttore di Dipartimento">
+        <generalization xmi:id="_nOGZIAfSEd2-ceq6feMsFQ" general="_LhnD8AfSEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_XO_REAfSEd2-ceq6feMsFQ" name="Gestore di Sistema">
+        <generalization xmi:id="_qa9WsAfSEd2-ceq6feMsFQ" general="_UIDVUAfSEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_LhnD8AfSEd2-ceq6feMsFQ" name="Professore">
+        <generalization xmi:id="_lcc1UAfSEd2-ceq6feMsFQ" general="_GNmMoAfSEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_npcCkAfYEd2-ceq6feMsFQ" name="Sistema Gestione Email"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_J0QxUAfSEd2-ceq6feMsFQ" name="Studente">
+        <generalization xmi:id="_k0h5sAfSEd2-ceq6feMsFQ" general="_GNmMoAfSEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_UIDVUAfSEd2-ceq6feMsFQ" name="Titolare">
+        <generalization xmi:id="_o2Se8AfSEd2-ceq6feMsFQ" general="_Nw93cAfSEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Actor" xmi:id="_GNmMoAfSEd2-ceq6feMsFQ" name="Utente">
+        <generalization xmi:id="_jAQfsAfSEd2-ceq6feMsFQ" general="_J0QxUAfSEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_GBa_kAfXEd2-ceq6feMsFQ" memberEnd="_GBhGMAfXEd2-ceq6feMsFQ _GBhGMQfXEd2-ceq6feMsFQ" navigableOwnedEnd="_GBhGMAfXEd2-ceq6feMsFQ _GBhGMQfXEd2-ceq6feMsFQ">
+        <ownedEnd xmi:id="_GBhGMAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_-XjrMAfWEd2-ceq6feMsFQ" association="_GBa_kAfXEd2-ceq6feMsFQ"/>
+        <ownedEnd xmi:id="_GBhGMQfXEd2-ceq6feMsFQ" name="" visibility="private" type="_GNmMoAfSEd2-ceq6feMsFQ" association="_GBa_kAfXEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_D1abAAfXEd2-ceq6feMsFQ" memberEnd="_D5UqoAfXEd2-ceq6feMsFQ _D6MNUAfXEd2-ceq6feMsFQ" navigableOwnedEnd="_D5UqoAfXEd2-ceq6feMsFQ _D6MNUAfXEd2-ceq6feMsFQ">
+        <ownedEnd xmi:id="_D5UqoAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_65UCsAfWEd2-ceq6feMsFQ" association="_D1abAAfXEd2-ceq6feMsFQ"/>
+        <ownedEnd xmi:id="_D6MNUAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_GNmMoAfSEd2-ceq6feMsFQ" association="_D1abAAfXEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_rhmcYAfXEd2-ceq6feMsFQ" memberEnd="_rhmcYQfXEd2-ceq6feMsFQ _rhsjAAfXEd2-ceq6feMsFQ" navigableOwnedEnd="_rhmcYQfXEd2-ceq6feMsFQ _rhsjAAfXEd2-ceq6feMsFQ">
+        <ownedEnd xmi:id="_rhmcYQfXEd2-ceq6feMsFQ" name="gestione corso" visibility="private" type="_e5ZlwAfXEd2-ceq6feMsFQ" association="_rhmcYAfXEd2-ceq6feMsFQ"/>
+        <ownedEnd xmi:id="_rhsjAAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_UIDVUAfSEd2-ceq6feMsFQ" association="_rhmcYAfXEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_k0o_sAfYEd2-ceq6feMsFQ" memberEnd="_k0vGUAfYEd2-ceq6feMsFQ _k01M8AfYEd2-ceq6feMsFQ">
+        <ownedEnd xmi:id="_k0vGUAfYEd2-ceq6feMsFQ" name="" visibility="private" type="_gHYmYAfYEd2-ceq6feMsFQ" association="_k0o_sAfYEd2-ceq6feMsFQ"/>
+        <ownedEnd xmi:id="_k01M8AfYEd2-ceq6feMsFQ" name="" visibility="private" type="_J0QxUAfSEd2-ceq6feMsFQ" association="_k0o_sAfYEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_XS3SMAfXEd2-ceq6feMsFQ" memberEnd="_XS9Y0AfXEd2-ceq6feMsFQ _XT0UcAfXEd2-ceq6feMsFQ" navigableOwnedEnd="_XS9Y0AfXEd2-ceq6feMsFQ _XT0UcAfXEd2-ceq6feMsFQ">
+        <ownedEnd xmi:id="_XS9Y0AfXEd2-ceq6feMsFQ" name="" visibility="private" type="_NywN4AfXEd2-ceq6feMsFQ" association="_XS3SMAfXEd2-ceq6feMsFQ"/>
+        <ownedEnd xmi:id="_XT0UcAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_LhnD8AfSEd2-ceq6feMsFQ" association="_XS3SMAfXEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_WahU8AfXEd2-ceq6feMsFQ" memberEnd="_WanbkAfXEd2-ceq6feMsFQ _Wa5vcAfXEd2-ceq6feMsFQ" navigableOwnedEnd="_WanbkAfXEd2-ceq6feMsFQ _Wa5vcAfXEd2-ceq6feMsFQ">
+        <ownedEnd xmi:id="_WanbkAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_LbL5kAfXEd2-ceq6feMsFQ" association="_WahU8AfXEd2-ceq6feMsFQ"/>
+        <ownedEnd xmi:id="_Wa5vcAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_LhnD8AfSEd2-ceq6feMsFQ" association="_WahU8AfXEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_YJxsEAfXEd2-ceq6feMsFQ" memberEnd="_YKKGkAfXEd2-ceq6feMsFQ _YKKGkQfXEd2-ceq6feMsFQ" navigableOwnedEnd="_YKKGkAfXEd2-ceq6feMsFQ _YKKGkQfXEd2-ceq6feMsFQ">
+        <ownedEnd xmi:id="_YKKGkAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_SroBUAfXEd2-ceq6feMsFQ" association="_YJxsEAfXEd2-ceq6feMsFQ"/>
+        <ownedEnd xmi:id="_YKKGkQfXEd2-ceq6feMsFQ" name="" visibility="private" type="_LhnD8AfSEd2-ceq6feMsFQ" association="_YJxsEAfXEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_3MAcIBbMEd2qfpsdfXKl1g" memberEnd="_3MBqQBbMEd2qfpsdfXKl1g _3MDfcBbMEd2qfpsdfXKl1g" navigableOwnedEnd="_3MBqQBbMEd2qfpsdfXKl1g _3MDfcBbMEd2qfpsdfXKl1g">
+        <ownedEnd xmi:id="_3MBqQBbMEd2qfpsdfXKl1g" name="gestione account" visibility="private" type="_0GjuIBbMEd2qfpsdfXKl1g" association="_3MAcIBbMEd2qfpsdfXKl1g"/>
+        <ownedEnd xmi:id="_3MDfcBbMEd2qfpsdfXKl1g" name="gestore di sistema" visibility="private" type="_XO_REAfSEd2-ceq6feMsFQ" association="_3MAcIBbMEd2qfpsdfXKl1g"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_9FCFABbMEd2qfpsdfXKl1g" memberEnd="_9FCsEBbMEd2qfpsdfXKl1g _9FEhQBbMEd2qfpsdfXKl1g" navigableOwnedEnd="_9FCsEBbMEd2qfpsdfXKl1g">
+        <ownedEnd xmi:id="_9FCsEBbMEd2qfpsdfXKl1g" name="gestione account" visibility="private" type="_0GjuIBbMEd2qfpsdfXKl1g" association="_9FCFABbMEd2qfpsdfXKl1g">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9FD6MRbMEd2qfpsdfXKl1g" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9FD6MBbMEd2qfpsdfXKl1g"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_9FEhQBbMEd2qfpsdfXKl1g" name="" visibility="private" type="_XO_REAfSEd2-ceq6feMsFQ" association="_9FCFABbMEd2qfpsdfXKl1g">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9FFIURbMEd2qfpsdfXKl1g" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9FFIUBbMEd2qfpsdfXKl1g"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_OmT08AfbEd2-ceq6feMsFQ" memberEnd="_OmsPcAfbEd2-ceq6feMsFQ _OmyWEAfbEd2-ceq6feMsFQ" navigableOwnedEnd="_OmsPcAfbEd2-ceq6feMsFQ _OmyWEAfbEd2-ceq6feMsFQ">
+        <ownedEnd xmi:id="_OmsPcAfbEd2-ceq6feMsFQ" name="modifica titolare" visibility="private" type="_otAN0AfXEd2-ceq6feMsFQ" association="_OmT08AfbEd2-ceq6feMsFQ"/>
+        <ownedEnd xmi:id="_OmyWEAfbEd2-ceq6feMsFQ" name="direttore di dipartimento" visibility="private" type="_QK6xYAfSEd2-ceq6feMsFQ" association="_OmT08AfbEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_SnmgIAfbEd2-ceq6feMsFQ" memberEnd="_SnsmwAfbEd2-ceq6feMsFQ _SoFBQAfbEd2-ceq6feMsFQ" navigableOwnedEnd="_SnsmwAfbEd2-ceq6feMsFQ _SoFBQAfbEd2-ceq6feMsFQ">
+        <ownedEnd xmi:id="_SnsmwAfbEd2-ceq6feMsFQ" name="" visibility="private" type="_otAN0AfXEd2-ceq6feMsFQ" association="_SnmgIAfbEd2-ceq6feMsFQ"/>
+        <ownedEnd xmi:id="_SoFBQAfbEd2-ceq6feMsFQ" name="" visibility="private" type="_QK6xYAfSEd2-ceq6feMsFQ" association="_SnmgIAfbEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_sLVV4AfXEd2-ceq6feMsFQ" memberEnd="_sLbcgAfXEd2-ceq6feMsFQ _sLbcgQfXEd2-ceq6feMsFQ" navigableOwnedEnd="_sLbcgAfXEd2-ceq6feMsFQ _sLbcgQfXEd2-ceq6feMsFQ">
+        <ownedEnd xmi:id="_sLbcgAfXEd2-ceq6feMsFQ" name="" visibility="private" type="_otAN0AfXEd2-ceq6feMsFQ" association="_sLVV4AfXEd2-ceq6feMsFQ"/>
+        <ownedEnd xmi:id="_sLbcgQfXEd2-ceq6feMsFQ" name="" visibility="private" type="_QK6xYAfSEd2-ceq6feMsFQ" association="_sLVV4AfXEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_GwAHYAfYEd2-ceq6feMsFQ" memberEnd="_GwGOAAfYEd2-ceq6feMsFQ _GwMUoAfYEd2-ceq6feMsFQ" navigableOwnedEnd="_GwGOAAfYEd2-ceq6feMsFQ _GwMUoAfYEd2-ceq6feMsFQ">
+        <ownedEnd xmi:id="_GwGOAAfYEd2-ceq6feMsFQ" name="" visibility="private" type="_EqxgQAfYEd2-ceq6feMsFQ" association="_GwAHYAfYEd2-ceq6feMsFQ"/>
+        <ownedEnd xmi:id="_GwMUoAfYEd2-ceq6feMsFQ" name="" visibility="private" type="_Nw93cAfSEd2-ceq6feMsFQ" association="_GwAHYAfYEd2-ceq6feMsFQ"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_QwfU4AfYEd2-ceq6feMsFQ" memberEnd="_Qw3vYAfYEd2-ceq6feMsFQ _Qw3vYQfYEd2-ceq6feMsFQ" navigableOwnedEnd="_Qw3vYAfYEd2-ceq6feMsFQ _Qw3vYQfYEd2-ceq6feMsFQ">
+        <ownedEnd xmi:id="_Qw3vYAfYEd2-ceq6feMsFQ" name="" visibility="private" type="_J3KFkAfYEd2-ceq6feMsFQ" association="_QwfU4AfYEd2-ceq6feMsFQ"/>
+        <ownedEnd xmi:id="_Qw3vYQfYEd2-ceq6feMsFQ" name="" visibility="private" type="_Nw93cAfSEd2-ceq6feMsFQ" association="_QwfU4AfYEd2-ceq6feMsFQ"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_IS3bkB3BEd20OddMOkbRkQ" name="Use Case Model">
+      <eAnnotations xmi:id="_IS4psB3BEd20OddMOkbRkQ" source="uml2.diagrams" references="_IS4psR3BEd20OddMOkbRkQ">
+        <contents xmi:type="notation:Diagram" xmi:id="_IS4psR3BEd20OddMOkbRkQ" type="Freeform" name="Principale">
+          <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_IS4psh3BEd20OddMOkbRkQ"/>
+          <element xsi:nil="true"/>
+        </contents>
+      </eAnnotations>
+      <packagedElement xmi:type="uml:Package" xmi:id="_NrY_cB3BEd20OddMOkbRkQ" name="Professore">
+        <eAnnotations xmi:id="_NraNkB3BEd20OddMOkbRkQ" source="uml2.diagrams" references="_NraNkR3BEd20OddMOkbRkQ">
+          <contents xmi:type="notation:Diagram" xmi:id="_NraNkR3BEd20OddMOkbRkQ" type="Freeform" name="Principale">
+            <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_NraNkh3BEd20OddMOkbRkQ"/>
+            <element xsi:nil="true"/>
+          </contents>
+        </eAnnotations>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="_LbL5kAfXEd2-ceq6feMsFQ" name="Creazione Professore"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="_SroBUAfXEd2-ceq6feMsFQ" name="Gestione Query"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="_NywN4AfXEd2-ceq6feMsFQ" name="Creazione Corso"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_ZpzSMB3BEd20OddMOkbRkQ" name="Studente">
+        <eAnnotations xmi:id="_Zp0gUB3BEd20OddMOkbRkQ" source="uml2.diagrams" references="_Zp0gUR3BEd20OddMOkbRkQ">
+          <contents xmi:type="notation:Diagram" xmi:id="_Zp0gUR3BEd20OddMOkbRkQ" type="Freeform" name="Principale">
+            <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_Zp0gUh3BEd20OddMOkbRkQ"/>
+            <element xsi:nil="true"/>
+          </contents>
+        </eAnnotations>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="_gHYmYAfYEd2-ceq6feMsFQ" name="Gestione Studente"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_drIZoB3BEd20OddMOkbRkQ" name="Direttore di Dipartimento">
+        <eAnnotations xmi:id="_drJAsB3BEd20OddMOkbRkQ" source="uml2.diagrams" references="_drJAsR3BEd20OddMOkbRkQ">
+          <contents xmi:type="notation:Diagram" xmi:id="_drJAsR3BEd20OddMOkbRkQ" type="Freeform" name="Principale">
+            <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_drJAsh3BEd20OddMOkbRkQ"/>
+            <element xsi:nil="true"/>
+          </contents>
+        </eAnnotations>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="_otAN0AfXEd2-ceq6feMsFQ" name="Modifica Titolare"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_i8toAB3BEd20OddMOkbRkQ" name="Collaboratore">
+        <eAnnotations xmi:id="_i8uPEB3BEd20OddMOkbRkQ" source="uml2.diagrams" references="_i8uPER3BEd20OddMOkbRkQ">
+          <contents xmi:type="notation:Diagram" xmi:id="_i8uPER3BEd20OddMOkbRkQ" type="Freeform" name="Principale">
+            <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_i8uPEh3BEd20OddMOkbRkQ"/>
+            <element xsi:nil="true"/>
+          </contents>
+        </eAnnotations>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="_EqxgQAfYEd2-ceq6feMsFQ" name="Conferme Iscrizioni"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="_J3KFkAfYEd2-ceq6feMsFQ" name="Gestione Esame"/>
+        <packagedElement xmi:type="uml:Association" xmi:id="_q1nqsAfYEd2-ceq6feMsFQ" memberEnd="_q1txUAfYEd2-ceq6feMsFQ _q1z38AfYEd2-ceq6feMsFQ" navigableOwnedEnd="_q1txUAfYEd2-ceq6feMsFQ _q1z38AfYEd2-ceq6feMsFQ">
+          <ownedEnd xmi:id="_q1txUAfYEd2-ceq6feMsFQ" name="" visibility="private" type="_npcCkAfYEd2-ceq6feMsFQ" association="_q1nqsAfYEd2-ceq6feMsFQ"/>
+          <ownedEnd xmi:id="_q1z38AfYEd2-ceq6feMsFQ" name="" visibility="private" type="_J3KFkAfYEd2-ceq6feMsFQ" association="_q1nqsAfYEd2-ceq6feMsFQ"/>
+        </packagedElement>
+        <packagedElement xmi:type="uml:Association" xmi:id="_qPI5gAfYEd2-ceq6feMsFQ" memberEnd="_qPI5gQfYEd2-ceq6feMsFQ _qPPAIAfYEd2-ceq6feMsFQ" navigableOwnedEnd="_qPI5gQfYEd2-ceq6feMsFQ _qPPAIAfYEd2-ceq6feMsFQ">
+          <ownedEnd xmi:id="_qPI5gQfYEd2-ceq6feMsFQ" name="" visibility="private" type="_npcCkAfYEd2-ceq6feMsFQ" association="_qPI5gAfYEd2-ceq6feMsFQ"/>
+          <ownedEnd xmi:id="_qPPAIAfYEd2-ceq6feMsFQ" name="" visibility="private" type="_EqxgQAfYEd2-ceq6feMsFQ" association="_qPI5gAfYEd2-ceq6feMsFQ"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_PU43YB3CEd20OddMOkbRkQ" name="Utente">
+        <eAnnotations xmi:id="_PU6FgB3CEd20OddMOkbRkQ" source="uml2.diagrams" references="_PU6FgR3CEd20OddMOkbRkQ">
+          <contents xmi:type="notation:Diagram" xmi:id="_PU6FgR3CEd20OddMOkbRkQ" type="Freeform" name="Principale">
+            <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_PU6Fgh3CEd20OddMOkbRkQ"/>
+            <element xsi:nil="true"/>
+          </contents>
+        </eAnnotations>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="_-XjrMAfWEd2-ceq6feMsFQ" name="Login"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="_65UCsAfWEd2-ceq6feMsFQ" name="Visualizza Corso"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_R653YB3CEd20OddMOkbRkQ" name="Gestore di Sistema">
+        <eAnnotations xmi:id="_R66ecB3CEd20OddMOkbRkQ" source="uml2.diagrams" references="_R67FgB3CEd20OddMOkbRkQ">
+          <contents xmi:type="notation:Diagram" xmi:id="_R67FgB3CEd20OddMOkbRkQ" type="Freeform" name="Principale">
+            <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_R67FgR3CEd20OddMOkbRkQ"/>
+            <element xsi:nil="true"/>
+          </contents>
+        </eAnnotations>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="_0GjuIBbMEd2qfpsdfXKl1g" name="Gestione Account"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_UCAt0B3CEd20OddMOkbRkQ" name="Titolare">
+        <eAnnotations xmi:id="_UCBU4B3CEd20OddMOkbRkQ" source="uml2.diagrams" references="_UCBU4R3CEd20OddMOkbRkQ">
+          <contents xmi:type="notation:Diagram" xmi:id="_UCBU4R3CEd20OddMOkbRkQ" type="Freeform" name="Principale">
+            <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_UCBU4h3CEd20OddMOkbRkQ"/>
+            <element xsi:nil="true"/>
+          </contents>
+        </eAnnotations>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="_e5ZlwAfXEd2-ceq6feMsFQ" name="Gestione Corso"/>
+        <packagedElement xmi:type="uml:Association" xmi:id="_sak2UAfYEd2-ceq6feMsFQ" memberEnd="_saq88AfYEd2-ceq6feMsFQ _saq88QfYEd2-ceq6feMsFQ" navigableOwnedEnd="_saq88AfYEd2-ceq6feMsFQ _saq88QfYEd2-ceq6feMsFQ">
+          <ownedEnd xmi:id="_saq88AfYEd2-ceq6feMsFQ" name="" visibility="private" type="_npcCkAfYEd2-ceq6feMsFQ" association="_sak2UAfYEd2-ceq6feMsFQ"/>
+          <ownedEnd xmi:id="_saq88QfYEd2-ceq6feMsFQ" name="" visibility="private" type="_e5ZlwAfXEd2-ceq6feMsFQ" association="_sak2UAfYEd2-ceq6feMsFQ"/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
     <profileApplication xmi:id="_phXDdBy2EdmH6_M2UD5AWw">
       <eAnnotations xmi:id="_phXDdRy2EdmH6_M2UD5AWw" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://UML_PROFILES/Standard.profile.uml#_yzU58YinEdqtvbnfB2L_5w"/>

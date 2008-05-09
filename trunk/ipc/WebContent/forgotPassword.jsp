@@ -11,7 +11,7 @@
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
-<html:form action="/ForgotPassword">
+<html:form action="ForgotPassword">
 	<div align="center">
 	Inserisci la tua Email identificativa:<br><br>
 	<table border="1" width="30%">

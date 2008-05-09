@@ -26,12 +26,18 @@
 	<global-forwards>
 	</global-forwards>
 	<action-mappings>
-		<action path="/Login" type="ipc.actions.LoginAction" name="loginForm" scope="request" input="/login.jsp">
-			<forward name="success" path="/welcome.jsp">
+		<action path="/Login" type="ipc.actions.LoginAction" name="loginForm" scope="session" input="/login.jsp">
+			<forward name="studente" path="/homeStudente.jsp">			
+			</forward>
+			<forward name="error" path="/login.jsp">
+			</forward>
+			<forward name="gestoreDiSistema" path="">
+			</forward>
+			<forward name="professore" path="/homeProfessore.jsp">
 			</forward>
 		</action>
-		<action path="/RichiestaRegStudente" type="ipc.actions.RichiestaRegStudenteAction" name="richiestaRegStudenteForm" scope="request">
-			<forward name="success" path="/gestioneStudente.jsp">
+		<action path="/RichiestaRegStudente" type="ipc.actions.RichiestaRegStudenteAction" name="richiestaRegStudenteForm" scope="request" input="/richiestaRegStudente.jsp">
+			<forward name="success" path="/login.jsp">
 			</forward>
 			<forward name="error" path="/richiestaRegStudente.jsp">
 			</forward>

@@ -30,6 +30,7 @@ public class ForgotPasswordAction extends Action {
         	ForgotPasswordForm forgotPasswordForm = (ForgotPasswordForm)form;
             LoginController loginController = new LoginController();
             Hashtable<String, String> data = new Hashtable<String, String>();
+            data.put("tipologia", "studente");
             data.put("email",  forgotPasswordForm.getEmail());
             data.put("status", "ripristino");
             Boolean ret = loginController.richiestaNuovaPasswordStudente(data);

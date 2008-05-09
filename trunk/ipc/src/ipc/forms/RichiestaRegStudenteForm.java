@@ -181,7 +181,7 @@ public class RichiestaRegStudenteForm extends ActionForm
     public static boolean check_email(String email) {
 		boolean test1 = Pattern.compile("[a-zA-Z0-9_]+[.[a-zA-Z0-9]+]*@[a-zA-Z0-9_]+[.[a-zA-Z]+]+").matcher(email).matches();
 		boolean test2 = Pattern.compile("^\\S+@\\S+$").matcher(email).matches();
-		boolean test3 = Pattern.compile(".+@.+\\.[a-z]+").matcher(email).matches();
+		boolean test3 = Pattern.compile(".+@.+\\.+").matcher(email).matches();
 		boolean test4 = Pattern.compile("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$").matcher(email).matches();
 		return test1 && test2 && test3 && test4;
     }

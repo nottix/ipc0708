@@ -80,12 +80,18 @@ public class LoginForm extends ActionForm
     							 HttpServletRequest request) {
     	ActionErrors errors = new ActionErrors();
     	System.out.println("email: " + email);
-    	if(this.email == null || this.email.length() == 0)
+    	if(this.email == null || this.email.length() == 0) {
+    		System.err.println("1");
     		errors.add("email", new ActionError("email.error"));
-    	else if(!RichiestaRegStudenteForm.check_email(email))
+    	} else if(!RichiestaRegStudenteForm.check_email(email)) {
+    		System.err.println("2");
     		errors.add("email", new ActionError("email.malformed"));
-    	if(this.password == null || this.password.length() == 0)
+    	}
+    		
+    	if(this.password == null || this.password.length() == 0) {
+    		System.err.println("3");
     		errors.add("password", new ActionError("password.error"));
+    	}
     	return errors;
     }
 }

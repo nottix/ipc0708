@@ -62,6 +62,7 @@ public class LoginController {
 		return sqlDAO.updateAccount((String) data.get("email"), data);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Boolean richiestaRegStudente(Hashtable data) throws Exception {
 		/**
 		 * First Stage:

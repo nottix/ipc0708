@@ -25,6 +25,7 @@
 	<!-- Inoltri globali -->
 	<global-forwards>
 	</global-forwards>
+
 	<action-mappings>
 		<action path="/Login" type="ipc.actions.LoginAction" name="loginForm" scope="session" input="/login.jsp">
 			<forward name="studente" path="/homeStudente.jsp">			
@@ -46,6 +47,10 @@
 			<forward name="success" path="/login.jsp">
 			</forward>
 			<forward name="error" path="/forgotPassword.jsp">
+			</forward>
+		</action>
+		<action path="/Logout" type="ipc.actions.LogoutAction">
+			<forward name="success" path="/login.jsp">
 			</forward>
 		</action>
 	</action-mappings>

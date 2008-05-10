@@ -3,6 +3,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html"%>
 <%@taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean"%>
+
 <html:html>
 <head>
 <link rel="stylesheet" href="theme/Master.css" type="text/css">
@@ -14,8 +15,8 @@
 <table width="100%" border="0">
 	<tbody>
 		<tr>
-			<td align=left>Ciao $nome_studente</td>
-			<td align=right>Logout</td>
+			<td align=left>Ciao <%out.println(session.getAttribute("email")); %></td>
+			<td align=right><html:link action="Logout">Logout</html:link></td>
 		</tr>
 	</tbody>
 </table>
@@ -23,16 +24,18 @@
 <table border="1">
 	<tbody>
 		<tr>
-			<td align="center"><html:button property="iscrizioneCorso">Iscrizione Corso<br>
+			<td align="center"><html:button property="iscrizioneCorso">Iscrizione Corso
 			</html:button></td>
-			<td align="center"><html:button property="iscrizioneEsame">Iscrizione Esame<br>
+			<td align="center"><html:button property="iscrizioneEsame">Iscrizione Esame
 			</html:button></td>
 		</tr>
 		<tr>
-			<td align="center"><html:button property="listaCorsi">Lista Corsi<br>
-			</html:button></td>
-			<td align="center"><html:button property="listaEsami">Lista Esami<br>
-			</html:button></td>
+			<td align="center">
+				<html:button property="listaCorsi">Lista Corsi</html:button>
+			</td>
+			<td align="center">
+				<html:button property="listaEsami">Lista Esami</html:button>
+			</td>
 		</tr>
 	</tbody>
 </table>

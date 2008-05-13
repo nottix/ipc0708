@@ -3,8 +3,8 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html"%>
 <%@taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean"%>
-<%@taglib uri="http://jakarta.apache.org/struts/tags-logic"
-	prefix="logic"%>
+<%@taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic"%>
+
 <html:html>
 <head>
 <link rel="stylesheet" href="theme/Master.css" type="text/css">
@@ -12,18 +12,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
-<body>
+
 <logic:present name="email" scope="session">
 	<logic:present name="tipologia" scope="session">
-	<logic:redirect href="<%
-		String s = (String) session.getAttribute("tipologia");
-	 	String inizio = (String) s.substring(0, 1);
-	 	String corpo = (String) s.substring(1);
-	 	String totale = inizio.toUpperCase() + corpo;
-	 	System.out.print("/home" + totale + ".jsp");
-		 %>" />
+	 	<% 
+	 		String s = (String) session.getAttribute("tipologia");
+	 		String inizio = (String) s.substring(0, 1);
+	 		String corpo = (String) s.substring(1);
+	 		String totale = inizio.toUpperCase() + corpo;
+	 		totale = "home" + totale + ".jsp";
+			response.sendRedirect(totale);
+		%>
 	</logic:present>
 </logic:present>
+<body>
 <center>
 	<h1>IPC</h1>
 </center>
@@ -44,7 +46,10 @@
 				<td align="center"><html:submit value="Login"></html:submit></td>
 			</tr>
 			<tr>
-				<td colspan="2"><font color=red><html:errors /></font></td></tr>
+				<td colspan="2">
+					<font color="red"><html:errors /></font>
+				</td>
+			</tr>
 			<tr>
 				<td colspan="2" align="center"><html:link page="/richiestaRegStudente.jsp">Registrazione</html:link></td>
 			</tr>

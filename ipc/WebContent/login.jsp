@@ -3,6 +3,8 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html"%>
 <%@taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean"%>
+<%@taglib uri="http://jakarta.apache.org/struts/tags-logic"
+	prefix="logic"%>
 <html:html>
 <head>
 <link rel="stylesheet" href="theme/Master.css" type="text/css">
@@ -11,6 +13,17 @@
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
+<logic:present name="email" scope="session">
+	<logic:present name="tipologia" scope="session">
+	<logic:redirect href="<%
+		String s = (String) session.getAttribute("tipologia");
+	 	String inizio = (String) s.substring(0, 1);
+	 	String corpo = (String) s.substring(1);
+	 	String totale = inizio.toUpperCase() + corpo;
+	 	System.out.print("/home" + totale + ".jsp");
+		 %>" />
+	</logic:present>
+</logic:present>
 <center>
 	<h1>IPC</h1>
 </center>

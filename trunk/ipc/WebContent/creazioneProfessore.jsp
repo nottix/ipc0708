@@ -6,11 +6,60 @@
 <html:html>
 <head>
 <link rel="stylesheet" href="theme/Master.css" type="text/css">
-<title>creazioneProfessore</title>
+<title>Creazione Professore</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
+<table width="100%" border="0">
+	<tbody>
+		<tr>
+			<td align=left>Ciao <%out.println(session.getAttribute("email")); %></td>
+			<td align=right><html:link action="Logout">Logout</html:link></td>
+		</tr>
+	</tbody>
+</table>
+	<center><h1>Creazione Professore</h1></center>
+	<html:form action="/CreazioneProfessore">
+	<center><table border="1" width="40%">
+		<tbody>
+			<tr>
+				<td width="181">Nome:</td>
+				<td width="176" align="center"><html:text property="nome"></html:text></td>
+			</tr>
+			<tr>
+				<td width="181">Cognome:</td>
+				<td width="176" align="center"><html:text property="cognome"></html:text></td>
+			</tr>
+			<tr>
+				<td width="181">Email:</td>
+				<td width="176" align="center"><html:text property="email"></html:text></td>
+			</tr>
+			<tr>
+				<td width="181">Password:</td>
+				<td width="176" align="center"><html:password property="password"></html:password></td>
+			</tr>
+			<tr>
+				<td width="181">Conferma password:</td>
+				<td width="176" align="center"><html:password property="confPassword"></html:password></td>
+			</tr>
+			<tr>
+				<td width="181"><html:checkbox property="isDirettore" value="on">Direttore di Dipartimento</html:checkbox></td>
+				<td width="176" align="center"><html:checkbox property="isGestore" value="on">Gestore di Sistema</html:checkbox></td>
+			</tr>
+			<tr>
+				<td width="181" align="center"><html:reset value="Reset"></html:reset></td>
+				<td width="176" align="center"><html:submit value="Conferma"></html:submit></td>
+			</tr>
+			<tr>
+				<td width="181" colspan="2"><html:errors /></td></tr>
+			<tr>
+				<td width="181"></td>
+				<td width="176"></td>
+			</tr>
+		</tbody>
+	</table></center>
 
+</html:form>
 </body>
 </html:html>

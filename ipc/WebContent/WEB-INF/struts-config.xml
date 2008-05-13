@@ -16,6 +16,8 @@
 		</form-bean>
 		<form-bean name="forgotPasswordForm" type="ipc.forms.ForgotPasswordForm">
 		</form-bean>
+		<form-bean name="creazioneProfessoreForm" type="ipc.forms.CreazioneProfessoreForm">
+		</form-bean>
 	</form-beans>
 
 	<!-- Eccezioni globali -->
@@ -51,6 +53,12 @@
 		</action>
 		<action path="/Logout" type="ipc.actions.LogoutAction">
 			<forward name="success" path="/login.jsp">
+			</forward>
+		</action>
+		<action path="/CreazioneProfessore" type="ipc.actions.CreazioneProfessoreAction" scope="request" name="creazioneProfessoreForm" input="/creazioneProfessore.jsp">
+			<forward name="error" path="/creazioneProfessore.jsp">
+			</forward>
+			<forward name="success" path="/homeProfessore.jsp">
 			</forward>
 		</action>
 	</action-mappings>

@@ -11,6 +11,42 @@
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
-
-</body>
+	<table width="100%" border="0">
+	<tbody>
+		<tr>
+			<td align=left>Ciao <%out.println(session.getAttribute("email")); %></td>
+			<td align=right><html:link action="Logout">Logout</html:link></td>
+		</tr>
+	</tbody>
+</table>
+	<center><h1>Home Professore</h1></center>
+	<center><table border="1" width="30%">
+		<tbody>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td align="center"><html:link page="/creazioneProfessore.jsp">Creazione Professore</html:link></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td align="center"><html:link page="/gestioneAccount.jsp">Gestione Account</html:link></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table></center>
+	</body>
 </html:html>

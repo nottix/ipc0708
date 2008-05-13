@@ -4600,7 +4600,7 @@
           </ownedBehavior>
           <ownedBehavior xmi:type="uml:Interaction" xmi:id="_kZLnMB3bEd2iCLuCKSkj7A" name="Creazione Account Direttore di Dipartimento">
             <eAnnotations xmi:id="_kZM1UB3bEd2iCLuCKSkj7A" source="uml2.diagrams">
-              <contents xmi:type="notation:Diagram" xmi:id="_kZM1UR3bEd2iCLuCKSkj7A" type="Sequence" element="_kZLnMB3bEd2iCLuCKSkj7A" name="Creazione Account Direttore di Dipartimento" measurementUnit="Himetric">
+              <contents xmi:type="notation:Diagram" xmi:id="_kZM1UR3bEd2iCLuCKSkj7A" type="Sequence" element="_kZLnMB3bEd2iCLuCKSkj7A" name="SEQ_Creazione Account Direttore di Dipartimento" measurementUnit="Himetric">
                 <children xmi:id="_kZM1Uh3bEd2iCLuCKSkj7A" element="_kZLnMB3bEd2iCLuCKSkj7A">
                   <children xmi:id="_kZM1Ux3bEd2iCLuCKSkj7A" type="interaction_compartment">
                     <children xmi:id="_thcMMB3bEd2iCLuCKSkj7A" element="_tha-EB3bEd2iCLuCKSkj7A">
@@ -4922,9 +4922,9 @@
             <message xmi:id="_q1Zf4B3fEd2yOf7vbJB3eQ" name="//Invio email informativa" receiveEvent="_q1aG8R3fEd2yOf7vbJB3eQ" sendEvent="_q1aG8B3fEd2yOf7vbJB3eQ" connector="_q1auAB3fEd2yOf7vbJB3eQ"/>
             <message xmi:id="_q1b8IB3fEd2yOf7vbJB3eQ" name="//Invio email informativa" messageSort="reply" receiveEvent="_q1b8IR3fEd2yOf7vbJB3eQ" sendEvent="_q1bVER3fEd2yOf7vbJB3eQ" connector="_q1auAB3fEd2yOf7vbJB3eQ"/>
           </ownedBehavior>
-          <ownedBehavior xmi:type="uml:Interaction" xmi:id="_A99ScB3gEd2yOf7vbJB3eQ" name="Creazione Gestore di Sistema">
+          <ownedBehavior xmi:type="uml:Interaction" xmi:id="_A99ScB3gEd2yOf7vbJB3eQ" name="Creazione Account Gestore di Sistema">
             <eAnnotations xmi:id="_A-A80B3gEd2yOf7vbJB3eQ" source="uml2.diagrams">
-              <contents xmi:type="notation:Diagram" xmi:id="_A-A80R3gEd2yOf7vbJB3eQ" type="Sequence" element="_A99ScB3gEd2yOf7vbJB3eQ" name="Creazione Gestore di Sistema" measurementUnit="Himetric">
+              <contents xmi:type="notation:Diagram" xmi:id="_A-A80R3gEd2yOf7vbJB3eQ" type="Sequence" element="_A99ScB3gEd2yOf7vbJB3eQ" name="SEQ_Creazione Account Gestore di Sistema" measurementUnit="Himetric">
                 <children xmi:id="_A-A80h3gEd2yOf7vbJB3eQ" element="_A99ScB3gEd2yOf7vbJB3eQ">
                   <children xmi:id="_A-A80x3gEd2yOf7vbJB3eQ" type="interaction_compartment">
                     <children xmi:id="_SLb1oB3hEd2yOf7vbJB3eQ" element="_SLaAcB3hEd2yOf7vbJB3eQ">
@@ -5326,7 +5326,7 @@
                   <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_8ERZ8R3PEd2iCLuCKSkj7A"/>
                 </children>
                 <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_8EPkwR3PEd2iCLuCKSkj7A" fontName="Segoe UI" showStereotype="Label"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8EPkwh3PEd2iCLuCKSkj7A" x="5389" y="6023"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8EPkwh3PEd2iCLuCKSkj7A" x="1902" y="4438"/>
               </children>
               <children xmi:id="_AxMcEB3QEd2iCLuCKSkj7A" element="_BhLx8BamEd2WWry1GFTufg">
                 <children xmi:id="_AxMcEx3QEd2iCLuCKSkj7A" type="ImageCompartment">
@@ -5348,7 +5348,7 @@
                   <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_AxNqMR3QEd2iCLuCKSkj7A"/>
                 </children>
                 <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_AxMcER3QEd2iCLuCKSkj7A" fontName="Segoe UI" showStereotype="Label"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AxMcEh3QEd2iCLuCKSkj7A" x="15533" y="6974"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AxMcEh3QEd2iCLuCKSkj7A" x="13314" y="5706"/>
               </children>
               <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_rRojMR3PEd2iCLuCKSkj7A"/>
               <element xsi:nil="true"/>
@@ -5466,7 +5466,7 @@
                 </children>
                 <children xmi:id="_b5KdAB3SEd2iCLuCKSkj7A" type="FromMultiplicityLabel" element="_b5ChMB3SEd2iCLuCKSkj7A">
                   <children xmi:id="_b5KdAh3SEd2iCLuCKSkj7A" type="FromMultiplicity"/>
-                  <layoutConstraint xmi:type="notation:Location" xmi:id="_b5KdAR3SEd2iCLuCKSkj7A" y="396"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_b5KdAR3SEd2iCLuCKSkj7A" x="-425" y="338"/>
                 </children>
                 <children xmi:id="_b5KdAx3SEd2iCLuCKSkj7A" visible="false" type="FromRoleLabel" element="_b5ChMB3SEd2iCLuCKSkj7A">
                   <children xmi:id="_b5KdBR3SEd2iCLuCKSkj7A" type="FromRole"/>
@@ -5494,7 +5494,7 @@
                   <children xmi:id="_b5LrIh3SEd2iCLuCKSkj7A" type="FromConstraintCompartment">
                     <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_b5LrIx3SEd2iCLuCKSkj7A"/>
                   </children>
-                  <layoutConstraint xmi:type="notation:Location" xmi:id="_b5LrIR3SEd2iCLuCKSkj7A" y="1058"/>
+                  <layoutConstraint xmi:type="notation:Location" xmi:id="_b5LrIR3SEd2iCLuCKSkj7A" x="-183" y="461"/>
                 </children>
                 <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_b5In0R3SEd2iCLuCKSkj7A" fontName="Segoe UI" showStereotype="Text"/>
                 <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_b5In0h3SEd2iCLuCKSkj7A" points="[44, 44, -193, -179]$[165, 173, -72, -50]"/>

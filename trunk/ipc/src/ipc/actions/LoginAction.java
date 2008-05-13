@@ -31,8 +31,12 @@ public class LoginAction extends Action {
         try {
         	HttpSession session = request.getSession(false);
         	if(session != null) {
-        		session.invalidate();
-        		System.err.println("Sessione gia' attiva!!");
+        		tipologia = (String) session.getAttribute("tipologia");
+        		if(!tipologia.equals("") && tipologia!=null) {
+                	forward = mapping.findForward(tipologia);
+                	System.out.println("forward " + tipologia);
+                	return forward;
+        		}
         	}
         	if((tipologia=loginController.login(loginForm.getEmail(), loginForm.getPassword()))!=null) {	
         		System.err.println("si");

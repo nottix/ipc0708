@@ -24,9 +24,12 @@ public class LogoutAction extends Action
         ActionErrors errors = new ActionErrors();
         try {
         	HttpSession session = request.getSession(false);
-        	if(session != null && session.getAttribute("email") != null)
-        		session.removeAttribute("email");
-        	else
+        	if(session != null) {
+        		if(session.getAttribute("email") != null)
+        			session.removeAttribute("email");
+        		if(session.getAttribute("tipologia") != null)
+        			session.removeAttribute("tipologia");
+        	} else
         		errors.add("email", new ActionError("email.session.error"));
         } catch (Exception e) {
             errors.add("email", new ActionError("generic.session.error"));

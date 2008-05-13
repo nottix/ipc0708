@@ -31,17 +31,22 @@ public class LoginAction extends Action {
         try {
         	HttpSession session = request.getSession(false);
         	if(session != null) {
+        		System.err.println("Sessione esistente");
         		tipologia = (String) session.getAttribute("tipologia");
-        		if(!tipologia.equals("") && tipologia!=null) {
+        		System.err.println("tipologia " + tipologia);
+        		if(tipologia!=null && !tipologia.equals("")) {
                 	forward = mapping.findForward(tipologia);
                 	System.out.println("forward " + tipologia);
                 	return forward;
+        		} else {
+        			session.invalidate();
         		}
         	}
         	if((tipologia=loginController.login(loginForm.getEmail(), loginForm.getPassword()))!=null) {	
         		System.err.println("si");
                	session = request.getSession(true);
         		session.setAttribute("email", loginForm.getEmail());
+        		session.setAttribute("tipologia", tipologia);
         	} else {
         		System.err.println("no");
         		errors.add("email", new ActionError("user.not.exists"));

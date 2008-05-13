@@ -16,19 +16,11 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class LoginForm extends ActionForm
-
-{
-
-    /**
-	 * 
-	 */
+public class LoginForm extends ActionForm {
 	private static final long serialVersionUID = 1L;
 
 	private String email = null;
-
     private String password = null;
-    
     private String message = null;
 
     /**
@@ -44,7 +36,7 @@ public class LoginForm extends ActionForm
      * @param <code>String</code>
      */
     public void setEmail(String e) {
-	this.email = e;
+    	this.email = e;
     }
 
     /**
@@ -52,7 +44,7 @@ public class LoginForm extends ActionForm
      * @return String
      */
     public String getPassword() {
-	return password;
+    	return password;
     }
 
     /**
@@ -60,7 +52,7 @@ public class LoginForm extends ActionForm
      * @param <code>String</code>
      */
     public void setPassword(String p) {
-	this.password = p;
+    	this.password = p;
     }
 
     public String getMessage() {

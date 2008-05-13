@@ -24,4 +24,15 @@ public class GestioneAccountController {
 		}
 		return null;
 	}
+	
+	public void abilitaAccountStudente(String email) {
+		Hashtable<String, String> data = new Hashtable<String, String>();
+		data.put("status", "abilitato");
+		try {
+			SQLDAO sqlDAO = new SQLDAO();
+			sqlDAO.updateAccount(email, data);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

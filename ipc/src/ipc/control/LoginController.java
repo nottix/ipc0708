@@ -20,15 +20,17 @@ public class LoginController {
 		try {
 			unAccount = sqlDAO.getAccount(email);
 			System.out.println("email: "+unAccount.getEmail());
+			String passDB = unAccount.getPassword();
+			System.out.println("echeccazzo");
+			String passEnc = Account.convertToMD5(password);
+			System.out.println("passDB: "+passDB+", passEnc: "+passEnc+", password: "+password);
+			if(passEnc.equals(passDB))
+				return unAccount.getTipologia();
 		}
-		catch (Exception e) {}
-		String passDB = unAccount.getPassword();
-		String passEnc = Account.convertToMD5(password);
-		System.out.println("passDB: "+passDB+", passEnc: "+passEnc+", password: "+password);
-		if(passEnc.equals(passDB))
-			return unAccount.getTipologia();
-		else
-			return null;
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public Boolean richiestaNuovaPasswordStudente(Hashtable data) throws Exception {

@@ -11,19 +11,12 @@
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
-<table width="100%" border="0">
-	<tbody>
-		<tr>
-			<td align=left>Ciao <%=session.getAttribute("email")%></td>
-			<td align=right><html:link action="Logout">Logout</html:link></td>
-		</tr>
-	</tbody>
-</table>
+<jsp:include page="sessionLogin.jsp" flush="false"></jsp:include>
 <center><h1>Gestione Account</h1></center>
 <center><table border="1">
 	<tbody>
 		<tr>
-			<td align="center"><html:link page="/attivazioneAccountStudente.jsp">Attivazione Account Studente</html:link></td>
+			<td align="center"><html:link action="/AttivazioneAccountStudente">Attivazione Account Studente</html:link></td>
 		</tr>
 		<tr>
 			<td align="center"><html:link page="/creazioneAccountDirettore.jsp">Creazione Account Direttore di Dipartimento</html:link></td>

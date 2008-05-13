@@ -3,7 +3,6 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html"%>
 <%@taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean"%>
-<%@taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic"%>
 
 <html:html>
 <head>
@@ -14,17 +13,7 @@
 </head>
 <body>
 
-<logic:notPresent name="email" scope="session"  >
-	<logic:redirect page="/login.jsp" />
-</logic:notPresent>
-<table width="100%" border="0">
-	<tbody>
-		<tr>
-			<td align=left>Ciao <%out.println(session.getAttribute("email")); %></td>
-			<td align=right><html:link action="Logout">Logout</html:link></td>
-		</tr>
-	</tbody>
-</table>
+<jsp:include page="sessionLogin.jsp" flush="false"></jsp:include>
 <center>
 <table border="1">
 	<tbody>

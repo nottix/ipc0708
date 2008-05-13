@@ -18,6 +18,8 @@
 		</form-bean>
 		<form-bean name="creazioneProfessoreForm" type="ipc.forms.CreazioneProfessoreForm">
 		</form-bean>
+		<form-bean name="attivazioneAccountStudenteForm" type="ipc.forms.AttivazioneAccountStudenteForm">
+		</form-bean>
 	</form-beans>
 
 	<!-- Eccezioni globali -->
@@ -56,9 +58,13 @@
 			</forward>
 		</action>
 		<action path="/CreazioneProfessore" type="ipc.actions.CreazioneProfessoreAction" scope="request" name="creazioneProfessoreForm" input="/creazioneProfessore.jsp">
+			<forward name="success" path="/homeProfessore.jsp">
+			</forward>
 			<forward name="error" path="/creazioneProfessore.jsp">
 			</forward>
-			<forward name="success" path="/homeProfessore.jsp">
+		</action>
+		<action path="/AttivazioneAccountStudente" type="ipc.actions.AttivazioneAccountStudenteAction" name="attivazioneAccountStudenteForm" scope="request">
+			<forward name="init" path="/attivazioneAccountStudente.jsp">
 			</forward>
 		</action>
 	</action-mappings>

@@ -2,6 +2,7 @@ package ipc.forms;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
@@ -20,22 +21,16 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class CreazioneProfessoreForm extends ActionForm
+public class CreazioneProfessoreForm extends ActionForm {
 
-{
-
-    private String nome = null;
-
+	private static final long serialVersionUID = 6L;
+	
+	private String nome = null;
     private String cognome = null;
-
     private String email = null;
-
     private String password = null;
-
     private String confPassword = null;
-
     private String isDirettore = null;
-
     private String isGestore = null;
 
     /**
@@ -43,7 +38,7 @@ public class CreazioneProfessoreForm extends ActionForm
      * @return String
      */
     public String getNome() {
-	return nome;
+    	return nome;
     }
 
     /**
@@ -51,7 +46,7 @@ public class CreazioneProfessoreForm extends ActionForm
      * @param <code>String</code>
      */
     public void setNome(String n) {
-	this.nome = n;
+    	this.nome = n;
     }
 
     /**
@@ -59,7 +54,7 @@ public class CreazioneProfessoreForm extends ActionForm
      * @return String
      */
     public String getCognome() {
-	return cognome;
+    	return cognome;
     }
 
     /**
@@ -67,7 +62,7 @@ public class CreazioneProfessoreForm extends ActionForm
      * @param <code>String</code>
      */
     public void setCognome(String c) {
-	this.cognome = c;
+    	this.cognome = c;
     }
 
     /**
@@ -75,7 +70,7 @@ public class CreazioneProfessoreForm extends ActionForm
      * @return String
      */
     public String getEmail() {
-	return email;
+    	return email;
     }
 
     /**
@@ -83,7 +78,7 @@ public class CreazioneProfessoreForm extends ActionForm
      * @param <code>String</code>
      */
     public void setEmail(String e) {
-	this.email = e;
+    	this.email = e;
     }
 
     /**
@@ -91,7 +86,7 @@ public class CreazioneProfessoreForm extends ActionForm
      * @return String
      */
     public String getPassword() {
-	return password;
+    	return password;
     }
 
     /**
@@ -99,7 +94,7 @@ public class CreazioneProfessoreForm extends ActionForm
      * @param <code>String</code>
      */
     public void setPassword(String p) {
-	this.password = p;
+    	this.password = p;
     }
 
     /**
@@ -107,7 +102,7 @@ public class CreazioneProfessoreForm extends ActionForm
      * @return String
      */
     public String getConfPassword() {
-	return confPassword;
+    	return confPassword;
     }
 
     /**
@@ -115,7 +110,7 @@ public class CreazioneProfessoreForm extends ActionForm
      * @param <code>String</code>
      */
     public void setConfPassword(String c) {
-	this.confPassword = c;
+    	this.confPassword = c;
     }
 
     /**
@@ -123,7 +118,7 @@ public class CreazioneProfessoreForm extends ActionForm
      * @return String
      */
     public String getIsDirettore() {
-	return isDirettore;
+    	return isDirettore;
     }
 
     /**
@@ -131,7 +126,7 @@ public class CreazioneProfessoreForm extends ActionForm
      * @param <code>String</code>
      */
     public void setIsDirettore(String i) {
-	this.isDirettore = i;
+    	this.isDirettore = i;
     }
 
     /**
@@ -139,7 +134,7 @@ public class CreazioneProfessoreForm extends ActionForm
      * @return String
      */
     public String getIsGestore() {
-	return isGestore;
+    	return isGestore;
     }
 
     /**
@@ -147,39 +142,35 @@ public class CreazioneProfessoreForm extends ActionForm
      * @param <code>String</code>
      */
     public void setIsGestore(String i) {
-	this.isGestore = i;
+    	this.isGestore = i;
     }
 
     public void reset(ActionMapping mapping, HttpServletRequest request) {
-
-	// Reset values are provided as samples only. Change as appropriate.
-
-	nome = null;
-	cognome = null;
-	email = null;
-	password = null;
-	confPassword = null;
-	isDirettore = null;
-	isGestore = null;
-
+		nome = null;
+		cognome = null;
+		email = null;
+		password = null;
+		confPassword = null;
+		isDirettore = null;
+		isGestore = null;	
     }
 
-    public ActionErrors validate(ActionMapping mapping,
-	    HttpServletRequest request) {
-
-	ActionErrors errors = new ActionErrors();
-	System.out.println("pwd: "+password+", cpwd: "+confPassword);
-	if((password==null) || (confPassword==null) || (password.length()==0) || (confPassword.length()==0) || (!password.equals(confPassword))) {
-		System.out.println("Error");
-		errors.add("password", new org.apache.struts.action.ActionError("passwordmatch.error"));
-	}
-	// Validate the fields in your form, adding
-	// adding each error to this.errors as found, e.g.
-
-	// if ((field == null) || (field.length() == 0)) {
-	//   errors.add("field", new org.apache.struts.action.ActionError("error.field.required"));
-	// }
-	return errors;
-
+    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
+		ActionErrors errors = new ActionErrors();
+		boolean check_pass = true;
+		System.out.println("pwd: "+password+", cpwd: "+confPassword);
+		if((password == null) || (password.length() == 0)) {
+			check_pass = false;
+			errors.add("password", new ActionError("password.error"));
+		}
+		if((confPassword == null) || (confPassword.length() == 0)) {
+			check_pass = false;
+			errors.add("password", new ActionError("passwordcheck.error"));
+		}
+		if((check_pass == true) && (!password.equals(confPassword))) {
+			System.out.println("Error");
+			errors.add("password", new org.apache.struts.action.ActionError("passwordmatch.error"));
+		}
+		return errors;
     }
 }

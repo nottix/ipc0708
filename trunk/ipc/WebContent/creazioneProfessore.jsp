@@ -11,14 +11,7 @@
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
-<table width="100%" border="0">
-	<tbody>
-		<tr>
-			<td align=left>Ciao <%out.println(session.getAttribute("email")); %></td>
-			<td align=right><html:link action="Logout">Logout</html:link></td>
-		</tr>
-	</tbody>
-</table>
+<jsp:include page="sessionLogin.jsp" flush="false"></jsp:include>
 	<center><h1>Creazione Professore</h1></center>
 	<html:form action="/CreazioneProfessore">
 	<center><table border="1" width="40%">

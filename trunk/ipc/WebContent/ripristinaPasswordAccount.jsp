@@ -11,6 +11,6 @@
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
-
+<jsp:include page="sessionLogin.jsp" flush="false"></jsp:include>
 </body>
 </html:html>

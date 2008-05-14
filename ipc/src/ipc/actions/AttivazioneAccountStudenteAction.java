@@ -46,7 +46,7 @@ public class AttivazioneAccountStudenteAction extends Action
         			gestioneAccountController.abilitaAccountStudente(name);
         		}
         	}
-        	elencoAccountStudenti = gestioneAccountController.getElencoAccountStudenti();
+        	elencoAccountStudenti = gestioneAccountController.getElencoAccountStudentiPendent();
         	request.setAttribute("elencoAccountStudenti", elencoAccountStudenti);
         } catch (Exception e) {
             // Report the error using the appropriate name and ID.

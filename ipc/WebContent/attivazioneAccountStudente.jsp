@@ -3,9 +3,8 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html"%>
 <%@taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean"%>
-<%@taglib uri="http://jakarta.apache.org/struts/tags-logic"
-	prefix="logic"%>
-<%@page import="java.util.List" %>
+<%@taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic"%>
+<%@page import="java.util.Enumeration" %>
 <%@page import="ipc.forms.*" %>
 <%@page import="ipc.entity.*" %>
 <html:html>
@@ -17,71 +16,49 @@
 </head>
 <body>
 <jsp:include page="sessionLogin.jsp" flush="false"></jsp:include>
-	<center><h1>Attivazione Account Studente</h1></center>
-	<center>
-		<html:form action="/AttivazioneAccountStudente">
+<center>
+	<h1>Attivazione Account Studente</h1>
+	<html:form action="/AttivazioneAccountStudente">
 	<table border="1">
 		<tbody>
 			<tr>
 				<td>
-
-				<logic:present name="elencoAccountStudenti">
-         <table border="0" cellspacing="1" cellpadding="1" align="center" width="70%" style="border-collapse:collapse;">
-         <tr bgcolor="#98AFCC">
-         		  <th>N</th>
-                  <th>Matricola</th>
-                  <th>Email</th>
-                  <th>Nome</th>
-                  <th>Cognome</th>                     
-	    </tr>
-	    <%boolean even = false; %>
-	    <%int counter = 1; %>
-	    <logic:iterate id="user" name="elencoAccountStudenti">
-	    <% even = !even; %>
-	    <tr bgcolor="<%=even?"#B7D3F5":"#D6E0F5" %>">
-	    <td>
-    		<%=counter++%>
-    	</td>
-    <td>
-              <bean:write name="user" property="matricola" />
-    </td>
-    <td>
-              <bean:write name="user" property="email" />
-    </td>
-     <td>
-              <bean:write name="user" property="nome" />
-    </td>
-     <td>
-              <bean:write name="user" property="cognome" />
-    </td>
-    <td>
-    		<html:checkbox name="user" property="email" indexed="true"></html:checkbox>
-    </td>
-     </tr>
-     </logic:iterate>
-     <tr>
-     <td colspan="6" align="center">
-     </td>
-     </tr>
-     </table>
-</logic:present>
+					<logic:present name="elencoAccountStudenti">
+         			<table border="0" cellspacing="1" cellpadding="1" align="center" width="70%" style="border-collapse:collapse;">
+         				<tr bgcolor="#98AFCC">
+         					<th>N°</th>
+            				<th>Matricola</th>
+            				<th>Email</th>
+            				<th>Nome</th>
+            				<th>Cognome</th>                     
+	    				</tr>
+	    				<%boolean even = false; %>
+	    				<%int counter = 1; %>
+	    				<logic:iterate id="user" name="elencoAccountStudenti">
+	    				<% even = !even; %>
+	    				<tr bgcolor="<%=even?"#B7D3F5":"#D6E0F5" %>">
+	    					<td><%=counter++%></td>
+	    					<td><bean:write name="user" property="matricola" /></td>
+    						<td><bean:write name="user" property="email" /></td>
+    						<td><bean:write name="user" property="nome" /></td>
+    						<td><bean:write name="user" property="cognome" /></td>
+    						<td>
+    							<input type="checkbox" name='<bean:write name="user" property="email" />' value="on"  /> 
+    						</td>
+    					</tr>
+     					</logic:iterate>
+     					<tr>
+     						<td colspan="6" align="center">
+     							<html:submit value="AttivazioneAccountStudente"></html:submit>
+     						</td>
+     					</tr>
+     				</table>
+					</logic:present>
 				</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
 			</tr>
 		</tbody>
 	</table>
-
 </html:form>
-	</center>
-	
-
+</center>
 </body>
 </html:html>

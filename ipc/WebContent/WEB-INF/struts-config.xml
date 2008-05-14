@@ -63,7 +63,7 @@
 			<forward name="error" path="/creazioneProfessore.jsp">
 			</forward>
 		</action>
-		<action path="/AttivazioneAccountStudente" type="ipc.actions.AttivazioneAccountStudenteAction" name="attivazioneAccountStudenteForm" scope="request">
+		<action path="/AttivazioneAccountStudente" type="ipc.actions.AttivazioneAccountStudenteAction" name="attivazioneAccountStudenteForm" scope="session" input="/attivazioneAccountStudente.jsp">
 			<forward name="init" path="/attivazioneAccountStudente.jsp">
 			</forward>
 		</action>

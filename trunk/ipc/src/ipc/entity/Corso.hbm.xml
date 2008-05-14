@@ -16,6 +16,11 @@
       <property name="dataChiusura" type="timestamp" column="DATA_CHIUSURA"/>
       <property name="titolare2" type="string" column="TITOLARE_ASSOCIATO"/>
       <property name="status"/>
+      
+      <set name="elencoCollaboratori" table="ELENCO_COLLABORATORI">
+         <key column="ID" />
+         <many-to-many column="EMAIL" class="ipc.entity.Account" />
+      </set>
      <!--
 	  <set name="corsiPropedeutici" table="CORSI_PROPEDEUTICI">
 	     <key column="ID"/>

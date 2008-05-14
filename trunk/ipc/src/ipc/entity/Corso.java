@@ -14,6 +14,7 @@ public class Corso {
 	private String comunicazioni;
 	private Date dataApertura;
 	private Date dataChiusura;
+	private Set elencoCollaboratori = new HashSet();
 	private Set corsiPropedeutici = new HashSet(); // OPZIONALE
 	/**
 	 * Attivo
@@ -93,6 +94,14 @@ public class Corso {
 	
 	public Date getDataChiusura() {
 		return this.dataChiusura;
+	}
+	
+	public void setElencoCollaboratori(Set elencoCollaboratori) {
+		this.elencoCollaboratori = elencoCollaboratori;
+	}
+	
+	public Set getElencoCollaboratori() {
+		return this.elencoCollaboratori;
 	}
 	
 	public void setCorsiPropedeutici(Set corsiPropedeutici) {

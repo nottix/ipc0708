@@ -3,6 +3,7 @@ package ipc.entity;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Random;
 
 public class Account {
 	private String nome;
@@ -143,5 +144,14 @@ public class Account {
 		}
 		md.update(p.getBytes());
 		return (new BigInteger(1,md.digest())).toString(16);
+	}
+	
+	public static String generatePassword() {
+		String alfabeto = "0987654321poiuytrewqlhgfdsamvcxzPOIUYTREWQLKJHGFDSAMBVCXZ";
+		String str = "";
+		Random r = new Random();
+		for (int i=0; i < 8; i++)
+			str += alfabeto.toCharArray()[r.nextInt(alfabeto.length())];
+		return str;
 	}
 }

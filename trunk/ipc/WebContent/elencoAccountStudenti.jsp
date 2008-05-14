@@ -7,14 +7,14 @@
 <html:html>
 <head>
 <link rel="stylesheet" href="theme/Master.css" type="text/css">
-<title>modificaAccountStudente</title>
+<title>Modifica Account Studente</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
 	<jsp:include page="sessionLogin.jsp" flush="false"></jsp:include>
 	<center><h1>Modifica Account Studente</h1></center>
-	<table border="1">
+	<center><table border="1">
 		<tbody>
 			<tr>
 				<td>
@@ -31,12 +31,11 @@
 	    				<%int counter = 1; %>
 	    				<logic:iterate id="user" name="elencoAccountStudenti">
 	    				<% even = !even; %>
-	    				<tr bgcolor="<%=even?"#B7D3F5":"#D6E0F5" %>">
+	    				<tr bgcolor='<%=even?"#B7D3F5":"#D6E0F5" %>'>
 	    					<td><%=counter++%></td>
 	    					<td><bean:write name="user" property="matricola" /></td>
     						<td>
-    							<html:link page="/ModificaAccountStudenteSelezionato.do" paramId="email"
-    							paramName="user" paramProperty="email">
+    							<html:link page="/ModificaAccountStudenteSelezionato.do" paramId="email" paramName="user" paramProperty="email">
     								<bean:write name="user" property="email" /></html:link>
     						</td>
     						<td><bean:write name="user" property="nome" /></td>
@@ -48,7 +47,7 @@
 				</td>
 			</tr>
 		</tbody>
-	</table>
+	</table></center>
 	
 
 </body>

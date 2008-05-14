@@ -1,8 +1,10 @@
 package ipc.control;
 
-import java.util.*;
-import ipc.entity.*;
-import ipc.db.*;
+import java.util.List;
+import java.util.LinkedList;
+import java.util.Hashtable;
+import ipc.entity.Account;
+import ipc.db.SQLDAO;
 
 public class GestioneAccountController {
 
@@ -20,7 +22,6 @@ public class GestioneAccountController {
 			}
 			return elencoAccountStudenti;
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return null;

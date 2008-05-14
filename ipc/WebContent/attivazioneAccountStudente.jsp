@@ -4,9 +4,6 @@
 <%@taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html"%>
 <%@taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean"%>
 <%@taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic"%>
-<%@page import="java.util.Enumeration" %>
-<%@page import="ipc.forms.*" %>
-<%@page import="ipc.entity.*" %>
 <html:html>
 <head>
 <link rel="stylesheet" href="theme/Master.css" type="text/css">

@@ -29,6 +29,7 @@ public class LogoutAction extends Action
         			session.removeAttribute("email");
         		if(session.getAttribute("tipologia") != null)
         			session.removeAttribute("tipologia");
+        		session.invalidate();
         	} else
         		errors.add("email", new ActionError("email.session.error"));
         } catch (Exception e) {

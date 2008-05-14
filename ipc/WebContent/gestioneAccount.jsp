@@ -25,7 +25,7 @@
 			<td align="center"><html:link page="/creazioneAccountGestore.jsp">Creazione Account Gestore di Sistema</html:link></td>
 		</tr>
 		<tr>
-			<td align="center"><html:link page="/modificaAccountStudente.jsp">Modifica Account Studente</html:link></td>
+			<td align="center"><html:link action="/ModificaAccountStudente">Modifica Account Studente</html:link></td>
 		</tr>
 		<tr>
 			<td align="center"><html:link page="/ripristinaPasswordAccount.jsp">Ripristina Password Account</html:link></td>

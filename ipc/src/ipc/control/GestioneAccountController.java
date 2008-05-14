@@ -11,6 +11,7 @@ public class GestioneAccountController {
 
 	private List<Account> elencoAccountStudentiPendent = null;
 	private List<Account> elencoAccountStudenti = null;
+	private List<Account> elencoAccount = null;
 	
 	public List<Account> getElencoAccountStudentiPendent() {
 		try {
@@ -33,8 +34,25 @@ public class GestioneAccountController {
 	public List<Account> getElencoAccountStudenti() {
 		try {
 			SQLDAO sqlDao = new SQLDAO();
-			elencoAccountStudenti = sqlDao.listAccount();
+			List<Account> elenco = sqlDao.listAccount();
+			elencoAccountStudenti = new LinkedList<Account>();
+			for(int i=0; i<elenco.size(); i++) {
+				if(elenco.get(i).getTipologia().equals("studente")) {
+					elencoAccountStudenti.add(elenco.get(i));
+				}
+			}
 			return elencoAccountStudenti;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public List<Account> getElencoAccount() {
+		try {
+			SQLDAO sqlDao = new SQLDAO();
+			elencoAccount = sqlDao.listAccount();
+			return elencoAccount;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -66,6 +84,20 @@ public class GestioneAccountController {
 		data.put("status", "attivo");
 		try {
 			SQLDAO sqlDAO = new SQLDAO();
+			return sqlDAO.updateAccount(email, data);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public Boolean ripristinaPasswordAccountStudente(String email) {
+		Hashtable<String, String> data = new Hashtable<String, String>();
+		try {
+			SQLDAO sqlDAO = new SQLDAO();
+			String passwordEnc = Account.convertToMD5(Account.generatePassword());
+			data.put("password", passwordEnc);
+			System.out.println("email "+email+", pwd "+passwordEnc);
 			return sqlDAO.updateAccount(email, data);
 		} catch (Exception e) {
 			e.printStackTrace();

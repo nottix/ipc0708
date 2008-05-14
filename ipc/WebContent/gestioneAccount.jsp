@@ -28,7 +28,7 @@
 			<td align="center"><html:link action="/ModificaAccountStudente">Modifica Account Studente</html:link></td>
 		</tr>
 		<tr>
-			<td align="center"><html:link page="/ripristinaPasswordAccount.jsp">Ripristina Password Account</html:link></td>
+			<td align="center"><html:link action="/RipristinaPasswordAccount">Ripristina Password Account</html:link></td>
 		</tr>
 	</tbody>
 </table></center>

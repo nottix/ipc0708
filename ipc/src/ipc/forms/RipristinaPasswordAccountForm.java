@@ -10,7 +10,7 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class RipristinaPasswordAccount extends ActionForm
+public class RipristinaPasswordAccountForm extends ActionForm
 
 {
 

@@ -5,7 +5,7 @@
 	<tbody>
 		<tr>
 			<td align=left>Ciao <%=session.getAttribute("email")%></td>
-			<td align=right><html:link action="Logout">Logout</html:link></td>
+			<td align=right><html:link action="/Logout">Logout</html:link></td>
 		</tr>
 	</tbody>
 </table>

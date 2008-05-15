@@ -37,7 +37,7 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td></td>
+				<td align="center"><html:link action="/GestioneCorsoElenco">Gestione Corso</html:link></td>
 				<td></td>
 			</tr>
 			<tr>

@@ -26,7 +26,11 @@
 		</form-bean>
 		<form-bean name="formBean" type="ipc.forms.FormBean">
 		</form-bean>
-		<form-bean name="ripristinaPasswordAccount" type="ipc.forms.RipristinaPasswordAccount">
+		<form-bean name="ripristinaPasswordAccount" type="ipc.forms.RipristinaPasswordAccountForm">
+		</form-bean>
+		<form-bean name="creazioneAccountGestoreForm" type="ipc.forms.CreazioneAccountGestoreForm">
+		</form-bean>
+		<form-bean name="creazioneCorsoForm" type="ipc.forms.CreazioneCorsoForm">
 		</form-bean>
 	</form-beans>
 
@@ -95,6 +99,16 @@
 		</action>
 		<action path="/RipristinaPasswordAccountSelezionato" type="ipc.actions.RipristinaPasswordAccountSelezionatoAction" name="ripristinaPasswordAccount" scope="request">
 			<forward name="success" path="/ripristinaPasswordAccount.jsp">
+			</forward>
+		</action>
+		<action path="/CreazioneAccountGestore" type="ipc.actions.CreazioneAccountGestoreAction" name="creazioneAccountGestoreForm" scope="request">
+			<forward name="success" path="/gestioneAccount.jsp">
+			</forward>
+			<forward name="error" path="/creazioneAccountGestore.jsp">
+			</forward>
+		</action>
+		<action path="/CreazioneCorso" type="ipc.actions.CreazioneCorsoAction" scope="request" input="/creazioneCorso.jsp" name="creazioneCorsoForm">
+			<forward name="success" path="/creazioneCorso.jsp">
 			</forward>
 		</action>
 	</action-mappings>

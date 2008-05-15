@@ -3,6 +3,7 @@ package ipc.entity;
 import java.util.Date;
 import java.util.Set;
 import java.util.HashSet;
+import ipc.entity.*;
 
 public class Corso {
 	private Long id;
@@ -119,4 +120,5 @@ public class Corso {
  	public String getStatus() {
  		return this.status;
  	}
+ 	
 }

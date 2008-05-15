@@ -33,7 +33,7 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td></td>
+				<td align="center"><html:link action="/CreazioneCorso">Creazione Corso</html:link></td>
 				<td></td>
 			</tr>
 			<tr>

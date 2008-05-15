@@ -19,7 +19,7 @@
 			<td align="center"><html:link action="/AttivazioneAccountStudente">Attivazione Account Studente</html:link></td>
 		</tr>
 		<tr>
-			<td align="center"><html:link page="/creazioneAccountDirettore.jsp">Creazione Account Direttore di Dipartimento</html:link></td>
+			<td align="center">Creazione Account Direttore di Dipartimento</td>
 		</tr>
 		<tr>
 			<td align="center"><html:link page="/creazioneAccountGestore.jsp">Creazione Account Gestore di Sistema</html:link></td>
@@ -29,6 +29,9 @@
 		</tr>
 		<tr>
 			<td align="center"><html:link action="/RipristinaPasswordAccount">Ripristina Password Account</html:link></td>
+		</tr>
+		<tr>
+			<td align="center"><html:errors /></td>
 		</tr>
 	</tbody>
 </table></center>

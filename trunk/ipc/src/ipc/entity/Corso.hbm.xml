@@ -19,7 +19,7 @@
       
       <set name="elencoCollaboratori" table="ELENCO_COLLABORATORI">
          <key column="ID" />
-         <many-to-many column="EMAIL" class="ipc.entity.Account" />
+         <many-to-many column="EMAIL" class="Account" />
       </set>
      <!--
 	  <set name="corsiPropedeutici" table="CORSI_PROPEDEUTICI">

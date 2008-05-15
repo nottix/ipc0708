@@ -24,12 +24,15 @@ import org.hibernate.type.Type;
 public class SQLDAO {
 	public Account getAccount(String email) throws Exception {
 		Session session = DAOFactory.getSessionFactory().getCurrentSession();
+		Account result = null;
         session.beginTransaction();
         Query q = session.createQuery("from Account a where a.email = :email");
         q.setParameter("email", email, Hibernate.STRING);
         System.out.println("query");
-		Account result = (Account) q.uniqueResult();
-		session.getTransaction().commit();
+        if(q.uniqueResult()!=null) {
+        	result = (Account) q.uniqueResult();
+        }
+        session.getTransaction().commit();
         /*Si deve controllare se result è null*/
         return result;
 	}
@@ -128,6 +131,7 @@ public class SQLDAO {
 	}
     
 	public String createAndStoreAccount(Hashtable data) throws Exception {
+		System.out.println("create account");
 		Account anAccount = this.hashToAccount(null, data);
 		Session session = DAOFactory.getSessionFactory().getCurrentSession();
         session.beginTransaction();
@@ -174,6 +178,8 @@ public class SQLDAO {
 			aCourse.setDataApertura((Date) data.get("dataApertura"));
 		if(data.get("dataChiusura") != null)
 			aCourse.setDataChiusura((Date) data.get("dataChiusura"));
+		if(data.get("elencoCollaboratori") != null)
+			aCourse.setElencoCollaboratori((Set) data.get("elencoCollaboratori"));
 		if(data.get("corsiPropedeutici") != null)
 			aCourse.setCorsiPropedeutici((Set) data.get("corsiPropedeutici"));
 		if(data.get("status") != null)
@@ -184,9 +190,11 @@ public class SQLDAO {
 	public Corso getCorso(String acronimo) throws Exception {
 		Session session = DAOFactory.getSessionFactory().getCurrentSession();
         session.beginTransaction();
-        Query q = session.createQuery("from Account a where a.acronimo = :acronimo");
+        Query q = session.createQuery("from Corso a where a.acronimo = :acronimo");
         q.setParameter("acronimo", acronimo, Hibernate.STRING);
-		Corso result = (Corso) q.uniqueResult();
+        Corso result = null;
+        if(q.uniqueResult()!=null)
+        	result = (Corso) q.uniqueResult();
         session.getTransaction().commit();
         /*Si deve controllare se result è null*/
         return result;

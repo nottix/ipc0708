@@ -8,8 +8,8 @@
         <generator class="native"/>
      </id>
      <property name="idEsame" column="ID_ESAME"/>
-     <property name="dataEsame" type="timestamp" column="AULA_ESAME"/>
-     <property name="aulaEsame" column="DATA_ESAME"/>
+     <property name="dataEsame" type="timestamp" column="DATA_ESAME"/>
+     <property name="aulaEsame" column="AULA_ESAME"/>
      <property name="status"/>
   </class>
 </hibernate-mapping>

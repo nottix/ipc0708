@@ -32,6 +32,16 @@
 		</form-bean>
 		<form-bean name="creazioneCorsoForm" type="ipc.forms.CreazioneCorsoForm">
 		</form-bean>
+		<form-bean name="formBean1" type="ipc.forms.FormBean1">
+		</form-bean>
+		<form-bean name="gestioneCorsoElencoForm" type="ipc.forms.gestioneCorsoElencoForm">
+		</form-bean>
+		<form-bean name="formBean2" type="ipc.forms.FormBean2">
+		</form-bean>
+		<form-bean name="gestioneCorsoForm" type="ipc.forms.GestioneCorsoForm">
+		</form-bean>
+		<form-bean name="creazioneEsameForm" type="ipc.forms.CreazioneEsameForm">
+		</form-bean>
 	</form-beans>
 
 	<!-- Eccezioni globali -->
@@ -109,6 +119,26 @@
 		</action>
 		<action path="/CreazioneCorso" type="ipc.actions.CreazioneCorsoAction" scope="request" input="/creazioneCorso.jsp" name="creazioneCorsoForm">
 			<forward name="success" path="/creazioneCorso.jsp">
+			</forward>
+		</action>
+		<action path="/GestioneCorsoElenco" type="ipc.actions.GestioneCorsoElencoAction" scope="request">
+			<forward name="init" path="/gestioneCorsoElenco.jsp">
+			</forward>
+			<forward name="error" path="/homeProfessore.jsp">
+			</forward>
+		</action>
+		<action path="/GestioneCorso" type="ipc.actions.GestioneCorsoAction" scope="request" input="/gestioneCorsoElenco.jsp" name="gestioneCorsoForm">
+			<forward name="success" path="/gestioneCorso.jsp">
+			</forward>
+			<forward name="main" path="/homeProfessore.jsp">
+			</forward>
+		</action>
+		<action path="/CreazioneEsame" type="ipc.actions.CreazioneEsameAction" scope="request" input="/gestioneCorso.jsp" name="creazioneEsameForm">
+			<forward name="success" path="/creazioneEsame.jsp">
+			</forward>
+		</action>
+		<action path="/CreazioneEsameDone" type="ipc.actions.CreazioneEsameDoneAction" scope="request" name="creazioneEsameForm">
+			<forward name="success" path="/creazioneEsame.jsp">
 			</forward>
 		</action>
 	</action-mappings>

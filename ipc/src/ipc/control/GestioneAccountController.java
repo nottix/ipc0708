@@ -104,4 +104,21 @@ public class GestioneAccountController {
 		}
 		return false;
 	}
+	
+	public Boolean creazioneAccountGestore(Hashtable data) {
+		try {
+			SQLDAO sqlDao = new SQLDAO();
+			if(sqlDao.getAccount((String)data.get("email"))==null) {
+				data.put("isGestore", Boolean.TRUE);
+				data.put("tipologia", "gestore");
+				data.put("password", Account.convertToMD5((String)data.get("password")));
+				System.out.println("isGestore");
+				return sqlDao.createAndStoreAccount(data)!=null;
+			}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 }

@@ -28,12 +28,12 @@ public class Test {
 	public static void insertTestAccount() {
 		SQLDAO sqlDAO = new SQLDAO();
 		Hashtable<String, Object> data = new Hashtable<String, Object>();
-		data.put("nome", "sempronio");
-		data.put((String)"cognome", (String) "caio");
-		data.put("email", "sempronio@caio.it");
-		data.put("password", convertToMD5("prova"));
-		data.put("status", "pending");
-		data.put("tipologia", "studente");
+		data.put("nome", "pp");
+		data.put((String)"cognome", (String) "pp");
+		data.put("email", "pp@pp.pp");
+		data.put("password", convertToMD5("pp"));
+		data.put("status", "attivo");
+		data.put("tipologia", "professore");
 		data.put("isDirettore", Boolean.FALSE);
 		data.put("matricola", "000000");
 		data.put("isTitolare", Boolean.FALSE);

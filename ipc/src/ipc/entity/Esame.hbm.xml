@@ -10,5 +10,7 @@
       <property name="dataInizioPeriodoPrenotazione" type="timestamp" column="INIZIO_PRENOTAZIONE"/>
       <property name="dataFinePeriodoPrenotazione" type="timestamp" column="FINE_PRENOTAZIONE"/>
    	  <property name="status"/>
+   	  
+   	  <property name="idCorso" column="ID_CORSO"/>
    </class>
 </hibernate-mapping>

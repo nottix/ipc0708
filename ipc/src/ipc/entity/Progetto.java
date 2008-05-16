@@ -6,11 +6,21 @@ public class Progetto {
 	private String titolo;
 	private Date dataConsegna;
 	private Integer maxUploadPerStudente;
+	private Integer maxDimGruppo;
+	private Long idCorso;
 	/**
 	 * Attivo
 	 * Disattivo
 	 */
 	private String status;
+	
+	public void setIdCorso(Long id) {
+		this.idCorso=id;
+	}
+	
+	public Long getIdCorso() {
+		return this.idCorso;
+	}
 	
 	/*Autoincrement in DB*/
 	@SuppressWarnings("unused")
@@ -44,6 +54,14 @@ public class Progetto {
  	
  	public Integer getMaxUploadPerStudente() {
  		return this.maxUploadPerStudente;
+ 	}
+ 	
+ 	public void setMaxDimGruppo(Integer maxDimGruppo) {
+		this.maxDimGruppo = maxDimGruppo;
+	}
+ 	
+ 	public Integer getMaxDimGruppo() {
+ 		return this.maxDimGruppo;
  	}
  	
  	public void setStatus(String status) {

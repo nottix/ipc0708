@@ -89,6 +89,7 @@ public class Test {
 		Hashtable<String, Object> data = new Hashtable<String, Object>();
 		data.put("dataInizioPeriodoPrenotazione", new Date());
 		data.put("dataFinePeriodoPrenotazione", new Date());
+		data.put("idCorso", Long.valueOf(1));
 		try {
 			id = sqlDAO.createAndStoreEsame(data);
 		} catch (Exception e) {}
@@ -138,7 +139,7 @@ public class Test {
 	
 	public static void main(String []args) {
 		insertTestAccount();
-//		Long exam = insertTestEsame();
+		Long exam = insertTestEsame();
 //		Long exam2 = insertTestEsame2();
 //		insertTestInfoEsame(exam2);
 //		Long examInfo = insertTestInfoEsame(exam);

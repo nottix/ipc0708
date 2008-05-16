@@ -3,6 +3,7 @@ import java.util.Date;
 
 public class Esame {
 	private Long id;
+	private Long idCorso;
 	private Date dataInizioPeriodoPrenotazione;
 	private Date dataFinePeriodoPrenotazione;
 	/**
@@ -19,6 +20,14 @@ public class Esame {
 
 	public Long getId() {
 		return this.id;
+	}
+	
+	public Long getIdCorso() {
+		return this.idCorso;
+	}
+	
+	public void setIdCorso(Long idCorso) {
+		this.idCorso = idCorso;
 	}
 	
 	public void setDataInizioPeriodoPrenotazione(Date dataInizioPeriodoPrenotazione) {

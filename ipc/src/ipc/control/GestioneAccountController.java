@@ -68,6 +68,15 @@ public class GestioneAccountController {
 		return null;
 	}
 	
+	public Account getAccount(String email) {
+		try {
+			SQLDAO sqlDao = new SQLDAO();
+			return sqlDao.getAccount(email);
+		}
+		catch(Exception e) {}
+		return null;
+	}
+	
 	public Boolean modificaAccountStudente(String email, Hashtable data) {
 		try {
 			SQLDAO sqlDAO = new SQLDAO();

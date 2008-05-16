@@ -279,6 +279,8 @@ public class SQLDAO {
 	private Esame hashToEsame(Esame anExam, Hashtable data) {
 		if(anExam == null)
 			anExam = new Esame();
+		if(data.get("idCorso") != null)
+			anExam.setIdCorso((Long) data.get("idCorso"));
         if(data.get("dataInizioPeriodoPrenotazione") != null)
         	anExam.setDataInizioPeriodoPrenotazione((Date) data.get("dataInizioPeriodoPrenotazione"));
         if(data.get("dataFinePeriodoPrenotazione") != null)
@@ -459,10 +461,14 @@ public class SQLDAO {
 	private Progetto hashToProgetto(Progetto aProject, Hashtable data) {
 		if(aProject == null)
 			aProject = new Progetto();
+		if(data.get("idCorso") != null)
+        	aProject.setIdCorso((Long) data.get("idCorso"));
         if(data.get("titolo") != null)
         	aProject.setTitolo((String) data.get("titolo"));
         if(data.get("maxUploadPerStudente") != null)
         	aProject.setMaxUploadPerStudente((Integer) data.get("maxUploadPerStudente"));
+        if(data.get("maxDimGruppo") != null)
+        	aProject.setMaxDimGruppo((Integer) data.get("maxDimGruppo"));
         if(data.get("dataConsegna") != null)
         	aProject.setDataConsegna((Date) data.get("dataConsegna"));
         if(data.get("status") != null)

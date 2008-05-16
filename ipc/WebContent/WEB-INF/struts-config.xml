@@ -42,6 +42,16 @@
 		</form-bean>
 		<form-bean name="creazioneEsameForm" type="ipc.forms.CreazioneEsameForm">
 		</form-bean>
+		<form-bean name="gestioneEsameForm" type="ipc.forms.GestioneEsameForm">
+		</form-bean>
+		<form-bean name="formBean3" type="ipc.forms.FormBean3">
+		</form-bean>
+		<form-bean name="creazioneProgettoForm" type="ipc.forms.CreazioneProgettoForm">
+		</form-bean>
+		<form-bean name="formBean4" type="ipc.forms.FormBean4">
+		</form-bean>
+		<form-bean name="visualizzaAccountForm" type="ipc.forms.VisualizzaAccountForm">
+		</form-bean>
 	</form-beans>
 
 	<!-- Eccezioni globali -->
@@ -139,6 +149,36 @@
 		</action>
 		<action path="/CreazioneEsameDone" type="ipc.actions.CreazioneEsameDoneAction" scope="request" name="creazioneEsameForm">
 			<forward name="success" path="/creazioneEsame.jsp">
+			</forward>
+		</action>
+		<action path="/GestioneEsameElenco" type="ipc.actions.GestioneEsameElencoAction">
+			<forward name="error" path="/homeProfessore.jsp">
+			</forward>
+			<forward name="init" path="/gestioneEsameElenco.jsp">
+			</forward>
+		</action>
+		<action path="/GestioneEsame" type="ipc.actions.GestioneEsameAction" name="gestioneEsameForm" scope="request" input="/gestioneEsameElenco.jsp">
+			<forward name="success" path="/gestioneEsame.jsp">
+			</forward>
+			<forward name="main" path="/homeProfessore.jsp">
+			</forward>
+		</action>
+		<action path="/CreazioneProgetto" type="ipc.actions.CreazioneProgettoAction" scope="request" input="/gestioneEsame.jsp" name="creazioneProgettoForm">
+			<forward name="success" path="/creazioneProgetto.jsp">
+			</forward>
+		</action>
+		<action path="/CreazioneProgettoDone" type="ipc.actions.CreazioneProgettoDoneAction" name="creazioneProgettoForm" scope="request">
+			<forward name="success" path="/creazioneProgetto.jsp">
+			</forward>
+		</action>
+		<action path="/VisualizzaAccountElenco" type="ipc.actions.VisualizzaAccountElencoAction">
+			<forward name="init" path="/visualizzaAccountElenco.jsp">
+			</forward>
+		</action>
+		<action path="/VisualizzaAccount" type="ipc.actions.VisualizzaAccountAction" scope="request" input="/visualizzaAccountElenco.jsp" name="visualizzaAccountForm">
+			<forward name="success" path="/visualizzaAccount.jsp">
+			</forward>
+			<forward name="error" path="/VisualizzaAccountElenco.do">
 			</forward>
 		</action>
 	</action-mappings>

@@ -1,22 +1,13 @@
-/**
- * 
- */
 package ipc.control;
 
-import ipc.entity.*;
+import ipc.db.SQLDAO;
+import ipc.entity.Corso;
 import java.util.*;
-import ipc.db.*;
 
-/**
- * @author Simone Notargiacomo
- *
- */
-public class GestioneCorsoController {
-
+public class GestioneEsameController {
 	private List<Corso> elencoCorsi = null;
 	
 	public List<Corso> getElencoCorsi() {
-		
 		try {
 			SQLDAO sqlDao = new SQLDAO();
 			elencoCorsi = sqlDao.listCorso();
@@ -27,16 +18,16 @@ public class GestioneCorsoController {
 		return elencoCorsi;
 	}
 	
-	public Boolean creazioneEsame(Hashtable<String, Object> data) {
+	public Boolean creazioneProgetto(Hashtable data) {
 		try {
 			SQLDAO sqlDao = new SQLDAO();
 			String acronimo = (String)data.get("acronimo");
 			Long idCorso = sqlDao.getCorso(acronimo).getId();
 			System.out.println("ID CORSO: "+idCorso);
+			data.put("maxUploadPerStudente", Integer.valueOf((String)data.get("maxUploadPerStudente")));
+			data.put("maxDimGruppo", Integer.valueOf((String)data.get("maxDimGruppo")));
 			data.put("idCorso", idCorso);
-			Long id = sqlDao.createAndStoreEsame(data);
-			data.put("idEsame", id);
-			sqlDao.createAndStoreInfoEsame(data);
+			sqlDao.createAndStoreProgetto(data);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

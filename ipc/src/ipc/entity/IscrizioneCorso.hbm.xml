@@ -4,14 +4,14 @@
 	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="ipc.entity">
    <class name="IscrizioneCorso">
-      <id name="id" column="ID_IC">
+      <id name="id" column="ID">
          <generator class="native"/>
       </id>
       <property name="flag"/>
       <property name="dataIscrizione" type="timestamp" column="DATA_ISCRIZIONE"/>
       <property name="status"/>
       
-      <many-to-one name="idStudente" class="Account" column="EMAIL" unique="true"/>
-  	  <many-to-one name="idCorso" class="Corso" column="ID" unique="true"/>
+      <property name="idStudente" column="EMAIL" unique="true"/>
+  	  <property name="idCorso" column="ID_CORSO" unique="true"/>
    </class>
 </hibernate-mapping>

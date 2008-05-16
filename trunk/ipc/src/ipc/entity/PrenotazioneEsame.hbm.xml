@@ -16,7 +16,7 @@
 	  <property name="nota" type="text" column="NOTA"/>
       <property name="status"/>
   	  
-  	  <many-to-one name="idStudente" class="Account" column="USER_EMAIL" />
-  	  <many-to-one name="idEsame" class="Esame" column="ID_ESAME" />
+  	  <property name="idStudente" column="EMAIL" />
+  	  <property name="idEsame" column="ID_ESAME" />
    </class>
 </hibernate-mapping>

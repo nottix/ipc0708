@@ -7,20 +7,20 @@
 <html:html>
 <head>
 <link rel="stylesheet" href="theme/Master.css" type="text/css">
-<title>gestioneCorso</title>
+<title>gestioneEsame</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
 
 <center>
-		<h1>Gestione Corso</h1>
+	<h1>Gestione Esame</h1>
 		<logic:present name="acronimo">
 		<h3>Corso: <bean:write name="acronimo"/></h1>
 		<table border="1">
 			<tbody>
 				<tr>
-					<td><a href="/ipc/CreazioneEsame.do?acronimo=<bean:write name="acronimo"/>">Creazione Esame</a></td>
+					<td><a href="/ipc/CreazioneProgetto.do?acronimo=<bean:write name="acronimo"/>">Creazione Esame</a></td>
 				</tr>
 				<tr>
 					<td><html:errors></html:errors></td>

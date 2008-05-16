@@ -19,7 +19,7 @@
 			<td align="center"><html:link action="/AttivazioneAccountStudente">Attivazione Account Studente</html:link></td>
 		</tr>
 		<tr>
-			<td align="center">Creazione Account Direttore di Dipartimento</td>
+			<td align="center"><html:link action="/VisualizzaAccountElenco">Visualizza Account</html:link></td>
 		</tr>
 		<tr>
 			<td align="center"><html:link page="/creazioneAccountGestore.jsp">Creazione Account Gestore di Sistema</html:link></td>

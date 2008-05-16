@@ -41,7 +41,7 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td></td>
+				<td align="center"><html:link action="/GestioneEsameElenco">Gestione Esame</html:link></td>
 				<td></td>
 			</tr>
 		</tbody>

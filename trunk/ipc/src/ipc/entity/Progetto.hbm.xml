@@ -10,6 +10,9 @@
      <property name="titolo"/>
      <property name="dataConsegna" type="timestamp" column="DATA_CONSEGNA"/>
      <property name="maxUploadPerStudente" type="integer" column="MAX_UPLOAD_CONSENTITI"/>
+     <property name="maxDimGruppo" type="integer" column="MAX_DIM_GRUPPO"/>
      <property name="status"/>
+     
+     <property name="idCorso" column="ID_CORSO"/>
    </class>
 </hibernate-mapping>

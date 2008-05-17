@@ -117,8 +117,8 @@ public class SQLDAO {
 	        anAccount.setIsDirettore((Boolean) data.get("isDirettore"));
 	    if(data.get("matricola") != null)
 	        anAccount.setMatricola((String) data.get("matricola"));
-	    if(data.get("isTitolare") != null)
-	        anAccount.setIsTitolare((Boolean) data.get("isTitolare"));
+	    if(data.get("isGestore") != null)
+	        anAccount.setIsGestore((Boolean) data.get("isGestore"));
 	    if(data.get("canUpload") != null)
 	        anAccount.setCanUpload((Boolean) data.get("canUpload"));
 	    if(data.get("noteUpload") != null)
@@ -153,9 +153,9 @@ public class SQLDAO {
 	@SuppressWarnings("unchecked")
 	public List<Corso> listCorso() throws Exception {
         Session session = DAOFactory.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
+        session.beginTransaction().begin();
         List<Corso> result = session.createQuery("from Corso").list();
-        session.getTransaction().commit();
+        //session.getTransaction().commit();
         return result;
     }
 	
@@ -169,10 +169,6 @@ public class SQLDAO {
 		if(data.get("descrizione") != null)
 		aCourse.setDescrizione((String) data.get("descrizione"));
 		if(data.get("titolare1") != null)
-			aCourse.setTitolare1((String) data.get("titolare1"));
-		if(data.get("titolare2") != null)
-			aCourse.setTitolare2((String) data.get("titolare2"));
-		if(data.get("comunicazioni") != null)
 			aCourse.setComunicazioni((String) data.get("comunicazioni"));
 		if(data.get("dataApertura") != null)
 			aCourse.setDataApertura((Date) data.get("dataApertura"));
@@ -180,6 +176,8 @@ public class SQLDAO {
 			aCourse.setDataChiusura((Date) data.get("dataChiusura"));
 		if(data.get("elencoCollaboratori") != null)
 			aCourse.setElencoCollaboratori((Set) data.get("elencoCollaboratori"));
+		if(data.get("elencoTitolari") != null)
+			aCourse.setElencoTitolari((Set) data.get("elencoTitolari"));
 		if(data.get("corsiPropedeutici") != null)
 			aCourse.setCorsiPropedeutici((Set) data.get("corsiPropedeutici"));
 		if(data.get("status") != null)
@@ -189,7 +187,7 @@ public class SQLDAO {
 	
 	public Corso getCorso(String acronimo) throws Exception {
 		Session session = DAOFactory.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
+        session.beginTransaction().begin();
         Query q = session.createQuery("from Corso a where a.acronimo = :acronimo");
         q.setParameter("acronimo", acronimo, Hibernate.STRING);
         Corso result = null;

@@ -6,6 +6,7 @@ import java.util.Hashtable;
 import ipc.entity.Account;
 import ipc.db.SQLDAO;
 import java.util.*;
+import ipc.entity.*;
 
 public class GestioneAccountController {
 
@@ -74,6 +75,68 @@ public class GestioneAccountController {
 			return sqlDao.getAccount(email);
 		}
 		catch(Exception e) {}
+		return null;
+	}
+	
+	public List<Corso> getCorsiWhereIsTitolare(String email) {
+		try {
+			SQLDAO sqlDAO = new SQLDAO();
+			List<Corso> elencoCorsi = sqlDAO.listCorso();
+			List<Corso> elencoCorsiTitolare = new LinkedList<Corso>();
+			Set elencoTitolari;
+			
+			Iterator<Corso> i = elencoCorsi.iterator();
+			Corso corso;
+			Account account;
+			while(i.hasNext()) {
+				corso = i.next();
+				System.out.println("Corso: "+corso.getAcronimo());
+				elencoTitolari = corso.getElencoTitolari();
+				Iterator j = elencoTitolari.iterator();
+				System.out.println("Corso: "+corso.getAcronimo()+", titolarisize: "+elencoTitolari.size());
+				while(j.hasNext()) {
+					account = (Account)j.next();
+					System.out.println("Titolare: "+account.getEmail()+", tito: "+email);
+					if(account.getEmail().equals(email))
+						elencoCorsiTitolare.add(corso);
+				}
+			}
+			
+			return elencoCorsiTitolare;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public List<Corso> getCorsiWhereIsCollaboratore(String email) {
+		try {
+			SQLDAO sqlDAO = new SQLDAO();
+			List<Corso> elencoCorsi = sqlDAO.listCorso();
+			List<Corso> elencoCorsiCollaboratore = new LinkedList<Corso>();
+			Set elencoCollaboratore;
+			
+			Iterator<Corso> i = elencoCorsi.iterator();
+			Corso corso;
+			Account account;
+			while(i.hasNext()) {
+				corso = i.next();
+				System.out.println("Corso: "+corso.getAcronimo());
+				elencoCollaboratore = corso.getElencoCollaboratori();
+				Iterator j = elencoCollaboratore.iterator();
+				//System.out.println("Corso: "+corso.getAcronimo()+", titolarisize: "+elencoTitolari.size());
+				while(j.hasNext()) {
+					account = (Account)j.next();
+					//System.out.println("Titolare: "+account.getEmail()+", tito: "+email);
+					if(account.getEmail().equals(email))
+						elencoCorsiCollaboratore.add(corso);
+				}
+			}
+			
+			return elencoCorsiCollaboratore;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 	

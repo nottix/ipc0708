@@ -46,13 +46,6 @@ public class CreazioneCorsoController {
 		String acronimo = (String) data.get("acronimo");
 		if(acronimo == null  || acronimo.length() == 0)
 			return false;
-		String titolare = (String) data.get("titolare1");
-		System.out.println("titolare: "+titolare);
-		if(titolare == null || titolare.length() == 0)
-			return false;
-		//titolare = (String) data.get("titolare2");
-		//if(titolare == null || titolare.length() == 0)
-		//	return false;
 		Date dataApertura = (Date) data.get("dataApertura");
 		if(dataApertura == null)
 			return false;
@@ -76,6 +69,19 @@ public class CreazioneCorsoController {
 			col.add(sqlDAO.getAccount(val));
 		}
 		data.put("elencoCollaboratori", col);
+		
+		col = new HashSet();
+		elenco = (HashSet)data.get("elencoTitolari");
+		if(elenco.size()>2)
+			return false;
+		i = elenco.iterator();
+		while(i.hasNext()) {
+			String val = (String)i.next();
+			System.out.println("listTitolari: "+val);
+			col.add(sqlDAO.getAccount(val));
+		}
+		data.put("elencoTitolari", col);
+		
 		sqlDAO.createAndStoreCorso(data);
 		return true;
 	}

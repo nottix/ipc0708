@@ -20,7 +20,7 @@
 		<table border="1">
 			<tbody>
 				<tr>
-					<td><a href="/ipc/CreazioneProgetto.do?acronimo=<bean:write name="acronimo"/>">Creazione Esame</a></td>
+					<td><a href="/ipc/CreazioneProgetto.do?acronimo=<bean:write name="acronimo"/>">Creazione Progetto</a></td>
 				</tr>
 				<tr>
 					<td><html:errors></html:errors></td>

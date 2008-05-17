@@ -36,11 +36,11 @@ public class Test {
 		data.put("tipologia", "professore");
 		data.put("isDirettore", Boolean.FALSE);
 		data.put("matricola", "000000");
-		data.put("isTitolare", Boolean.FALSE);
+		data.put("isGestore", Boolean.TRUE);
 		data.put("canUpload", Boolean.FALSE);
 		data.put("noteUpload", "");
 		data.put("noteStud", "");
-		data.put("noteProf", "");
+		data.put("noteProf", "prova");
 		try {
 			sqlDAO.createAndStoreAccount(data);
 		} catch(Exception e) {}

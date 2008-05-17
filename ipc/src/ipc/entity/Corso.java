@@ -10,19 +10,18 @@ public class Corso {
 	private String nome;
 	private String acronimo;
 	private String descrizione;
-	private String titolare1;
-	private String titolare2; // OPZIONALE
 	private String comunicazioni;
 	private Date dataApertura;
 	private Date dataChiusura;
 	private Set elencoCollaboratori = new HashSet();
+	private Set elencoTitolari = new HashSet();
 	private Set corsiPropedeutici = new HashSet(); // OPZIONALE
 	/**
 	 * Attivo
 	 * Disattivo
 	 */
 	private String status;
-	
+
 	/*Autoincrement througth database*/
 	@SuppressWarnings("unused")
 	private void setId(Long id) {
@@ -55,22 +54,6 @@ public class Corso {
 	
 	public String getDescrizione() {
 		return this.descrizione;
-	}
-	
-	public void setTitolare1(String titolare1) {
-		this.titolare1 = titolare1;
-	}
-	
-	public String getTitolare1() {
-		return this.titolare1;
-	}
-	
-	public void setTitolare2(String titolare2) {
-		this.titolare2 = titolare2;
-	}
-	
-	public String getTitolare2() {
-		return this.titolare2;
 	}
 	
 	public void setComunicazioni(String comunicazioni) {
@@ -107,6 +90,14 @@ public class Corso {
 	
 	public void setCorsiPropedeutici(Set corsiPropedeutici) {
 		this.corsiPropedeutici = corsiPropedeutici;
+	}
+	
+	public Set getElencoTitolari() {
+		return this.elencoTitolari;
+	}
+	
+	public void setElencoTitolari(Set elencoTitolari) {
+		this.elencoTitolari = elencoTitolari;
 	}
 	
 	public Set getCorsiPropedeutici() {

@@ -25,7 +25,7 @@ public class Account {
 	private String tipologia;
 	private Boolean isDirettore; // Solo per account Professore
 	private String matricola; // Solo per account Studente
-	private Boolean isTitolare; // Solo per account Professore
+	private Boolean isGestore; // Solo per account Professore
 	private Boolean canUpload; // può o non può uploadare dei file
 	private String noteUpload; // OPZIONALE solo per l'account Studente
 	private String noteStud; // OPZIONALE
@@ -87,12 +87,12 @@ public class Account {
 		return this.isDirettore;
 	}
 	
-	public void setIsTitolare(Boolean isTitolare) {
-		this.isTitolare = isTitolare;
+	public void setIsGestore(Boolean isGestore) {
+		this.isGestore = isGestore;
 	}
 	
-	public Boolean getIsTitolare() {
-		return this.isTitolare;
+	public Boolean getIsGestore() {
+		return this.isGestore;
 	}
 	
 	public void setMatricola(String matricola) {

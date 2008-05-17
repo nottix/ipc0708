@@ -13,6 +13,7 @@ import org.apache.struts.action.ActionMapping;
 import ipc.entity.*;
 import ipc.control.*;
 import ipc.forms.*;
+import java.util.*;
 
 /**
  * @version 	1.0
@@ -24,8 +25,20 @@ public class VisualizzaAccountAction extends Action
 	
 	private Account account;
 	
+	private List<Corso> elencoCorsiTitolare;
+	
+	private List<Corso> elencoCorsiCollaboratore;
+	
 	public Account getAccount() {
 		return this.account;
+	}
+	
+	public List<Corso> getElencoCorsiTitolare() {
+		return this.elencoCorsiTitolare;
+	}
+	
+	public List<Corso> elencoElencoCorsiCollaboratore() {
+		return this.elencoCorsiCollaboratore;
 	}
 
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
@@ -60,11 +73,11 @@ public class VisualizzaAccountAction extends Action
         			}
         			if(account.getTipologia().equals("professore")) {
         				cForm.setNote(account.getNoteProf());
-        				cForm.setIsDirettore(account.getIsDirettore()?"on":"");
-        				cForm.setIsGestore("");
-        				//TODO: isGestore da aggiungere anche nel DB 
-        				//FIXIT: questa cosa è tutta da sistemare
-        				//cForm.setIsGestore(account.getIsTitolare()sGestore()?"on":"");
+        				
+        				this.elencoCorsiTitolare = control.getCorsiWhereIsTitolare(account.getEmail());
+        				request.setAttribute("elencoCorsiTitolare", elencoCorsiTitolare);
+        				this.elencoCorsiCollaboratore = control.getCorsiWhereIsCollaboratore(account.getEmail());
+        				request.setAttribute("elencoCorsiCollaboratore", elencoCorsiCollaboratore);
         			}
         			//System.out.println("forward: "+mapping.findForward("success").getPath()+"?acronimo="+request.getParameter(name));
                 	//return new ActionForward(mapping.findForward("success").getPath()+"?acronimo="+request.getParameter(name), false);

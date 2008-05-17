@@ -36,6 +36,7 @@ public class CreazioneCorsoAction extends Action
         CreazioneCorsoController creazioneCorsoController = new CreazioneCorsoController();
         Hashtable data;
         HashSet collaboratori = new HashSet();
+        HashSet titolari = new HashSet();
         CreazioneCorsoForm creazioneCorsoForm = (CreazioneCorsoForm)form;
         
         try {
@@ -52,7 +53,8 @@ public class CreazioneCorsoAction extends Action
         			System.out.println("titolare"+titolareCounter+": "+name.substring(name.indexOf("-")+1));
         			if(name.indexOf("titolare")>=0) {
         				System.out.println("ok");
-        				data.put("titolare"+titolareCounter, name.substring(name.indexOf("-")+1));
+        				//data.put("titolare"+titolareCounter, name.substring(name.indexOf("-")+1));
+        				titolari.add(name.substring(name.indexOf("-")+1));
         				titolareCounter++;
         			}
         			if(name.indexOf("collaboratore")>=0) {
@@ -64,8 +66,10 @@ public class CreazioneCorsoAction extends Action
         		}
         	}
         	
-        	if(titolareCounter>1 || collaboratoreCounter>1) {
-        		data.put("elencoCollaboratori", collaboratori);
+        	if(titolareCounter>1) {
+        		if(collaboratoreCounter>1)
+        			data.put("elencoCollaboratori", collaboratori);
+        		data.put("elencoTitolari", titolari);
 				data.put("nome", creazioneCorsoForm.getNome());
 				data.put("acronimo", creazioneCorsoForm.getAcronimo());
 				data.put("descrizione", creazioneCorsoForm.getDescrizione());

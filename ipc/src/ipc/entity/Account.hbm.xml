@@ -12,7 +12,7 @@
   	 <property name="status"/>
   	 <property name="matricola"/>
   	 <property name="isDirettore" type="boolean" column="IS_DIRETTORE"/>
-  	 <property name="isTitolare" type="boolean" column="IS_TITOLARE"/>
+  	 <property name="isGestore" type="boolean" column="IS_GESTORE"/>
   	 <property name="canUpload" type="boolean" column="CAN_UPLOAD"/>
   	 <property name="noteUpload" type="text" column="NOTE_UPLOAD"/>
   	 <property name="noteStud" type="text" column="NOTE_STUDENTE"/>

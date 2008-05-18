@@ -6,6 +6,9 @@ public class Esame {
 	private Long idCorso;
 	private Date dataInizioPeriodoPrenotazione;
 	private Date dataFinePeriodoPrenotazione;
+	private Date dataEsame;
+	// Informazioni aggiuntive
+	private String auleEsame;
 	/**
 	 * Attivo
 	 * Disattivo
@@ -16,6 +19,22 @@ public class Esame {
 	@SuppressWarnings("unused")
 	private void setId(Long id) {
 		this.id = id;
+	}
+	
+	public void setDataEsame(Date dataEsame) {
+		this.dataEsame = dataEsame;
+	}
+	
+	public Date getDataEsame() {
+		return this.dataEsame;
+	}
+	
+	public void setAuleEsame(String auleEsame) {
+		this.auleEsame = auleEsame;
+	}
+	
+	public String getAuleEsame() {
+		return this.auleEsame;
 	}
 
 	public Long getId() {
@@ -52,5 +71,12 @@ public class Esame {
  	
  	public String getStatus() {
  		return this.status;
+ 	}
+ 	
+ 	public Boolean isDisponibile() {
+ 		if( this.getDataInizioPeriodoPrenotazione().before(new Date()) && this.getDataFinePeriodoPrenotazione().after(new Date()) ) {
+ 			return true;
+ 		}
+ 		return false;
  	}
 }

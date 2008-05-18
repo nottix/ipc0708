@@ -45,44 +45,7 @@ public class Test {
 			sqlDAO.createAndStoreAccount(data);
 		} catch(Exception e) {}
 	}
-	
-	public static Long insertTestInfoEsame(Long idEsame) {
-		Long id = null;
-		System.err.println("ID ESAMEEEEEEEEEEEEEEEEEEEEEEE: " + idEsame);
-		SQLDAO sqlDAO = new SQLDAO();
-		Hashtable<String, Object> data = new Hashtable<String, Object>();
-		data.put("dataEsame", new Date());
-		data.put("aulaEsame", "Aula 1");
-		data.put("idEsame", idEsame);
-		try {
-			sqlDAO.createAndStoreInfoEsame(data);
-		} catch(Exception e) {}
-		data.clear();
-		data.put("dataEsame", new Date());
-		data.put("aulaEsame", "Aula 2");
-		data.put("idEsame", idEsame);
-		try {
-			id = sqlDAO.createAndStoreInfoEsame(data);
-		} catch(Exception e) {}
-		return id;
-	}
-	
-	public static void updateTestInfoEsame(Long idInfoEsame) {
-		boolean ret = false;
-		SQLDAO sqlDAO = new SQLDAO();
-		System.err.println("ID INFO ESAME: " + idInfoEsame);
-		Hashtable<String, Object> data = new Hashtable<String, Object>();
-		data.put("aulaEsame", "Aula 3");
-		try {
-			ret = sqlDAO.updateInfoEsame(idInfoEsame, data);
-		} catch (Exception e) {}
-		if(ret == true) {
-			System.out.println("update ok");
-		} else {
-			System.out.println("update no");
-		}
-	}
-	
+
 	public static Long insertTestEsame() {
 		Long id = null;
 		SQLDAO sqlDAO = new SQLDAO();
@@ -90,6 +53,8 @@ public class Test {
 		data.put("dataInizioPeriodoPrenotazione", new Date());
 		data.put("dataFinePeriodoPrenotazione", new Date());
 		data.put("idCorso", Long.valueOf(1));
+		data.put("dataEsame", new Date());
+		data.put("auleEsame", "ksjkwj");
 		try {
 			id = sqlDAO.createAndStoreEsame(data);
 		} catch (Exception e) {}
@@ -122,7 +87,7 @@ public class Test {
 			System.err.println("NOOOOOOOOOOOOOOOOO");
 	}
 	
-	public static void selectInfoEsame() {
+	/*public static void selectInfoEsame() {
 		SQLDAO sqlDAO = new SQLDAO();
 		String table = "InfoEsame";
 		String suffix = "ie";
@@ -135,7 +100,7 @@ public class Test {
 			InfoEsame ie = (InfoEsame) lie.get(i);
 			System.err.println(ie.getIdEsame() + "\t" + ie.getAulaEsame() + "\t" + ie.getDataEsame());
 		}
-	}
+	}*/
 	
 	public static void main(String []args) {
 		insertTestAccount();

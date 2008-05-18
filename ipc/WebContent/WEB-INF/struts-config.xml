@@ -52,6 +52,14 @@
 		</form-bean>
 		<form-bean name="visualizzaAccountForm" type="ipc.forms.VisualizzaAccountForm">
 		</form-bean>
+		<form-bean name="iscrizioneCorsoForm" type="ipc.forms.IscrizioneCorsoForm">
+		</form-bean>
+		<form-bean name="prenotazioneEsameElencoCorsi" type="ipc.forms.PrenotazioneEsameElencoCorsi">
+		</form-bean>
+		<form-bean name="prenotazioneEsameElencoForm" type="ipc.forms.PrenotazioneEsameElencoForm">
+		</form-bean>
+		<form-bean name="prenotazioneEsameForm" type="ipc.forms.PrenotazioneEsameForm">
+		</form-bean>
 	</form-beans>
 
 	<!-- Eccezioni globali -->
@@ -179,6 +187,44 @@
 			<forward name="success" path="/visualizzaAccount.jsp">
 			</forward>
 			<forward name="error" path="/VisualizzaAccountElenco.do">
+			</forward>
+		</action>
+		<action path="/IscrizioneCorsoElenco" type="ipc.actions.IscrizioneCorsoElencoAction">
+			<forward name="init" path="/iscrizioneCorsoElenco.jsp">
+			</forward>
+			<forward name="error" path="/homeStudente.jsp">
+			</forward>
+		</action>
+		<action path="/PrenotazioneEsameElencoCorsi" type="ipc.actions.PrenotazioneEsameElencoCorsiAction">
+			<forward name="init" path="/prenotazioneEsameElencoCorsi.jsp">
+			</forward>
+			<forward name="error" path="/homeStudente.jsp">
+			</forward>
+		</action>
+		<action path="/IscrizioneCorso" type="ipc.actions.IscrizioneCorsoAction" name="iscrizioneCorsoForm" scope="request" input="/iscrizioneCorsoElenco.jsp">
+			<forward name="main" path="/homeStudente.jsp">
+			</forward>
+			<forward name="success" path="/homeStudente.jsp">
+			</forward>
+		</action>
+		<action path="/PrenotazioneEsameElenco" type="ipc.actions.PrenotazioneEsameElencoAction" scope="request" input="/prenotazioneEsameElencoCorsi.jsp" name="prenotazioneEsameElencoForm">
+			<forward name="success" path="/prenotazioneEsameElenco.jsp">
+			</forward>
+			<forward name="main" path="/homeStudente.jsp">
+			</forward>
+			<forward name="error" path="/PrenotazioneEsameElencoCorsi.do">
+			</forward>
+		</action>
+		<action path="/PrenotazioneEsame" type="ipc.actions.PrenotazioneEsameAction" name="prenotazioneEsameForm" scope="request">
+			<forward name="success" path="/prenotazioneEsame.jsp">
+			</forward>
+			<forward name="error" path="/prenotazioneEsameElenco.jsp">
+			</forward>
+		</action>
+		<action path="/PrenotazioneEsameDone" type="ipc.actions.PrenotazioneEsameDoneAction" name="prenotazioneEsameForm" scope="request" input="/prenotazioneEsame.jsp">
+			<forward name="success" path="/homeStudente.jsp">
+			</forward>
+			<forward name="error" path="/prenotazioneEsame.jsp">
 			</forward>
 		</action>
 	</action-mappings>

@@ -7,45 +7,45 @@
 <html:html>
 <head>
 <link rel="stylesheet" href="theme/Master.css" type="text/css">
-<title>modificaAccountStudenteSelezionato</title>
+<title>prenotazioneEsame</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
 	<jsp:include page="sessionLogin.jsp" flush="false"></jsp:include>
-	<center><h1>Modifica Account Studente</h1></center>
-	<html:form action="/ModAccStud">
-	<logic:present name="account">
-	<center><table border="1">
+	<center>
+		<h1>Prenotazione Esame</h1>
+		<html:form action="/PrenotazioneEsameDone">
+	<table border="1">
 		<tbody>
 			<tr>
-				<td>Nome:</td>
-				<td><html:text property="nome"><bean:write name="account" property="nome"/></html:text></td>
+				<td>Data apertura:</td>
+				<td><html:text property="dataInizioPeriodoPrenotazione"></html:text></td>
 			</tr>
 			<tr>
-				<td>Cognome:</td>
-				<td><html:text property="cognome"><bean:write name="account" property="cognome"/></html:text></td>
+				<td>Data chiusura:</td>
+				<td><html:text property="dataFinePeriodoPrenotazione"></html:text></td>
 			</tr>
 			<tr>
-				<td>Matricola:</td>
-				<td><html:text property="matricola"><bean:write name="account" property="matricola"/></html:text></td>
+				<td>Data:</td>
+				<td><html:text property="dataEsame"></html:text></td>
 			</tr>
 			<tr>
-				<td>Email:</td>
-				<td><html:text property="email" readonly="true"><bean:write name="account" property="email"/></html:text></td>
+				<td>Aule:</td>
+				<td><html:text property="auleEsame"></html:text></td>
 			</tr>
 			<tr>
-				<td>Note:</td>
-				<td><html:textarea property="note"><bean:write name="account" property="noteStud"/></html:textarea></td>
-			</tr>
+				<td colspan="2"><html:errors /></td></tr>
 			<tr>
 				<td><html:reset></html:reset></td>
 				<td><html:submit></html:submit></td>
 			</tr>
 		</tbody>
-	</table></center>
-	</logic:present>
-	</html:form>
-
+	</table>
+	<logic:present name="idEsame">
+        
+		</logic:present>
+		</html:form>
+	</center>
 </body>
 </html:html>

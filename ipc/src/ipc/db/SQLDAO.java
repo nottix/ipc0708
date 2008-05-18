@@ -10,7 +10,6 @@ import ipc.entity.Account;
 import ipc.entity.Corso;
 import ipc.entity.Esame;
 import ipc.entity.Gruppo;
-import ipc.entity.InfoEsame;
 import ipc.entity.IscrizioneCorso;
 import ipc.entity.PrenotazioneEsame;
 import ipc.entity.Progetto;
@@ -31,6 +30,21 @@ public class SQLDAO {
         System.out.println("query");
         if(q.uniqueResult()!=null) {
         	result = (Account) q.uniqueResult();
+        }
+        session.getTransaction().commit();
+        /*Si deve controllare se result è null*/
+        return result;
+	}
+	
+	public Esame getEsame(Long id) throws Exception {
+		Session session = DAOFactory.getSessionFactory().getCurrentSession();
+		Esame result = null;
+        session.beginTransaction();
+        Query q = session.createQuery("from Esame a where a.id = :id");
+        q.setParameter("id", id, Hibernate.LONG);
+        System.out.println("query esame");
+        if(q.uniqueResult()!=null) {
+        	result = (Esame) q.uniqueResult();
         }
         session.getTransaction().commit();
         /*Si deve controllare se result è null*/
@@ -224,48 +238,6 @@ public class SQLDAO {
     }
 	
 	@SuppressWarnings("unchecked")
-	public List<InfoEsame> listInfoEsame() throws Exception {
-        Session session = DAOFactory.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        List<InfoEsame> result = session.createQuery("from InfoEsame").list();
-        session.getTransaction().commit();
-        return result;
-    }
-	
-	private InfoEsame hashToInfoEsame(InfoEsame examInfo, Hashtable data) {
-		if(examInfo == null)
-			examInfo = new InfoEsame();
-		if(data.get("idEsame") != null)
-			examInfo.setIdEsame((Long) data.get("idEsame")); 
-		if(data.get("dataEsame") != null)
-			examInfo.setDataEsame((Date) data.get("dataEsame"));
-		if(data.get("aulaEsame") != null)
-			examInfo.setAulaEsame((String) data.get("aulaEsame"));
-		if(data.get("status") != null)
-	        examInfo.setStatus((String) data.get("status"));
-		return examInfo;
-	}
-	
-	public Long createAndStoreInfoEsame(Hashtable data) throws Exception {
-		InfoEsame examInfo = this.hashToInfoEsame(null, data);
-		Session session = DAOFactory.getSessionFactory().getCurrentSession();
-        session.beginTransaction();
-        session.save(examInfo);
-        session.getTransaction().commit();
-        return examInfo.getId();
-	}
-	
-	public boolean updateInfoEsame(Long idInfoEsame, Hashtable data) throws Exception {
-		Session session = DAOFactory.getSessionFactory().getCurrentSession();
-        Transaction tx = session.beginTransaction();
-        InfoEsame examInfo = (InfoEsame) session.load(InfoEsame.class, idInfoEsame);
-        examInfo = this.hashToInfoEsame(examInfo, data);
-        session.update(examInfo);
-        tx.commit();
-        return tx.wasCommitted();
-	}
-	
-	@SuppressWarnings("unchecked")
 	public List<Esame> listEsame() throws Exception {
         Session session = DAOFactory.getSessionFactory().getCurrentSession();
         session.beginTransaction();
@@ -283,6 +255,10 @@ public class SQLDAO {
         	anExam.setDataInizioPeriodoPrenotazione((Date) data.get("dataInizioPeriodoPrenotazione"));
         if(data.get("dataFinePeriodoPrenotazione") != null)
         	anExam.setDataFinePeriodoPrenotazione((Date) data.get("dataFinePeriodoPrenotazione"));
+        if(data.get("dataEsame") != null)
+        	anExam.setDataEsame((Date) data.get("dataEsame"));
+        if(data.get("auleEsame") != null)
+	        anExam.setAuleEsame((String) data.get("auleEsame"));
         if(data.get("status") != null)
 	        anExam.setStatus((String) data.get("status"));
 	    return anExam;

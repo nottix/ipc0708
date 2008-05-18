@@ -60,15 +60,18 @@ public class CreazioneCorsoController {
 		if(aCourse != null)
 			return false;
 		
+		Iterator i;
 		HashSet col = new HashSet();
 		HashSet elenco = (HashSet)data.get("elencoCollaboratori");
-		Iterator i = elenco.iterator();
-		while(i.hasNext()) {
-			String val = (String)i.next();
-			System.out.println("list: "+val);
-			col.add(sqlDAO.getAccount(val));
+		if(elenco!=null) {
+			i = elenco.iterator();
+			while(i.hasNext()) {
+				String val = (String)i.next();
+				System.out.println("list: "+val);
+				col.add(sqlDAO.getAccount(val));
+			}
+			data.put("elencoCollaboratori", col);
 		}
-		data.put("elencoCollaboratori", col);
 		
 		col = new HashSet();
 		elenco = (HashSet)data.get("elencoTitolari");
@@ -81,6 +84,8 @@ public class CreazioneCorsoController {
 			col.add(sqlDAO.getAccount(val));
 		}
 		data.put("elencoTitolari", col);
+		
+		data.put("status", "attivo");
 		
 		sqlDAO.createAndStoreCorso(data);
 		return true;

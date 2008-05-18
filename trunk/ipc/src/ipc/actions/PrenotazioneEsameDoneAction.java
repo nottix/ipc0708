@@ -8,16 +8,16 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import javax.servlet.http.*;
 import ipc.control.*;
-import ipc.forms.*;
+import ipc.entity.*;
 import java.util.*;
-import java.text.*;
 
 /**
  * @version 	1.0
  * @author
  */
-public class CreazioneEsameDoneAction extends Action
+public class PrenotazioneEsameDoneAction extends Action
 
 {
 
@@ -26,32 +26,27 @@ public class CreazioneEsameDoneAction extends Action
 
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value
-        GestioneCorsoController cont = new GestioneCorsoController();
-        CreazioneEsameForm cForm = (CreazioneEsameForm)form;
+        GestioneStudenteController control = new GestioneStudenteController();
         
         try {
 
-        	Hashtable<String, Object> data = new Hashtable<String, Object>();
-            data.put("acronimo", cForm.getAcronimo());
-            data.put("dataInizioPeriodoPrenotazione", new SimpleDateFormat("MM/dd/yy").parse(cForm.getDataInizio()));
-            data.put("dataFinePeriodoPrenotazione", new SimpleDateFormat("MM/dd/yy").parse(cForm.getDataFine()));
-            data.put("dataEsame", new SimpleDateFormat("MM/dd/yy").parse(cForm.getDataEsame()));
-        	data.put("auleEsame", cForm.getAule());
-        	System.out.println("aulaEsame: "+cForm.getAule());
-            if(cont.creazioneEsame(data)) {
-            	errors.add("name", new ActionError("esame.created"));
+        	HttpSession session = request.getSession();
+            Hashtable<String, Object> data = new Hashtable<String, Object>();
+            data.put("idStudente", session.getAttribute("email"));
+            data.put("idEsame", Long.valueOf((String)session.getAttribute("idEsame")));
+            
+            if(control.prenotazioneEsame(data)) {
+            	session.removeAttribute("idEsame");
+            	session.removeAttribute("idCorso");
             }
             else
-            	errors.add("name", new ActionError("esame.ncreated"));
-            
-            //data.put("dataEsame", new Date());
-    		//data.put("aulaEsame", "Aula 1");
-    		//data.put("idEsame", idEsame);
+            	errors.add("name", new ActionError("generic.error"));
+            	
 
         } catch (Exception e) {
 
             // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("esame.ncreated"));
+            errors.add("name", new ActionError("id"));
 
         }
 
@@ -62,9 +57,13 @@ public class CreazioneEsameDoneAction extends Action
             saveErrors(request, errors);
 
             // Forward control to the appropriate 'failure' URI (change name as desired)
-            //	forward = mapping.findForward(non riuscito");
+            forward = mapping.findForward("error");
 
+        } else {
+
+            // Forward control to the appropriate 'success' URI (change name as desired)
             forward = mapping.findForward("success");
+
         }
 
         // Finish with

@@ -27,7 +27,6 @@
         <mapping resource="ipc/entity/Corso.hbm.xml"/>
     	<mapping resource="ipc/entity/Esame.hbm.xml"/>
     	<mapping resource="ipc/entity/Gruppo.hbm.xml"/>
-    	<mapping resource="ipc/entity/InfoEsame.hbm.xml"/>
     	<mapping resource="ipc/entity/IscrizioneCorso.hbm.xml"/>
     	<mapping resource="ipc/entity/PrenotazioneEsame.hbm.xml"/>
     	<mapping resource="ipc/entity/Progetto.hbm.xml"/>

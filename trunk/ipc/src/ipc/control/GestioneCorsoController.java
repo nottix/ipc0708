@@ -34,9 +34,9 @@ public class GestioneCorsoController {
 			Long idCorso = sqlDao.getCorso(acronimo).getId();
 			System.out.println("ID CORSO: "+idCorso);
 			data.put("idCorso", idCorso);
+			data.put("status", "attivo");
 			Long id = sqlDao.createAndStoreEsame(data);
-			data.put("idEsame", id);
-			sqlDao.createAndStoreInfoEsame(data);
+			//sqlDao.createAndStoreInfoEsame(data);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();

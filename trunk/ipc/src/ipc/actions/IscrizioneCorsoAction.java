@@ -2,6 +2,8 @@ package ipc.actions;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
@@ -9,15 +11,14 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import ipc.control.*;
-import ipc.forms.*;
+import ipc.entity.*;
 import java.util.*;
-import java.text.*;
 
 /**
  * @version 	1.0
  * @author
  */
-public class CreazioneEsameDoneAction extends Action
+public class IscrizioneCorsoAction extends Action
 
 {
 
@@ -26,32 +27,39 @@ public class CreazioneEsameDoneAction extends Action
 
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value
-        GestioneCorsoController cont = new GestioneCorsoController();
-        CreazioneEsameForm cForm = (CreazioneEsameForm)form;
-        
+        GestioneStudenteController control = new GestioneStudenteController();
+
         try {
-
+        	if (isCancelled(request)) {
+        		return mapping.findForward("main");
+        	}
+        	HttpSession session = request.getSession(false);
+        	String idStudente = null;
+        	if(session != null) {
+        		idStudente = (String)session.getAttribute("email");
+        	}
         	Hashtable<String, Object> data = new Hashtable<String, Object>();
-            data.put("acronimo", cForm.getAcronimo());
-            data.put("dataInizioPeriodoPrenotazione", new SimpleDateFormat("MM/dd/yy").parse(cForm.getDataInizio()));
-            data.put("dataFinePeriodoPrenotazione", new SimpleDateFormat("MM/dd/yy").parse(cForm.getDataFine()));
-            data.put("dataEsame", new SimpleDateFormat("MM/dd/yy").parse(cForm.getDataEsame()));
-        	data.put("auleEsame", cForm.getAule());
-        	System.out.println("aulaEsame: "+cForm.getAule());
-            if(cont.creazioneEsame(data)) {
-            	errors.add("name", new ActionError("esame.created"));
-            }
-            else
-            	errors.add("name", new ActionError("esame.ncreated"));
-            
-            //data.put("dataEsame", new Date());
-    		//data.put("aulaEsame", "Aula 1");
-    		//data.put("idEsame", idEsame);
-
-        } catch (Exception e) {
+        	data.put("idStudente", idStudente);
+        	data.put("dataIscrizione", new Date());
+        	
+        	Enumeration en = request.getParameterNames();
+        	while(en.hasMoreElements()) {
+        		String name = (String)en.nextElement();
+        		if(name.equals("radio")) {
+        			System.out.println("request: "+request.getParameter(name));
+        			String acronimo = request.getParameter(name);
+        			data.put("acronimo", acronimo);
+        			if(control.iscrizioneCorso(data))
+        				errors.add("name", new ActionError("iscrizioneCorso.created"));
+        			else
+        				errors.add("name", new ActionError("iscrizioneCorso.ncreated"));
+        		}
+        	}
+        }
+        catch (Exception e) {
 
             // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("esame.ncreated"));
+            errors.add("name", new ActionError("iscrizioneCorso.ncreated"));
 
         }
 
@@ -62,9 +70,8 @@ public class CreazioneEsameDoneAction extends Action
             saveErrors(request, errors);
 
             // Forward control to the appropriate 'failure' URI (change name as desired)
-            //	forward = mapping.findForward(non riuscito");
-
             forward = mapping.findForward("success");
+
         }
 
         // Finish with

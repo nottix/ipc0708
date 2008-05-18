@@ -12,31 +12,22 @@
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
-<logic:notPresent name="email" scope="session">
-	<logic:redirect page="/login.jsp" />
-</logic:notPresent>
 <jsp:include page="sessionLogin.jsp" flush="false"></jsp:include>
 <center>
+<h1>Home Studente</h1>
 <table border="1">
 	<tbody>
 		<tr>
-			<td align="center"><html:button property="iscrizioneCorso">Iscrizione Corso
-			</html:button></td>
-			<td align="center"><html:button property="iscrizioneEsame">Iscrizione Esame
-			</html:button></td>
+			<td align="center"><html:link action="/IscrizioneCorsoElenco">Iscrizione Corso</html:link></td>
+			<td align="center"><html:link action="/PrenotazioneEsameElencoCorsi">Prenotazione Esame</html:link></td>
 		</tr>
 		<tr>
-			<td align="center">
-				<html:button property="listaCorsi">Lista Corsi</html:button>
-			</td>
-			<td align="center">
-				<html:button property="listaEsami">Lista Esami</html:button>
+			<td colspan="2">
+				<html:errors/>
 			</td>
 		</tr>
 	</tbody>
 </table>
 </center>
-<p><br>Il frame + dinamico del mondo!
-</p>
 </body>
 </html:html>

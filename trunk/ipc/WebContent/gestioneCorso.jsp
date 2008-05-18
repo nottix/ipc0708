@@ -16,7 +16,7 @@
 <center>
 		<h1>Gestione Corso</h1>
 		<logic:present name="acronimo">
-		<h3>Corso: <bean:write name="acronimo"/></h1>
+		<h3>Corso: <bean:write name="acronimo"/></h3>
 		<table border="1">
 			<tbody>
 				<tr>

@@ -1,4 +1,4 @@
-#Fri May 16 22:05:32 CEST 2008
+#Sun May 18 17:43:54 CEST 2008
 eclipse.preferences.version=1
 encoding//WebContent/attivazioneAccountStudente.jsp=ISO-8859-1
 encoding//WebContent/creazioneAccountGestore.jsp=ISO-8859-1
@@ -13,8 +13,12 @@ encoding//WebContent/gestioneEsame.jsp=ISO-8859-1
 encoding//WebContent/gestioneEsameElenco.jsp=ISO-8859-1
 encoding//WebContent/homeProfessore.jsp=ISO-8859-1
 encoding//WebContent/homeStudente.jsp=ISO-8859-1
+encoding//WebContent/iscrizioneCorsoElenco.jsp=ISO-8859-1
 encoding//WebContent/login.jsp=ISO-8859-1
 encoding//WebContent/modificaAccountStudenteSelezionato.jsp=ISO-8859-1
+encoding//WebContent/prenotazioneEsame.jsp=ISO-8859-1
+encoding//WebContent/prenotazioneEsameElenco.jsp=ISO-8859-1
+encoding//WebContent/prenotazioneEsameElencoCorsi.jsp=ISO-8859-1
 encoding//WebContent/richiestaRegStudente.jsp=ISO-8859-1
 encoding//WebContent/ripristinaPasswordAccount.jsp=ISO-8859-1
 encoding//WebContent/sessionLogin.jsp=ISO-8859-1

@@ -112,4 +112,11 @@ public class Corso {
  		return this.status;
  	}
  	
+ 	public Boolean isDisponibile() {
+ 		if( this.getDataApertura().before(new Date()) && this.getDataChiusura().after(new Date()) ) {
+ 			return true;
+ 		}
+ 		return false;
+ 	}
+ 	
 }

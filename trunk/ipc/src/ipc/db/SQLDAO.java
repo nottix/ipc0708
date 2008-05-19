@@ -51,6 +51,36 @@ public class SQLDAO {
         return result;
 	}
 	
+	public IscrizioneCorso getIscrizioneCorso(Long id) throws Exception {
+		Session session = DAOFactory.getSessionFactory().getCurrentSession();
+		IscrizioneCorso result = null;
+        session.beginTransaction();
+        Query q = session.createQuery("from IscrizioneCorso a where a.id = :id");
+        q.setParameter("id", id, Hibernate.LONG);
+        System.out.println("query iscrizioneCorso");
+        if(q.uniqueResult()!=null) {
+        	result = (IscrizioneCorso) q.uniqueResult();
+        }
+        session.getTransaction().commit();
+        /*Si deve controllare se result è null*/
+        return result;
+	}
+	
+	public PrenotazioneEsame getPrenotazioneEsame(Long id) throws Exception {
+		Session session = DAOFactory.getSessionFactory().getCurrentSession();
+		PrenotazioneEsame result = null;
+        session.beginTransaction();
+        Query q = session.createQuery("from PrenotazioneEsame a where a.id = :id");
+        q.setParameter("id", id, Hibernate.LONG);
+        System.out.println("query PrenotazioneEsame");
+        if(q.uniqueResult()!=null) {
+        	result = (PrenotazioneEsame) q.uniqueResult();
+        }
+        session.getTransaction().commit();
+        /*Si deve controllare se result è null*/
+        return result;
+	}
+	
 	public String creazioneProfessore(Hashtable data) throws Exception {
 		Account test = null;
 		String ret = "";

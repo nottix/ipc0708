@@ -7,27 +7,29 @@
 <html:html>
 <head>
 <link rel="stylesheet" href="theme/Master.css" type="text/css">
-<title>confermaIscrizioneCorsoElenco</title>
+<title>confermaPrenotazioneEsameElenco</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
-<html:form action="/ConfermaIscrizioneCorso">
-		<logic:present name="elencoIscrizioniCorso">
+<html:form action="/ConfermaPrenotazioneEsame">
+		<logic:present name="elencoPrenotazioniEsami">
          			<table border="0" cellspacing="1" cellpadding="1" align="center" width="70%" style="border-collapse:collapse;">
          				<tr bgcolor="#98AFCC">
          					<th>N°</th>
             				<th>Email</th>
-            				<th>Data iscrizione</th>
+            				<th>Data esame</th>
+							<th>Data prenotazione</th>
 	    				</tr>
 	    				<%boolean even = false; %>
 	    				<%int counter = 1; %>
-	    				<logic:iterate id="user" name="elencoIscrizioniCorso">
+	    				<logic:iterate id="user" name="elencoPrenotazioniEsami">
 	    				<% even = !even; %>
 	    				<tr bgcolor="<%=even?"#B7D3F5":"#D6E0F5" %>">
 	    					<td><%=counter++%></td>
 	    					<td><bean:write name="user" property="idStudente" /></td>
-    						<td><bean:write name="user" property="dataIscrizione" /></td>
+    						<td><bean:write name="user" property="dataEsame" /></td>
+    						<td><bean:write name="user" property="dataPrenotazione" /></td>
     						<td>
     							<input type="radio" name="radio" value='<bean:write name="user" property="id" />'  /> 
     						</td>

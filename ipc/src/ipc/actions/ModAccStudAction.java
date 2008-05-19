@@ -2,9 +2,9 @@ package ipc.actions;
 
 import java.util.Hashtable;
 
-import ipc.entity.Account;
 import ipc.forms.ModificaAccountStudenteForm;
-import ipc.control.*;
+import ipc.control.GestioneAccountController;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.Action;
@@ -22,8 +22,11 @@ public class ModAccStudAction extends Action
 
 {
 
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public ActionForward execute(ActionMapping mapping, 
+    							 ActionForm form,
+    							 HttpServletRequest request,
+    							 HttpServletResponse response)
+            					throws Exception {
 
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value
@@ -31,20 +34,16 @@ public class ModAccStudAction extends Action
         ModificaAccountStudenteForm modAcc = (ModificaAccountStudenteForm)form;
         
         try {
-
-        	Hashtable hash = new Hashtable<String, Object>();
+        	Hashtable<String, Object> hash = new Hashtable<String, Object>();
         	hash.put("nome", modAcc.getNome());
         	hash.put("cognome", modAcc.getCognome());
         	hash.put("matricola", modAcc.getMatricola());
         	hash.put("noteStud", modAcc.getNote());
     		if(!gestioneAccountController.modificaAccountStudente(modAcc.getEmail(), hash))
     			errors.add("name", new ActionError("id"));;
-
         } catch (Exception e) {
-
             // Report the error using the appropriate name and ID.
             errors.add("name", new ActionError("id"));
-
         }
 
         // If a message is required, save the specified key(s)

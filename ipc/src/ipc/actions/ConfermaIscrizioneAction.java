@@ -1,7 +1,5 @@
 package ipc.actions;
 
-import ipc.forms.GestioneCorsoForm;
-
 import java.util.Enumeration;
 
 import javax.servlet.http.*;

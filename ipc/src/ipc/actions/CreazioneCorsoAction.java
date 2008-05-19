@@ -18,9 +18,7 @@ import java.text.*;
  * @version 	1.0
  * @author
  */
-public class CreazioneCorsoAction extends Action
-
-{
+public class CreazioneCorsoAction extends Action {
 
 	private List<Account> elencoProfessori = null;
 	
@@ -28,15 +26,18 @@ public class CreazioneCorsoAction extends Action
 		return this.elencoProfessori;
 	}
 	
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public ActionForward execute(ActionMapping mapping, 
+    							 ActionForm form, 
+    							 HttpServletRequest request, 
+    							 HttpServletResponse response)
+            					throws Exception {
 
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value
         CreazioneCorsoController creazioneCorsoController = new CreazioneCorsoController();
-        Hashtable data;
-        HashSet collaboratori = new HashSet();
-        HashSet titolari = new HashSet();
+        Hashtable<String, Object> data = null;
+        HashSet<String> collaboratori = new HashSet<String>();
+        HashSet<String> titolari = new HashSet<String>();
         CreazioneCorsoForm creazioneCorsoForm = (CreazioneCorsoForm)form;
         
         try {
@@ -49,7 +50,7 @@ public class CreazioneCorsoAction extends Action
         		System.out.println("param: "+name);
         		if (request.getParameter(name) != null && request.getParameter(name).trim().equals("on")) {
         			System.out.println(name+" e' stato checkato");
-        			String value = request.getParameter(name);
+        			//String value = request.getParameter(name);
         			System.out.println("titolare"+titolareCounter+": "+name.substring(name.indexOf("-")+1));
         			if(name.indexOf("titolare")>=0) {
         				System.out.println("ok");

@@ -1,7 +1,5 @@
 package ipc.actions;
 
-import ipc.forms.GestioneEsameForm;
-
 import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,12 +15,13 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class GestioneEsameAction extends Action
+public class GestioneEsameAction extends Action {
 
-{
-
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public ActionForward execute(ActionMapping mapping, 
+    							 ActionForm form,
+    							 HttpServletRequest request, 
+    							 HttpServletResponse response)
+    							throws Exception {
 
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value

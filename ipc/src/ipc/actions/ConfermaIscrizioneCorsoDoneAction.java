@@ -1,28 +1,24 @@
 package ipc.actions;
 
-import javax.servlet.http.*;
+import ipc.forms.ConfermaIscrizioneCorsoForm;
+import ipc.control.ConfermaIscrizioneController;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import ipc.control.*;
-import ipc.entity.*;
-import java.util.*;
 
-import ipc.forms.*;
-
-/**
- * @version 	1.0
- * @author
- */
-public class ConfermaIscrizioneCorsoDoneAction extends Action
-
-{
-
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+public class ConfermaIscrizioneCorsoDoneAction extends Action {
+    public ActionForward execute(ActionMapping mapping, 
+    		                     ActionForm form, 
+    		                     HttpServletRequest request, 
+    		                     HttpServletResponse response)
+            					throws Exception {
 
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value

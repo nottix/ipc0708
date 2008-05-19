@@ -1,5 +1,10 @@
 package ipc.actions;
 
+import ipc.control.GestioneStudenteController;
+
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.Hashtable;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,20 +15,14 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import ipc.control.*;
-import ipc.entity.*;
-import java.util.*;
 
-/**
- * @version 	1.0
- * @author
- */
-public class IscrizioneCorsoAction extends Action
+public class IscrizioneCorsoAction extends Action {
 
-{
-
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public ActionForward execute(ActionMapping mapping, 
+    							 ActionForm form,
+    							 HttpServletRequest request,
+    							 HttpServletResponse response)
+            					throws Exception {
 
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value

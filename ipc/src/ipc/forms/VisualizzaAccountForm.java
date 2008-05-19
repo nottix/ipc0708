@@ -2,6 +2,7 @@ package ipc.forms;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
@@ -18,11 +19,11 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class VisualizzaAccountForm extends ActionForm
+public class VisualizzaAccountForm extends ActionForm {
+	
+	private static final long serialVersionUID = 6L;
 
-{
-
-    private String nome = null;
+	private String nome = null;
 
     private String cognome = null;
 
@@ -57,7 +58,7 @@ public class VisualizzaAccountForm extends ActionForm
      * @return String
      */
     public String getNome() {
-	return nome;
+    	return nome;
     }
 
     /**
@@ -65,7 +66,7 @@ public class VisualizzaAccountForm extends ActionForm
      * @param <code>String</code>
      */
     public void setNome(String n) {
-	this.nome = n;
+    	this.nome = n;
     }
 
     /**
@@ -73,7 +74,7 @@ public class VisualizzaAccountForm extends ActionForm
      * @return String
      */
     public String getCognome() {
-	return cognome;
+    	return cognome;
     }
 
     /**
@@ -81,7 +82,7 @@ public class VisualizzaAccountForm extends ActionForm
      * @param <code>String</code>
      */
     public void setCognome(String c) {
-	this.cognome = c;
+    	this.cognome = c;
     }
 
     /**
@@ -89,7 +90,7 @@ public class VisualizzaAccountForm extends ActionForm
      * @return String
      */
     public String getMatricola() {
-	return matricola;
+    	return matricola;
     }
 
     /**
@@ -97,7 +98,7 @@ public class VisualizzaAccountForm extends ActionForm
      * @param <code>String</code>
      */
     public void setMatricola(String m) {
-	this.matricola = m;
+    	this.matricola = m;
     }
 
     /**
@@ -105,7 +106,7 @@ public class VisualizzaAccountForm extends ActionForm
      * @return String
      */
     public String getNote() {
-	return note;
+    	return note;
     }
 
     /**
@@ -113,7 +114,7 @@ public class VisualizzaAccountForm extends ActionForm
      * @param <code>String</code>
      */
     public void setNote(String n) {
-	this.note = n;
+    	this.note = n;
     }
 
     /**
@@ -121,7 +122,7 @@ public class VisualizzaAccountForm extends ActionForm
      * @return String
      */
     public String getEmail() {
-	return email;
+    	return email;
     }
 
     /**
@@ -129,32 +130,33 @@ public class VisualizzaAccountForm extends ActionForm
      * @param <code>String</code>
      */
     public void setEmail(String e) {
-	this.email = e;
+    	this.email = e;
     }
 
     public void reset(ActionMapping mapping, HttpServletRequest request) {
-
-	// Reset values are provided as samples only. Change as appropriate.
-
-	nome = null;
-	cognome = null;
-	matricola = null;
-	note = null;
-	email = null;
-
+    	// Reset values are provided as samples only. Change as appropriate.
+    	nome = null;
+    	cognome = null;
+    	matricola = null;
+    	note = null;
+    	email = null;
     }
 
     public ActionErrors validate(ActionMapping mapping,
-	    HttpServletRequest request) {
+    							 HttpServletRequest request) {
 
-	ActionErrors errors = new ActionErrors();
-	// Validate the fields in your form, adding
-	// adding each error to this.errors as found, e.g.
-
-	// if ((field == null) || (field.length() == 0)) {
-	//   errors.add("field", new org.apache.struts.action.ActionError("error.field.required"));
-	// }
-	return errors;
+    	ActionErrors errors = new ActionErrors();
+    	if((nome == null) || (nome.length() == 0))
+    		errors.add("nome", new ActionError("nome.error"));
+    	if((cognome == null) || (cognome.length() == 0))
+    		errors.add("cognome", new ActionError("cognome.error"));
+    	if((matricola == null) || (matricola.length() == 0))
+    		errors.add("matricola", new ActionError("matricola.error"));
+    	if((email == null) || (email.length() == 0))
+    		errors.add("email", new ActionError("email.error"));
+    	else if(!RichiestaRegStudenteForm.check_email(email))
+    		errors.add("email", new ActionError("email.malformed"));
+    	return errors;
 
     }
 }

@@ -18,7 +18,11 @@ public class gestioneCorsoElencoForm extends ActionForm
 
 {
 
-    private String radio = null;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 14L;
+	private String radio = null;
 
     /**
      * Get radio

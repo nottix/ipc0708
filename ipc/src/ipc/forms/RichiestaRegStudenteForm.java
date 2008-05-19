@@ -23,9 +23,7 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class RichiestaRegStudenteForm extends ActionForm
-
-{
+public class RichiestaRegStudenteForm extends ActionForm {
 
 	private static final long serialVersionUID = 2L;
 

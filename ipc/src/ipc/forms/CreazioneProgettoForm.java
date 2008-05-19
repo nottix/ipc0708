@@ -2,6 +2,7 @@ package ipc.forms;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
@@ -18,18 +19,13 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class CreazioneProgettoForm extends ActionForm
+public class CreazioneProgettoForm extends ActionForm {
+	private static final long serialVersionUID = 13L;
 
-{
-
-    private String acronimo = null;
-
+	private String acronimo = null;
     private String titolo = null;
-
     private String dataConsegna = null;
-
     private String maxUploadPerStudente = null;
-
     private String maxDimGruppo = null;
 
     /**
@@ -37,7 +33,7 @@ public class CreazioneProgettoForm extends ActionForm
      * @return String
      */
     public String getAcronimo() {
-	return acronimo;
+    	return acronimo;
     }
 
     /**
@@ -45,7 +41,7 @@ public class CreazioneProgettoForm extends ActionForm
      * @param <code>String</code>
      */
     public void setAcronimo(String a) {
-	this.acronimo = a;
+    	this.acronimo = a;
     }
 
     /**
@@ -53,7 +49,7 @@ public class CreazioneProgettoForm extends ActionForm
      * @return String
      */
     public String getTitolo() {
-	return titolo;
+    	return titolo;
     }
 
     /**
@@ -61,7 +57,7 @@ public class CreazioneProgettoForm extends ActionForm
      * @param <code>String</code>
      */
     public void setTitolo(String t) {
-	this.titolo = t;
+    	this.titolo = t;
     }
 
     /**
@@ -69,7 +65,7 @@ public class CreazioneProgettoForm extends ActionForm
      * @return String
      */
     public String getDataConsegna() {
-	return dataConsegna;
+    	return dataConsegna;
     }
 
     /**
@@ -77,7 +73,7 @@ public class CreazioneProgettoForm extends ActionForm
      * @param <code>String</code>
      */
     public void setDataConsegna(String d) {
-	this.dataConsegna = d;
+    	this.dataConsegna = d;
     }
 
     /**
@@ -85,7 +81,7 @@ public class CreazioneProgettoForm extends ActionForm
      * @return String
      */
     public String getMaxUploadPerStudente() {
-	return maxUploadPerStudente;
+    	return maxUploadPerStudente;
     }
 
     /**
@@ -93,7 +89,7 @@ public class CreazioneProgettoForm extends ActionForm
      * @param <code>String</code>
      */
     public void setMaxUploadPerStudente(String m) {
-	this.maxUploadPerStudente = m;
+    	this.maxUploadPerStudente = m;
     }
 
     /**
@@ -101,7 +97,7 @@ public class CreazioneProgettoForm extends ActionForm
      * @return String
      */
     public String getMaxDimGruppo() {
-	return maxDimGruppo;
+    	return maxDimGruppo;
     }
 
     /**
@@ -109,32 +105,32 @@ public class CreazioneProgettoForm extends ActionForm
      * @param <code>String</code>
      */
     public void setMaxDimGruppo(String m) {
-	this.maxDimGruppo = m;
+    	this.maxDimGruppo = m;
     }
 
     public void reset(ActionMapping mapping, HttpServletRequest request) {
-
-	// Reset values are provided as samples only. Change as appropriate.
-
-	acronimo = null;
-	titolo = null;
-	dataConsegna = null;
-	maxUploadPerStudente = null;
-	maxDimGruppo = null;
-
+		acronimo = null;
+		titolo = null;
+		dataConsegna = null;
+		maxUploadPerStudente = null;
+		maxDimGruppo = null;
     }
 
     public ActionErrors validate(ActionMapping mapping,
-	    HttpServletRequest request) {
+    							 HttpServletRequest request) {
 
-	ActionErrors errors = new ActionErrors();
-	// Validate the fields in your form, adding
-	// adding each error to this.errors as found, e.g.
-
-	// if ((field == null) || (field.length() == 0)) {
-	//   errors.add("field", new org.apache.struts.action.ActionError("error.field.required"));
-	// }
-	return errors;
+		ActionErrors errors = new ActionErrors();
+		if((acronimo == null) || (acronimo.length() == 0))
+			errors.add("acronimo", new ActionError("acronimo.error"));
+		if((titolo == null) || (titolo.length() == 0))
+			errors.add("titolo", new ActionError("titolo.error"));
+		
+		/**
+		 * TODO: E questi????
+		 * maxUploadPerStudente
+		 * maxDimGruppo
+		 */
+		return errors;
 
     }
 }

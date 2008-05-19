@@ -1,44 +1,57 @@
 package ipc.actions;
 
-import javax.servlet.http.*;
+import java.util.Enumeration;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import ipc.forms.*;
 import ipc.control.*;
 import ipc.entity.*;
-import java.util.*;
 
 /**
  * @version 	1.0
  * @author
  */
-public class ConfermaIscrizioneCorsoElencoAction extends Action
+public class ConfermaIscrizioneCorsoAction extends Action
 
 {
-	
-	private List<IscrizioneCorso> elencoIscrizioniCorso;
-	
-	public List<IscrizioneCorso> getElencoIscrizioniCorso() {
-		return this.elencoIscrizioniCorso;
-	}
 
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value
-        ConfermaIscrizioneController control = new ConfermaIscrizioneController();
 
         try {
-
-        	HttpSession session = request.getSession();
-            this.elencoIscrizioniCorso = control.getElencoIscrizioniCorso((String)session.getAttribute("acronimo"));
-            System.out.println("size iscr: "+this.elencoIscrizioniCorso.size());
-            request.setAttribute("elencoIscrizioniCorso", this.elencoIscrizioniCorso);
+        	if (isCancelled(request)) {
+        		return mapping.findForward("main");
+        	}
+        	Enumeration en = request.getParameterNames();
+        	while(en.hasMoreElements()) {
+        		String name = (String)en.nextElement();
+        		if(name.equals("radio")) {
+        			System.out.println("request: "+request.getParameter(name));
+        			String idIscrizioneCorso = request.getParameter(name);
+        			Long id = Long.valueOf(idIscrizioneCorso);
+        			HttpSession session = request.getSession();
+        			session.setAttribute("idIscrizioneCorso", id);
+        			
+        			ConfermaIscrizioneCorsoForm cForm = (ConfermaIscrizioneCorsoForm)form;
+        			ConfermaIscrizioneController control = new ConfermaIscrizioneController();
+	        		IscrizioneCorso iscr = control.getIscrizioneCorso(id);
+        			cForm.setEmail(iscr.getIdStudente());
+        			cForm.setDataIscrizione(iscr.getDataIscrizione().toString());
+        		}
+        	}
+            
 
         } catch (Exception e) {
 
@@ -59,7 +72,7 @@ public class ConfermaIscrizioneCorsoElencoAction extends Action
         } else {
 
             // Forward control to the appropriate 'success' URI (change name as desired)
-            forward = mapping.findForward("init");
+            forward = mapping.findForward("success");
 
         }
 

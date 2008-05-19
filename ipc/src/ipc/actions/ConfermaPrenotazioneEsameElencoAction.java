@@ -1,29 +1,32 @@
 package ipc.actions;
 
-import javax.servlet.http.*;
+import ipc.control.ConfermaIscrizioneController;
+import ipc.entity.*;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import ipc.control.*;
-import ipc.entity.*;
-import java.util.*;
 
 /**
  * @version 	1.0
  * @author
  */
-public class ConfermaIscrizioneCorsoElencoAction extends Action
+public class ConfermaPrenotazioneEsameElencoAction extends Action
 
 {
+private List<PrenotazioneEsame> elencoPrenotazioniEsami;
 	
-	private List<IscrizioneCorso> elencoIscrizioniCorso;
-	
-	public List<IscrizioneCorso> getElencoIscrizioniCorso() {
-		return this.elencoIscrizioniCorso;
+	public List<PrenotazioneEsame> getElencoPrenotazioniEsami() {
+		return this.elencoPrenotazioniEsami;
 	}
 
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
@@ -34,11 +37,11 @@ public class ConfermaIscrizioneCorsoElencoAction extends Action
         ConfermaIscrizioneController control = new ConfermaIscrizioneController();
 
         try {
-
+        	System.out.println("ssss");
         	HttpSession session = request.getSession();
-            this.elencoIscrizioniCorso = control.getElencoIscrizioniCorso((String)session.getAttribute("acronimo"));
-            System.out.println("size iscr: "+this.elencoIscrizioniCorso.size());
-            request.setAttribute("elencoIscrizioniCorso", this.elencoIscrizioniCorso);
+            this.elencoPrenotazioniEsami = control.getPrenotazioniEsame((String)session.getAttribute("acronimo"));
+            System.out.println("size pren: "+this.elencoPrenotazioniEsami.size());
+            request.setAttribute("elencoPrenotazioniEsami", this.elencoPrenotazioniEsami);
 
         } catch (Exception e) {
 

@@ -35,7 +35,7 @@
 				<td><html:text property="auleEsame"></html:text></td>
 			</tr>
 			<tr>
-				<td colspan="2"><html:errors /></td></tr>
+				<td colspan="2"><font color="red"><html:errors /></font></td></tr>
 			<tr>
 				<td><html:reset></html:reset></td>
 				<td><html:submit></html:submit></td>

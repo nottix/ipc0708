@@ -26,6 +26,7 @@ import java.math.BigInteger;
  */
 public class Test {
 	public static void insertTestAccount() {
+		System.out.println("maledetto");
 		SQLDAO sqlDAO = new SQLDAO();
 		Hashtable<String, Object> data = new Hashtable<String, Object>();
 		data.put("nome", "pp");

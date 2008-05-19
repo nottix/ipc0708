@@ -11,7 +11,7 @@
       <property name="dataIscrizione" type="timestamp" column="DATA_ISCRIZIONE"/>
       <property name="status"/>
       
-      <property name="idStudente" column="EMAIL" unique="true"/>
-  	  <property name="idCorso" column="ID_CORSO" unique="true"/>
+      <property name="idStudente" column="EMAIL" />
+  	  <property name="idCorso" column="ID_CORSO" />
    </class>
 </hibernate-mapping>

@@ -21,7 +21,7 @@ public class ConfermaIscrizioneController {
 			elencoEsami = new LinkedList<Esame>();
 			while(tmp.hasNext()) {
 				Esame e = tmp.next();
-				if(e.getIdCorso() == idCorso)
+				if(e.getIdCorso().equals(idCorso))
 					elencoEsami.add(e);
 			}
 			return elencoEsami;
@@ -35,12 +35,13 @@ public class ConfermaIscrizioneController {
 		try {
 			SQLDAO sqlDAO = new SQLDAO();
 			this.getEsamiCorso(acronimo);
+			elencoPE = new LinkedList<PrenotazioneEsame>();
 			Iterator<PrenotazioneEsame> tmp = sqlDAO.listPrenotazioneEsame().iterator();
 			while(tmp.hasNext()) {
 				PrenotazioneEsame pe = tmp.next();
 				Iterator<Esame> e = this.elencoEsami.iterator();
 				while(e.hasNext())
-					if(pe.getIdEsame() == e.next().getId())
+					if(pe.getIdEsame().equals(e.next().getId()))
 						elencoPE.add(pe);
 			}
 			return elencoPE;	
@@ -58,7 +59,8 @@ public class ConfermaIscrizioneController {
 			elencoIC = new LinkedList<IscrizioneCorso>();
 			while(iscrizioniCorso.hasNext()) {
 				IscrizioneCorso tmp = iscrizioniCorso.next();
-				if(tmp.getIdCorso() == idCorso && tmp.getStatus().equals("pendent"))
+				System.out.println("idCorso: "+idCorso+" anotherIdCorso: "+tmp.getIdCorso()+" iscr: "+tmp.getStatus());
+				if(tmp.getIdCorso().equals(idCorso) && tmp.getStatus().equals("pendent"))
 					elencoIC.add(tmp);
 			}
 			return elencoIC;
@@ -92,14 +94,76 @@ public class ConfermaIscrizioneController {
 		return null;
 	}
 	
+	public IscrizioneCorso getIscrizioneCorso(Long id) {
+		try {
+			SQLDAO sqlDao = new SQLDAO();
+			return sqlDao.getIscrizioneCorso(id);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public PrenotazioneEsame getPrenotazioneEsame(Long id) {
+		try {
+			SQLDAO sqlDao = new SQLDAO();
+			return sqlDao.getPrenotazioneEsame(id);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public Boolean confermaIscrizioneCorso(Long id) {
 		try {
 			SQLDAO sqlDao = new SQLDAO();
-//			Corso corso = sqlDao.getCorso(acronimo);
-//			Long idCorso = corso.getId();
-//			Hashtable<String, Object> data = new Hashtable<String, Object>();
-//			data.put("status", "attivo");
-//			return sqlDao.updateIscrizioneCorso(idCorso, data);
+			Hashtable<String, Object> data = new Hashtable<String, Object>();
+			data.put("status", "attivo");
+			return sqlDao.updateIscrizioneCorso(id, data);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	
+	public Boolean confermaPrenotazioneEsame(Long id) {
+		try {
+			SQLDAO sqlDao = new SQLDAO();
+			Hashtable<String, Object> data = new Hashtable<String, Object>();
+			data.put("status", "attivo");
+			return sqlDao.updatePrenotazioneEsame(id, data);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	
+	public Boolean rifiutaIscrizioneCorso(Long id) {
+		try {
+			SQLDAO sqlDao = new SQLDAO();
+			Hashtable<String, Object> data = new Hashtable<String, Object>();
+			data.put("status", "disattivo");
+			return sqlDao.updateIscrizioneCorso(id, data);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	
+	public Boolean rifiutaPrenotazioneEsame(Long id) {
+		try {
+			SQLDAO sqlDao = new SQLDAO();
+			Hashtable<String, Object> data = new Hashtable<String, Object>();
+			data.put("status", "disattivo");
+			return sqlDao.updatePrenotazioneEsame(id, data);
 		}
 		catch(Exception e) {
 			e.printStackTrace();

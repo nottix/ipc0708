@@ -8,8 +8,25 @@ public class ConfermaIscrizioneController {
 
 	private List<Corso> elencoCorsi;
 	private List<Corso> elencoCorsiAccedibili;
+	private List<IscrizioneCorso> elencoIC;
 	
-	public List<>
+	public List<IscrizioneCorso> getElencoIscrizioniCorso(String acronimo) {
+		try {
+			SQLDAO sqlDAO = new SQLDAO();
+			Long idCorso = sqlDAO.getCorso(acronimo).getId();
+			Iterator<IscrizioneCorso> iscrizioniCorso = sqlDAO.listIscrizioneCorso().iterator();
+			elencoIC = new LinkedList<IscrizioneCorso>();
+			while(iscrizioniCorso.hasNext()) {
+				IscrizioneCorso tmp = iscrizioniCorso.next();
+				if(tmp.getIdCorso() == idCorso)
+					elencoIC.add(tmp);
+			}
+			return elencoIC;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 	public List<Corso> getElencoCorsiAccedibili(String email) {
 		try {

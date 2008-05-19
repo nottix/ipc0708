@@ -1,12 +1,14 @@
 package ipc.control;
 
+import ipc.entity.Corso;
+import ipc.entity.Account;
+import ipc.db.SQLDAO;
+
 import java.util.List;
 import java.util.LinkedList;
 import java.util.Hashtable;
-import ipc.entity.Account;
-import ipc.db.SQLDAO;
-import java.util.*;
-import ipc.entity.*;
+import java.util.Iterator;
+import java.util.Set;
 
 public class GestioneAccountController {
 
@@ -177,7 +179,7 @@ public class GestioneAccountController {
 		return false;
 	}
 	
-	public Boolean creazioneAccountGestore(Hashtable data) {
+	public Boolean creazioneAccountGestore(Hashtable<String, Object> data) {
 		try {
 			SQLDAO sqlDao = new SQLDAO();
 			if(sqlDao.getAccount((String)data.get("email"))==null) {

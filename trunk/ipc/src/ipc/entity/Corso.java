@@ -1,7 +1,9 @@
 package ipc.entity;
 
-import java.util.*;
-import ipc.entity.*;
+import java.util.Date;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Iterator;
 
 public class Corso {
 	private Long id;
@@ -117,7 +119,8 @@ public class Corso {
  		return false;
  	}
  	
- 	public Boolean isTitolare(String email) {
+ 	@SuppressWarnings("unchecked")
+	public Boolean isTitolare(String email) {
  		Iterator<Account> i = this.elencoTitolari.iterator();
  		Account account;
  		while(i.hasNext()) {
@@ -129,7 +132,8 @@ public class Corso {
  		return false;
  	}
  	
- 	public Boolean isCollaboratore(String email) {
+ 	@SuppressWarnings("unchecked")
+	public Boolean isCollaboratore(String email) {
  		Iterator<Account> i = this.elencoCollaboratori.iterator();
  		Account account;
  		while(i.hasNext()) {

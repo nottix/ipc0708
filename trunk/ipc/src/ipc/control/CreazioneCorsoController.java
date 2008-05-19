@@ -1,10 +1,15 @@
 package ipc.control;
 
-import java.util.*;
-
 import ipc.entity.Corso;
 import ipc.entity.Account;
 import ipc.db.SQLDAO;
+
+import java.util.List;
+import java.util.LinkedList;
+import java.util.Hashtable;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.HashSet;
 
 public class CreazioneCorsoController {
 	
@@ -36,7 +41,7 @@ public class CreazioneCorsoController {
 		return null;
 	}
 	
-	public Boolean creazioneCorso(Hashtable data) throws Exception {
+	public Boolean creazioneCorso(Hashtable<String, Object> data) throws Exception {
 		/**
 		 * First data checks
 		 */
@@ -61,7 +66,7 @@ public class CreazioneCorsoController {
 			return false;
 		
 		Iterator i;
-		HashSet col = new HashSet();
+		HashSet<Account> col = new HashSet<Account>();
 		HashSet elenco = (HashSet)data.get("elencoCollaboratori");
 		if(elenco!=null) {
 			i = elenco.iterator();
@@ -73,7 +78,6 @@ public class CreazioneCorsoController {
 			data.put("elencoCollaboratori", col);
 		}
 		
-		col = new HashSet();
 		elenco = (HashSet)data.get("elencoTitolari");
 		if(elenco.size()>2)
 			return false;

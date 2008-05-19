@@ -1,8 +1,6 @@
 package ipc.entity;
 
-import java.util.Date;
-import java.util.Set;
-import java.util.HashSet;
+import java.util.*;
 import ipc.entity.*;
 
 public class Corso {
@@ -115,6 +113,30 @@ public class Corso {
  	public Boolean isDisponibile() {
  		if( this.getDataApertura().before(new Date()) && this.getDataChiusura().after(new Date()) ) {
  			return true;
+ 		}
+ 		return false;
+ 	}
+ 	
+ 	public Boolean isTitolare(String email) {
+ 		Iterator<Account> i = this.elencoTitolari.iterator();
+ 		Account account;
+ 		while(i.hasNext()) {
+ 			System.out.println("isTitolare");
+ 			account = i.next();
+ 			if(account.getEmail().equals(email)) 
+ 				return true;
+ 		}
+ 		return false;
+ 	}
+ 	
+ 	public Boolean isCollaboratore(String email) {
+ 		Iterator<Account> i = this.elencoCollaboratori.iterator();
+ 		Account account;
+ 		while(i.hasNext()) {
+ 			System.out.println("isColl");
+ 			account = i.next();
+ 			if(account.getEmail().equals(email)) 
+ 				return true;
  		}
  		return false;
  	}

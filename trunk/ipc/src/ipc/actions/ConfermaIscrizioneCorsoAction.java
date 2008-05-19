@@ -20,12 +20,13 @@ import ipc.entity.*;
  * @version 	1.0
  * @author
  */
-public class ConfermaIscrizioneCorsoAction extends Action
+public class ConfermaIscrizioneCorsoAction extends Action {
 
-{
-
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public ActionForward execute(ActionMapping mapping, 
+    							 ActionForm form,
+    							 HttpServletRequest request,
+    							 HttpServletResponse response)
+            					throws Exception {
 
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value

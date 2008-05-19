@@ -25,12 +25,12 @@
 						<td><html:text property="dataIscrizione"></html:text></td>
 					</tr>
 			<tr>
-				<td colspan="2" align=center><html:reset></html:reset>
-				<html:submit property="submit" value="Rifiuta"></html:submit>
-				<html:submit property="submit" value="Conferma"></html:submit></td>
+				<td colspan="2" align=center><html:reset />
+				<html:submit property="submit" value="Rifiuta" />
+				<html:submit property="submit" value="Conferma" /></td>
 			</tr>
 			<tr>
-				<td colspan="2"><html:errors /></td></tr>
+				<td colspan="2"><font color="red"><html:errors /></font></td></tr>
 		</tbody>
 			</table>
 		</html:form>

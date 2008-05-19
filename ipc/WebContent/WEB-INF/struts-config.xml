@@ -60,6 +60,10 @@
 		</form-bean>
 		<form-bean name="prenotazioneEsameForm" type="ipc.forms.PrenotazioneEsameForm">
 		</form-bean>
+		<form-bean name="formBean5" type="ipc.forms.FormBean5">
+		</form-bean>
+		<form-bean name="confermaIscrizioneForm" type="ipc.forms.ConfermaIscrizioneForm">
+		</form-bean>
 	</form-beans>
 
 	<!-- Eccezioni globali -->
@@ -225,6 +229,20 @@
 			<forward name="success" path="/homeStudente.jsp">
 			</forward>
 			<forward name="error" path="/prenotazioneEsame.jsp">
+			</forward>
+		</action>
+		<action path="/ConfermaIscrizioneCorsoElenco" type="ipc.actions.ConfermaIscrizioneCorsoElencoAction">
+			<forward name="init" path="/confermaIscrizioneCorsoElenco.jsp">
+			</forward>
+		</action>
+		<action path="/ConfermaIscrizioneElenco" type="ipc.actions.ConfermaIscrizioneElencoAction">
+			<forward name="init" path="/confermaIscrizioneElenco.jsp">
+			</forward>
+		</action>
+		<action path="/ConfermaIscrizione" type="ipc.actions.ConfermaIscrizioneAction" scope="request" input="/confermaIscrizioneElenco.jsp" name="confermaIscrizioneForm">
+			<forward name="success" path="/confermaIscrizione.jsp">
+			</forward>
+			<forward name="main" path="/homeProfessore.jsp">
 			</forward>
 		</action>
 	</action-mappings>

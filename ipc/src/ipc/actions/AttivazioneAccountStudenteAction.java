@@ -19,9 +19,7 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class AttivazioneAccountStudenteAction extends Action
-
-{
+public class AttivazioneAccountStudenteAction extends Action {
 
 	private List<Account> elencoAccountStudenti;
 	

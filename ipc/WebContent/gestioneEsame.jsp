@@ -23,6 +23,9 @@
 					<td><a href="/ipc/CreazioneProgetto.do?acronimo=<bean:write name="acronimo"/>">Creazione Progetto</a></td>
 				</tr>
 				<tr>
+					<td><html:link action="/ModificaVotiElenco">Modifica Voti</html:link></td>
+				</tr>
+				<tr>
 					<td><font color="red"><html:errors /></font></td>
 				</tr>
 				<tr>

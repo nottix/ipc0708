@@ -13,8 +13,9 @@ public class PrenotazioneEsame {
 	private Boolean votoAccettato;
 	private String nota;
 	/**
-	 * Attivo
-	 * Disattivo
+	 * Attivo = attivo
+	 * Disattivo = disattivo
+	 * Pendente = pendent
 	 */
 	private String status;
 	
@@ -27,6 +28,7 @@ public class PrenotazioneEsame {
 	public Long getId() {
 		return this.id;
 	}
+	
 	public void setIdStudente(String idStudente) {
 		this.idStudente = idStudente;
 	}

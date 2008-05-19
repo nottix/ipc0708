@@ -9,6 +9,8 @@ public class ConfermaIscrizioneController {
 	private List<Corso> elencoCorsi;
 	private List<Corso> elencoCorsiAccedibili;
 	
+	public List<>
+	
 	public List<Corso> getElencoCorsiAccedibili(String email) {
 		try {
 			SQLDAO sqlDao = new SQLDAO();

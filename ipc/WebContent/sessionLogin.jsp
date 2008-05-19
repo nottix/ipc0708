@@ -8,14 +8,14 @@
 	<tbody>
 		<tr>
 			<td align=left>Ciao <%=session.getAttribute("email")%></td>
-			<%
+			<td align=center><a href='<%
 			if(session.getAttribute("tipologia").equals("professore")) {
-				out.print("<td align=center><a href=\"/ipc/homeProfessore.jsp\">Home</a></td>");
+				out.print("/ipc/homeProfessore.jsp");
 			}
 			else if(session.getAttribute("tipologia").equals("studente")) {
-				out.print("<td align=center><a href=\"/ipc/homeStudente.jsp\">Home</a></td>");
-			} 
-			%>
+				out.print("/ipc/homeStudente.jsp");
+			}
+			%>'>Home</a></td>
 			<td align=right><html:link action="/Logout">Logout</html:link></td>
 		</tr>
 	</tbody>

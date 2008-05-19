@@ -12,6 +12,11 @@
 </head>
 <body>
 <center>
+<table width="100%">
+  <tbody>
+    <tr><td align=right><a href="/">Back</a></td></tr>
+  </tbody>
+</table>
 <h1>Registrazione</h1>
 <html:form action="RichiestaRegStudente">
 <table border="1" width="50%" height="169">

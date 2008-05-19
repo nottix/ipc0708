@@ -23,7 +23,7 @@
 		</tr>
 		<tr>
 			<td colspan="2">
-				<html:errors/>
+				<font color="red"><html:errors/></font>
 			</td>
 		</tr>
 	</tbody>

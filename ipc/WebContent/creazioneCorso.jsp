@@ -71,11 +71,12 @@
 
 		</tr>
 		<tr>
+		
 			<td>
-				<html:submit></html:submit>
+				<font color="red"><html:errors /></font>
 			</td>
-			<td>
-				<html:errors></html:errors>
+			<td align="right">
+				<html:submit />
 			</td>
 		</tr>
 	</tbody>

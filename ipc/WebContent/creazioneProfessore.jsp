@@ -50,7 +50,7 @@
 				<td width="176" align="center"><html:submit value="Conferma"></html:submit></td>
 			</tr>
 			<tr>
-				<td width="181" colspan="2"><html:errors /></td></tr>
+				<td width="181" colspan="2"><font color="red"><html:errors /></font></td></tr>
 			<tr>
 				<td width="181"></td>
 				<td width="176"></td>

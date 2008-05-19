@@ -12,6 +12,9 @@
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
+<logic:notPresent name="email" scope="session">
+	<logic:redirect page="/login.jsp" />
+</logic:notPresent>
 <jsp:include page="sessionLogin.jsp" flush="false"></jsp:include>
 	<center><h1>Ripristina Password Account</h1></center>
 	<center><table border="1">

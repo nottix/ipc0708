@@ -23,10 +23,10 @@
 					<td><a href="/ipc/CreazioneEsame.do?acronimo=<bean:write name="acronimo"/>">Creazione Esame</a></td>
 				</tr>
 				<tr>
-					<td><html:errors></html:errors></td>
+					<td><font color="red"><html:errors /></font></td>
 				</tr>
 				<tr>
-					<td><html:submit></html:submit></td>
+					<td><html:submit /></td>
 				</tr>
 			</tbody>
 		</table>

@@ -1,6 +1,8 @@
 package ipc.forms;
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
@@ -18,18 +20,13 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class CreazioneAccountGestoreForm extends ActionForm
+public class CreazioneAccountGestoreForm extends ActionForm {
+	private static final long serialVersionUID = 10L;
 
-{
-
-    private String nome = null;
-
+	private String nome = null;
     private String cognome = null;
-
     private String email = null;
-
     private String password = null;
-
     private String confPassword = null;
 
     /**
@@ -127,14 +124,26 @@ public class CreazioneAccountGestoreForm extends ActionForm
     public ActionErrors validate(ActionMapping mapping,
 	    HttpServletRequest request) {
 
-	ActionErrors errors = new ActionErrors();
-	// Validate the fields in your form, adding
-	// adding each error to this.errors as found, e.g.
-
-	// if ((field == null) || (field.length() == 0)) {
-	//   errors.add("field", new org.apache.struts.action.ActionError("error.field.required"));
-	// }
-	return errors;
-
+		ActionErrors errors = new ActionErrors();
+		boolean check_pass = true;
+		if((nome == null) || (nome.length() == 0))
+			errors.add("nome", new ActionError("nome.error"));
+		if((cognome == null) || (cognome.length() == 0))
+			errors.add("cognome", new ActionError("cognome.error"));
+		if((email == null) || (email.length() == 0))
+			errors.add("email", new ActionError("email.error"));
+		else if(!RichiestaRegStudenteForm.check_email(email))
+			errors.add("email", new ActionError("email.malformed"));
+		if((password == null) || (password.length() == 0)) {
+			check_pass = false;
+			errors.add("password", new ActionError("password.error"));
+		}
+		if((confPassword == null) || (confPassword.length() == 0)) {
+			check_pass = false;
+			errors.add("confPassword", new ActionError("passwordcheck.error"));
+		}
+		if(check_pass && !(password.equals(confPassword)))
+			errors.add("password", new ActionError("passwordmatch.error"));
+		return errors;
     }
 }

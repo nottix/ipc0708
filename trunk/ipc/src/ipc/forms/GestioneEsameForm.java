@@ -10,11 +10,10 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class GestioneEsameForm extends ActionForm
+public class GestioneEsameForm extends ActionForm {
+	private static final long serialVersionUID = 16L;
 
-{
-
-    public void reset(ActionMapping mapping, HttpServletRequest request) {
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
 
 	// Reset field values here.
 

@@ -2,10 +2,9 @@ package ipc.forms;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
-
-
 
 /**
  * Form bean for a Struts application.
@@ -20,12 +19,9 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class CreazioneCorsoForm
-extends ActionForm
-
-{
-
-
+public class CreazioneCorsoForm extends ActionForm {
+	
+	private static final long serialVersionUID = 11L;
 	private String nome = null;
 	private String acronimo = null;
 	private String descrizione = null;
@@ -112,30 +108,25 @@ extends ActionForm
 		this.dataChiusura = d;
 	}
 
-
 	public void reset(ActionMapping mapping, HttpServletRequest request)  {
-
-//		Reset values are provided as samples only. Change as appropriate.
-
 		nome = null;
 		acronimo = null;
 		dataApertura = null;
 		dataChiusura = null;
-
-
 	}
 
-	public ActionErrors validate(ActionMapping mapping, HttpServletRequest request)  {
+	public ActionErrors validate(ActionMapping mapping, 
+								 HttpServletRequest request)  {
 
 		ActionErrors errors = new ActionErrors();
-//		Validate the fields in your form, adding
-//		adding each error to this.errors as found, e.g.
-
-//		if ((field == null) || (field.length() == 0)) {
-//		errors.add("field", new org.apache.struts.action.ActionError("error.field.required"));
-//		}
+		if((nome == null) || (nome.length() == 0))
+			errors.add("nome", new ActionError("nome.error"));
+		if((acronimo == null) || (acronimo.length() == 0))
+			errors.add("acronimo", new ActionError("acronimo.error"));
+		if((dataApertura == null) || (dataApertura.length() == 0))
+			errors.add("dataApertura", new ActionError("data.apertura.error"));
+		if((dataChiusura == null) || (dataChiusura.length() == 0))
+			errors.add("dataChiusura", new ActionError("data.chiusura.error"));
 		return errors;
-
-
 	}
 }

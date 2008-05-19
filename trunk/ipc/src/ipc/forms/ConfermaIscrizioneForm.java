@@ -12,7 +12,9 @@ import org.apache.struts.action.ActionMapping;
  */
 public class ConfermaIscrizioneForm extends ActionForm {
 
-    public void reset(ActionMapping mapping, HttpServletRequest request) {
+	private static final long serialVersionUID = 8L;
+
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
 
 	// Reset field values here.
 

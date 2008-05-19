@@ -14,10 +14,9 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class PrenotazioneEsameElencoCorsi extends ActionForm
-
-{
-
+public class PrenotazioneEsameElencoCorsi extends ActionForm {
+	private static final long serialVersionUID = 19L;
+	
     private String radio = null;
 
     /**

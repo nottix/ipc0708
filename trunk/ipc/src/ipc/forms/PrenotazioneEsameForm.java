@@ -2,6 +2,7 @@ package ipc.forms;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
@@ -17,16 +18,12 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class PrenotazioneEsameForm extends ActionForm
-
-{
-
+public class PrenotazioneEsameForm extends ActionForm {
+	private static final long serialVersionUID = 21L;
+	
     private String dataInizioPeriodoPrenotazione = null;
-
     private String dataFinePeriodoPrenotazione = null;
-
     private String dataEsame = null;
-
     private String auleEsame = null;
 
     /**
@@ -34,7 +31,7 @@ public class PrenotazioneEsameForm extends ActionForm
      * @return String
      */
     public String getDataInizioPeriodoPrenotazione() {
-	return dataInizioPeriodoPrenotazione;
+    	return dataInizioPeriodoPrenotazione;
     }
 
     /**
@@ -42,7 +39,7 @@ public class PrenotazioneEsameForm extends ActionForm
      * @param <code>String</code>
      */
     public void setDataInizioPeriodoPrenotazione(String d) {
-	this.dataInizioPeriodoPrenotazione = d;
+    	this.dataInizioPeriodoPrenotazione = d;
     }
 
     /**
@@ -50,7 +47,7 @@ public class PrenotazioneEsameForm extends ActionForm
      * @return String
      */
     public String getDataFinePeriodoPrenotazione() {
-	return dataFinePeriodoPrenotazione;
+    	return dataFinePeriodoPrenotazione;
     }
 
     /**
@@ -58,7 +55,7 @@ public class PrenotazioneEsameForm extends ActionForm
      * @param <code>String</code>
      */
     public void setDataFinePeriodoPrenotazione(String d) {
-	this.dataFinePeriodoPrenotazione = d;
+    	this.dataFinePeriodoPrenotazione = d;
     }
 
     /**
@@ -66,7 +63,7 @@ public class PrenotazioneEsameForm extends ActionForm
      * @return String
      */
     public String getDataEsame() {
-	return dataEsame;
+    	return dataEsame;
     }
 
     /**
@@ -74,7 +71,7 @@ public class PrenotazioneEsameForm extends ActionForm
      * @param <code>String</code>
      */
     public void setDataEsame(String d) {
-	this.dataEsame = d;
+    	this.dataEsame = d;
     }
 
     /**
@@ -82,7 +79,7 @@ public class PrenotazioneEsameForm extends ActionForm
      * @return String
      */
     public String getAuleEsame() {
-	return auleEsame;
+		return auleEsame;
     }
 
     /**
@@ -90,31 +87,27 @@ public class PrenotazioneEsameForm extends ActionForm
      * @param <code>String</code>
      */
     public void setAuleEsame(String a) {
-	this.auleEsame = a;
+    	this.auleEsame = a;
     }
 
     public void reset(ActionMapping mapping, HttpServletRequest request) {
-
-	// Reset values are provided as samples only. Change as appropriate.
-
-	dataInizioPeriodoPrenotazione = null;
-	dataFinePeriodoPrenotazione = null;
-	dataEsame = null;
-	auleEsame = null;
-
+		dataInizioPeriodoPrenotazione = null;
+		dataFinePeriodoPrenotazione = null;
+		dataEsame = null;
+		auleEsame = null;
     }
 
     public ActionErrors validate(ActionMapping mapping,
-	    HttpServletRequest request) {
+    							 HttpServletRequest request) {
 
-	ActionErrors errors = new ActionErrors();
-	// Validate the fields in your form, adding
-	// adding each error to this.errors as found, e.g.
-
-	// if ((field == null) || (field.length() == 0)) {
-	//   errors.add("field", new org.apache.struts.action.ActionError("error.field.required"));
-	// }
-	return errors;
+    	ActionErrors errors = new ActionErrors();
+    	if((dataInizioPeriodoPrenotazione == null) || (dataInizioPeriodoPrenotazione.length() == 0))
+    		errors.add("dataInizioPeriodoPrenotazione", new ActionError("data.inizio.periodo.prenotazione.error"));
+    	if((dataFinePeriodoPrenotazione == null) || (dataFinePeriodoPrenotazione.length() == 0))
+    		errors.add("dataFinePeriodoPrenotazione", new ActionError("data.fine.periodo.prenotazione.error"));
+    	if((dataEsame == null ) || (dataEsame.length() == 0))
+    		errors.add("dataEsame", new ActionError("data.esame.error"));
+    	return errors;
 
     }
 }

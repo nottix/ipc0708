@@ -2,6 +2,7 @@ package ipc.forms;
 
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
@@ -17,11 +18,11 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class ConfermaPrenotazioneEsameForm extends ActionForm
+public class ConfermaPrenotazioneEsameForm extends ActionForm {
 
-{
+	private static final long serialVersionUID = 9L;
 
-    private String email = null;
+	private String email = null;
 
     private String dataEsame = null;
 
@@ -34,7 +35,7 @@ public class ConfermaPrenotazioneEsameForm extends ActionForm
      * @return String
      */
     public String getEmail() {
-	return email;
+    	return email;
     }
 
     /**
@@ -42,7 +43,7 @@ public class ConfermaPrenotazioneEsameForm extends ActionForm
      * @param <code>String</code>
      */
     public void setEmail(String e) {
-	this.email = e;
+    	this.email = e;
     }
 
     /**
@@ -50,7 +51,7 @@ public class ConfermaPrenotazioneEsameForm extends ActionForm
      * @return String
      */
     public String getDataEsame() {
-	return dataEsame;
+    	return dataEsame;
     }
 
     /**
@@ -58,7 +59,7 @@ public class ConfermaPrenotazioneEsameForm extends ActionForm
      * @param <code>String</code>
      */
     public void setDataEsame(String d) {
-	this.dataEsame = d;
+    	this.dataEsame = d;
     }
 
     /**
@@ -66,7 +67,7 @@ public class ConfermaPrenotazioneEsameForm extends ActionForm
      * @return String
      */
     public String getDataPrenotazione() {
-	return dataPrenotazione;
+    	return dataPrenotazione;
     }
 
     /**
@@ -74,7 +75,7 @@ public class ConfermaPrenotazioneEsameForm extends ActionForm
      * @param <code>String</code>
      */
     public void setDataPrenotazione(String d) {
-	this.dataPrenotazione = d;
+    	this.dataPrenotazione = d;
     }
 
     /**
@@ -82,7 +83,7 @@ public class ConfermaPrenotazioneEsameForm extends ActionForm
      * @return String
      */
     public String getSubmit() {
-	return submit;
+    	return submit;
     }
 
     /**
@@ -90,31 +91,29 @@ public class ConfermaPrenotazioneEsameForm extends ActionForm
      * @param <code>String</code>
      */
     public void setSubmit(String s) {
-	this.submit = s;
+    	this.submit = s;
     }
 
     public void reset(ActionMapping mapping, HttpServletRequest request) {
-
-	// Reset values are provided as samples only. Change as appropriate.
-
-	email = null;
-	dataEsame = null;
-	dataPrenotazione = null;
-	submit = null;
-
+    	// Reset values are provided as samples only. Change as appropriate.
+    	email = null;
+    	dataEsame = null;
+    	dataPrenotazione = null;
+    	submit = null;
     }
 
     public ActionErrors validate(ActionMapping mapping,
-	    HttpServletRequest request) {
+    							 HttpServletRequest request) {
 
-	ActionErrors errors = new ActionErrors();
-	// Validate the fields in your form, adding
-	// adding each error to this.errors as found, e.g.
-
-	// if ((field == null) || (field.length() == 0)) {
-	//   errors.add("field", new org.apache.struts.action.ActionError("error.field.required"));
-	// }
-	return errors;
-
+    	ActionErrors errors = new ActionErrors();
+    	if((dataEsame == null) || (dataEsame.length() == 0))
+    		errors.add("dataEsame", new ActionError("data.esame.error"));
+    	if((dataPrenotazione == null) || (dataPrenotazione.length() == 0))
+    		errors.add("dataPrenotazione", new ActionError("data.prenotazione.error"));
+    	if((email == null) || (email.length() == 0))
+    		errors.add("email", new ActionError("email.error"));
+		else if(!RichiestaRegStudenteForm.check_email(email))
+			errors.add("email", new ActionError("email.malformed"));
+    	return errors;
     }
 }

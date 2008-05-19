@@ -10,11 +10,10 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class IscrizioneCorsoForm extends ActionForm
+public class IscrizioneCorsoForm extends ActionForm {
+	private static final long serialVersionUID = 17L;
 
-{
-
-    public void reset(ActionMapping mapping, HttpServletRequest request) {
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
 
 	// Reset field values here.
 

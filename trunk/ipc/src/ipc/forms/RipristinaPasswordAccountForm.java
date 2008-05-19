@@ -10,10 +10,9 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class RipristinaPasswordAccountForm extends ActionForm
-
-{
-
+public class RipristinaPasswordAccountForm extends ActionForm {
+	private static final long serialVersionUID = 22L;
+	
     public void reset(ActionMapping mapping, HttpServletRequest request) {
 
 	// Reset field values here.

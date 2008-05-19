@@ -21,32 +21,22 @@
 	<center><table border="1" width="30%">
 		<tbody>
 			<tr>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
 				<td align="center"><html:link page="/creazioneProfessore.jsp">Creazione Professore</html:link></td>
-				<td></td>
 			</tr>
 			<tr>
 				<td align="center"><html:link page="/gestioneAccount.jsp">Gestione Account</html:link></td>
-				<td></td>
 			</tr>
 			<tr>
 				<td align="center"><html:link action="/CreazioneCorso">Creazione Corso</html:link></td>
-				<td></td>
 			</tr>
 			<tr>
 				<td align="center"><html:link action="/GestioneCorsoElenco">Gestione Corso</html:link></td>
-				<td></td>
 			</tr>
 			<tr>
 				<td align="center"><html:link action="/GestioneEsameElenco">Gestione Esame</html:link></td>
-				<td></td>
 			</tr>
 			<tr>
 				<td align="center"><html:link action="/ConfermaIscrizioneElenco">Conferma Iscrizione</html:link></td>
-				<td></td>
 			</tr>
 		</tbody>
 	</table></center>

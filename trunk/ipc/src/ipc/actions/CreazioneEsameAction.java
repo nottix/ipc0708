@@ -1,8 +1,8 @@
 package ipc.actions;
 
-import java.util.Enumeration;
+import ipc.forms.CreazioneEsameForm;
 
-import ipc.forms.GestioneCorsoForm;
+import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,12 +12,8 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import ipc.forms.*;
 
-/**
- * @version 	1.0
- * @author
- */
+
 public class CreazioneEsameAction extends Action
 
 {

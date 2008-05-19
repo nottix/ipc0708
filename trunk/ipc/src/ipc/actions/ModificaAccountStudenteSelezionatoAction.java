@@ -1,6 +1,8 @@
 package ipc.actions;
 
-import java.util.Enumeration;
+import ipc.entity.Account;
+import ipc.control.GestioneAccountController;
+import ipc.forms.ModificaAccountStudenteForm;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,18 +12,8 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import ipc.control.*;
-import java.util.*;
-import ipc.forms.*;
-import ipc.entity.*;
 
-/**
- * @version 	1.0
- * @author
- */
-public class ModificaAccountStudenteSelezionatoAction extends Action
-
-{
+public class ModificaAccountStudenteSelezionatoAction extends Action {
 
 	private Account account;
 	
@@ -29,8 +21,11 @@ public class ModificaAccountStudenteSelezionatoAction extends Action
 		return account;
 	}
 	
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public ActionForward execute(ActionMapping mapping, 
+    							 ActionForm form,
+    							 HttpServletRequest request,
+    							 HttpServletResponse response)
+            					throws Exception {
 
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value

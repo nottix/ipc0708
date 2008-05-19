@@ -2,11 +2,10 @@ package ipc.actions;
 
 import ipc.control.GestioneStudenteController;
 
-import java.util.Date;
+import ipc.entity.Esame;
+
 import java.util.Enumeration;
-import java.util.Hashtable;
-import java.util.*;
-import ipc.entity.*;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,15 +17,8 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import ipc.control.*;
 
-/**
- * @version 	1.0
- * @author
- */
-public class PrenotazioneEsameElencoAction extends Action
-
-{
+public class PrenotazioneEsameElencoAction extends Action {
 	
 	private List<Esame> elencoEsami;
 	
@@ -34,8 +26,11 @@ public class PrenotazioneEsameElencoAction extends Action
 		return elencoEsami;
 	}
 
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public ActionForward execute(ActionMapping mapping, 
+    							 ActionForm form, 
+    							 HttpServletRequest request, 
+    							 HttpServletResponse response)
+            					throws Exception {
 
     	ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value

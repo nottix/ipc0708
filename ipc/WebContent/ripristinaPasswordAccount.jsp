@@ -51,7 +51,7 @@
 			</tr>
 		</tbody>
 
-     	<tr><td><html:errors/></td></tr>
+     	<tr><td><font color="red"><html:errors/></font></td></tr>
 
 	</table></center>
 </body>

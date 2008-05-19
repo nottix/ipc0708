@@ -50,7 +50,7 @@
 			<td><html:submit value="RichiestaRegStudente"></html:submit></td>
 		</tr>
 		<tr>
-			<td><html:errors /></td>
+			<td><font color="red"><html:errors /></font></td>
 		</tr>
 	</tbody>
 </table>

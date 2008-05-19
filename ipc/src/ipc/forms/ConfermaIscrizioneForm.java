@@ -10,9 +10,7 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class ConfermaIscrizioneForm extends ActionForm
-
-{
+public class ConfermaIscrizioneForm extends ActionForm {
 
     public void reset(ActionMapping mapping, HttpServletRequest request) {
 

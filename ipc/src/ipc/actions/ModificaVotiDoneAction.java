@@ -1,5 +1,10 @@
 package ipc.actions;
 
+import ipc.forms.ModificaVotiForm;
+import ipc.control.GestioneEsameController;
+
+import java.util.Hashtable;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.Action;
@@ -8,10 +13,7 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import ipc.control.*;
-import ipc.forms.*;
-import ipc.entity.*;
-import java.util.*;
+
 
 /**
  * @version 	1.0

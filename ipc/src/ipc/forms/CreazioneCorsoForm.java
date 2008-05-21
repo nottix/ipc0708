@@ -1,10 +1,13 @@
 package ipc.forms;
 
+import java.util.regex.Pattern;
+
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
+
 
 /**
  * Form bean for a Struts application.
@@ -125,8 +128,42 @@ public class CreazioneCorsoForm extends ActionForm {
 			errors.add("acronimo", new ActionError("acronimo.error"));
 		if((dataApertura != null) && (dataApertura.length() == 0))
 			errors.add("dataApertura", new ActionError("data.apertura.error"));
+		else if(!this.check_data(dataApertura))
+			errors.add("dataApertura", new ActionError("data.invalid.format"));
 		if((dataChiusura != null) && (dataChiusura.length() == 0))
 			errors.add("dataChiusura", new ActionError("data.chiusura.error"));
+		else if(!this.check_data(dataChiusura))
+			errors.add("dataChiusura", new ActionError("data.invalid.format"));
+		if(dataApertura != null && dataChiusura != null)
+			if(cmpDates(dataApertura, dataChiusura))
+				errors.add("dataApertura", new ActionError("data.apartura.chiusura.invalid"));
 		return errors;
 	}
+	
+	 public boolean check_data(String data) {
+			boolean test1 = Pattern.compile("[0-9]{1,2}/[0-9]{1-2}/20[0-9]{2}").matcher(data).matches();
+			String []dates = data.split("/");
+			if(Integer.valueOf(dates[0]) < 1 || Integer.valueOf(dates[0]) > 31)
+				return false;
+			if(Integer.valueOf(dates[1]) < 1 || Integer.valueOf(dates[1]) > 12)
+				return false;
+			if(Integer.valueOf(dates[2]) < 2000 || Integer.valueOf(dates[2]) > 2099)
+				return false;
+			return test1;
+	 }
+	 
+	 public boolean cmpDates(String dataI, String dataF) {
+		 String []splitI = dataI.split("/");
+		 String []splitF = dataF.split("/");
+		 int dayI = Integer.valueOf(splitI[0]);
+		 int dayF = Integer.valueOf(splitF[0]);
+		 int monthI = Integer.valueOf(splitI[1]);
+		 int monthF = Integer.valueOf(splitF[1]);
+		 int yearI = Integer.valueOf(splitI[2]);
+		 int yearF = Integer.valueOf(splitF[2]);
+		 long i = dayI + 30 * (monthI + yearI * 12);
+		 long f = dayF + 30 * (monthF + yearF * 12);
+		 return !(i > f);
+	 }
+	
 }

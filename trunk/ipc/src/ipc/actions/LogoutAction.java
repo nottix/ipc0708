@@ -14,12 +14,13 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class LogoutAction extends Action
-
-{
-
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+public class LogoutAction extends Action {
+	
+    public ActionForward execute(ActionMapping mapping, 
+    							 ActionForm form,
+    							 HttpServletRequest request,
+    							 HttpServletResponse response)
+            					throws Exception {
 
         ActionErrors errors = new ActionErrors();
         try {
@@ -29,6 +30,12 @@ public class LogoutAction extends Action
         			session.removeAttribute("email");
         		if(session.getAttribute("tipologia") != null)
         			session.removeAttribute("tipologia");
+        		if(session.getAttribute("isDirettore") != null)
+        			session.removeAttribute("isDirettore");
+        		if(session.getAttribute("isTitolare") != null)
+        			session.removeAttribute("isTitolare");
+        		if(session.getAttribute("isGestore") != null)
+        			session.removeAttribute("isGestore");
         		session.invalidate();
         	} else
         		errors.add("email", new ActionError("email.session.error"));

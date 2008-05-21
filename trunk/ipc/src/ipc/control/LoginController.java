@@ -4,9 +4,11 @@
 package ipc.control;
 
 import java.util.Hashtable;
+import java.util.Iterator;
 
 import ipc.db.SQLDAO;
 import ipc.entity.Account;
+import ipc.entity.Corso;
 
 /**
  * @author Simone Notargiacomo
@@ -98,5 +100,39 @@ public class LoginController {
 			ret = true;
 		}
 		return ret;
+	}
+	
+	public Boolean isDirettore(String email) {
+		try {
+			SQLDAO sqlDAO = new SQLDAO();
+			return sqlDAO.getAccount(email).getIsDirettore();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public Boolean isGestore(String email) {
+		try {
+			SQLDAO sqlDAO = new SQLDAO();
+			return sqlDAO.getAccount(email).getIsGestore();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	public Boolean isTitolare(String email) {
+		try {
+			SQLDAO sqlDAO = new SQLDAO();
+			Iterator<Corso> i = sqlDAO.listCorso().iterator();
+			while(i.hasNext()) {
+				Corso c = i.next();
+				if(c.isTitolare(email) == true) 
+					return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

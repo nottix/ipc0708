@@ -50,11 +50,12 @@ public class VisualizzaAccountAction extends Action
         VisualizzaAccountForm cForm = (VisualizzaAccountForm)form;
         
         try {
-
+        	System.out.println("here");
         	if (isCancelled(request)) {
         		return mapping.findForward("main");
         	}
         	Enumeration en = request.getParameterNames();
+        	System.out.println("oooook");
         	while(en.hasMoreElements()) {
         		String name = (String)en.nextElement();
         		if(name.equals("radio")) {

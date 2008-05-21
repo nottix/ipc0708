@@ -2,7 +2,7 @@ package ipc.actions;
 
 import java.util.Enumeration;
 
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
@@ -10,21 +10,25 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import ipc.control.*;
+import ipc.entity.*;
+import java.util.*;
+import ipc.forms.*;
 
 /**
  * @version 	1.0
  * @author
  */
-public class GestioneEsameAction extends Action {
+public class ModificaVotiAction extends Action
 
-    public ActionForward execute(ActionMapping mapping, 
-    							 ActionForm form,
-    							 HttpServletRequest request, 
-    							 HttpServletResponse response)
-    							throws Exception {
+{
+
+    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
+            throws Exception {
 
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value
+        GestioneEsameController control = new GestioneEsameController();
 
         try {
 
@@ -35,17 +39,25 @@ public class GestioneEsameAction extends Action {
         	while(en.hasMoreElements()) {
         		String name = (String)en.nextElement();
         		if(name.equals("radio")) {
-        			System.out.println("request: "+request.getParameter(name));
-        			//GestioneCorsoForm gestForm = (GestioneCorsoForm)form;
-        			//gestForm.setAcronimo(request.getParameter(name));
-        			String acronimo = request.getParameter(name);
-        			request.setAttribute("acronimo", acronimo);
-        			request.getSession().setAttribute("acronimo", acronimo);
-        			System.out.println("forward: "+mapping.findForward("success").getPath()+"?acronimo="+request.getParameter(name));
-                	//return new ActionForward(mapping.findForward("success").getPath()+"?acronimo="+request.getParameter(name), false);
+        			PrenotazioneEsame prenotazione = control.getPrenotazioneEsame(Long.valueOf(request.getParameter(name)));
+        			ModificaVotiForm cForm = (ModificaVotiForm)form;
+        			cForm.setIdStudente(prenotazione.getIdStudente());
+        			cForm.setDataEsame(prenotazione.getDataEsame().toString());
+        			cForm.setDataPrenotazione(prenotazione.getDataPrenotazione().toString());
+        			if(prenotazione.getEsaminatore()!=null)
+        				cForm.setEsaminatore(prenotazione.getEsaminatore());
+        			if(prenotazione.getNota()!=null)
+        				cForm.setNota(prenotazione.getNota());
+        			if(prenotazione.getPresenzaEsame()!=null)
+        				cForm.setPresenzaEsame(prenotazione.getPresenzaEsame()?"on":"off");
+        			if(prenotazione.getVotoAccettato()!=null)
+        				cForm.setVotoAccettato(prenotazione.getVotoAccettato()?"on":"off");
+        			if(prenotazione.getVotoEsame()!=null)
+        				cForm.setVotoEsame(prenotazione.getVotoEsame());
+        				
+        			request.getSession().setAttribute("idPrenotazioneEsame", Long.valueOf(request.getParameter(name)));
         		}
         	}
-            
 
         } catch (Exception e) {
 

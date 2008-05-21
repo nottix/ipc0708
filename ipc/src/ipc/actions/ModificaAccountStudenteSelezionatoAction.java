@@ -35,7 +35,7 @@ public class ModificaAccountStudenteSelezionatoAction extends Action {
         try {
        	
         	account = gestioneAccountController.getAccountStudente(request.getParameter("email"));
-        	request.setAttribute("account", account);
+        	//request.setAttribute("account", account);
         	
         	modAcc.setNome(account.getNome());
         	modAcc.setCognome(account.getCognome());

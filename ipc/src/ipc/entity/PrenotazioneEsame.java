@@ -65,7 +65,7 @@ public class PrenotazioneEsame {
 		this.presenzaEsame = presenzaEsame;
 	}
 	
-	public boolean getPresenzaEsame() {
+	public Boolean getPresenzaEsame() {
 		return this.presenzaEsame;
 	}
 	

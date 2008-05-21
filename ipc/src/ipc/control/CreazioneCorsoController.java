@@ -79,15 +79,18 @@ public class CreazioneCorsoController {
 		}
 		
 		elenco = (HashSet)data.get("elencoTitolari");
-		if(elenco.size()>2)
-			return false;
-		i = elenco.iterator();
-		while(i.hasNext()) {
-			String val = (String)i.next();
-			System.out.println("listTitolari: "+val);
-			col.add(sqlDAO.getAccount(val));
+		if(elenco!=null) {
+			col = new HashSet<Account>();
+			if(elenco.size()>2)
+				return false;
+			i = elenco.iterator();
+			while(i.hasNext()) {
+				String val = (String)i.next();
+				System.out.println("listTitolari: "+val);
+				col.add(sqlDAO.getAccount(val));
+			}
+			data.put("elencoTitolari", col);
 		}
-		data.put("elencoTitolari", col);
 		
 		data.put("status", "attivo");
 		

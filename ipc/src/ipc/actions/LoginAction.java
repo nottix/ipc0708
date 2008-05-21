@@ -54,6 +54,8 @@ public class LoginAction extends Action {
         				session.setAttribute("isTitolare", "true");
         			if(loginController.isGestore(loginForm.getEmail()) == true)
         				session.setAttribute("isGestore", "true");
+        			if(loginController.isCollaboratore(loginForm.getEmail()) == true)
+        				session.setAttribute("isCollaboratore", "true");
         		}
         	} else {
         		System.err.println("no");

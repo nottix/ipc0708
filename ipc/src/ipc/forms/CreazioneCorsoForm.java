@@ -119,13 +119,13 @@ public class CreazioneCorsoForm extends ActionForm {
 								 HttpServletRequest request)  {
 
 		ActionErrors errors = new ActionErrors();
-		if((nome == null) || (nome.length() == 0))
+		if((nome != null) && (nome.length() == 0))
 			errors.add("nome", new ActionError("nome.error"));
-		if((acronimo == null) || (acronimo.length() == 0))
+		if((acronimo != null) && (acronimo.length() == 0))
 			errors.add("acronimo", new ActionError("acronimo.error"));
-		if((dataApertura == null) || (dataApertura.length() == 0))
+		if((dataApertura != null) && (dataApertura.length() == 0))
 			errors.add("dataApertura", new ActionError("data.apertura.error"));
-		if((dataChiusura == null) || (dataChiusura.length() == 0))
+		if((dataChiusura != null) && (dataChiusura.length() == 0))
 			errors.add("dataChiusura", new ActionError("data.chiusura.error"));
 		return errors;
 	}

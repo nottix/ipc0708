@@ -1,30 +1,28 @@
 package ipc.actions;
 
-import ipc.entity.Corso;
-
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import java.util.*;
+import ipc.entity.*;
 import ipc.control.*;
 
 /**
  * @version 	1.0
  * @author
  */
-public class GestioneEsameElencoAction extends Action
+public class ModificaVotiElencoAction extends Action
 
 {
-	private List<Corso> elencoCorsi = null;
 	
-	public List<Corso> getElencoCorsi() {
-		return this.elencoCorsi;
+	private List<PrenotazioneEsame> elencoPrenotazioniEsami;
+	
+	public List<PrenotazioneEsame> getElencoPrenotazioniEsami() {
+		return this.elencoPrenotazioniEsami;
 	}
 
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
@@ -33,11 +31,11 @@ public class GestioneEsameElencoAction extends Action
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value
         GestioneEsameController control = new GestioneEsameController();
-        
-        try {
 
-        	elencoCorsi = control.getElencoCorsiAccessibili((String)request.getSession().getAttribute("email"));
-            request.setAttribute("elencoCorsi", elencoCorsi);
+        try {
+        	String acronimo = (String)request.getSession().getAttribute("acronimo");
+        	elencoPrenotazioniEsami = control.getElencoPrenotazioniEsamiCorso(acronimo);
+        	request.setAttribute("elencoPrenotazioniEsami", elencoPrenotazioniEsami);
 
         } catch (Exception e) {
 
@@ -53,12 +51,12 @@ public class GestioneEsameElencoAction extends Action
             saveErrors(request, errors);
 
             // Forward control to the appropriate 'failure' URI (change name as desired)
-            forward = mapping.findForward("error");
+            //	forward = mapping.findForward(non riuscito");
 
         } else {
 
             // Forward control to the appropriate 'success' URI (change name as desired)
-            forward = mapping.findForward("init");
+            forward = mapping.findForward("success");
 
         }
 

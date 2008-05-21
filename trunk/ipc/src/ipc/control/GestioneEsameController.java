@@ -12,6 +12,7 @@ public class GestioneEsameController {
 	private List<Corso> elencoCorsiAccessibili;
 	private List<Esame> elencoEsami;
 	private List<PrenotazioneEsame> elencoPrenotazioneEsame; 
+	private List<PrenotazioneEsame> elencoPrenotazioniEsamiCorso;
 	
 	public List<Corso> getElencoCorsi() {
 		try {
@@ -21,6 +22,17 @@ public class GestioneEsameController {
 			e.printStackTrace();
 		}
 		return this.elencoCorsi;
+	}
+	
+	public PrenotazioneEsame getPrenotazioneEsame(Long id) {
+		try {
+			SQLDAO sqlDao = new SQLDAO();
+			return sqlDao.getPrenotazioneEsame(id);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	public List<Corso> getElencoCorsiAccessibili(String email) {
@@ -75,24 +87,32 @@ public class GestioneEsameController {
 		return null;
 	}
 	
-	public Boolean aggiornaVoto(String email, String voto) {
+	public List<PrenotazioneEsame> getElencoPrenotazioniEsamiCorso(String acronimo) {
+		getElencoEsamiCorso(acronimo);
+		Iterator<Esame> i = elencoEsami.iterator();
+		elencoPrenotazioniEsamiCorso = new LinkedList<PrenotazioneEsame>();
+		while(i.hasNext()) {
+			getPrenotatiEsame(i.next().getId());
+			elencoPrenotazioniEsamiCorso.addAll(elencoPrenotazioneEsame);
+		}
+		return elencoPrenotazioniEsamiCorso;
+	}
+	
+	public Boolean modificaVoto(Long id, Hashtable<String, Object> data) {
 		try {
+			System.out.println("modifica voto");
 			int i = 0;
-			Long idPrenotazioneEsame = -1L;
 			SQLDAO sqlDAO = new SQLDAO();
-			Iterator<PrenotazioneEsame> pe = sqlDAO.listPrenotazioneEsame().iterator();
-			while(pe.hasNext()) {
-				PrenotazioneEsame ptmp = pe.next();
-				if(ptmp.getIdStudente().equals(email) && ptmp.getStatus().equals("attivo")) {
-					idPrenotazioneEsame = ptmp.getId();
+			//Iterator<PrenotazioneEsame> pe = sqlDAO.listPrenotazioneEsame().iterator();
+			//while(pe.hasNext()) {
+			//	PrenotazioneEsame ptmp = pe.next();
+			PrenotazioneEsame ptmp = this.getPrenotazioneEsame(id);
+				if(ptmp.getStatus().equals("attivo")) {
 					i++;
 				}
-			}
-			if(!idPrenotazioneEsame.equals(-1L) && i == 1) {
-				Hashtable<String,String> data = new Hashtable<String, String>();
-				data.put("idStudente", email);
-				data.put("votoEsame", voto);
-				return sqlDAO.updatePrenotazioneEsame(idPrenotazioneEsame, data);
+			if(i == 1) {
+				data.put("id", id);
+				return sqlDAO.updatePrenotazioneEsame(id, data);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -121,13 +121,29 @@ public class LoginController {
 		}
 		return false;
 	}
+	
 	public Boolean isTitolare(String email) {
 		try {
 			SQLDAO sqlDAO = new SQLDAO();
 			Iterator<Corso> i = sqlDAO.listCorso().iterator();
 			while(i.hasNext()) {
 				Corso c = i.next();
-				if(c.isTitolare(email) == true) 
+				if(c.isTitolare(email).equals(true)) 
+					return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public Boolean isCollaboratore(String email) {
+		try {
+			SQLDAO sqlDAO = new SQLDAO();
+			Iterator<Corso> i = sqlDAO.listCorso().iterator();
+			while(i.hasNext()) {
+				Corso c = i.next();
+				if(c.isCollaboratore(email).equals(true)) 
 					return true;
 			}
 		} catch (Exception e) {

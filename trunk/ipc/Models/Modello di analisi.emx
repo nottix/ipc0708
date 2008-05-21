@@ -10353,7 +10353,7 @@
                       </children>
                       <styles xmi:type="notation:ShapeStyle" xmi:id="_TvefcRj4Ed2yTfkBbObc9Q" fontName="Segoe UI" description="Il sistema consente di stampare il Report" fillColor="13369343" lineColor="6737151"/>
                       <element xsi:nil="true"/>
-                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Tvefchj4Ed2yTfkBbObc9Q" x="9351" y="20734" width="3306" height="1719"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Tvefchj4Ed2yTfkBbObc9Q" x="8717" y="19466" width="3306" height="1719"/>
                     </children>
                     <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_mYiGhBhOEd2BrvGPyI1LNg"/>
                   </children>
@@ -11671,9 +11671,9 @@
                       <children xmi:id="_tYeCJBkUEd2yTfkBbObc9Q" type="Description">
                         <element xsi:nil="true"/>
                       </children>
-                      <styles xmi:type="notation:ShapeStyle" xmi:id="_tYeCIRkUEd2yTfkBbObc9Q" fontName="Segoe UI" description="Il Collaboratore modifica i campi desiderati: i voti, accettazione voto" fillColor="13369343" lineColor="6737151"/>
+                      <styles xmi:type="notation:ShapeStyle" xmi:id="_tYeCIRkUEd2yTfkBbObc9Q" fontName="Segoe UI" description="Il Collaboratore modifica i campi desiderati: i voti, accettazione voto, presenza esame, esaminatore e note" fillColor="13369343" lineColor="6737151"/>
                       <element xsi:nil="true"/>
-                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tYeCIhkUEd2yTfkBbObc9Q" x="8400" y="32146" width="4099" height="1585"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tYeCIhkUEd2yTfkBbObc9Q" x="5547" y="32146" width="4099" height="1585"/>
                     </children>
                     <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_ixKwdBkNEd2yTfkBbObc9Q"/>
                   </children>

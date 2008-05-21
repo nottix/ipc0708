@@ -1,9 +1,5 @@
 package ipc.actions;
 
-import ipc.entity.Corso;
-
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.Action;
@@ -13,19 +9,17 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import ipc.control.*;
+import ipc.forms.*;
+import ipc.entity.*;
+import java.util.*;
 
 /**
  * @version 	1.0
  * @author
  */
-public class GestioneEsameElencoAction extends Action
+public class ModificaVotiDoneAction extends Action
 
 {
-	private List<Corso> elencoCorsi = null;
-	
-	public List<Corso> getElencoCorsi() {
-		return this.elencoCorsi;
-	}
 
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
             throws Exception {
@@ -33,11 +27,30 @@ public class GestioneEsameElencoAction extends Action
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value
         GestioneEsameController control = new GestioneEsameController();
-        
+        ModificaVotiForm cForm = (ModificaVotiForm)form;
+
         try {
 
-        	elencoCorsi = control.getElencoCorsiAccessibili((String)request.getSession().getAttribute("email"));
-            request.setAttribute("elencoCorsi", elencoCorsi);
+            Hashtable<String, Object> data = new Hashtable<String, Object>();
+            data.put("votoEsame", cForm.getVotoEsame());
+            data.put("votoAccettato", cForm.getVotoAccettato().equals("on")?true:false);
+            System.out.println("voto accettato: "+cForm.getVotoAccettato());
+            if(cForm.getPresenzaEsame()!=null) {
+            	data.put("presenzaEsame", cForm.getPresenzaEsame().equals("on")?true:false);
+            	System.out.println("presenza: "+cForm.getPresenzaEsame());
+            }
+            if(cForm.getEsaminatore()!=null) {
+            	data.put("esaminatore", cForm.getEsaminatore());
+            }
+            if(cForm.getNota()!=null)
+            	data.put("nota", cForm.getNota());
+            if(control.modificaVoto((Long)request.getSession().getAttribute("idPrenotazioneEsame"), data)) {
+            	System.out.println("ok voto");
+            }
+            else {
+            	errors.add("name", new ActionError("voto.nmodificato"));
+            	System.out.println("non mod");
+            }
 
         } catch (Exception e) {
 
@@ -58,7 +71,8 @@ public class GestioneEsameElencoAction extends Action
         } else {
 
             // Forward control to the appropriate 'success' URI (change name as desired)
-            forward = mapping.findForward("init");
+            forward = mapping.findForward("success");
+            request.getSession().removeAttribute("idPrenotazioneEsame");
 
         }
 

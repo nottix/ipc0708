@@ -15,12 +15,10 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class ModificaVotiElencoForm extends ActionForm
+public class ModificaVotiElencoForm extends ActionForm {
+	private static final long serialVersionUID = 23L;
 
-{
-
-    private String votoAccettato = null;
-
+	private String votoAccettato = null;
     private String radio = null;
 
     /**
@@ -28,7 +26,7 @@ public class ModificaVotiElencoForm extends ActionForm
      * @return String
      */
     public String getVotoAccettato() {
-	return votoAccettato;
+    	return votoAccettato;
     }
 
     /**
@@ -36,7 +34,7 @@ public class ModificaVotiElencoForm extends ActionForm
      * @param <code>String</code>
      */
     public void setVotoAccettato(String v) {
-	this.votoAccettato = v;
+    	this.votoAccettato = v;
     }
 
     /**
@@ -44,7 +42,7 @@ public class ModificaVotiElencoForm extends ActionForm
      * @return String
      */
     public String getRadio() {
-	return radio;
+    	return radio;
     }
 
     /**
@@ -52,29 +50,19 @@ public class ModificaVotiElencoForm extends ActionForm
      * @param <code>String</code>
      */
     public void setRadio(String r) {
-	this.radio = r;
+    	this.radio = r;
     }
 
     public void reset(ActionMapping mapping, HttpServletRequest request) {
-
-	// Reset values are provided as samples only. Change as appropriate.
-
-	votoAccettato = null;
-	radio = null;
-
+		votoAccettato = null;
+		radio = null;
     }
 
     public ActionErrors validate(ActionMapping mapping,
-	    HttpServletRequest request) {
+    							 HttpServletRequest request) {
 
-	ActionErrors errors = new ActionErrors();
-	// Validate the fields in your form, adding
-	// adding each error to this.errors as found, e.g.
+    	ActionErrors errors = new ActionErrors();
 
-	// if ((field == null) || (field.length() == 0)) {
-	//   errors.add("field", new org.apache.struts.action.ActionError("error.field.required"));
-	// }
-	return errors;
-
+    	return errors;
     }
 }

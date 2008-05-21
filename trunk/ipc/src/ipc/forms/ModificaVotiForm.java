@@ -21,24 +21,16 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class ModificaVotiForm extends ActionForm
+public class ModificaVotiForm extends ActionForm {
+	private static final long serialVersionUID = 24L;
 
-{
-
-    private String idStudente = null;
-
+	private String idStudente = null;
     private String dataEsame = null;
-
     private String dataPrenotazione = null;
-
     private String presenzaEsame = null;
-
     private String votoEsame = null;
-
     private String votoAccettato = null;
-
     private String esaminatore = null;
-
     private String nota = null;
 
     /**
@@ -46,7 +38,7 @@ public class ModificaVotiForm extends ActionForm
      * @return String
      */
     public String getIdStudente() {
-	return idStudente;
+    	return idStudente;
     }
 
     /**
@@ -54,15 +46,15 @@ public class ModificaVotiForm extends ActionForm
      * @param <code>String</code>
      */
     public void setIdStudente(String i) {
-	this.idStudente = i;
-    }
+    	this.idStudente = i;
+    }	
 
     /**
      * Get dataEsame
      * @return String
      */
     public String getDataEsame() {
-	return dataEsame;
+    	return dataEsame;
     }
 
     /**
@@ -70,7 +62,7 @@ public class ModificaVotiForm extends ActionForm
      * @param <code>String</code>
      */
     public void setDataEsame(String d) {
-	this.dataEsame = d;
+    	this.dataEsame = d;
     }
 
     /**
@@ -78,7 +70,7 @@ public class ModificaVotiForm extends ActionForm
      * @return String
      */
     public String getDataPrenotazione() {
-	return dataPrenotazione;
+    	return dataPrenotazione;
     }
 
     /**
@@ -86,7 +78,7 @@ public class ModificaVotiForm extends ActionForm
      * @param <code>String</code>
      */
     public void setDataPrenotazione(String d) {
-	this.dataPrenotazione = d;
+    	this.dataPrenotazione = d;
     }
 
     /**
@@ -94,7 +86,7 @@ public class ModificaVotiForm extends ActionForm
      * @return String
      */
     public String getPresenzaEsame() {
-	return presenzaEsame;
+    	return presenzaEsame;
     }
 
     /**
@@ -102,7 +94,7 @@ public class ModificaVotiForm extends ActionForm
      * @param <code>String</code>
      */
     public void setPresenzaEsame(String p) {
-	this.presenzaEsame = p;
+    	this.presenzaEsame = p;
     }
 
     /**
@@ -110,7 +102,7 @@ public class ModificaVotiForm extends ActionForm
      * @return String
      */
     public String getVotoEsame() {
-	return votoEsame;
+    	return votoEsame;
     }
 
     /**
@@ -118,7 +110,7 @@ public class ModificaVotiForm extends ActionForm
      * @param <code>String</code>
      */
     public void setVotoEsame(String v) {
-	this.votoEsame = v;
+   		this.votoEsame = v;
     }
 
     /**
@@ -126,7 +118,7 @@ public class ModificaVotiForm extends ActionForm
      * @return String
      */
     public String getVotoAccettato() {
-	return votoAccettato;
+    	return votoAccettato;
     }
 
     /**
@@ -134,7 +126,7 @@ public class ModificaVotiForm extends ActionForm
      * @param <code>String</code>
      */
     public void setVotoAccettato(String v) {
-	this.votoAccettato = v;
+    	this.votoAccettato = v;
     }
 
     /**
@@ -142,7 +134,7 @@ public class ModificaVotiForm extends ActionForm
      * @return String
      */
     public String getEsaminatore() {
-	return esaminatore;
+    	return esaminatore;
     }
 
     /**
@@ -150,7 +142,7 @@ public class ModificaVotiForm extends ActionForm
      * @param <code>String</code>
      */
     public void setEsaminatore(String e) {
-	this.esaminatore = e;
+    	this.esaminatore = e;
     }
 
     /**
@@ -158,7 +150,7 @@ public class ModificaVotiForm extends ActionForm
      * @return String
      */
     public String getNota() {
-	return nota;
+   		return nota;
     }
 
     /**
@@ -166,35 +158,26 @@ public class ModificaVotiForm extends ActionForm
      * @param <code>String</code>
      */
     public void setNota(String n) {
-	this.nota = n;
+    	this.nota = n;
     }
 
     public void reset(ActionMapping mapping, HttpServletRequest request) {
-
-	// Reset values are provided as samples only. Change as appropriate.
-
-	idStudente = null;
-	dataEsame = null;
-	dataPrenotazione = null;
-	presenzaEsame = null;
-	votoEsame = null;
-	votoAccettato = null;
-	esaminatore = null;
-	nota = null;
-
+		idStudente = null;
+		dataEsame = null;
+		dataPrenotazione = null;
+		presenzaEsame = null;
+		votoEsame = null;
+		votoAccettato = null;
+		esaminatore = null;
+		nota = null;
     }
 
     public ActionErrors validate(ActionMapping mapping,
-	    HttpServletRequest request) {
+    							 HttpServletRequest request) {
 
-	ActionErrors errors = new ActionErrors();
-	// Validate the fields in your form, adding
-	// adding each error to this.errors as found, e.g.
-
-	// if ((field == null) || (field.length() == 0)) {
-	//   errors.add("field", new org.apache.struts.action.ActionError("error.field.required"));
-	// }
-	return errors;
+		ActionErrors errors = new ActionErrors();
+	
+		return errors;
 
     }
 }

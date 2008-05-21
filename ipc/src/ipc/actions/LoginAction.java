@@ -47,6 +47,14 @@ public class LoginAction extends Action {
                	session = request.getSession(true);
         		session.setAttribute("email", loginForm.getEmail());
         		session.setAttribute("tipologia", tipologia);
+        		if(tipologia.equals("professore")) {
+        			if(loginController.isDirettore(loginForm.getEmail()) == true)
+        				session.setAttribute("isDirettore", "true");
+        			if(loginController.isTitolare(loginForm.getEmail()) == true)
+        				session.setAttribute("isTitolare", "true");
+        			if(loginController.isGestore(loginForm.getEmail()) == true)
+        				session.setAttribute("isGestore", "true");
+        		}
         	} else {
         		System.err.println("no");
         		errors.add("email", new ActionError("user.not.exists"));

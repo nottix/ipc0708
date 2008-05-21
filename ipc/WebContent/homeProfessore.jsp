@@ -23,12 +23,23 @@
 			<tr>
 				<td align="center"><html:link page="/creazioneProfessore.jsp">Creazione Professore</html:link></td>
 			</tr>
+			
 			<tr>
 				<td align="center"><html:link page="/gestioneAccount.jsp">Gestione Account</html:link></td>
 			</tr>
+			<%
+				if(session.getAttribute("isDirettore") != null &&
+				   session.getAttribute("isDirettore").equals("true"))
+					out.println("<tr><td align=\"center\">Modifica Titolare</td></tr>");
+			%>
+			<%
+				if(session.getAttribute("isTitolare") != null &&
+				   session.getAttribute("isTitolare").equals("true")) {
+			%>
 			<tr>
 				<td align="center"><html:link action="/CreazioneCorso">Creazione Corso</html:link></td>
 			</tr>
+			<% } %>
 			<tr>
 				<td align="center"><html:link action="/GestioneCorsoElenco">Gestione Corso</html:link></td>
 			</tr>

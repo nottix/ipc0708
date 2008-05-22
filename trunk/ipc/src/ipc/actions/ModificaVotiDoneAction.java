@@ -13,6 +13,8 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 
 /**
@@ -29,6 +31,7 @@ public class ModificaVotiDoneAction extends Action
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value
         GestioneEsameController control = new GestioneEsameController();
+        ActionMessages messages = new ActionMessages();
         ModificaVotiForm cForm = (ModificaVotiForm)form;
 
         try {
@@ -47,6 +50,13 @@ public class ModificaVotiDoneAction extends Action
             if(cForm.getNota()!=null)
             	data.put("nota", cForm.getNota());
             control.modificaVoto((Long)request.getSession().getAttribute("idPrenotazioneEsame"), data);
+            
+			forward = mapping.findForward("success");
+            messages.add("name", new ActionMessage("voto.modificato"));
+            if(!messages.isEmpty()) {
+            	saveMessages(request, messages);
+            }
+            request.getSession().removeAttribute("idPrenotazioneEsame");
 
         } catch (Exception e) {
 
@@ -63,12 +73,6 @@ public class ModificaVotiDoneAction extends Action
 
             // Forward control to the appropriate 'failure' URI (change name as desired)
             forward = mapping.findForward("error");
-
-        } else {
-
-            // Forward control to the appropriate 'success' URI (change name as desired)
-            forward = mapping.findForward("success");
-            request.getSession().removeAttribute("idPrenotazioneEsame");
 
         }
 

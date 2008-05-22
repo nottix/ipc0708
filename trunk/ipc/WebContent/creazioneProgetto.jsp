@@ -44,6 +44,13 @@
 				</td>
 			</tr>
 			<tr>
+			<td colspan="2" align="center">
+				<html:messages id="msg" message="true">
+					<bean:write name="msg"/><br>
+				</html:messages>
+			</td>
+		</tr>
+			<tr>
 				<td colspan="2"><font color="red"><html:errors/></font></td></tr>
 		</tbody>
 	</table>

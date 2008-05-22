@@ -152,23 +152,23 @@ public class RichiestaRegStudenteForm extends ActionForm {
 			 HttpServletRequest request) {
     	ActionErrors errors = new ActionErrors();
 		boolean pwdchk = true;
-		if((nome == null) || (nome.length() == 0))
+		if((nome != null) && (nome.length() == 0))
 			errors.add("nome", new ActionError("nome.error"));
-		if((cognome == null) || (cognome.length() == 0))
+		if((cognome != null) && (cognome.length() == 0))
 			errors.add("cognome", new ActionError("cognome.error"));
-		if((matricola == null) || (matricola.length() == 0))
+		if((matricola != null) && (matricola.length() == 0))
 			errors.add("matricola", new ActionError("matricola.error"));
-		if((password == null) || (password.length() == 0)) {
+		if((password != null) && (password.length() == 0)) {
 			pwdchk = false;
 			errors.add("password", new ActionError("password.error"));
 		}
-		if((passwordCheck == null) || (passwordCheck.length() == 0)) {
+		if((passwordCheck != null) && (passwordCheck.length() == 0)) {
 			pwdchk = false;
 			errors.add("passwordCheck", new ActionError("passwordcheck.error"));
 		}
 		if(pwdchk && !password.equals(passwordCheck))
 			errors.add("password", new ActionError("passwordmatch.error"));
-		if((email == null) || (email.length() == 0))
+		if((email != null) && (email.length() == 0))
 			errors.add("email", new ActionError("email.error"));
 		else if(check_email(email) == false)
 			errors.add("email", new ActionError("email.malformed"));

@@ -14,6 +14,8 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 
 /**
@@ -57,16 +59,17 @@ public class ModificaVotiAction extends Action {
         				cForm.setVotoEsame(prenotazione.getVotoEsame());
         				
         			request.getSession().setAttribute("idPrenotazioneEsame", Long.valueOf(request.getParameter(name)));
+     
         		}
         	}
         } catch (Exception e) {
             errors.add("name", new ActionError("id"));
         }
+        
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-        } else {
-            forward = mapping.findForward("success");
         }
+        
         return forward;
     }
 }

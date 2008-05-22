@@ -58,7 +58,7 @@ public class LoginAction extends Action {
         			session.setAttribute("isCollaboratore", "true");
         	}
         } catch (Exception e) {
-            errors.add("email", new ActionError("user.not.exists"));
+            errors.add("email", new ActionError(e.getMessage()));
         }
 
         if (!errors.isEmpty()) {

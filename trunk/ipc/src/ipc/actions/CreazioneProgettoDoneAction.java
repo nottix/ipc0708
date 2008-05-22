@@ -14,6 +14,8 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 /**
  * @version 	1.0
@@ -30,9 +32,9 @@ public class CreazioneProgettoDoneAction extends Action
         ActionForward forward = new ActionForward(); // return value
         GestioneEsameController cont = new GestioneEsameController();
         CreazioneProgettoForm cForm = (CreazioneProgettoForm)form;
+        ActionMessages messages = new ActionMessages();
         
         try {
-
         	Hashtable<String, Object> data = new Hashtable<String, Object>();
             data.put("acronimo", cForm.getAcronimo());
             data.put("titolo", cForm.getTitolo());
@@ -40,6 +42,12 @@ public class CreazioneProgettoDoneAction extends Action
             data.put("maxUploadPerStudente", cForm.getMaxUploadPerStudente());
         	data.put("maxDimGruppo", cForm.getMaxDimGruppo());
             cont.creazioneProgetto(data);
+            
+            forward = mapping.findForward("success");
+            messages.add("name", new ActionMessage("iscrizioneCorso.created"));
+            if(!messages.isEmpty()) {
+            	saveMessages(request, messages);
+            }
 
         } catch (Exception e) {
 

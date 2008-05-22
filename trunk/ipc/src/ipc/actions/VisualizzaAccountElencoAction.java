@@ -41,7 +41,7 @@ public class VisualizzaAccountElencoAction extends Action
         } catch (Exception e) {
 
             // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("id"));
+            errors.add("name", new ActionError("generic.error"));
 
         }
 

@@ -158,20 +158,20 @@ public class CreazioneProfessoreForm extends ActionForm {
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 		ActionErrors errors = new ActionErrors();
 		boolean check_pass = true;
-		if((nome == null) || (nome.length() == 0))
+		if((nome != null) && (nome.length() == 0))
 			errors.add("nome", new ActionError("nome.error"));
-		if((cognome == null) || (cognome.length() == 0))
+		if((cognome != null) && (cognome.length() == 0))
 			errors.add("cognome", new ActionError("cognome.error"));
-		if((email == null) || (email.length() == 0))
+		if((email != null) && (email.length() == 0))
 			errors.add("email", new ActionError("email.error"));
 		else if(!RichiestaRegStudenteForm.check_email(email))
 			errors.add("email", new ActionError("email.malformed"));
 	    System.out.println("pwd: "+password+", cpwd: "+confPassword);
-		if((password == null) || (password.length() == 0)) {
+		if((password != null) && (password.length() == 0)) {
 			check_pass = false;
 			errors.add("password", new ActionError("password.error"));
 		}
-		if((confPassword == null) || (confPassword.length() == 0)) {
+		if((confPassword != null) && (confPassword.length() == 0)) {
 			check_pass = false;
 			errors.add("password", new ActionError("passwordcheck.error"));
 		}

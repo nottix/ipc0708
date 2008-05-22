@@ -74,12 +74,12 @@ public class ConfermaIscrizioneCorsoForm extends ActionForm
     public ActionErrors validate(ActionMapping mapping,
     							 HttpServletRequest request) {
     	ActionErrors errors = new ActionErrors();
-    	if((dataIscrizione == null) || (dataIscrizione.length() == 0))
-    		errors.add("dataIscrizione", new ActionError("data.iscrizione.error"));
-		if((email == null) || (email.length() == 0))
-			errors.add("email", new ActionError("email.error"));
-		else if(!RichiestaRegStudenteForm.check_email(email))
-			errors.add("email", new ActionError("email.malformed"));
+//    	if((dataIscrizione == null) || (dataIscrizione.length() == 0))
+//    		errors.add("dataIscrizione", new ActionError("data.iscrizione.error"));
+//		if((email == null) || (email.length() == 0))
+//			errors.add("email", new ActionError("email.error"));
+//		else if(!RichiestaRegStudenteForm.check_email(email))
+//			errors.add("email", new ActionError("email.malformed"));
 		return errors;
     }
 }

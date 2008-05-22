@@ -35,6 +35,13 @@
 			<td align="center"><html:link action="/RipristinaPasswordAccount">Ripristina Password Account</html:link></td>
 		</tr>
 		<tr>
+			<td align="center">
+				<html:messages id="msg" message="true">
+					<bean:write name="msg"/><br>
+				</html:messages>
+			</td>
+		</tr>
+		<tr>
 			<td align="center"><html:errors /></td>
 		</tr>
 	</tbody>

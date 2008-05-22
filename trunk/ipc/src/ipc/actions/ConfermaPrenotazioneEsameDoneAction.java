@@ -13,6 +13,8 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 /**
  * @version 	1.0
@@ -29,6 +31,7 @@ public class ConfermaPrenotazioneEsameDoneAction extends Action
         ActionForward forward = new ActionForward(); // return value
         ConfermaIscrizioneController control = new ConfermaIscrizioneController();
         ConfermaPrenotazioneEsameForm cForm = (ConfermaPrenotazioneEsameForm)form;
+        ActionMessages messages = new ActionMessages();
 
         try {
         	if (isCancelled(request)) {
@@ -40,12 +43,21 @@ public class ConfermaPrenotazioneEsameDoneAction extends Action
        			System.out.println("conferma");
 	            HttpSession session = request.getSession();
 	            control.confermaPrenotazioneEsame((Long)session.getAttribute("idPrenotazioneEsame"));
+				forward = mapping.findForward("success");
+	            messages.add("name", new ActionMessage("prenotazione.confermata"));
        		}
        		else if(cForm.getSubmit().equals("Rifiuta")) {
        			System.out.println("rifiuta");
 	            HttpSession session = request.getSession();
 	            control.rifiutaPrenotazioneEsame((Long)session.getAttribute("idPrenotazioneEsame"));
+				forward = mapping.findForward("success");
+	            messages.add("name", new ActionMessage("prenotazione.rifiutata"));
+	            
        		}
+       		
+	        if(!messages.isEmpty()) {
+	            saveMessages(request, messages);
+	        }
 
         } catch (Exception e) {
 
@@ -64,9 +76,6 @@ public class ConfermaPrenotazioneEsameDoneAction extends Action
             //	forward = mapping.findForward(non riuscito");
             forward = mapping.findForward("error");
 
-        }
-        else {
-        	forward = mapping.findForward("success");
         }
 
         // Finish with

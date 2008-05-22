@@ -101,11 +101,11 @@ public class PrenotazioneEsameForm extends ActionForm {
     							 HttpServletRequest request) {
 
     	ActionErrors errors = new ActionErrors();
-    	if((dataInizioPeriodoPrenotazione == null) || (dataInizioPeriodoPrenotazione.length() == 0))
+    	if((dataInizioPeriodoPrenotazione != null) && (dataInizioPeriodoPrenotazione.length() == 0))
     		errors.add("dataInizioPeriodoPrenotazione", new ActionError("data.inizio.periodo.prenotazione.error"));
-    	if((dataFinePeriodoPrenotazione == null) || (dataFinePeriodoPrenotazione.length() == 0))
+    	if((dataFinePeriodoPrenotazione != null) && (dataFinePeriodoPrenotazione.length() == 0))
     		errors.add("dataFinePeriodoPrenotazione", new ActionError("data.fine.periodo.prenotazione.error"));
-    	if((dataEsame == null ) || (dataEsame.length() == 0))
+    	if((dataEsame != null ) && (dataEsame.length() == 0))
     		errors.add("dataEsame", new ActionError("data.esame.error"));
     	return errors;
 

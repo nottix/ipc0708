@@ -35,20 +35,18 @@ public class CreazioneCorsoAction extends Action {
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value
         CreazioneCorsoController creazioneCorsoController = new CreazioneCorsoController();
-        Hashtable<String, Object> data = null;
+        Hashtable<String, Object> data = new Hashtable<String, Object>();
         HashSet<String> collaboratori = new HashSet<String>();
         HashSet<String> titolari = new HashSet<String>();
         CreazioneCorsoForm creazioneCorsoForm = (CreazioneCorsoForm)form;
         
         try {
-        	data = new Hashtable<String, Object>();
         	int titolareCounter = 1;
         	int collaboratoreCounter = 1;
         	Enumeration en = request.getParameterNames();
         	while(en.hasMoreElements()) {
         		String name = (String)en.nextElement();
         		if (request.getParameter(name) != null && request.getParameter(name).trim().equals("on")) {
-        			System.out.println("titolare"+titolareCounter+": "+name.substring(name.indexOf("-")+1));
         			if(name.indexOf("titolare")>=0) {
         				titolari.add(name.substring(name.indexOf("-")+1));
         				titolareCounter++;
@@ -78,10 +76,7 @@ public class CreazioneCorsoAction extends Action {
         } catch (Exception e) {
             errors.add("name", new ActionError("generic.error"));
         }
-
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
-
+        
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
 

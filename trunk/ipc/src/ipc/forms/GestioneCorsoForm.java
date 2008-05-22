@@ -44,8 +44,8 @@ public class GestioneCorsoForm extends ActionForm {
 	    HttpServletRequest request) {
 
     	ActionErrors errors = new ActionErrors();
-    	if((acronimo == null) || (acronimo.length() == 0))
-    		errors.add("acronimo", new ActionError("acronimo.error"));
+//    	if((acronimo == null) || (acronimo.length() == 0))
+//    		errors.add("acronimo", new ActionError("acronimo.error"));
     	return errors;
 
     }

@@ -39,15 +39,7 @@ public class CreazioneProgettoDoneAction extends Action
             data.put("dataConsegna", new SimpleDateFormat("MM/dd/yy").parse(cForm.getDataConsegna()));
             data.put("maxUploadPerStudente", cForm.getMaxUploadPerStudente());
         	data.put("maxDimGruppo", cForm.getMaxDimGruppo());
-            if(cont.creazioneProgetto(data)) {
-            	errors.add("name", new ActionError("progetto.created"));
-            }
-            else
-            	errors.add("name", new ActionError("progetto.ncreated"));
-            
-            //data.put("dataEsame", new Date());
-    		//data.put("aulaEsame", "Aula 1");
-    		//data.put("idEsame", idEsame);
+            cont.creazioneProgetto(data);
 
         } catch (Exception e) {
 

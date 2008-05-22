@@ -39,20 +39,18 @@ public class ConfermaPrenotazioneEsameDoneAction extends Action
        		if(cForm.getSubmit().equals("Conferma")) {
        			System.out.println("conferma");
 	            HttpSession session = request.getSession();
-	            if(!control.confermaPrenotazioneEsame((Long)session.getAttribute("idPrenotazioneEsame")))
-	            	errors.add("name", new ActionError("generic.error"));
+	            control.confermaPrenotazioneEsame((Long)session.getAttribute("idPrenotazioneEsame"));
        		}
        		else if(cForm.getSubmit().equals("Rifiuta")) {
        			System.out.println("rifiuta");
 	            HttpSession session = request.getSession();
-	            if(!control.rifiutaPrenotazioneEsame((Long)session.getAttribute("idPrenotazioneEsame")))
-	            	errors.add("name", new ActionError("generic.error"));
+	            control.rifiutaPrenotazioneEsame((Long)session.getAttribute("idPrenotazioneEsame"));
        		}
 
         } catch (Exception e) {
 
             // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("id"));
+            errors.add("name", new ActionError("generic.error"));
 
         }
 

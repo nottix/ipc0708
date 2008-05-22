@@ -42,24 +42,20 @@ public class LoginAction extends Action {
         			session.invalidate();
         		}
         	}
-        	if((tipologia=loginController.login(loginForm.getEmail(), loginForm.getPassword()))!=null) {	
-        		System.err.println("si");
-               	session = request.getSession(true);
-        		session.setAttribute("email", loginForm.getEmail());
-        		session.setAttribute("tipologia", tipologia);
-        		if(tipologia.equals("professore")) {
-        			if(loginController.isDirettore(loginForm.getEmail()) == true)
-        				session.setAttribute("isDirettore", "true");
-        			if(loginController.isTitolare(loginForm.getEmail()) == true)
-        				session.setAttribute("isTitolare", "true");
-        			if(loginController.isGestore(loginForm.getEmail()) == true)
-        				session.setAttribute("isGestore", "true");
-        			if(loginController.isCollaboratore(loginForm.getEmail()) == true)
-        				session.setAttribute("isCollaboratore", "true");
-        		}
-        	} else {
-        		System.err.println("no");
-        		errors.add("email", new ActionError("user.not.exists"));
+        	loginController.login(loginForm.getEmail(), loginForm.getPassword());
+        	tipologia=loginController.getTipologia();
+        	session = request.getSession(true);
+        	session.setAttribute("email", loginForm.getEmail());
+        	session.setAttribute("tipologia", tipologia);
+        	if(tipologia.equals("professore")) {
+        		if(loginController.isDirettore(loginForm.getEmail()) == true)
+        			session.setAttribute("isDirettore", "true");
+        		if(loginController.isTitolare(loginForm.getEmail()) == true)
+        			session.setAttribute("isTitolare", "true");
+        		if(loginController.isGestore(loginForm.getEmail()) == true)
+        			session.setAttribute("isGestore", "true");
+        		if(loginController.isCollaboratore(loginForm.getEmail()) == true)
+        			session.setAttribute("isCollaboratore", "true");
         	}
         } catch (Exception e) {
             errors.add("email", new ActionError("user.not.exists"));

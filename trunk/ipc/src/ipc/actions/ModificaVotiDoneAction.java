@@ -46,18 +46,12 @@ public class ModificaVotiDoneAction extends Action
             }
             if(cForm.getNota()!=null)
             	data.put("nota", cForm.getNota());
-            if(control.modificaVoto((Long)request.getSession().getAttribute("idPrenotazioneEsame"), data)) {
-            	System.out.println("ok voto");
-            }
-            else {
-            	errors.add("name", new ActionError("voto.nmodificato"));
-            	System.out.println("non mod");
-            }
+            control.modificaVoto((Long)request.getSession().getAttribute("idPrenotazioneEsame"), data);
 
         } catch (Exception e) {
 
             // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("id"));
+        	errors.add("name", new ActionError("voto.nmodificato"));
 
         }
 

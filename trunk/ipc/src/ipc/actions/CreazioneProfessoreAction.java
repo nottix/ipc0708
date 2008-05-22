@@ -30,29 +30,24 @@ public class CreazioneProfessoreAction extends Action {
         CreazioneProfessoreForm creazioneProfessoreForm = (CreazioneProfessoreForm)form;
         
         try {
-        	System.out.println("Controller1");
         	Hashtable<String, Object> hash = new Hashtable<String, Object>();
         	hash.put("nome", creazioneProfessoreForm.getNome());
         	hash.put("cognome", creazioneProfessoreForm.getCognome());
         	hash.put("email", creazioneProfessoreForm.getEmail());
         	hash.put("password", creazioneProfessoreForm.getPassword());
-        	System.out.println("Controller2: "+creazioneProfessoreForm.getIsDirettore()+ ", "+ creazioneProfessoreForm.getIsGestore());
         	hash.put("isDirettore", creazioneProfessoreForm.getIsDirettore()!=null ? Boolean.TRUE : Boolean.FALSE);
         	hash.put("isGestore", creazioneProfessoreForm.getIsGestore()!=null ? Boolean.TRUE : Boolean.FALSE);
-        	System.out.println("Controller");
-        	if(!creazioneProfessoreController.creazioneProfessore(hash))
-        		errors.add("email", new ActionError("user.already.exists"));
-        } catch (Exception e) {
+        	creazioneProfessoreController.creazioneProfessore(hash);
+        }
+        catch (Exception e) {
             errors.add("password", new ActionError("passwordmatch.error"));
         }
 
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
-            //	forward = mapping.findForward(non riuscito");
             forward = mapping.findForward("error");
-        } else {
+        }
+        else {
             forward = mapping.findForward("success");
         }
         return forward;

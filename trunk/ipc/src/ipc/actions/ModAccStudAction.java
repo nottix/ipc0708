@@ -39,8 +39,7 @@ public class ModAccStudAction extends Action
         	hash.put("cognome", modAcc.getCognome());
         	hash.put("matricola", modAcc.getMatricola());
         	hash.put("noteStud", modAcc.getNote());
-    		if(!gestioneAccountController.modificaAccountStudente(modAcc.getEmail(), hash))
-    			errors.add("name", new ActionError("id"));;
+    		gestioneAccountController.modificaAccountStudente(modAcc.getEmail(), hash);
         } catch (Exception e) {
             // Report the error using the appropriate name and ID.
             errors.add("name", new ActionError("id"));

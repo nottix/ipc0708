@@ -43,8 +43,8 @@ public class GestioneCorsoAction extends Action
         			GestioneCorsoForm gestForm = (GestioneCorsoForm)form;
         			gestForm.setAcronimo(request.getParameter(name));
         			acronimo = request.getParameter(name);
-        			request.setAttribute("acronimo", acronimo);
-        			System.out.println("forward: "+mapping.findForward("success").getPath()+"?acronimo="+request.getParameter(name));
+        			request.getSession().setAttribute("acronimo", acronimo);
+        			//System.out.println("forward: "+mapping.findForward("success").getPath()+"?acronimo="+request.getParameter(name));
                 	//return new ActionForward(mapping.findForward("success").getPath()+"?acronimo="+request.getParameter(name), false);
         		}
         	}

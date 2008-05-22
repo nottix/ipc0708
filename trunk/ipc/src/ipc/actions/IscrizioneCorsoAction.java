@@ -48,10 +48,7 @@ public class IscrizioneCorsoAction extends Action {
         			System.out.println("request: "+request.getParameter(name));
         			String acronimo = request.getParameter(name);
         			data.put("acronimo", acronimo);
-        			if(control.iscrizioneCorso(data))
-        				errors.add("name", new ActionError("iscrizioneCorso.created"));
-        			else
-        				errors.add("name", new ActionError("iscrizioneCorso.ncreated"));
+        			control.iscrizioneCorso(data);
         		}
         	}
         }

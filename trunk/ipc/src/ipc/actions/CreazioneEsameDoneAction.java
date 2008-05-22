@@ -38,15 +38,7 @@ public class CreazioneEsameDoneAction extends Action
             data.put("dataEsame", new SimpleDateFormat("MM/dd/yy").parse(cForm.getDataEsame()));
         	data.put("auleEsame", cForm.getAule());
         	System.out.println("aulaEsame: "+cForm.getAule());
-            if(cont.creazioneEsame(data)) {
-            	errors.add("name", new ActionError("esame.created"));
-            }
-            else
-            	errors.add("name", new ActionError("esame.ncreated"));
-            
-            //data.put("dataEsame", new Date());
-    		//data.put("aulaEsame", "Aula 1");
-    		//data.put("idEsame", idEsame);
+            cont.creazioneEsame(data);
 
         } catch (Exception e) {
 
@@ -60,11 +52,11 @@ public class CreazioneEsameDoneAction extends Action
 
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
-            //	forward = mapping.findForward(non riuscito");
-
-            forward = mapping.findForward("success");
+            forward = mapping.findForward("error");
+        }
+        else {
+        	request.getSession().removeAttribute("acronimo");
+        	forward = mapping.findForward("success");
         }
 
         // Finish with

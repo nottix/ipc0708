@@ -134,36 +134,23 @@ public class CreazioneCorsoForm extends ActionForm {
 			errors.add("dataChiusura", new ActionError("data.chiusura.error"));
 		else if(!this.check_data(dataChiusura))
 			errors.add("dataChiusura", new ActionError("data.invalid.format"));
-		if(dataApertura != null && dataChiusura != null)
-			if(cmpDates(dataApertura, dataChiusura))
-				errors.add("dataApertura", new ActionError("data.apartura.chiusura.invalid"));
+//		if(dataApertura != null && dataChiusura != null)
+//			if(cmpDates(dataApertura, dataChiusura))
+//				errors.add("dataApertura", new ActionError("data.apartura.chiusura.invalid"));
 		return errors;
 	}
 	
 	 public boolean check_data(String data) {
-			boolean test1 = Pattern.compile("[0-9]{1,2}/[0-9]{1-2}/20[0-9]{2}").matcher(data).matches();
-			String []dates = data.split("/");
-			if(Integer.valueOf(dates[0]) < 1 || Integer.valueOf(dates[0]) > 31)
-				return false;
-			if(Integer.valueOf(dates[1]) < 1 || Integer.valueOf(dates[1]) > 12)
-				return false;
-			if(Integer.valueOf(dates[2]) < 2000 || Integer.valueOf(dates[2]) > 2099)
-				return false;
-			return test1;
-	 }
-	 
-	 public boolean cmpDates(String dataI, String dataF) {
-		 String []splitI = dataI.split("/");
-		 String []splitF = dataF.split("/");
-		 int dayI = Integer.valueOf(splitI[0]);
-		 int dayF = Integer.valueOf(splitF[0]);
-		 int monthI = Integer.valueOf(splitI[1]);
-		 int monthF = Integer.valueOf(splitF[1]);
-		 int yearI = Integer.valueOf(splitI[2]);
-		 int yearF = Integer.valueOf(splitF[2]);
-		 long i = dayI + 30 * (monthI + yearI * 12);
-		 long f = dayF + 30 * (monthF + yearF * 12);
-		 return !(i > f);
+//			boolean test1 = Pattern.compile("[0-9]{1,2}/[0-9]{1,2}/20[0-9]{2}").matcher(data).matches();
+//			String []dates = data.split("/");
+//			if(Integer.valueOf(dates[0]) < 1 || Integer.valueOf(dates[0]) > 31)
+//				return false;
+//			if(Integer.valueOf(dates[1]) < 1 || Integer.valueOf(dates[1]) > 12)
+//				return false;
+//			if(Integer.valueOf(dates[2]) < 2000 || Integer.valueOf(dates[2]) > 2099)
+//				return false;
+//			return test1;
+		 return true;
 	 }
 	
 }

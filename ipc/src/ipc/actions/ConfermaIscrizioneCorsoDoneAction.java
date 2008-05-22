@@ -34,20 +34,18 @@ public class ConfermaIscrizioneCorsoDoneAction extends Action {
        		if(cForm.getSubmit().equals("Conferma")) {
        			System.out.println("conferma");
 	            HttpSession session = request.getSession();
-	            if(!control.confermaIscrizioneCorso((Long)session.getAttribute("idIscrizioneCorso")))
-	            	errors.add("name", new ActionError("generic.error"));
+	            control.confermaIscrizioneCorso((Long)session.getAttribute("idIscrizioneCorso"));
        		}
        		else if(cForm.getSubmit().equals("Rifiuta")) {
        			System.out.println("rifiuta");
 	            HttpSession session = request.getSession();
-	            if(!control.rifiutaIscrizioneCorso((Long)session.getAttribute("idIscrizioneCorso")))
-	            	errors.add("name", new ActionError("generic.error"));
+	            control.rifiutaIscrizioneCorso((Long)session.getAttribute("idIscrizioneCorso"));
        		}
 
         } catch (Exception e) {
 
             // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("id"));
+            errors.add("name", new ActionError("generic.error"));
 
         }
 

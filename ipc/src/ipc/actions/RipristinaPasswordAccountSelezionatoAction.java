@@ -27,11 +27,7 @@ public class RipristinaPasswordAccountSelezionatoAction extends Action
         
         try {
 
-            if(!gestAcc.ripristinaPasswordAccountStudente((String)request.getParameter("email")))
-            	errors.add("name", new ActionError("password.regen"));
-            else
-            	errors.add("name", new ActionError("password.ok"));
-
+            gestAcc.ripristinaPasswordAccountStudente((String)request.getParameter("email"));
         } catch (Exception e) {
 
             // Report the error using the appropriate name and ID.

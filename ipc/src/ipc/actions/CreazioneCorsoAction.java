@@ -47,20 +47,14 @@ public class CreazioneCorsoAction extends Action {
         	Enumeration en = request.getParameterNames();
         	while(en.hasMoreElements()) {
         		String name = (String)en.nextElement();
-        		System.out.println("param: "+name);
         		if (request.getParameter(name) != null && request.getParameter(name).trim().equals("on")) {
-        			System.out.println(name+" e' stato checkato");
-        			//String value = request.getParameter(name);
         			System.out.println("titolare"+titolareCounter+": "+name.substring(name.indexOf("-")+1));
         			if(name.indexOf("titolare")>=0) {
-        				System.out.println("ok");
-        				//data.put("titolare"+titolareCounter, name.substring(name.indexOf("-")+1));
         				titolari.add(name.substring(name.indexOf("-")+1));
         				titolareCounter++;
         			}
         			if(name.indexOf("collaboratore")>=0) {
         				collaboratori.add(name.substring(name.indexOf("-")+1));
-        				//data.put("collaboratore"+collaboratoreCounter, name.substring(name.indexOf("-")+1));
         				collaboratoreCounter++;
         			}
         			
@@ -76,21 +70,13 @@ public class CreazioneCorsoAction extends Action {
 				data.put("descrizione", creazioneCorsoForm.getDescrizione());
 				data.put("dataApertura", new SimpleDateFormat("MM/dd/yy").parse(creazioneCorsoForm.getDataApertura()));
 				data.put("dataChiusura", new SimpleDateFormat("MM/dd/yy").parse(creazioneCorsoForm.getDataChiusura()));
-				if(!creazioneCorsoController.creazioneCorso(data))
-					errors.add("name", new ActionError("generic.error"));
-				else
-					errors.add("name", new ActionError("corso.created"));
+				creazioneCorsoController.creazioneCorso(data);
         	}
         	elencoProfessori = creazioneCorsoController.getElencoAccountProfessori();
-        	System.out.println("elencosize: "+elencoProfessori.size());
         	request.setAttribute("elencoProfessori", elencoProfessori);
 
         } catch (Exception e) {
-
-            // Report the error using the appropriate name and ID.
-        	e.printStackTrace();
             errors.add("name", new ActionError("generic.error"));
-
         }
 
         // If a message is required, save the specified key(s)
@@ -98,8 +84,6 @@ public class CreazioneCorsoAction extends Action {
 
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
 
         }
         forward = mapping.findForward("success");

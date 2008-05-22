@@ -37,18 +37,14 @@ public class PrenotazioneEsameDoneAction extends Action
             data.put("idStudente", session.getAttribute("email"));
             data.put("idEsame", Long.valueOf((String)session.getAttribute("idEsame")));
             
-            if(control.prenotazioneEsame(data)) {
-            	session.removeAttribute("idEsame");
-            	session.removeAttribute("idCorso");
-            }
-            else
-            	errors.add("name", new ActionError("generic.error"));
-            	
-
+            control.prenotazioneEsame(data);
+            session.removeAttribute("idEsame");
+            session.removeAttribute("idCorso");
+            
         } catch (Exception e) {
 
             // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("id"));
+        	errors.add("name", new ActionError("generic.error"));
 
         }
 

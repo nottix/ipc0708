@@ -33,10 +33,7 @@ public class ForgotPasswordAction extends Action {
             data.put("tipologia", "studente");
             data.put("email",  forgotPasswordForm.getEmail());
             data.put("status", "ripristino");
-            Boolean ret = loginController.richiestaNuovaPasswordStudente(data);
-            if(ret == false) {
-            	errors.add("email", new ActionError("user.not.exists"));
-            }
+            loginController.richiestaNuovaPasswordStudente(data);
         } catch (Exception e) {
             errors.add("name", new ActionError("user.not.exists"));
         }

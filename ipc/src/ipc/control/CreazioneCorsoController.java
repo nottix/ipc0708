@@ -41,29 +41,32 @@ public class CreazioneCorsoController {
 		return null;
 	}
 	
-	public Boolean creazioneCorso(Hashtable<String, Object> data) throws Exception {
+	public void creazioneCorso(Hashtable<String, Object> data) throws Exception {
 		/**
 		 * First data checks
 		 */
 		String nome = (String) data.get("nome");
 		if(nome == null || nome.length() == 0)
-			return false;
+			throw new Exception("Nome non valido");
 		String acronimo = (String) data.get("acronimo");
 		if(acronimo == null  || acronimo.length() == 0)
-			return false;
+			throw new Exception("Acronimo non valido");
 		Date dataApertura = (Date) data.get("dataApertura");
 		if(dataApertura == null)
-			return false;
+			throw new Exception("Data apertura non impostata");
 		Date dataChiusura = (Date) data.get("dataChiusura");
 		if(dataChiusura == null)
-			return false;
+			throw new Exception("Data chiusura non impostata");
+		
+		if(dataApertura.after(dataChiusura))
+			throw new Exception("La data di apertura è successiva alla data di chiusura");
 		/**
 		 * Second check: a course already exists!
 		 */
 		SQLDAO sqlDAO = new SQLDAO();
 		Corso aCourse = sqlDAO.getCorso(acronimo);
 		if(aCourse != null)
-			return false;
+			throw new Exception("Corso esistente");
 		
 		Iterator i;
 		HashSet<Account> col = new HashSet<Account>();
@@ -82,7 +85,7 @@ public class CreazioneCorsoController {
 		if(elenco!=null) {
 			col = new HashSet<Account>();
 			if(elenco.size()>2)
-				return false;
+				throw new Exception("Troppi Titolari");
 			i = elenco.iterator();
 			while(i.hasNext()) {
 				String val = (String)i.next();
@@ -95,6 +98,19 @@ public class CreazioneCorsoController {
 		data.put("status", "attivo");
 		
 		sqlDAO.createAndStoreCorso(data);
-		return true;
 	}
+	
+//	public boolean cmpDates(String dataI, String dataF) {
+//		 String []splitI = dataI.split("/");
+//		 String []splitF = dataF.split("/");
+//		 int dayI = Integer.valueOf(splitI[0]);
+//		 int dayF = Integer.valueOf(splitF[0]);
+//		 int monthI = Integer.valueOf(splitI[1]);
+//		 int monthF = Integer.valueOf(splitF[1]);
+//		 int yearI = Integer.valueOf(splitI[2]);
+//		 int yearF = Integer.valueOf(splitF[2]);
+//		 long i = dayI + 30 * (monthI + yearI * 12);
+//		 long f = dayF + 30 * (monthF + yearF * 12);
+//		 return !(i > f);
+//	 }
 }

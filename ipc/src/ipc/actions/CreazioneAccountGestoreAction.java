@@ -36,14 +36,9 @@ public class CreazioneAccountGestoreAction extends Action
         	data.put("email", creazioneAccountForm.getEmail());
         	data.put("password", creazioneAccountForm.getPassword());
         	
-            if(control.creazioneAccountGestore(data)) {
-            	errors.add("name", new ActionError("account.created"));
-            	forward = mapping.findForward("success");
-            }
-            else {
-            	errors.add("name", new ActionError("account.ncreated"));
-            	forward = mapping.findForward("error");
-            }
+            control.creazioneAccountGestore(data);
+            
+            forward = mapping.findForward("success");
 
         } catch (Exception e) {
 

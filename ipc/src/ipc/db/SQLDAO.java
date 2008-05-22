@@ -184,7 +184,7 @@ public class SQLDAO {
         return anAccount.getEmail();
     }
 	
-	public boolean updateAccount(String email, Hashtable data) throws Exception {
+	public Boolean updateAccount(String email, Hashtable data) throws Exception {
 		Session session = DAOFactory.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Account anAccount = (Account) session.load(Account.class, email);
@@ -257,7 +257,7 @@ public class SQLDAO {
         return aCourse.getId();
     }
 	
-	public boolean updateCorso(Long idCorso, Hashtable data) throws Exception {
+	public Boolean updateCorso(Long idCorso, Hashtable data) throws Exception {
 		Session session = DAOFactory.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Corso aCourse = (Corso) session.load(Corso.class, idCorso);
@@ -303,7 +303,7 @@ public class SQLDAO {
         return anExam.getId();
     }
 	
-	public boolean updateEsame(Long idEsame, Hashtable data) throws Exception {
+	public Boolean updateEsame(Long idEsame, Hashtable data) throws Exception {
         Session session = DAOFactory.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Esame anExam = (Esame) session.load(Esame.class, idEsame);
@@ -345,7 +345,7 @@ public class SQLDAO {
         return aGroup.getId();
     }
 	
-	public boolean updateGruppo(Long idGruppo, Hashtable data) throws Exception {
+	public Boolean updateGruppo(Long idGruppo, Hashtable data) throws Exception {
         Session session = DAOFactory.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Gruppo aGroup = (Gruppo) session.load(Gruppo.class, idGruppo);
@@ -389,7 +389,7 @@ public class SQLDAO {
         return regCourse.getId();
     }
 	
-	public boolean updateIscrizioneCorso(Long idIscrizioneCorso, Hashtable data) throws Exception {
+	public Boolean updateIscrizioneCorso(Long idIscrizioneCorso, Hashtable data) throws Exception {
 		Session session = DAOFactory.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         IscrizioneCorso regCourse = (IscrizioneCorso) session.load(IscrizioneCorso.class, idIscrizioneCorso);
@@ -443,14 +443,13 @@ public class SQLDAO {
         return resExam.getId();
     }
 	
-	public Boolean updatePrenotazioneEsame(Long idPrenotazioneEsame, Hashtable data) throws Exception {
+	public void updatePrenotazioneEsame(Long idPrenotazioneEsame, Hashtable data) throws Exception {
 		Session session = DAOFactory.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         PrenotazioneEsame resExam = (PrenotazioneEsame) session.load(PrenotazioneEsame.class, idPrenotazioneEsame);
         resExam = this.hashToPrenotazioneEsame(resExam, data);
         session.update(resExam);
         tx.commit();
-        return tx.wasCommitted();
     }
 	
 	@SuppressWarnings("unchecked")
@@ -489,7 +488,7 @@ public class SQLDAO {
         return aProject.getId();
     }
 	
-	public boolean updateProgetto(Long idProgetto, Hashtable data) throws Exception {
+	public Boolean updateProgetto(Long idProgetto, Hashtable data) throws Exception {
 		Session session = DAOFactory.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         Progetto aProject = (Progetto) session.load(Progetto.class, idProgetto);

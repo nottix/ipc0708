@@ -174,7 +174,9 @@
 			</forward>
 		</action>
 		<action path="/CreazioneEsameDone" type="ipc.actions.CreazioneEsameDoneAction" scope="request" name="creazioneEsameForm">
-			<forward name="success" path="/creazioneEsame.jsp">
+			<forward name="success" path="/GestioneCorsoElenco.do">
+			</forward>
+			<forward name="error" path="/creazioneEsame.jsp">
 			</forward>
 		</action>
 		<action path="/GestioneEsameElenco" type="ipc.actions.GestioneEsameElencoAction">

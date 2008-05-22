@@ -37,19 +37,13 @@ public class RichiestaRegStudenteAction extends Action {
             ht.put("status", "pendent");
             ht.put("tipologia", "studente");
             System.out.println("Richiesta");
-            Boolean ret = loginController.richiestaRegStudente(ht);
+            loginController.richiestaRegStudente(ht);
             System.out.println("Richiesta fatta");
-            if(ret == false) {
-            	System.out.println("False");
-            	errors.add("nome", new ActionError("user.already.exists"));
-            } else {
-            	System.out.println("True");
-            }
             
         } catch (Exception e) {
 
             // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("id"));
+        	errors.add("nome", new ActionError("user.already.exists"));
 
         }
 

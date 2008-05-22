@@ -26,13 +26,14 @@ public class LoginController {
 		Account unAccount = null;
 		SQLDAO sqlDAO = new SQLDAO();
 		unAccount = sqlDAO.getAccount(email);
-		System.out.println("email: "+unAccount.getEmail());
+		if(unAccount==null)
+			throw new Exception("user.not.exists");
 		String passDB = unAccount.getPassword();
-		System.out.println("echeccazzo");
 		String passEnc = Account.convertToMD5(password);
-		System.out.println("passDB: "+passDB+", passEnc: "+passEnc+", password: "+password);
 		if(!passEnc.equals(passDB))
-			throw new Exception("Password errata");
+			throw new Exception("password.errata");
+		if(!unAccount.getStatus().equals("attivo"))
+			throw new Exception("account.disattivo");
 		tipologia = unAccount.getTipologia();
 	}
 	

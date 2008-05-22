@@ -40,7 +40,6 @@ public class AttivazioneAccountStudenteAction extends Action {
         	while(en.hasMoreElements()) {
         		String name = (String)en.nextElement();
         		if (request.getParameter(name) != null && request.getParameter(name).trim().equals("on")) {
-        			System.out.println(name+" e' stato checkato");
         			gestioneAccountController.abilitaAccountStudente(name);
         		}
         	}
@@ -48,7 +47,7 @@ public class AttivazioneAccountStudenteAction extends Action {
         	request.setAttribute("elencoAccountStudenti", elencoAccountStudenti);
         } catch (Exception e) {
             // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("id"));
+            errors.add("name", new ActionError(e.getMessage()));
         }
 
         // If a message is required, save the specified key(s)
@@ -56,7 +55,7 @@ public class AttivazioneAccountStudenteAction extends Action {
 
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-            // TODO: E se sto coso sbarella che si fa?
+
         } else {
             // Forward control to the appropriate 'success' URI (change name as desired)
         	forward = mapping.findForward("init");

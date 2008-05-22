@@ -26,6 +26,13 @@
 					<td><html:link action="/ModificaVotiElenco">Modifica Voti</html:link></td>
 				</tr>
 				<tr>
+					<td align="center">
+						<html:messages id="msg" message="true">
+							<bean:write name="msg"/><br>
+						</html:messages>
+					</td>
+				</tr>
+				<tr>
 					<td><font color="red"><html:errors /></font></td>
 				</tr>
 				<tr>

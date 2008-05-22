@@ -15,6 +15,8 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 public class IscrizioneCorsoAction extends Action {
 
@@ -27,6 +29,7 @@ public class IscrizioneCorsoAction extends Action {
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value
         GestioneStudenteController control = new GestioneStudenteController();
+        ActionMessages messages = new ActionMessages();
 
         try {
         	if (isCancelled(request)) {
@@ -49,6 +52,12 @@ public class IscrizioneCorsoAction extends Action {
         			String acronimo = request.getParameter(name);
         			data.put("acronimo", acronimo);
         			control.iscrizioneCorso(data);
+        			
+        			forward = mapping.findForward("success");
+                    messages.add("name", new ActionMessage("iscrizioneCorso.created"));
+                    if(!messages.isEmpty()) {
+                    	saveMessages(request, messages);
+                    }
         		}
         	}
         }

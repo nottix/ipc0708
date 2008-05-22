@@ -24,12 +24,7 @@ public class ConfermaIscrizioneForm extends ActionForm {
 	    HttpServletRequest request) {
 
 	ActionErrors errors = new ActionErrors();
-	// Validate the fields in your form, adding
-	// adding each error to this.errors as found, e.g.
 
-	// if ((field == null) || (field.length() == 0)) {
-	//   errors.add("field", new org.apache.struts.action.ActionError("error.field.required"));
-	// }
 	return errors;
 
     }

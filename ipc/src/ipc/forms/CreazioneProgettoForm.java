@@ -120,16 +120,15 @@ public class CreazioneProgettoForm extends ActionForm {
     							 HttpServletRequest request) {
 
 		ActionErrors errors = new ActionErrors();
-		if((acronimo == null) || (acronimo.length() == 0))
+		if((acronimo != null) && (acronimo.length() == 0))
 			errors.add("acronimo", new ActionError("acronimo.error"));
-		if((titolo == null) || (titolo.length() == 0))
+		if((titolo != null) && (titolo.length() == 0))
 			errors.add("titolo", new ActionError("titolo.error"));
-		
-		/**
-		 * TODO: E questi????
-		 * maxUploadPerStudente
-		 * maxDimGruppo
-		 */
+		if((maxUploadPerStudente!=null) && (maxUploadPerStudente.length()==0))
+			errors.add("maxUploadPerStudente", new ActionError("generic.error"));
+		if((maxDimGruppo!=null) && (maxDimGruppo.length()==0))
+			errors.add("maxDimGruppo", new ActionError("generic.error"));
+
 		return errors;
 
     }

@@ -106,11 +106,11 @@ public class ConfermaPrenotazioneEsameForm extends ActionForm {
     							 HttpServletRequest request) {
 
     	ActionErrors errors = new ActionErrors();
-    	if((dataEsame == null) || (dataEsame.length() == 0))
+    	if((dataEsame != null) && (dataEsame.length() == 0))
     		errors.add("dataEsame", new ActionError("data.esame.error"));
-    	if((dataPrenotazione == null) || (dataPrenotazione.length() == 0))
+    	if((dataPrenotazione != null) && (dataPrenotazione.length() == 0))
     		errors.add("dataPrenotazione", new ActionError("data.prenotazione.error"));
-    	if((email == null) || (email.length() == 0))
+    	if((email != null) && (email.length() == 0))
     		errors.add("email", new ActionError("email.error"));
 		else if(!RichiestaRegStudenteForm.check_email(email))
 			errors.add("email", new ActionError("email.malformed"));

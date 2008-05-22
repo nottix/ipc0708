@@ -44,7 +44,7 @@ public class ForgotPasswordForm extends ActionForm {
     							 HttpServletRequest request) {
     	ActionErrors errors = new ActionErrors();
 
-    	if((this.email == null) || (this.email.length() == 0))
+    	if((this.email != null) && (this.email.length() == 0))
     		errors.add("email", new ActionError("email.error"));
     	else if(!RichiestaRegStudenteForm.check_email(email))
     		errors.add("email", new ActionError("email.malformed"));

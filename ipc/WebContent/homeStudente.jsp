@@ -21,6 +21,13 @@
 			<td align="center"><html:link action="/IscrizioneCorsoElenco">Iscrizione Corso</html:link></td>
 			<td align="center"><html:link action="/PrenotazioneEsameElencoCorsi">Prenotazione Esame</html:link></td>
 		</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<html:messages id="msg" message="true">
+							<bean:write name="msg"/><br>
+						</html:messages>
+					</td>
+				</tr>
 		<tr>
 			<td colspan="2">
 				<font color="red"><html:errors/></font>

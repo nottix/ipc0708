@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
+import org.apache.struts.action.ActionMessages;
+import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -24,6 +26,7 @@ public class CreazioneAccountGestoreAction extends Action
             throws Exception {
 
         ActionErrors errors = new ActionErrors();
+        ActionMessages messages = new ActionMessages();
         ActionForward forward = new ActionForward(); // return value
         GestioneAccountController control = new GestioneAccountController();
         CreazioneAccountGestoreForm creazioneAccountForm = (CreazioneAccountGestoreForm)form;
@@ -39,6 +42,10 @@ public class CreazioneAccountGestoreAction extends Action
             control.creazioneAccountGestore(data);
             
             forward = mapping.findForward("success");
+            messages.add("name", new ActionMessage("account.created"));
+            if(!messages.isEmpty()) {
+            	saveMessages(request, messages);
+            }
 
         } catch (Exception e) {
 
@@ -47,9 +54,6 @@ public class CreazioneAccountGestoreAction extends Action
             forward = mapping.findForward("error");
 
         }
-
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
 
         if (!errors.isEmpty()) {
             saveErrors(request, errors);

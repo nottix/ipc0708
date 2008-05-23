@@ -242,6 +242,19 @@ public class SQLDAO {
         return result;
     }
 	
+	public Corso getCorso(Long id) throws Exception {
+		Session session = DAOFactory.getSessionFactory().getCurrentSession();
+        session.beginTransaction().begin();
+        Query q = session.createQuery("from Corso a where a.id = :id");
+        q.setParameter("id", id, Hibernate.LONG);
+        Corso result = null;
+        if(q.uniqueResult()!=null)
+        	result = (Corso) q.uniqueResult();
+        session.getTransaction().commit();
+        /*Si deve controllare se result è null*/
+        return result;
+    }
+	
 	public Long creazioneCorso(Hashtable data) throws Exception {
 		Corso c = null;
 		c = this.getCorso((String) data.get("acronimo"));

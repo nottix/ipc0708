@@ -62,6 +62,9 @@
 			<%
 			}
 			%>
+			<tr>
+				<td align="center"><html:link page="/gestioneQuery.jsp">Gestione Query</html:link></td>
+			</tr>
 		</tbody>
 	</table></center>
 	</body>

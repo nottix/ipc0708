@@ -13,16 +13,16 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class PrenotazAction extends Action
+public class PrenotazAction extends Action {
 
-{
-
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public ActionForward execute(ActionMapping mapping,
+    							 ActionForm form, 
+    							 HttpServletRequest request, 
+    							 HttpServletResponse response)
+            					throws Exception {
 
         ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); // return value
-
+        ActionForward forward = new ActionForward();
         try {
 
             // do something here

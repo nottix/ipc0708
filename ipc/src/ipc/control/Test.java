@@ -2,7 +2,6 @@ package ipc.control;
 import java.util.Date;
 import java.util.Hashtable;
 import java.util.Random;
-import java.util.List;
 
 import ipc.entity.*;
 import ipc.db.SQLDAO;
@@ -105,7 +104,7 @@ public class Test {
 	
 	public static void main(String []args) {
 		insertTestAccount();
-		Long exam = insertTestEsame();
+		insertTestEsame();
 //		Long exam2 = insertTestEsame2();
 //		insertTestInfoEsame(exam2);
 //		Long examInfo = insertTestInfoEsame(exam);

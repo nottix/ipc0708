@@ -40,13 +40,12 @@ public class LogoutAction extends Action {
         	} else
         		errors.add("email", new ActionError("email.session.error"));
         } catch (Exception e) {
-            errors.add("email", new ActionError("generic.session.error"));
+            errors.add("email", new ActionError("generic.error"));
         }
 
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
         }
         return mapping.findForward("success");
-
     }
 }

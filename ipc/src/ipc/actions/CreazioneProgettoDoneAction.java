@@ -1,7 +1,7 @@
 package ipc.actions;
 
-import ipc.control.*;
-import ipc.forms.*;
+import ipc.control.GestioneEsameController;
+import ipc.forms.CreazioneProgettoForm;
 
 import java.text.SimpleDateFormat;
 import java.util.Hashtable;
@@ -21,19 +21,16 @@ import org.apache.struts.action.ActionMessages;
  * @version 	1.0
  * @author
  */
-public class CreazioneProgettoDoneAction extends Action
-
-{
+public class CreazioneProgettoDoneAction extends Action {
 
     public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
     	ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); // return value
+        ActionForward forward = new ActionForward();
+        ActionMessages messages = new ActionMessages();
         GestioneEsameController cont = new GestioneEsameController();
         CreazioneProgettoForm cForm = (CreazioneProgettoForm)form;
-        ActionMessages messages = new ActionMessages();
-        
         try {
         	Hashtable<String, Object> data = new Hashtable<String, Object>();
             data.put("acronimo", cForm.getAcronimo());
@@ -41,35 +38,24 @@ public class CreazioneProgettoDoneAction extends Action
             data.put("dataConsegna", new SimpleDateFormat("MM/dd/yy").parse(cForm.getDataConsegna()));
             data.put("maxUploadPerStudente", cForm.getMaxUploadPerStudente());
         	data.put("maxDimGruppo", cForm.getMaxDimGruppo());
-            cont.creazioneProgetto(data);
-            
-            forward = mapping.findForward("success");
-            messages.add("name", new ActionMessage("iscrizioneCorso.created"));
-            if(!messages.isEmpty()) {
-            	saveMessages(request, messages);
+            if(cont.creazioneProgetto(data) == true) {
+            	messages.add("nome", new ActionMessage("iscrizione.corso.ok"));
+            } else {
+            	errors.add("nome", new ActionError("iscrizione.corso.no"));
             }
-
         } catch (Exception e) {
-
-            // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("progetto.ncreated"));
-
+            errors.add("name", new ActionError("generic.error"));
         }
-
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
-
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
-            //	forward = mapping.findForward(non riuscito");
-
+            /**
+             * TODO: E' corretto questo?!?!?
+             */
             forward = mapping.findForward("success");
+        } else if(!messages.isEmpty()) {
+        	saveMessages(request, messages);
+        	forward = mapping.findForward("success");
         }
-
-        // Finish with
         return (forward);
-
     }
 }

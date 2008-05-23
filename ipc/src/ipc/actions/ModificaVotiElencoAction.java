@@ -1,15 +1,20 @@
 package ipc.actions;
 
-import javax.servlet.http.*;
+import ipc.control.GestioneEsameController;
+import ipc.entity.PrenotazioneEsame;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import java.util.*;
-import ipc.entity.*;
-import ipc.control.*;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 /**
  * @version 	1.0
@@ -29,39 +34,27 @@ public class ModificaVotiElencoAction extends Action
             throws Exception {
 
         ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); // return value
+        ActionForward forward = new ActionForward();
+        ActionMessages messages = new ActionMessages();
         GestioneEsameController control = new GestioneEsameController();
-
         try {
         	String acronimo = (String)request.getSession().getAttribute("acronimo");
         	elencoPrenotazioniEsami = control.getElencoPrenotazioniEsamiCorso(acronimo);
-        	request.setAttribute("elencoPrenotazioniEsami", elencoPrenotazioniEsami);
-
+        	if(elencoPrenotazioniEsami == null) {
+        		errors.add("name", new ActionError("elenco.prenotazioni.esami.corso.no"));
+        	} else {
+        		messages.add("name", new ActionMessage("elenco.prenotazioni.esami.corso.ok"));
+        		request.setAttribute("elencoPrenotazioniEsami", elencoPrenotazioniEsami);
+        	}
         } catch (Exception e) {
-
-            // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("id"));
-
+            errors.add("name", new ActionError("generic.error"));
         }
-
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
-
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
-            //	forward = mapping.findForward(non riuscito");
-
-        } else {
-
-            // Forward control to the appropriate 'success' URI (change name as desired)
+        } else if(!messages.isEmpty()) {
+        	saveMessages(request, messages);
             forward = mapping.findForward("success");
-
         }
-
-        // Finish with
-        return (forward);
-
+        return forward;
     }
 }

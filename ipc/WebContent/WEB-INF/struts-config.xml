@@ -76,7 +76,7 @@
 			</forward>
 			<forward name="error" path="/login.jsp">
 			</forward>
-			<forward name="gestoreDiSistema" path="">
+			<forward name="gestore" path="/homeGestore.jsp">
 			</forward>
 			<forward name="professore" path="/homeProfessore.jsp">
 			</forward>

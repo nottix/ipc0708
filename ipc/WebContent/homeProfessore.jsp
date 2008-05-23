@@ -13,9 +13,6 @@
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
-<logic:notPresent name="email" scope="session">
-	<logic:redirect page="/login.jsp" />
-</logic:notPresent>
 <jsp:include page="sessionLogin.jsp" flush="true"></jsp:include>
 	<center><h1>Home Professore</h1></center>
 	<center><table border="1" width="30%">
@@ -34,14 +31,16 @@
 				</tr>
 			<%
 			}
-			if(session.getAttribute("isDirettore") != null && session.getAttribute("isDirettore").equals("true")) {
+			if((session.getAttribute("isDirettore") != null && session.getAttribute("isDirettore").equals("true")) ||
+				(session.getAttribute("isGestore") != null && session.getAttribute("isGestore").equals("true"))) {
 			%>
 				<tr>
 					<td align="center">Modifica Titolare</td>
 				</tr>
 			<%
 			}
-			if(session.getAttribute("isTitolare") != null && session.getAttribute("isTitolare").equals("true")) {
+			if((session.getAttribute("isTitolare") != null && session.getAttribute("isTitolare").equals("true")) ||
+				(session.getAttribute("isGestore") != null && session.getAttribute("isGestore").equals("true"))) {
 			%>
 				<tr>
 					<td align="center"><html:link action="/GestioneCorsoElenco">Gestione Corso</html:link></td>
@@ -51,7 +50,8 @@
 			%>
 			<%
 			if((session.getAttribute("isCollaboratore") != null && session.getAttribute("isCollaboratore").equals("true")) ||
-				(session.getAttribute("isTitolare") != null && session.getAttribute("isTitolare").equals("true"))) {
+				(session.getAttribute("isTitolare") != null && session.getAttribute("isTitolare").equals("true")) ||
+				(session.getAttribute("isGestore") != null && session.getAttribute("isGestore").equals("true"))) {
 			%>
 				<tr>
 					<td align="center"><html:link action="/GestioneEsameElenco">Gestione Esame</html:link></td>

@@ -135,6 +135,7 @@ public class GestioneAccountController {
 			data.put("isGestore", Boolean.TRUE);
 			data.put("tipologia", "gestore");
 			data.put("password", Account.convertToMD5((String)data.get("password")));
+			data.put("status", "attivo");
 			System.out.println("isGestore");
 			sqlDao.createAndStoreAccount(data);
 		}

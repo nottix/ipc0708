@@ -1,5 +1,7 @@
 package ipc.actions;
 
+import ipc.control.GestioneAccountController;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.Action;
@@ -8,8 +10,8 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import ipc.control.*;
-
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 /**
  * @version 	1.0
  * @author
@@ -18,36 +20,35 @@ public class RipristinaPasswordAccountSelezionatoAction extends Action
 
 {
 
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public ActionForward execute(ActionMapping mapping, 
+    							 ActionForm form,
+    							 HttpServletRequest request, 
+    							 HttpServletResponse response)
+            					throws Exception {
 
         ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); // return value
+        ActionForward forward = new ActionForward();
+        ActionMessages messages = new ActionMessages();
         GestioneAccountController gestAcc = new GestioneAccountController();
-        
         try {
-
-            gestAcc.ripristinaPasswordAccountStudente((String)request.getParameter("email"));
+        	if(gestAcc.ripristinaPasswordAccountStudente((String)request.getParameter("email")) == false) {
+        		errors.add("name", new ActionError("ripristina.password.studente.no"));
+        	} else {
+        		messages.add("name", new ActionMessage("ripristina.password.studente.ok"));
+        	}
         } catch (Exception e) {
-
-            // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("password.regen"));
-
+            errors.add("name", new ActionError("generic.error"));
         }
-
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
-
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
+            /**
+             * TODO: e' corretto questo???!?
+             */
             forward = mapping.findForward("success");
-
+        } else if(!messages.isEmpty()) {
+        	saveMessages(request, messages);
+        	forward = mapping.findForward("success");
         }
-
-        // Finish with
-        return (forward);
-
+        return forward;
     }
 }

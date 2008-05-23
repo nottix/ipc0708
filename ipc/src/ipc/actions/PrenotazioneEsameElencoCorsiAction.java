@@ -13,58 +13,48 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 /**
  * @version 	1.0
  * @author
  */
-public class PrenotazioneEsameElencoCorsiAction extends Action
-
-{
-private List<Corso> elencoCorsi = null;
+public class PrenotazioneEsameElencoCorsiAction extends Action {
+	private List<Corso> elencoCorsi = null;
 	
 	public List<Corso> getElencoCorsi() {
 		return this.elencoCorsi;
 	}
 
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public ActionForward execute(ActionMapping mapping, 
+    							 ActionForm form, 
+    							 HttpServletRequest request, 
+    							 HttpServletResponse response)
+            					throws Exception {
 
         ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); // return value
+        ActionForward forward = new ActionForward();
+        ActionMessages messages = new ActionMessages();
         GestioneStudenteController control = new GestioneStudenteController();
-        
         try {
-
             elencoCorsi = control.getElencoCorsiDispAttivi();
-            request.setAttribute("elencoCorsi", this.elencoCorsi);
-            
-
+            if(elencoCorsi == null) {
+            	errors.add("nome", new ActionError("elenco.corsi.disponibili.attivi.no"));
+            } else {
+            	messages.add("nome", new ActionMessage("elenco.corsi.disponibili.attivi.ok"));
+            	request.setAttribute("elencoCorsi", this.elencoCorsi);
+            }
         } catch (Exception e) {
-
-            // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("id"));
-
+            errors.add("name", new ActionError("general.error"));
         }
-
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
-
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
             forward = mapping.findForward("error");
-
-        } else {
-
-            // Forward control to the appropriate 'success' URI (change name as desired)
+        } else if(!messages.isEmpty()){
+        	saveMessages(request, messages);
             forward = mapping.findForward("init");
-
         }
-
-        // Finish with
-        return (forward);
-
+        return forward;
     }
 }

@@ -1,9 +1,10 @@
 package ipc.actions;
 
 import ipc.control.GestioneStudenteController;
+import ipc.entity.Esame;
+import ipc.forms.PrenotazioneEsameForm;
 
 import java.util.Enumeration;
-import ipc.entity.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,29 +16,30 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import ipc.forms.*;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 /**
  * @version 	1.0
  * @author
  */
-public class PrenotazioneEsameAction extends Action
+public class PrenotazioneEsameAction extends Action {
 
-{
-
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public ActionForward execute(ActionMapping mapping,
+    							 ActionForm form, 
+    							 HttpServletRequest request, 
+    							 HttpServletResponse response)
+            					throws Exception {
 
     	ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); // return value
+        ActionForward forward = new ActionForward();
+        ActionMessages messages = new ActionMessages();
         GestioneStudenteController control = new GestioneStudenteController();
         PrenotazioneEsameForm cForm = (PrenotazioneEsameForm)form;
-
         try {
         	if (isCancelled(request)) {
         		return mapping.findForward("main");
         	}
-
         	Enumeration en = request.getParameterNames();
         	while(en.hasMoreElements()) {
         		String name = (String)en.nextElement();
@@ -47,36 +49,27 @@ public class PrenotazioneEsameAction extends Action
         			session.setAttribute("idEsame", request.getParameter(name));
         			
         			Esame esame = control.getEsame(Long.valueOf(request.getParameter(name)));
-        			cForm.setDataEsame(esame.getDataEsame().toString());
-        			cForm.setAuleEsame(esame.getAuleEsame());
-        			cForm.setDataInizioPeriodoPrenotazione(esame.getDataInizioPeriodoPrenotazione().toString());
-        			cForm.setDataFinePeriodoPrenotazione(esame.getDataFinePeriodoPrenotazione().toString());
+        			if(esame == null) {
+        				errors.add("name", new ActionError("esame.error"));
+        			} else {
+        				messages.add("name", new ActionMessage("esame.ok"));
+        				cForm.setDataEsame(esame.getDataEsame().toString());
+        				cForm.setAuleEsame(esame.getAuleEsame());
+        				cForm.setDataInizioPeriodoPrenotazione(esame.getDataInizioPeriodoPrenotazione().toString());
+        				cForm.setDataFinePeriodoPrenotazione(esame.getDataFinePeriodoPrenotazione().toString());
+        			}
         		}
         	}
-        }
-        catch (Exception e) {
-
-            // Report the error using the appropriate name and ID.
+        } catch (Exception e) {
             errors.add("name", new ActionError("generic.error"));
-
         }
-
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
-
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
             forward = mapping.findForward("error");
-
-        }
-        else {
+        } else if(!messages.isEmpty()) {
+        	saveMessages(request, messages);
         	forward = mapping.findForward("success");
         }
-
-        // Finish with
-        return (forward);
-
+        return forward;
     }
 }

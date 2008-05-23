@@ -1,5 +1,11 @@
 package ipc.actions;
 
+import ipc.control.GestioneAccountController;
+import ipc.forms.VisualizzaAccountForm;
+import ipc.entity.Account;
+import ipc.entity.Corso;
+
+import java.util.List;
 import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,18 +16,14 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import ipc.entity.*;
-import ipc.control.*;
-import ipc.forms.*;
-import java.util.*;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 /**
  * @version 	1.0
  * @author
  */
-public class VisualizzaAccountAction extends Action
-
-{
+public class VisualizzaAccountAction extends Action {
 	
 	private Account account;
 	
@@ -41,14 +43,17 @@ public class VisualizzaAccountAction extends Action
 		return this.elencoCorsiCollaboratore;
 	}
 
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public ActionForward execute(ActionMapping mapping, 
+    							 ActionForm form, 
+    							 HttpServletRequest request, 
+    							 HttpServletResponse response)
+            					throws Exception {
 
         ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); // return value
+        ActionForward forward = new ActionForward();
+        ActionMessages messages = new ActionMessages();
         GestioneAccountController control = new GestioneAccountController();
         VisualizzaAccountForm cForm = (VisualizzaAccountForm)form;
-        
         try {
         	System.out.println("here");
         	if (isCancelled(request)) {
@@ -64,52 +69,48 @@ public class VisualizzaAccountAction extends Action
         			//gestForm.setAcronimo(request.getParameter(name));
         			String email = request.getParameter(name);
         			account = control.getAccount(email);
-        			request.setAttribute("account", account);
-        			cForm.setNome(account.getNome());
-        			cForm.setCognome(account.getCognome());
-        			cForm.setEmail(account.getEmail());
-        			if(account.getTipologia().equals("studente")) {
-        				cForm.setNote(account.getNoteStud());
-        				cForm.setMatricola(account.getMatricola());
-        			}
-        			if(account.getTipologia().equals("professore")) {
-        				cForm.setNote(account.getNoteProf());
-        				
-        				this.elencoCorsiTitolare = control.getCorsiWhereIsTitolare(account.getEmail());
-        				request.setAttribute("elencoCorsiTitolare", elencoCorsiTitolare);
-        				this.elencoCorsiCollaboratore = control.getCorsiWhereIsCollaboratore(account.getEmail());
-        				request.setAttribute("elencoCorsiCollaboratore", elencoCorsiCollaboratore);
-        			}
-        			//System.out.println("forward: "+mapping.findForward("success").getPath()+"?acronimo="+request.getParameter(name));
-                	//return new ActionForward(mapping.findForward("success").getPath()+"?acronimo="+request.getParameter(name), false);
+        			if(account == null ) {
+        				errors.add("nome", new ActionError("account.error"));
+        			} else {
+        				messages.add("nome", new ActionMessage("account.ok"));
+        				request.setAttribute("account", account);
+	        			cForm.setNome(account.getNome());
+	        			cForm.setCognome(account.getCognome());
+	        			cForm.setEmail(account.getEmail());
+	        			if(account.getTipologia().equals("studente")) {
+	        				cForm.setNote(account.getNoteStud());
+	        				cForm.setMatricola(account.getMatricola());
+	        			}
+	        			if(account.getTipologia().equals("professore")) {
+	        				cForm.setNote(account.getNoteProf());
+	        				this.elencoCorsiTitolare = control.getCorsiWhereIsTitolare(account.getEmail());
+	        				if(this.elencoCorsiTitolare == null) {
+	        					errors.add("nome", new ActionError("titolari.corso.no"));
+	        				} else {
+	        					messages.add("nome", new ActionMessage("titolari.corso.ok"));
+	        					request.setAttribute("elencoCorsiTitolare", elencoCorsiTitolare);	
+	        				}
+	        				this.elencoCorsiCollaboratore = control.getCorsiWhereIsCollaboratore(account.getEmail());
+	        				if(this.elencoCorsiCollaboratore == null) {
+	        					errors.add("nome", new ActionError("collaboratori.corso.no"));
+	        				} else {
+	        					messages.add("nome", new ActionMessage("collaboratori.corso.ok"));
+	        					request.setAttribute("elencoCorsiCollaboratore", elencoCorsiCollaboratore);
+	        				}
+	        			}
+	        		}
         		}
         	}
-
         } catch (Exception e) {
-
-            // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("id"));
-
+            errors.add("name", new ActionError("generic.error"));
         }
-
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
-
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
             forward = mapping.findForward("error");
-
-        } else {
-
-            // Forward control to the appropriate 'success' URI (change name as desired)
+        } else if(!messages.isEmpty()){
+        	saveMessages(request, messages);
             forward = mapping.findForward("success");
-
         }
-
-        // Finish with
-        return (forward);
-
+        return forward;
     }
 }

@@ -1,5 +1,6 @@
 package ipc.actions;
 
+import ipc.control.GestioneQueryController;
 import ipc.entity.Corso;
 
 import java.util.List;
@@ -12,59 +13,47 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import ipc.control.GestioneQueryController;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 /**
  * @version 	1.0
  * @author
  */
-public class VisualizzaReportDefaultElencoAction extends Action
-
-{
+public class VisualizzaReportDefaultElencoAction extends Action {
 	private List<Corso> elencoCorsi = null;
 	
 	public List<Corso> getElencoCorsi() {
 		return this.elencoCorsi;
 	}
 
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-
+    public ActionForward execute(ActionMapping mapping,
+    							 ActionForm form, 
+    							 HttpServletRequest request,
+    							 HttpServletResponse response)
+            					throws Exception {
         ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); // return value
+        ActionForward forward = new ActionForward();
+        ActionMessages messages = new ActionMessages();
         GestioneQueryController control = new GestioneQueryController();
-
         try {
-
         	elencoCorsi = control.getElencoCorsi();
-        	System.out.println("size: "+elencoCorsi.size());
-            request.setAttribute("elencoCorsi", elencoCorsi);
-
+        	if(elencoCorsi == null) {
+        		errors.add("nome", new ActionError("elenco.corsi.no"));
+        	} else {
+        		messages.add("nome", new ActionMessage("elenco.corsi.ok"));
+        		System.out.println("size: "+elencoCorsi.size());
+        		request.setAttribute("elencoCorsi", elencoCorsi);
+        	}
         } catch (Exception e) {
-
-            // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("id"));
-
+            errors.add("name", new ActionError("generic.error"));
         }
-
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
-
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
-            //	forward = mapping.findForward(non riuscito");
-
-        } else {
-
-            // Forward control to the appropriate 'success' URI (change name as desired)
+        } else if(!messages.isEmpty()){
+        	saveMessages(request, errors);
             forward = mapping.findForward("init");
-
         }
-
-        // Finish with
-        return (forward);
-
+        return forward;
     }
 }

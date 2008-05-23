@@ -1,5 +1,12 @@
 package ipc.actions;
 
+import ipc.control.GestioneQueryController;
+import ipc.entity.Account;
+
+import java.util.List;
+import java.util.LinkedList;
+import java.util.Enumeration;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.Action;
@@ -8,9 +15,8 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import ipc.entity.*;
-import ipc.control.*;
-import java.util.*;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 /**
  * @version 	1.0
@@ -26,18 +32,20 @@ public class VisualizzaReportDefaultAction extends Action
 		return this.elencoAccountStudenti;
 	}
 
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public ActionForward execute(ActionMapping mapping, 
+    							 ActionForm form, 
+    							 HttpServletRequest request,
+    							 HttpServletResponse response)
+            					throws Exception {
 
         ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); // return value
+        ActionForward forward = new ActionForward();
+        ActionMessages messages = new ActionMessages();
         GestioneQueryController control = new GestioneQueryController();
-
         try {
-
         	String acronimo="";
-        	Enumeration en = request.getParameterNames();
         	String name;
+        	Enumeration en = request.getParameterNames();
         	List<String> columns = new LinkedList<String>();
         	while(en.hasMoreElements()) {
         		name = (String)en.nextElement();
@@ -47,41 +55,35 @@ public class VisualizzaReportDefaultAction extends Action
         			System.out.println("name: "+acronimo);
         			
         			elencoAccountStudenti = control.queryDefault(acronimo);
-                    System.out.println("size results: "+elencoAccountStudenti.size());
-                    request.setAttribute("elencoAccountStudenti", elencoAccountStudenti);
-        		}
-        		else {
+                    if(elencoAccountStudenti == null) {
+                    	errors.add("nome", new ActionError("elenco.studenti.no"));
+                    } else {
+                    	messages.add("nome", new ActionMessage("elenco.studenti.ok"));
+                    	System.out.println("size results: "+elencoAccountStudenti.size());
+                    	request.setAttribute("elencoAccountStudenti", elencoAccountStudenti);
+                    }
+        		} else {
         			columns.add(name);
         			System.out.println("column: "+name);
         		}
         	}
         	elencoAccountStudenti = control.ordinamentoReport(columns, elencoAccountStudenti);
-        	request.setAttribute("elencoAccountStudenti", elencoAccountStudenti);
+        	if(elencoAccountStudenti == null) {
+        		errors.add("nome", new ActionError("ordinamento.no"));
+        	} else {
+        		messages.add("nome", new ActionMessage("ordinamento.ok"));
+        		request.setAttribute("elencoAccountStudenti", elencoAccountStudenti);
+        	}
         } catch (Exception e) {
-
-            // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("id"));
-
+            errors.add("name", new ActionError("generic.error"));
         }
-
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
-
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
             forward = mapping.findForward("error");
-
         } else {
-
-            // Forward control to the appropriate 'success' URI (change name as desired)
+        	saveMessages(request, messages);
             forward = mapping.findForward("success");
-
         }
-
-        // Finish with
-        return (forward);
-
+        return forward;
     }
 }

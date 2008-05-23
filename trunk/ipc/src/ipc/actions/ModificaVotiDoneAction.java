@@ -21,17 +21,18 @@ import org.apache.struts.action.ActionMessages;
  * @version 	1.0
  * @author
  */
-public class ModificaVotiDoneAction extends Action
+public class ModificaVotiDoneAction extends Action {
 
-{
-
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public ActionForward execute(ActionMapping mapping,
+    							 ActionForm form,
+    							 HttpServletRequest request,
+    							 HttpServletResponse response)
+            					throws Exception {
 
         ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); // return value
-        GestioneEsameController control = new GestioneEsameController();
+        ActionForward forward = new ActionForward();
         ActionMessages messages = new ActionMessages();
+        GestioneEsameController control = new GestioneEsameController();
         ModificaVotiForm cForm = (ModificaVotiForm)form;
 
         try {
@@ -49,35 +50,22 @@ public class ModificaVotiDoneAction extends Action
             }
             if(cForm.getNota()!=null)
             	data.put("nota", cForm.getNota());
-            control.modificaVoto((Long)request.getSession().getAttribute("idPrenotazioneEsame"), data);
-            
-			forward = mapping.findForward("success");
-            messages.add("name", new ActionMessage("voto.modificato"));
-            if(!messages.isEmpty()) {
-            	saveMessages(request, messages);
+            if(control.modificaVoto((Long)request.getSession().getAttribute("idPrenotazioneEsame"), data) == true){
+            	messages.add("nome", new ActionMessage("voto.modificato.ok"));
+            	request.getSession().removeAttribute("idPrenotazioneEsame");
+            } else {
+            	errors.add("nome", new ActionMessage("voto.modificato.no"));
             }
-            request.getSession().removeAttribute("idPrenotazioneEsame");
-
         } catch (Exception e) {
-
-            // Report the error using the appropriate name and ID.
-        	errors.add("name", new ActionError("voto.nmodificato"));
-
+        	errors.add("name", new ActionError("generic.error"));
         }
-
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
-
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
             forward = mapping.findForward("error");
-
+        } else if(!messages.isEmpty()) {
+        	saveMessages(request, messages);
+        	forward = mapping.findForward("success");
         }
-
-        // Finish with
-        return (forward);
-
+        return forward;
     }
 }

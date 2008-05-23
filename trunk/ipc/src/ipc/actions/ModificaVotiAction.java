@@ -31,9 +31,9 @@ public class ModificaVotiAction extends Action {
             					throws Exception {
 
         ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); // return value
+        ActionForward forward = new ActionForward();
+        ActionMessages messages = new ActionMessages();
         GestioneEsameController control = new GestioneEsameController();
-
         try {
         	if (isCancelled(request)) {
         		return mapping.findForward("main");
@@ -43,31 +43,36 @@ public class ModificaVotiAction extends Action {
         		String name = (String)en.nextElement();
         		if(name.equals("radio")) {
         			PrenotazioneEsame prenotazione = control.getPrenotazioneEsame(Long.valueOf(request.getParameter(name)));
-        			ModificaVotiForm cForm = (ModificaVotiForm)form;
-        			cForm.setIdStudente(prenotazione.getIdStudente());
-        			cForm.setDataEsame(prenotazione.getDataEsame().toString());
-        			cForm.setDataPrenotazione(prenotazione.getDataPrenotazione().toString());
-        			if(prenotazione.getEsaminatore()!=null)
-        				cForm.setEsaminatore(prenotazione.getEsaminatore());
-        			if(prenotazione.getNota()!=null)
-        				cForm.setNota(prenotazione.getNota());
-        			if(prenotazione.getPresenzaEsame()!=null)
-        				cForm.setPresenzaEsame(prenotazione.getPresenzaEsame()?"on":"off");
-        			if(prenotazione.getVotoAccettato()!=null)
-        				cForm.setVotoAccettato(prenotazione.getVotoAccettato()?"on":"off");
-        			if(prenotazione.getVotoEsame()!=null)
-        				cForm.setVotoEsame(prenotazione.getVotoEsame());
-        				
-        			request.getSession().setAttribute("idPrenotazioneEsame", Long.valueOf(request.getParameter(name)));
-     
+        			if(prenotazione == null) {
+        				errors.add("nome", new ActionError("prenotazione.error"));
+        			} else {
+        				messages.add("nome", new ActionMessage("prenotazione.ok"));
+        				ModificaVotiForm cForm = (ModificaVotiForm)form;
+	        			cForm.setIdStudente(prenotazione.getIdStudente());
+	        			cForm.setDataEsame(prenotazione.getDataEsame().toString());
+	        			cForm.setDataPrenotazione(prenotazione.getDataPrenotazione().toString());
+	        			if(prenotazione.getEsaminatore()!=null)
+	        				cForm.setEsaminatore(prenotazione.getEsaminatore());
+	        			if(prenotazione.getNota()!=null)
+	        				cForm.setNota(prenotazione.getNota());
+	        			if(prenotazione.getPresenzaEsame()!=null)
+	        				cForm.setPresenzaEsame(prenotazione.getPresenzaEsame()?"on":"off");
+	        			if(prenotazione.getVotoAccettato()!=null)
+	        				cForm.setVotoAccettato(prenotazione.getVotoAccettato()?"on":"off");
+	        			if(prenotazione.getVotoEsame()!=null)
+	        				cForm.setVotoEsame(prenotazione.getVotoEsame());
+	        			request.getSession().setAttribute("idPrenotazioneEsame", Long.valueOf(request.getParameter(name)));
+        			}
         		}
         	}
         } catch (Exception e) {
-            errors.add("name", new ActionError("id"));
+            errors.add("name", new ActionError("generic.error"));
         }
-        
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
+        } else if(!messages.isEmpty()) {
+        	saveMessages(request, messages);
+        	forward = mapping.findForward("success");
         }
         
         return forward;

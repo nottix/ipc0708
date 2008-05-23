@@ -27,10 +27,9 @@ public class IscrizioneCorsoAction extends Action {
             					throws Exception {
 
         ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); // return value
-        GestioneStudenteController control = new GestioneStudenteController();
+        ActionForward forward = new ActionForward();
         ActionMessages messages = new ActionMessages();
-
+        GestioneStudenteController control = new GestioneStudenteController();
         try {
         	if (isCancelled(request)) {
         		return mapping.findForward("main");
@@ -51,36 +50,26 @@ public class IscrizioneCorsoAction extends Action {
         			System.out.println("request: "+request.getParameter(name));
         			String acronimo = request.getParameter(name);
         			data.put("acronimo", acronimo);
-        			control.iscrizioneCorso(data);
-        			
-        			forward = mapping.findForward("success");
-                    messages.add("name", new ActionMessage("iscrizioneCorso.created"));
-                    if(!messages.isEmpty()) {
-                    	saveMessages(request, messages);
-                    }
+        			if(control.iscrizioneCorso(data) == true) {
+        				messages.add("nome", new ActionMessage("iscrizione.corso.ok"));
+        			} else {
+        				errors.add("nome", new ActionError("iscrizione.corso.no"));
+        			}
         		}
         	}
+        } catch (Exception e) {
+            errors.add("name", new ActionError("generic.error"));
         }
-        catch (Exception e) {
-
-            // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("iscrizioneCorso.ncreated"));
-
-        }
-
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
-
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
+            /**
+             * TODO: e' giusto cosi'?!?
+             */
             forward = mapping.findForward("success");
-
+        } else if(!messages.isEmpty()) {
+        	saveMessages(request, messages);
+			forward = mapping.findForward("success");
         }
-
-        // Finish with
-        return (forward);
-
+        return forward;
     }
 }

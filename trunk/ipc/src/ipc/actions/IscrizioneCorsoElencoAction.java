@@ -1,5 +1,10 @@
 package ipc.actions;
 
+import ipc.control.GestioneStudenteController;
+import ipc.entity.Corso;
+
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.Action;
@@ -8,9 +13,8 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import ipc.control.*;
-import ipc.entity.*;
-import java.util.*;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 /**
  * @version 	1.0
@@ -26,44 +30,35 @@ public class IscrizioneCorsoElencoAction extends Action
 		return this.elencoCorsi;
 	}
 
-    public ActionForward execute(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
+    public ActionForward execute(ActionMapping mapping, 
+    							 ActionForm form, 
+    							 HttpServletRequest request,
+    							 HttpServletResponse response)
+    							throws Exception {
 
         ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); // return value
+        ActionForward forward = new ActionForward();
+        ActionMessages messages = new ActionMessages();
         GestioneStudenteController control = new GestioneStudenteController();
-        
         try {
-
             elencoCorsi = control.getElencoCorsiDispAttivi();
-            request.setAttribute("elencoCorsi", this.elencoCorsi);
-            
-
+            if(elencoCorsi == null) {
+            	errors.add("nome", new ActionError("elenco.corsi.disponibili.attivi.no"));
+            } else {
+            	messages.add("nome", new ActionMessage("elenco.corsi.disponibili.attivi.ok"));
+            	request.setAttribute("elencoCorsi", this.elencoCorsi);
+            }
         } catch (Exception e) {
-
-            // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("id"));
-
+            errors.add("name", new ActionError("generic.error"));
         }
-
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
-
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
             forward = mapping.findForward("error");
-
-        } else {
-
-            // Forward control to the appropriate 'success' URI (change name as desired)
+        } else if(!messages.isEmpty()) {
+        	saveMessages(request, messages);
             forward = mapping.findForward("init");
 
         }
-
-        // Finish with
-        return (forward);
-
+        return forward;
     }
 }

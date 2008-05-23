@@ -12,6 +12,8 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 public class ConfermaIscrizioneCorsoDoneAction extends Action {
     public ActionForward execute(ActionMapping mapping, 
@@ -21,7 +23,8 @@ public class ConfermaIscrizioneCorsoDoneAction extends Action {
             					throws Exception {
 
         ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); // return value
+        ActionForward forward = new ActionForward();
+        ActionMessages messages = new ActionMessages();
         ConfermaIscrizioneController control = new ConfermaIscrizioneController();
         ConfermaIscrizioneCorsoForm cForm = (ConfermaIscrizioneCorsoForm)form;
 
@@ -34,38 +37,31 @@ public class ConfermaIscrizioneCorsoDoneAction extends Action {
        		if(cForm.getSubmit().equals("Conferma")) {
        			System.out.println("conferma");
 	            HttpSession session = request.getSession();
-	            control.confermaIscrizioneCorso((Long)session.getAttribute("idIscrizioneCorso"));
+	            if(control.confermaIscrizioneCorso((Long)session.getAttribute("idIscrizioneCorso")) == true) {
+	            	messages.add("nome", new ActionMessage("conferma.iscrizione.corso.ok"));
+	            } else {
+	            	errors.add("nome", new ActionError("conferma.iscrizione.corso.no"));
+	            }
        		}
        		else if(cForm.getSubmit().equals("Rifiuta")) {
        			System.out.println("rifiuta");
 	            HttpSession session = request.getSession();
-	            control.rifiutaIscrizioneCorso((Long)session.getAttribute("idIscrizioneCorso"));
+	            if(control.rifiutaIscrizioneCorso((Long)session.getAttribute("idIscrizioneCorso")) == true) {
+	            	messages.add("nome", new ActionMessage("rifiuta.iscrizione.corso.ok"));
+	            } else {
+	            	errors.add("nome", new ActionError("rifiuta.iscrizione.corso.no"));
+	            }
        		}
-
         } catch (Exception e) {
-
-            // Report the error using the appropriate name and ID.
             errors.add("name", new ActionError("generic.error"));
-
         }
-
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
-
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
-            //	forward = mapping.findForward(non riuscito");
             forward = mapping.findForward("error");
-
-        }
-        else {
+        } else if(!messages.isEmpty()) {
+        	saveMessages(request, messages);
         	forward = mapping.findForward("success");
         }
-
-        // Finish with
         return (forward);
-
     }
 }

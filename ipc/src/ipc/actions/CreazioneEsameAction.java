@@ -22,15 +22,13 @@ public class CreazioneEsameAction extends Action {
             					throws Exception {
 
         ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); // return value
-
+        ActionForward forward = new ActionForward(); 
         try {
         	System.out.println("ok");
         	Enumeration en = request.getParameterNames();
         	while(en.hasMoreElements()) {
         		String name = (String)en.nextElement();
         		System.out.println("name: "+name+", value: "+request.getParameter(name));
-        		//request.setAttribute("acronimo", request.getParameter(name));
         		CreazioneEsameForm cForm = ((CreazioneEsameForm)form);
         		cForm.setAcronimo(request.getParameter(name));
         	}
@@ -42,8 +40,6 @@ public class CreazioneEsameAction extends Action {
         } else {
         	forward = mapping.findForward("success");
         }
-
-        // Finish with
         return (forward);
 
     }

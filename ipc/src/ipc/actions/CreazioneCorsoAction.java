@@ -1,5 +1,14 @@
 package ipc.actions;
 
+import ipc.entity.Account;
+import ipc.control.CreazioneCorsoController;
+import ipc.forms.CreazioneCorsoForm;
+
+import java.text.SimpleDateFormat;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.HashSet;
+import java.util.Hashtable;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.Action;
@@ -8,11 +17,9 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import ipc.control.*;
-import ipc.entity.*;
-import java.util.*;
-import ipc.forms.*;
-import java.text.*;
+import org.apache.struts.action.ActionMessages;
+import org.apache.struts.action.ActionMessage;
+
 
 /**
  * @version 	1.0
@@ -33,13 +40,13 @@ public class CreazioneCorsoAction extends Action {
             					throws Exception {
 
         ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); // return value
+        ActionForward forward = new ActionForward(); 
+        ActionMessages messages = new ActionMessages();
         CreazioneCorsoController creazioneCorsoController = new CreazioneCorsoController();
         Hashtable<String, Object> data = new Hashtable<String, Object>();
         HashSet<String> collaboratori = new HashSet<String>();
         HashSet<String> titolari = new HashSet<String>();
         CreazioneCorsoForm creazioneCorsoForm = (CreazioneCorsoForm)form;
-        
         try {
         	int titolareCounter = 1;
         	int collaboratoreCounter = 1;
@@ -55,7 +62,6 @@ public class CreazioneCorsoAction extends Action {
         				collaboratori.add(name.substring(name.indexOf("-")+1));
         				collaboratoreCounter++;
         			}
-        			
         		}
         	}
         	
@@ -68,23 +74,29 @@ public class CreazioneCorsoAction extends Action {
 				data.put("descrizione", creazioneCorsoForm.getDescrizione());
 				data.put("dataApertura", new SimpleDateFormat("MM/dd/yy").parse(creazioneCorsoForm.getDataApertura()));
 				data.put("dataChiusura", new SimpleDateFormat("MM/dd/yy").parse(creazioneCorsoForm.getDataChiusura()));
-				creazioneCorsoController.creazioneCorso(data);
+				if(creazioneCorsoController.creazioneCorso(data) == true) {
+					messages.add("nome", new ActionMessage("creazione.corso.ok"));
+				} else {
+					errors.add("nome", new ActionError("creazione.corso.no"));
+				}
         	}
         	elencoProfessori = creazioneCorsoController.getElencoAccountProfessori();
+        	if(elencoProfessori == null) {
+        		errors.add("nome", new ActionError("elenco.account.professore.no"));
+        	} else {
+        		messages.add("nome", new ActionMessage("elenco.account.professore.ok"));
+        	}
         	request.setAttribute("elencoProfessori", elencoProfessori);
-
         } catch (Exception e) {
             errors.add("name", new ActionError("generic.error"));
         }
         
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
+        } else if(!messages.isEmpty()) {
+        	saveMessages(request, messages);
+        	forward = mapping.findForward("success");
         }
-        forward = mapping.findForward("success");
-
-        // Finish with
         return (forward);
-
     }
 }

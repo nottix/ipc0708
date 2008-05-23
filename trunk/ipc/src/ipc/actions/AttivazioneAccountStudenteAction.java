@@ -14,6 +14,9 @@ import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
+
 
 /**
  * @version 	1.0
@@ -34,13 +37,19 @@ public class AttivazioneAccountStudenteAction extends Action {
             					throws Exception {
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward();
+        ActionMessages messages = new ActionMessages();
+        
         GestioneAccountController gestioneAccountController = new GestioneAccountController();
         try {
         	Enumeration en = request.getParameterNames();
         	while(en.hasMoreElements()) {
         		String name = (String)en.nextElement();
         		if (request.getParameter(name) != null && request.getParameter(name).trim().equals("on")) {
-        			gestioneAccountController.abilitaAccountStudente(name);
+        			if(gestioneAccountController.abilitaAccountStudente(name)) {
+        				messages.add("name", new ActionMessage("abilita.account.studente.ok"));
+        			} else {
+        				errors.add("name", new ActionError("abilita.account.studente.no"));
+        			}
         		}
         	}
         	elencoAccountStudenti = gestioneAccountController.getElencoAccountStudentiPendent();
@@ -50,16 +59,11 @@ public class AttivazioneAccountStudenteAction extends Action {
             errors.add("name", new ActionError(e.getMessage()));
         }
 
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
-
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-        } else {
-            // Forward control to the appropriate 'success' URI (change name as desired)
+        } else if(!messages.isEmpty()) {
+        	this.saveMessages(request, messages);
         	forward = mapping.findForward("init");
-
         }
         return forward;
     }

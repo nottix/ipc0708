@@ -103,7 +103,6 @@ public class CreazioneCorsoController {
 			}
 			return ret;
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return false;

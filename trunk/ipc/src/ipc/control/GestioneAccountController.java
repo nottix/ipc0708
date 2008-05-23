@@ -28,7 +28,6 @@ public class GestioneAccountController {
 			}
 			return elencoAccountStudentiPendent;
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return null;
@@ -46,7 +45,6 @@ public class GestioneAccountController {
 			}
 			return elencoAccountStudenti;
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return null;
@@ -58,7 +56,6 @@ public class GestioneAccountController {
 			elencoAccount = sqlDao.listAccount();
 			return elencoAccount;
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return null;
@@ -69,7 +66,6 @@ public class GestioneAccountController {
 			SQLDAO sqlDao = new SQLDAO();
 			return sqlDao.getAccount(email);
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return null;
@@ -80,7 +76,6 @@ public class GestioneAccountController {
 			SQLDAO sqlDao = new SQLDAO();
 			return sqlDao.getAccount(email);
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return null;
@@ -112,7 +107,6 @@ public class GestioneAccountController {
 
 			return elencoCorsiTitolare;
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return null;
@@ -144,7 +138,6 @@ public class GestioneAccountController {
 
 			return elencoCorsiCollaboratore;
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return null;
@@ -155,7 +148,6 @@ public class GestioneAccountController {
 			SQLDAO sqlDAO = new SQLDAO();
 			return sqlDAO.updateAccount(email, data);
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return false;
@@ -168,7 +160,6 @@ public class GestioneAccountController {
 			SQLDAO sqlDAO = new SQLDAO();
 			return sqlDAO.updateAccount(email, data);
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return false;
@@ -183,7 +174,6 @@ public class GestioneAccountController {
 			System.out.println("email "+email+", pwd "+passwordEnc);
 			return sqlDAO.updateAccount(email, data);
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return false;
@@ -201,7 +191,6 @@ public class GestioneAccountController {
 				return sqlDao.createAndStoreAccount(data)!=null;
 			}
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return false;

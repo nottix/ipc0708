@@ -3,10 +3,10 @@
  */
 package ipc.control;
 
-import java.util.*;
+import ipc.entity.Account;
 import ipc.db.SQLDAO;
-import ipc.entity.*;
 
+import java.util.Hashtable;
 /**
  * @author Simone Notargiacomo
  *
@@ -28,7 +28,6 @@ public class CreazioneProfessoreController {
 			}
 			//Invio email informativa
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return false;

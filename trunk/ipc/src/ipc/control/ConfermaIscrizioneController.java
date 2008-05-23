@@ -1,8 +1,15 @@
 package ipc.control;
 
-import ipc.db.*;
-import ipc.entity.*;
-import java.util.*;
+import ipc.entity.Corso;
+import ipc.entity.Esame;
+import ipc.entity.IscrizioneCorso;
+import ipc.entity.PrenotazioneEsame;
+import ipc.db.SQLDAO;
+
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 public class ConfermaIscrizioneController {
 
@@ -26,7 +33,6 @@ public class ConfermaIscrizioneController {
 			}
 			return elencoEsami;
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return null;
@@ -47,7 +53,6 @@ public class ConfermaIscrizioneController {
 			}
 			return elencoPE;
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return null;
@@ -67,7 +72,6 @@ public class ConfermaIscrizioneController {
 			}
 			return elencoIC;
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return null;
@@ -126,7 +130,6 @@ public class ConfermaIscrizioneController {
 			data.put("status", "attivo");
 			return sqlDao.updateIscrizioneCorso(id, data);
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return false;
@@ -139,7 +142,6 @@ public class ConfermaIscrizioneController {
 			data.put("status", "attivo");
 			return sqlDao.updatePrenotazioneEsame(id, data);
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return false;
@@ -152,7 +154,6 @@ public class ConfermaIscrizioneController {
 			data.put("status", "disattivo");
 			return sqlDao.updateIscrizioneCorso(id, data);
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return false;
@@ -165,7 +166,6 @@ public class ConfermaIscrizioneController {
 			data.put("status", "disattivo");
 			return sqlDao.updatePrenotazioneEsame(id, data);
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return false;

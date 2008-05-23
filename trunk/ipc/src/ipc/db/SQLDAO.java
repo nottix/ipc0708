@@ -443,13 +443,14 @@ public class SQLDAO {
         return resExam.getId();
     }
 	
-	public void updatePrenotazioneEsame(Long idPrenotazioneEsame, Hashtable data) throws Exception {
+	public Boolean updatePrenotazioneEsame(Long idPrenotazioneEsame, Hashtable data) throws Exception {
 		Session session = DAOFactory.getSessionFactory().getCurrentSession();
         Transaction tx = session.beginTransaction();
         PrenotazioneEsame resExam = (PrenotazioneEsame) session.load(PrenotazioneEsame.class, idPrenotazioneEsame);
         resExam = this.hashToPrenotazioneEsame(resExam, data);
         session.update(resExam);
         tx.commit();
+        return tx.wasCommitted();
     }
 	
 	@SuppressWarnings("unchecked")

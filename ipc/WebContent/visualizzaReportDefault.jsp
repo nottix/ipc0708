@@ -7,17 +7,25 @@
 <html:html>
 <head>
 <link rel="stylesheet" href="theme/Master.css" type="text/css">
-<title>Modifica Account Studente</title>
+<title>Visualizza Report Default</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
-	<jsp:include page="sessionLogin.jsp" flush="false"></jsp:include>
-	<center><h1>Modifica Account Studente</h1></center>
-	<center><table border="1">
-		<tbody>
-			<tr>
-				<td>
+	<center>
+		<h1>Visualizza Report Default</h1>
+		<html:form action="/VisualizzaReportDefault">
+			<table border="1">
+				<tbody>
+					<tr>
+						<td align="center" colspan="4">Ordinamento:
+							<html:checkbox property="matricola">Matricola</html:checkbox>
+							<html:checkbox property="email">Email</html:checkbox>
+							<html:checkbox property="nome">Nome</html:checkbox>
+							<html:checkbox property="cognome">Cognome</html:checkbox>
+						</td>
+					</tr>
+					<tr><td colspan="4">
 					<logic:present name="elencoAccountStudenti">
          			<table border="0" cellspacing="1" cellpadding="1" align="center" width="70%" style="border-collapse:collapse;">
          				<tr bgcolor="#98AFCC">
@@ -34,21 +42,38 @@
 	    				<tr bgcolor='<%=even?"#B7D3F5":"#D6E0F5" %>'>
 	    					<td><%=counter++%></td>
 	    					<td><bean:write name="user" property="matricola" /></td>
-    						<td>
-    							<html:link page="/ModificaAccountStudenteSelezionato.do" paramId="email" paramName="user" paramProperty="email">
-    								<bean:write name="user" property="email" /></html:link>
-    						</td>
+	    					<td><bean:write name="user" property="email" /></td>
     						<td><bean:write name="user" property="nome" /></td>
     						<td><bean:write name="user" property="cognome" /></td>
     					</tr>
      					</logic:iterate>
      				</table>
 					</logic:present>
-				</td>
-			</tr>
-		</tbody>
-	</table></center>
-	
+					</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<html:cancel></html:cancel>
+							<html:reset></html:reset>
+							<html:submit></html:submit>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<html:messages id="msg" message="true">
+								<bean:write name="msg"/><br>
+							</html:messages>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4">
+							<html:errors/>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</html:form>
+	</center>
 
 </body>
 </html:html>

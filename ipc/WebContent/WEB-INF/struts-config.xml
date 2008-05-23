@@ -60,6 +60,8 @@
 		</form-bean>
 		<form-bean name="modificaVotiForm" type="ipc.forms.ModificaVotiForm">
 		</form-bean>
+		<form-bean name="visualizzaReportDefaultForm" type="ipc.forms.VisualizzaReportDefaultForm">
+		</form-bean>
 	</form-beans>
 
 	<!-- Eccezioni globali -->
@@ -283,6 +285,18 @@
 			<forward name="success" path="/gestioneEsame.jsp">
 			</forward>
 			<forward name="error" path="/modificaVoti.jsp">
+			</forward>
+		</action>
+		<action path="/VisualizzaReportDefaultElenco" type="ipc.actions.VisualizzaReportDefaultElencoAction">
+			<forward name="init" path="/visualizzaReportDefaultElenco.jsp">
+			</forward>
+			<forward name="error" path="/gestioneQuery.jsp">
+			</forward>
+		</action>
+		<action path="/VisualizzaReportDefault" type="ipc.actions.VisualizzaReportDefaultAction" scope="request" input="/visualizzaReportDefaultElenco.jsp" name="visualizzaReportDefaultForm">
+			<forward name="success" path="/visualizzaReportDefault.jsp">
+			</forward>
+			<forward name="error" path="/gestioneQuery.jsp">
 			</forward>
 		</action>
 	</action-mappings>

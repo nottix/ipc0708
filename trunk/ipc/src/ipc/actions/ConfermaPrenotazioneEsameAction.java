@@ -39,26 +39,30 @@ public class ConfermaPrenotazioneEsameAction extends Action {
         		return mapping.findForward("main");
         	}
         	Enumeration en = request.getParameterNames();
-        	while(en.hasMoreElements()) {
-        		String name = (String)en.nextElement();
-        		if(name.equals("radio")) {
-        			System.out.println("request: "+request.getParameter(name));
-        			String idPrenotazioneEsame = request.getParameter(name);
-        			Long id = Long.valueOf(idPrenotazioneEsame);
-        			HttpSession session = request.getSession();
-        			session.setAttribute("idPrenotazioneEsame", id);
-        			
-        			ConfermaPrenotazioneEsameForm cForm = (ConfermaPrenotazioneEsameForm)form;
-        			ConfermaIscrizioneController control = new ConfermaIscrizioneController();
-	        		PrenotazioneEsame pren = control.getPrenotazioneEsame(id);
-	        		if(pren == null) {
-	        			errors.add("nome", new ActionError("prenotazione.esame.no"));
-	        		} else {
-	        			messages.add("nome", new ActionMessage("prenotazione.esame.ok"));
-	        		}
-        			cForm.setEmail(pren.getIdStudente());
-        			cForm.setDataEsame(pren.getDataEsame().toString());
-        			cForm.setDataPrenotazione(pren.getDataPrenotazione().toString());
+        	if(en.hasMoreElements() == false) {
+        		errors.add("name", new ActionError("radio.button.error"));
+        	} else {
+        		while(en.hasMoreElements()) {
+        			String name = (String)en.nextElement();
+        			if(name.equals("radio")) {
+        				System.out.println("request: "+request.getParameter(name));
+        				String idPrenotazioneEsame = request.getParameter(name);
+        				Long id = Long.valueOf(idPrenotazioneEsame);
+        				HttpSession session = request.getSession();
+        				session.setAttribute("idPrenotazioneEsame", id);
+
+        				ConfermaPrenotazioneEsameForm cForm = (ConfermaPrenotazioneEsameForm)form;
+        				ConfermaIscrizioneController control = new ConfermaIscrizioneController();
+        				PrenotazioneEsame pren = control.getPrenotazioneEsame(id);
+        				if(pren == null) {
+        					errors.add("nome", new ActionError("prenotazione.esame.no"));
+        				} else {
+        					messages.add("nome", new ActionMessage("prenotazione.esame.ok"));
+        				}
+        				cForm.setEmail(pren.getIdStudente());
+        				cForm.setDataEsame(pren.getDataEsame().toString());
+        				cForm.setDataPrenotazione(pren.getDataPrenotazione().toString());
+        			}
         		}
         	}
         } catch (Exception e) {
@@ -66,6 +70,7 @@ public class ConfermaPrenotazioneEsameAction extends Action {
         }
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
+            forward = mapping.findForward("error");
         } else if(!messages.isEmpty()){
         	saveMessages(request, messages);
             forward = mapping.findForward("success");

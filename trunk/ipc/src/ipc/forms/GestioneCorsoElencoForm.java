@@ -14,14 +14,9 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class GestioneCorsoElencoForm extends ActionForm
-
-{
-
-    /**
-	 * 
-	 */
+public class GestioneCorsoElencoForm extends ActionForm {
 	private static final long serialVersionUID = 14L;
+
 	private String radio = null;
 
     /**
@@ -29,7 +24,7 @@ public class GestioneCorsoElencoForm extends ActionForm
      * @return String
      */
     public String getRadio() {
-	return radio;
+    	return radio;
     }
 
     /**
@@ -37,28 +32,18 @@ public class GestioneCorsoElencoForm extends ActionForm
      * @param <code>String</code>
      */
     public void setRadio(String r) {
-	this.radio = r;
+    	this.radio = r;
     }
 
     public void reset(ActionMapping mapping, HttpServletRequest request) {
-
-	// Reset values are provided as samples only. Change as appropriate.
-
-	radio = null;
-
+    	radio = null;
     }
 
     public ActionErrors validate(ActionMapping mapping,
-	    HttpServletRequest request) {
-
-	ActionErrors errors = new ActionErrors();
-	// Validate the fields in your form, adding
-	// adding each error to this.errors as found, e.g.
-
-	// if ((field == null) || (field.length() == 0)) {
-	//   errors.add("field", new org.apache.struts.action.ActionError("error.field.required"));
-	// }
-	return errors;
-
+    							 HttpServletRequest request) {
+    	ActionErrors errors = new ActionErrors();
+    	//if((radio == null) || (radio.length() == 0))
+    	//	errors.add("radio", new ActionError("radio.button.error"));
+    	return errors;
     }
 }

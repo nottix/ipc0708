@@ -13,7 +13,7 @@
 </head>
 <body>
 	<center>
-		<h1>Gestione Corso</h1>
+		<h1>Gestione Esame</h1>
 		<html:form action="/GestioneEsame">
 		<logic:present name="elencoCorsi">
          			<table border="0" cellspacing="1" cellpadding="1" align="center" width="70%" style="border-collapse:collapse;">
@@ -40,6 +40,13 @@
      					<tr>
      						<td colspan="6" align="center">
      							<html:submit value="Avanti"></html:submit>
+     						</td>
+     					</tr>
+     				</table>
+     				<table>
+     					<tr>
+     						<td align=center>
+     							<html:errors />
      						</td>
      					</tr>
      				</table>

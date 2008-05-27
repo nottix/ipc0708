@@ -44,16 +44,20 @@ public class IscrizioneCorsoAction extends Action {
         	data.put("dataIscrizione", new Date());
         	
         	Enumeration en = request.getParameterNames();
-        	while(en.hasMoreElements()) {
-        		String name = (String)en.nextElement();
-        		if(name.equals("radio")) {
-        			System.out.println("request: "+request.getParameter(name));
-        			String acronimo = request.getParameter(name);
-        			data.put("acronimo", acronimo);
-        			if(control.iscrizioneCorso(data) == true) {
-        				messages.add("nome", new ActionMessage("iscrizione.corso.ok"));
-        			} else {
-        				errors.add("nome", new ActionError("iscrizione.corso.no"));
+        	if(en.hasMoreElements() == false) {
+        		errors.add("nome", new ActionError("radio.button.error"));
+        	} else {
+        		while(en.hasMoreElements()) {
+        			String name = (String)en.nextElement();
+        			if(name.equals("radio")) {
+        				System.out.println("request: "+request.getParameter(name));
+        				String acronimo = request.getParameter(name);
+        				data.put("acronimo", acronimo);
+        				if(control.iscrizioneCorso(data) == true) {
+        					messages.add("nome", new ActionMessage("iscrizione.corso.ok"));
+        				} else {
+        					errors.add("nome", new ActionError("iscrizione.corso.no"));
+        				}
         			}
         		}
         	}

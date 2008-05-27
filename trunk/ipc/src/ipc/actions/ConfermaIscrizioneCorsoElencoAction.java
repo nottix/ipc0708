@@ -22,8 +22,7 @@ import org.apache.struts.action.ActionMessages;
  * @version 	1.0
  * @author
  */
-public class ConfermaIscrizioneCorsoElencoAction extends Action
-{
+public class ConfermaIscrizioneCorsoElencoAction extends Action {
 	
 	private List<IscrizioneCorso> elencoIscrizioniCorso;
 	
@@ -45,9 +44,9 @@ public class ConfermaIscrizioneCorsoElencoAction extends Action
             	errors.add("nome", new ActionError("elenco.iscrizione.corso.no"));
             } else {
             	messages.add("nome", new ActionMessage("elenco.iscrizione.corso.ok"));
+                System.out.println("size iscr: "+this.elencoIscrizioniCorso.size());
+                request.setAttribute("elencoIscrizioniCorso", this.elencoIscrizioniCorso);
             }
-            System.out.println("size iscr: "+this.elencoIscrizioniCorso.size());
-            request.setAttribute("elencoIscrizioniCorso", this.elencoIscrizioniCorso);
         } catch (Exception e) {
             errors.add("name", new ActionError("id"));
         }

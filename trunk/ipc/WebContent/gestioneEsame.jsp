@@ -40,6 +40,13 @@
 				</tr>
 			</tbody>
 		</table>
+		<table>
+			<tr>
+				<td align=center>
+					<html:errors />
+				</td>
+			</tr>
+		</table>
 		</logic:present>
 	</center>
 </body>

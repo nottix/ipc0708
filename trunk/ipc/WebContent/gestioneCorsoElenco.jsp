@@ -43,6 +43,13 @@
      						</td>
      					</tr>
      				</table>
+     				<table>
+     					<tr align=center>
+     						<td>
+     						<html:errors />
+     						</td>
+     					</tr>
+     				</table>
 		</logic:present>
 		</html:form>
 	</center>

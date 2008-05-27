@@ -41,25 +41,29 @@ public class ConfermaIscrizioneCorsoAction extends Action {
         		return mapping.findForward("main");
         	}
         	Enumeration en = request.getParameterNames();
-        	while(en.hasMoreElements()) {
-        		String name = (String)en.nextElement();
-        		if(name.equals("radio")) {
-        			System.out.println("request: " + request.getParameter(name));
-        			String idIscrizioneCorso = request.getParameter(name);
-        			Long id = Long.valueOf(idIscrizioneCorso);
-        			HttpSession session = request.getSession();
-        			session.setAttribute("idIscrizioneCorso", id);
-        			
-        			ConfermaIscrizioneCorsoForm cForm = (ConfermaIscrizioneCorsoForm)form;
-        			ConfermaIscrizioneController control = new ConfermaIscrizioneController();
-	        		IscrizioneCorso iscr = control.getIscrizioneCorso(id);
-	        		if(iscr == null) {
-	        			errors.add("nome", new ActionError("conferma.iscrizione.corso.no"));
-	        		} else {
-	        			messages.add("nome", new ActionMessage("conferma.iscrizione.corso.ok"));
-	        			cForm.setEmail(iscr.getIdStudente());
-	        			cForm.setDataIscrizione(iscr.getDataIscrizione().toString());	
-	        		}
+        	if(en.hasMoreElements() == false) {
+        		errors.add("name", new ActionError("radio.button.error"));
+        	} else {
+        		while(en.hasMoreElements()) {
+        			String name = (String)en.nextElement();
+        			if(name.equals("radio")) {
+        				System.out.println("request: " + request.getParameter(name));
+        				String idIscrizioneCorso = request.getParameter(name);
+        				Long id = Long.valueOf(idIscrizioneCorso);
+        				HttpSession session = request.getSession();
+        				session.setAttribute("idIscrizioneCorso", id);
+
+        				ConfermaIscrizioneCorsoForm cForm = (ConfermaIscrizioneCorsoForm)form;
+        				ConfermaIscrizioneController control = new ConfermaIscrizioneController();
+        				IscrizioneCorso iscr = control.getIscrizioneCorso(id);
+        				if(iscr == null) {
+        					errors.add("nome", new ActionError("conferma.iscrizione.corso.no"));
+        				} else {
+        					messages.add("nome", new ActionMessage("conferma.iscrizione.corso.ok"));
+        					cForm.setEmail(iscr.getIdStudente());
+        					cForm.setDataIscrizione(iscr.getDataIscrizione().toString());	
+        				}
+        			}
         		}
         	}
         } catch (Exception e) {

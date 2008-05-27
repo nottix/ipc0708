@@ -20,9 +20,7 @@ import org.apache.struts.action.ActionMessages;
  * @version 	1.0
  * @author
  */
-public class ModificaAccountStudenteAction extends Action
-
-{
+public class ModificaAccountStudenteAction extends Action {
 	
 	private List<Account> elencoAccountStudenti;
 	

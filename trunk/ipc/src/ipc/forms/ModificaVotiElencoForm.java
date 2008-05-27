@@ -62,7 +62,8 @@ public class ModificaVotiElencoForm extends ActionForm {
     							 HttpServletRequest request) {
 
     	ActionErrors errors = new ActionErrors();
-
+    	//if(votoAccettato == null || votoAccettato.length() == 0)
+    	//	errors.add("nome", new ActionError("voto.accettato.no"));
     	return errors;
     }
 }

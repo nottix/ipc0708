@@ -46,6 +46,16 @@
     					</tr>
      					</logic:iterate>
      				</table>
+     				
+     				<table>
+     					<tr>
+     					<td align=center>
+     						<font color=red>
+     							<html:errors />
+     						</font>
+     					</td>
+     					</tr>
+     				</table>
 					</logic:present>
 				</td>
 			</tr>

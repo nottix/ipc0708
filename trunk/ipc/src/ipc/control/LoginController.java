@@ -35,6 +35,7 @@ public class LoginController {
 				throw new Exception("password.errata");
 			if(!unAccount.getStatus().equals("attivo"))
 				throw new Exception("account.disattivo");
+			this.tipologia = unAccount.getTipologia();
 			return unAccount.getTipologia() != null;
 		} catch (Exception e) {
 			e.printStackTrace();

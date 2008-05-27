@@ -108,6 +108,16 @@
 			</tr>
 		</tbody>
 	</table></center>
+	
+     				<table>
+     					<tr>
+     					<td align=center>
+     						<font color=red>
+     							<html:errors />
+     						</font>
+     					</td>
+     					</tr>
+     				</table>
 	</logic:present>
 	</html:form>
 

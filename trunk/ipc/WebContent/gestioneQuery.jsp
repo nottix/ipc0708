@@ -24,6 +24,16 @@
 				</tr>
 			</tbody>
 		</table>
+		
+     				<table>
+     					<tr>
+     					<td align=center>
+     						<font color=red>
+     							<html:errors />
+     						</font>
+     					</td>
+     					</tr>
+     				</table>
 	</center>
 </body>
 </html:html>

@@ -42,8 +42,8 @@ public class GestioneEsameElencoAction extends Action {
             	errors.add("nome", new ActionError("elenco.corsi.accessibili.no"));
             } else {
             	messages.add("nome", new ActionMessage("elenco.corsi.accessibili.ok"));
+            	request.setAttribute("elencoCorsi", elencoCorsi);
             }
-        	request.setAttribute("elencoCorsi", elencoCorsi);
         } catch (Exception e) {
             errors.add("name", new ActionError("generic.error"));
         }

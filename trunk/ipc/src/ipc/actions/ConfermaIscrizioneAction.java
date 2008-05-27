@@ -31,13 +31,17 @@ public class ConfermaIscrizioneAction extends Action {
         		return mapping.findForward("main");
         	}
         	Enumeration en = request.getParameterNames();
-        	while(en.hasMoreElements()) {
-        		String name = (String)en.nextElement();
-        		if(name.equals("radio")) {
-        			System.out.println("request: "+request.getParameter(name));
-        			String acronimo = request.getParameter(name);
-        			HttpSession session = request.getSession();
-        			session.setAttribute("acronimo", acronimo);
+        	if(en.hasMoreElements() == false) {
+        		errors.add("name", new ActionError("radio.button.error"));
+        	} else {
+        		while(en.hasMoreElements()) {
+        			String name = (String)en.nextElement();
+        			if(name.equals("radio")) {
+        				System.out.println("request: "+request.getParameter(name));
+        				String acronimo = request.getParameter(name);
+        				HttpSession session = request.getSession();
+        				session.setAttribute("acronimo", acronimo);
+        			}
         		}
         	}
         } catch (Exception e) {
@@ -45,6 +49,7 @@ public class ConfermaIscrizioneAction extends Action {
         }
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
+            forward = mapping.findForward("error");
         } else {
             forward = mapping.findForward("success");
         }

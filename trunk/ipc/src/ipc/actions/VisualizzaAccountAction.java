@@ -60,45 +60,49 @@ public class VisualizzaAccountAction extends Action {
         		return mapping.findForward("main");
         	}
         	Enumeration en = request.getParameterNames();
-        	System.out.println("oooook");
-        	while(en.hasMoreElements()) {
-        		String name = (String)en.nextElement();
-        		if(name.equals("radio")) {
-        			System.out.println("request: "+request.getParameter(name));
-        			//GestioneCorsoForm gestForm = (GestioneCorsoForm)form;
-        			//gestForm.setAcronimo(request.getParameter(name));
-        			String email = request.getParameter(name);
-        			account = control.getAccount(email);
-        			if(account == null ) {
-        				errors.add("nome", new ActionError("account.error"));
-        			} else {
-        				messages.add("nome", new ActionMessage("account.ok"));
-        				request.setAttribute("account", account);
-	        			cForm.setNome(account.getNome());
-	        			cForm.setCognome(account.getCognome());
-	        			cForm.setEmail(account.getEmail());
-	        			if(account.getTipologia().equals("studente")) {
-	        				cForm.setNote(account.getNoteStud());
-	        				cForm.setMatricola(account.getMatricola());
-	        			}
-	        			if(account.getTipologia().equals("professore")) {
-	        				cForm.setNote(account.getNoteProf());
-	        				this.elencoCorsiTitolare = control.getCorsiWhereIsTitolare(account.getEmail());
-	        				if(this.elencoCorsiTitolare == null) {
-	        					errors.add("nome", new ActionError("titolari.corso.no"));
-	        				} else {
-	        					messages.add("nome", new ActionMessage("titolari.corso.ok"));
-	        					request.setAttribute("elencoCorsiTitolare", elencoCorsiTitolare);	
-	        				}
-	        				this.elencoCorsiCollaboratore = control.getCorsiWhereIsCollaboratore(account.getEmail());
-	        				if(this.elencoCorsiCollaboratore == null) {
-	        					errors.add("nome", new ActionError("collaboratori.corso.no"));
-	        				} else {
-	        					messages.add("nome", new ActionMessage("collaboratori.corso.ok"));
-	        					request.setAttribute("elencoCorsiCollaboratore", elencoCorsiCollaboratore);
-	        				}
-	        			}
-	        		}
+        	if(en.hasMoreElements() == false) {
+        		errors.add("nome", new ActionError("radio.button.error"));
+        	} else {
+        		System.out.println("oooook");
+        		while(en.hasMoreElements()) {
+        			String name = (String)en.nextElement();
+        			if(name.equals("radio")) {
+        				System.out.println("request: "+request.getParameter(name));
+        				//GestioneCorsoForm gestForm = (GestioneCorsoForm)form;
+        				//gestForm.setAcronimo(request.getParameter(name));
+        				String email = request.getParameter(name);
+        				account = control.getAccount(email);
+        				if(account == null ) {
+        					errors.add("nome", new ActionError("account.error"));
+        				} else {
+        					messages.add("nome", new ActionMessage("account.ok"));
+        					request.setAttribute("account", account);
+        					cForm.setNome(account.getNome());
+        					cForm.setCognome(account.getCognome());
+        					cForm.setEmail(account.getEmail());
+        					if(account.getTipologia().equals("studente")) {
+        						cForm.setNote(account.getNoteStud());
+        						cForm.setMatricola(account.getMatricola());
+        					}
+        					if(account.getTipologia().equals("professore")) {
+        						cForm.setNote(account.getNoteProf());
+        						this.elencoCorsiTitolare = control.getCorsiWhereIsTitolare(account.getEmail());
+        						if(this.elencoCorsiTitolare == null) {
+        							errors.add("nome", new ActionError("titolari.corso.no"));
+        						} else {
+        							messages.add("nome", new ActionMessage("titolari.corso.ok"));
+        							request.setAttribute("elencoCorsiTitolare", elencoCorsiTitolare);	
+        						}
+        						this.elencoCorsiCollaboratore = control.getCorsiWhereIsCollaboratore(account.getEmail());
+        						if(this.elencoCorsiCollaboratore == null) {
+        							errors.add("nome", new ActionError("collaboratori.corso.no"));
+        						} else {
+        							messages.add("nome", new ActionMessage("collaboratori.corso.ok"));
+        							request.setAttribute("elencoCorsiCollaboratore", elencoCorsiCollaboratore);
+        						}
+        					}
+        				}
+        			}
         		}
         	}
         } catch (Exception e) {

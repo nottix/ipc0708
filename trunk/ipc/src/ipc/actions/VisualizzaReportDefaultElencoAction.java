@@ -50,6 +50,7 @@ public class VisualizzaReportDefaultElencoAction extends Action {
         }
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
+            forward = mapping.findForward("error");
         } else if(!messages.isEmpty()){
         	saveMessages(request, errors);
             forward = mapping.findForward("init");

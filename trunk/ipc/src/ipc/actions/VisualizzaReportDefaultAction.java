@@ -22,9 +22,7 @@ import org.apache.struts.action.ActionMessages;
  * @version 	1.0
  * @author
  */
-public class VisualizzaReportDefaultAction extends Action
-
-{
+public class VisualizzaReportDefaultAction extends Action {
 	
 	private List<Account> elencoAccountStudenti;
 	
@@ -46,33 +44,37 @@ public class VisualizzaReportDefaultAction extends Action
         	String acronimo="";
         	String name;
         	Enumeration en = request.getParameterNames();
-        	List<String> columns = new LinkedList<String>();
-        	while(en.hasMoreElements()) {
-        		name = (String)en.nextElement();
-        		System.out.println("name: "+name);
-        		if(name.equals("radio")) {
-        			acronimo = request.getParameter(name);
-        			System.out.println("name: "+acronimo);
-        			
-        			elencoAccountStudenti = control.queryDefault(acronimo);
-                    if(elencoAccountStudenti == null) {
-                    	errors.add("nome", new ActionError("elenco.studenti.no"));
-                    } else {
-                    	messages.add("nome", new ActionMessage("elenco.studenti.ok"));
-                    	System.out.println("size results: "+elencoAccountStudenti.size());
-                    	request.setAttribute("elencoAccountStudenti", elencoAccountStudenti);
-                    }
-        		} else {
-        			columns.add(name);
-        			System.out.println("column: "+name);
-        		}
-        	}
-        	elencoAccountStudenti = control.ordinamentoReport(columns, elencoAccountStudenti);
-        	if(elencoAccountStudenti == null) {
-        		errors.add("nome", new ActionError("ordinamento.no"));
+        	if(en.hasMoreElements() == false) {
+        		errors.add("name", new ActionError("radio.button.error"));
         	} else {
-        		messages.add("nome", new ActionMessage("ordinamento.ok"));
-        		request.setAttribute("elencoAccountStudenti", elencoAccountStudenti);
+        		List<String> columns = new LinkedList<String>();
+        		while(en.hasMoreElements()) {
+        			name = (String)en.nextElement();
+        			System.out.println("name: "+name);
+        			if(name.equals("radio")) {
+        				acronimo = request.getParameter(name);
+        				System.out.println("name: "+acronimo);
+
+        				elencoAccountStudenti = control.queryDefault(acronimo);
+        				if(elencoAccountStudenti == null) {
+        					errors.add("nome", new ActionError("elenco.studenti.no"));
+        				} else {
+        					messages.add("nome", new ActionMessage("elenco.studenti.ok"));
+        					System.out.println("size results: "+elencoAccountStudenti.size());
+        					request.setAttribute("elencoAccountStudenti", elencoAccountStudenti);
+        				}
+        			} else {
+        				columns.add(name);
+        				System.out.println("column: "+name);
+        			}
+        		}
+        		elencoAccountStudenti = control.ordinamentoReport(columns, elencoAccountStudenti);
+        		if(elencoAccountStudenti == null) {
+        			errors.add("nome", new ActionError("ordinamento.no"));
+        		} else {
+        			messages.add("nome", new ActionMessage("ordinamento.ok"));
+        			request.setAttribute("elencoAccountStudenti", elencoAccountStudenti);
+        		}
         	}
         } catch (Exception e) {
             errors.add("name", new ActionError("generic.error"));

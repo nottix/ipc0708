@@ -42,18 +42,27 @@ public class AttivazioneAccountStudenteAction extends Action {
         GestioneAccountController gestioneAccountController = new GestioneAccountController();
         try {
         	Enumeration en = request.getParameterNames();
-        	while(en.hasMoreElements()) {
-        		String name = (String)en.nextElement();
-        		if (request.getParameter(name) != null && request.getParameter(name).trim().equals("on")) {
-        			if(gestioneAccountController.abilitaAccountStudente(name)) {
-        				messages.add("name", new ActionMessage("abilita.account.studente.ok"));
-        			} else {
-        				errors.add("name", new ActionError("abilita.account.studente.no"));
+        	if(en.hasMoreElements() == false) {
+        		errors.add("name", new ActionError("radio.button.error"));
+        	} else {
+        		while(en.hasMoreElements()) {
+        			String name = (String)en.nextElement();
+        			if (request.getParameter(name) != null && request.getParameter(name).trim().equals("on")) {
+        				if(gestioneAccountController.abilitaAccountStudente(name) == true) {
+        					messages.add("name", new ActionMessage("abilita.account.studente.ok"));
+        				} else {
+        					errors.add("name", new ActionError("abilita.account.studente.no"));
+        				}
         			}
         		}
+        		elencoAccountStudenti = gestioneAccountController.getElencoAccountStudentiPendent();
+        		if(elencoAccountStudenti == null) {
+        			errors.add("name", new ActionError("elenco.studenti.no"));
+        		} else {
+        			messages.add("name", new ActionMessage("elenco.studenti.ok"));
+        			request.setAttribute("elencoAccountStudenti", elencoAccountStudenti);
+        		}
         	}
-        	elencoAccountStudenti = gestioneAccountController.getElencoAccountStudentiPendent();
-        	request.setAttribute("elencoAccountStudenti", elencoAccountStudenti);
         } catch (Exception e) {
             // Report the error using the appropriate name and ID.
             errors.add("name", new ActionError(e.getMessage()));

@@ -64,12 +64,9 @@ public class ConfermaPrenotazioneEsameDoneAction extends Action {
             saveErrors(request, errors);
             forward = mapping.findForward("error");
         } else if(!messages.isEmpty()) {
-	            saveMessages(request, messages);
-	            forward = mapping.findForward("success");
+	        saveMessages(request, messages);
+	        forward = mapping.findForward("success");
 	    }
-
-        // Finish with
-        return (forward);
-
+        return forward;
     }
 }

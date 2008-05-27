@@ -98,8 +98,10 @@
 		<action path="/Logout" type="ipc.actions.LogoutAction">
 			<forward name="success" path="/login.jsp">
 			</forward>
+			<forward name="error" path="/login.jsp">
+			</forward>
 		</action>
-		<action path="/CreazioneProfessore" type="ipc.actions.CreazioneProfessoreAction" scope="request" name="creazioneProfessoreForm" input="/creazioneProfessore.jsp">
+		<action path="/CreazioneProfessore" type="ipc.actions.CreazioneProfessoreAction" scope="session" name="creazioneProfessoreForm" input="/creazioneProfessore.jsp">
 			<forward name="success" path="/homeProfessore.jsp">
 			</forward>
 			<forward name="error" path="/creazioneProfessore.jsp">
@@ -108,13 +110,19 @@
 		<action path="/AttivazioneAccountStudente" type="ipc.actions.AttivazioneAccountStudenteAction" name="attivazioneAccountStudenteForm" scope="session" input="/attivazioneAccountStudente.jsp">
 			<forward name="init" path="/attivazioneAccountStudente.jsp">
 			</forward>
+			<forward name="error" path="/gestioneAccount.jsp">
+			</forward>
 		</action>
-		<action path="/ModificaAccountStudente" type="ipc.actions.ModificaAccountStudenteAction" scope="request" input="/gestioneAccount.jsp" name="gestioneAccountForm">
+		<action path="/ModificaAccountStudente" type="ipc.actions.ModificaAccountStudenteAction" scope="session" input="/gestioneAccount.jsp" name="gestioneAccountForm">
 			<forward name="init" path="/elencoAccountStudenti.jsp">
+			</forward>
+			<forward name="error" path="/elencoAccountStudenti.jsp">
 			</forward>
 		</action>
 		<action path="/ModificaAccountStudenteSelezionato" type="ipc.actions.ModificaAccountStudenteSelezionatoAction" scope="request" input="/elencoAccountStudenti.jsp" name="modificaAccountStudenteForm">
 			<forward name="init" path="/modificaAccountStudenteSelezionato.jsp">
+			</forward>
+			<forward name="error" path="/modificaAccountStudenteSelezionato.jsp">
 			</forward>
 		</action>
 		<action path="/ModAccStud" type="ipc.actions.ModAccStudAction" name="modificaAccountStudenteForm" scope="request" input="/modificaAccountStudenteSelezionato.jsp">
@@ -126,9 +134,13 @@
 		<action path="/RipristinaPasswordAccount" type="ipc.actions.RipristinaPasswordAccountAction" scope="request" input="/gestioneAccount.jsp" name="gestioneAccountForm">
 			<forward name="init" path="/ripristinaPasswordAccount.jsp">
 			</forward>
+			<forward name="error" path="/ripristinaPasswordAccount.jsp">
+			</forward>
 		</action>
 		<action path="/RipristinaPasswordAccountSelezionato" type="ipc.actions.RipristinaPasswordAccountSelezionatoAction" name="ripristinaPasswordAccount" scope="request">
 			<forward name="success" path="/ripristinaPasswordAccount.jsp">
+			</forward>
+			<forward name="error" path="/ripristinaPasswordAccount.jsp">
 			</forward>
 		</action>
 		<action path="/CreazioneAccountGestore" type="ipc.actions.CreazioneAccountGestoreAction" name="creazioneAccountGestoreForm" scope="request">
@@ -140,21 +152,27 @@
 		<action path="/CreazioneCorso" type="ipc.actions.CreazioneCorsoAction" scope="request" input="/creazioneCorso.jsp" name="creazioneCorsoForm">
 			<forward name="success" path="/creazioneCorso.jsp">
 			</forward>
+			<forward name="error" path="/creazioneCorso.jsp">
+			</forward>
 		</action>
-		<action path="/GestioneCorsoElenco" type="ipc.actions.GestioneCorsoElencoAction" scope="request">
+		<action path="/GestioneCorsoElenco" type="ipc.actions.GestioneCorsoElencoAction" scope="session" input="/gestioneCorsoElenco.jsp" name="gestioneCorsoElencoForm">
 			<forward name="init" path="/gestioneCorsoElenco.jsp">
 			</forward>
-			<forward name="error" path="/homeProfessore.jsp">
+			<forward name="error" path="/gestioneCorsoElenco.jsp">
 			</forward>
 		</action>
-		<action path="/GestioneCorso" type="ipc.actions.GestioneCorsoAction" scope="request" input="/gestioneCorsoElenco.jsp" name="gestioneCorsoForm">
+		<action path="/GestioneCorso" type="ipc.actions.GestioneCorsoAction" scope="session" input="/gestioneCorsoElenco.jsp" name="gestioneCorsoForm">
 			<forward name="success" path="/gestioneCorso.jsp">
 			</forward>
 			<forward name="main" path="/homeProfessore.jsp">
 			</forward>
+			<forward name="error" path="/GestioneCorsoElenco.do">
+			</forward> 
 		</action>
 		<action path="/CreazioneEsame" type="ipc.actions.CreazioneEsameAction" scope="request" input="/gestioneCorso.jsp" name="creazioneEsameForm">
 			<forward name="success" path="/creazioneEsame.jsp">
+			</forward>
+			<forward name="error" path="/creazioneEsame.jsp">
 			</forward>
 		</action>
 		<action path="/CreazioneEsameDone" type="ipc.actions.CreazioneEsameDoneAction" scope="request" name="creazioneEsameForm">
@@ -174,17 +192,25 @@
 			</forward>
 			<forward name="main" path="/homeProfessore.jsp">
 			</forward>
+			<forward name="error" path="/GestioneEsameElenco.do">
+			</forward>
 		</action>
 		<action path="/CreazioneProgetto" type="ipc.actions.CreazioneProgettoAction" scope="request" input="/gestioneEsame.jsp" name="creazioneProgettoForm">
 			<forward name="success" path="/creazioneProgetto.jsp">
+			</forward>
+			<forward name="error" path="/creazioneProgetto.jsp">
 			</forward>
 		</action>
 		<action path="/CreazioneProgettoDone" type="ipc.actions.CreazioneProgettoDoneAction" name="creazioneProgettoForm" scope="request" input="/creazioneProgetto.jsp">
 			<forward name="success" path="/creazioneProgetto.jsp">
 			</forward>
+			<forward name="error" path="/creazioneProgetto.jsp">
+			</forward>
 		</action>
 		<action path="/VisualizzaAccountElenco" type="ipc.actions.VisualizzaAccountElencoAction">
 			<forward name="init" path="/visualizzaAccountElenco.jsp">
+			</forward>
+			<forward name="error" path="/visualizzaAccountElenco.jsp">
 			</forward>
 		</action>
 		<action path="/VisualizzaAccount" type="ipc.actions.VisualizzaAccountAction" scope="request" input="/visualizzaAccountElenco.jsp" name="visualizzaAccountForm">
@@ -212,6 +238,8 @@
 			</forward>
 			<forward name="success" path="/homeStudente.jsp">
 			</forward>
+			<forward name="error" path="/homeStudente.jsp">
+			</forward>
 		</action>
 		<action path="/PrenotazioneEsameElenco" type="ipc.actions.PrenotazioneEsameElencoAction" scope="request" input="/prenotazioneEsameElencoCorsi.jsp" name="prenotazioneEsameElencoForm">
 			<forward name="success" path="/prenotazioneEsameElenco.jsp">
@@ -236,9 +264,13 @@
 		<action path="/ConfermaIscrizioneCorsoElenco" type="ipc.actions.ConfermaIscrizioneCorsoElencoAction">
 			<forward name="init" path="/confermaIscrizioneCorsoElenco.jsp">
 			</forward>
+			<forward name="error" path="/confermaIscrizioneCorsoElenco.jsp">
+			</forward>
 		</action>
 		<action path="/ConfermaIscrizioneElenco" type="ipc.actions.ConfermaIscrizioneElencoAction">
 			<forward name="init" path="/confermaIscrizioneElenco.jsp">
+			</forward>
+			<forward name="error" path="/confermaIscrizioneElenco.jsp">
 			</forward>
 		</action>
 		<action path="/ConfermaIscrizione" type="ipc.actions.ConfermaIscrizioneAction" scope="request" input="/confermaIscrizioneElenco.jsp" name="confermaIscrizioneForm">
@@ -246,9 +278,13 @@
 			</forward>
 			<forward name="main" path="/homeProfessore.jsp">
 			</forward>
+			<forward name="error" path="/ConfermaIscrizioneCorso.do">
+			</forward>
 		</action>
 		<action path="/ConfermaIscrizioneCorso" type="ipc.actions.ConfermaIscrizioneCorsoAction" scope="request" input="/confermaIscrizioneCorsoElenco.jsp" name="confermaIscrizioneCorsoForm">
 			<forward name="success" path="/confermaIscrizioneCorso.jsp">
+			</forward>
+			<forward name="error" path="/confermaIscrizioneCorso.jsp">
 			</forward>
 		</action>
 		<action path="/ConfermaIscrizioneCorsoDone" type="ipc.actions.ConfermaIscrizioneCorsoDoneAction" scope="request" input="/confermaIscrizioneCorso.jsp" name="confermaIscrizioneCorsoForm">
@@ -260,9 +296,13 @@
 		<action path="/ConfermaPrenotazioneEsameElenco" type="ipc.actions.ConfermaPrenotazioneEsameElencoAction">
 			<forward name="init" path="/confermaPrenotazioneEsameElenco.jsp">
 			</forward>
+			<forward name="error" path="/confermaPrenotazioneEsameElenco.jsp">
+			</forward>
 		</action>
 		<action path="/ConfermaPrenotazioneEsame" type="ipc.actions.ConfermaPrenotazioneEsameAction" name="confermaPrenotazioneEsameForm" scope="request" input="/confermaPrenotazioneEsameElenco.jsp">
 			<forward name="success" path="/confermaPrenotazioneEsame.jsp">
+			</forward>
+			<forward name="error" path="/confermaPrenotazioneEsame.jsp">
 			</forward>
 		</action>
 		<action path="/ConfermaPrenotazioneEsameDone" type="ipc.actions.ConfermaPrenotazioneEsameDoneAction" name="confermaPrenotazioneEsameForm" scope="request" input="/confermaPrenotazioneEsame.jsp">
@@ -274,11 +314,15 @@
 		<action path="/ModificaVotiElenco" type="ipc.actions.ModificaVotiElencoAction" name="modificaVotiElencoForm" scope="request">
 			<forward name="success" path="/modificaVotiElenco.jsp">
 			</forward>
+			<forward name="error" path="/modificaVotiElenco.jsp">
+			</forward>
 		</action>
 		<action path="/ModificaVoti" type="ipc.actions.ModificaVotiAction" scope="request" input="/modificaVotiElenco.jsp" name="modificaVotiForm">
 			<forward name="success" path="/modificaVoti.jsp">
 			</forward>
 			<forward name="main" path="/gestioneEsame.jsp">
+			</forward>
+			<forward name="error" path="/ModificaVotiElenco.do">
 			</forward>
 		</action>
 		<action path="/ModificaVotiDone" type="ipc.actions.ModificaVotiDoneAction" scope="request" input="/modificaVoti.jsp" name="modificaVotiForm">
@@ -296,7 +340,7 @@
 		<action path="/VisualizzaReportDefault" type="ipc.actions.VisualizzaReportDefaultAction" scope="request" input="/visualizzaReportDefaultElenco.jsp" name="visualizzaReportDefaultForm">
 			<forward name="success" path="/visualizzaReportDefault.jsp">
 			</forward>
-			<forward name="error" path="/gestioneQuery.jsp">
+			<forward name="error" path="/VisualizzaReportDefaultElenco.do">
 			</forward>
 		</action>
 	</action-mappings>

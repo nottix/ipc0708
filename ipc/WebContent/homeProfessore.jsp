@@ -66,6 +66,17 @@
 				<td align="center"><html:link page="/gestioneQuery.jsp">Gestione Query</html:link></td>
 			</tr>
 		</tbody>
-	</table></center>
+	</table>
+	
+     				<table>
+     					<tr>
+     					<td align=center>
+     						<font color=red>
+     							<html:errors />
+     						</font>
+     					</td>
+     					</tr>
+     				</table>
+	</center>
 	</body>
 </html:html>

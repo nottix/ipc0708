@@ -46,9 +46,9 @@ public class ConfermaIscrizioneElencoAction extends Action {
             	errors.add("nome", new ActionError("elenco.corsi.no"));
             } else {
             	messages.add("nome", new ActionMessage("elenco.corsi.ok"));
+                System.out.println("elencoCorsi size: "+elencoCorsi.size());
+                request.setAttribute("elencoCorsi", elencoCorsi);
             }
-            System.out.println("elencoCorsi size: "+elencoCorsi.size());
-            request.setAttribute("elencoCorsi", elencoCorsi);
         } catch (Exception e) {
             errors.add("name", new ActionError("id"));
         }

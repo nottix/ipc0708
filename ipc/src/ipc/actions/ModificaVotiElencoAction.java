@@ -20,9 +20,7 @@ import org.apache.struts.action.ActionMessages;
  * @version 	1.0
  * @author
  */
-public class ModificaVotiElencoAction extends Action
-
-{
+public class ModificaVotiElencoAction extends Action {
 	
 	private List<PrenotazioneEsame> elencoPrenotazioniEsami;
 	

@@ -36,7 +36,6 @@ public class ModificaVotiDoneAction extends Action {
         ModificaVotiForm cForm = (ModificaVotiForm)form;
 
         try {
-
             Hashtable<String, Object> data = new Hashtable<String, Object>();
             data.put("votoEsame", cForm.getVotoEsame());
             data.put("votoAccettato", cForm.getVotoAccettato().equals("on")?true:false);

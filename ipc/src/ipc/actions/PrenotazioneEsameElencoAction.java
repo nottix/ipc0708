@@ -43,18 +43,22 @@ public class PrenotazioneEsameElencoAction extends Action {
         		return mapping.findForward("main");
         	}
         	Enumeration en = request.getParameterNames();
-        	while(en.hasMoreElements()) {
-        		String name = (String)en.nextElement();
-        		if(name.equals("radio")) {
-        			System.out.println("request: "+request.getParameter(name));
-        			HttpSession session = request.getSession();
-        			session.setAttribute("idCorso", request.getParameter(name));
-        			this.elencoEsami = control.getElencoEsamiDispAttivi();
-        			if(elencoEsami == null) {
-        				errors.add("nome", new ActionError("elenco.esami.disponibili.attivi.no"));
-        			} else {
-        				messages.add("nome", new ActionMessage("elenco.esami.disponibili.attivi.ok"));
-            			request.setAttribute("elencoEsami", elencoEsami);
+        	if(en.hasMoreElements() == false) {
+        		errors.add("nome", new ActionError("radio.button.error"));
+        	} else {
+        		while(en.hasMoreElements()) {
+        			String name = (String)en.nextElement();
+        			if(name.equals("radio")) {
+        				System.out.println("request: "+request.getParameter(name));
+        				HttpSession session = request.getSession();
+        				session.setAttribute("idCorso", request.getParameter(name));
+        				this.elencoEsami = control.getElencoEsamiDispAttivi();
+        				if(elencoEsami == null) {
+        					errors.add("nome", new ActionError("elenco.esami.disponibili.attivi.no"));
+        				} else {
+        					messages.add("nome", new ActionMessage("elenco.esami.disponibili.attivi.ok"));
+        					request.setAttribute("elencoEsami", elencoEsami);
+        				}
         			}
         		}
         	}

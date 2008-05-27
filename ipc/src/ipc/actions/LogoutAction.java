@@ -37,6 +37,7 @@ public class LogoutAction extends Action {
         		if(session.getAttribute("isGestore") != null)
         			session.removeAttribute("isGestore");
         		session.invalidate();
+        		System.err.println("Sessione eliminata");
         	} else
         		errors.add("email", new ActionError("email.session.error"));
         } catch (Exception e) {

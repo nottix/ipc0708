@@ -17,11 +17,10 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class VisualizzaReportDefaultForm extends ActionForm
+public class VisualizzaReportDefaultForm extends ActionForm {
+	private static final long serialVersionUID = 36L;
 
-{
-
-    private String matricola = null;
+	private String matricola = null;
 
     private String email = null;
 
@@ -34,7 +33,7 @@ public class VisualizzaReportDefaultForm extends ActionForm
      * @return String
      */
     public String getMatricola() {
-	return matricola;
+    	return matricola;
     }
 
     /**
@@ -42,7 +41,7 @@ public class VisualizzaReportDefaultForm extends ActionForm
      * @param <code>String</code>
      */
     public void setMatricola(String m) {
-	this.matricola = m;
+    	this.matricola = m;
     }
 
     /**
@@ -50,7 +49,7 @@ public class VisualizzaReportDefaultForm extends ActionForm
      * @return String
      */
     public String getEmail() {
-	return email;
+    	return email;
     }
 
     /**
@@ -58,7 +57,7 @@ public class VisualizzaReportDefaultForm extends ActionForm
      * @param <code>String</code>
      */
     public void setEmail(String e) {
-	this.email = e;
+    	this.email = e;
     }
 
     /**
@@ -66,7 +65,7 @@ public class VisualizzaReportDefaultForm extends ActionForm
      * @return String
      */
     public String getNome() {
-	return nome;
+    	return nome;
     }
 
     /**
@@ -74,7 +73,7 @@ public class VisualizzaReportDefaultForm extends ActionForm
      * @param <code>String</code>
      */
     public void setNome(String n) {
-	this.nome = n;
+    	this.nome = n;
     }
 
     /**
@@ -82,7 +81,7 @@ public class VisualizzaReportDefaultForm extends ActionForm
      * @return String
      */
     public String getCognome() {
-	return cognome;
+    	return cognome;
     }
 
     /**
@@ -90,31 +89,21 @@ public class VisualizzaReportDefaultForm extends ActionForm
      * @param <code>String</code>
      */
     public void setCognome(String c) {
-	this.cognome = c;
+    	this.cognome = c;
     }
 
     public void reset(ActionMapping mapping, HttpServletRequest request) {
-
-	// Reset values are provided as samples only. Change as appropriate.
-
-	matricola = null;
-	email = null;
-	nome = null;
-	cognome = null;
-
+		matricola = null;
+		email = null;
+		nome = null;
+		cognome = null;
     }
 
     public ActionErrors validate(ActionMapping mapping,
-	    HttpServletRequest request) {
+    							 HttpServletRequest request) {
 
-	ActionErrors errors = new ActionErrors();
-	// Validate the fields in your form, adding
-	// adding each error to this.errors as found, e.g.
-
-	// if ((field == null) || (field.length() == 0)) {
-	//   errors.add("field", new org.apache.struts.action.ActionError("error.field.required"));
-	// }
-	return errors;
-
+		ActionErrors errors = new ActionErrors();
+	
+		return errors;
     }
 }

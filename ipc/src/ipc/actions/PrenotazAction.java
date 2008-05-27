@@ -28,29 +28,13 @@ public class PrenotazAction extends Action {
             // do something here
 
         } catch (Exception e) {
-
-            // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("id"));
-
+            errors.add("name", new ActionError("generic.error"));
         }
-
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
-
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
-            //	forward = mapping.findForward(non riuscito");
-
         } else {
-
-            // Forward control to the appropriate 'success' URI (change name as desired)
             forward = mapping.findForward("riuscito");
-
         }
-
-        // Finish with
         return (forward);
 
     }

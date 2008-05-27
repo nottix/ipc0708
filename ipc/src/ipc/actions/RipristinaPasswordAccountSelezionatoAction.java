@@ -16,9 +16,7 @@ import org.apache.struts.action.ActionMessages;
  * @version 	1.0
  * @author
  */
-public class RipristinaPasswordAccountSelezionatoAction extends Action
-
-{
+public class RipristinaPasswordAccountSelezionatoAction extends Action {
 
     public ActionForward execute(ActionMapping mapping, 
     							 ActionForm form,

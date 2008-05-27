@@ -48,11 +48,11 @@ public class ConfermaPrenotazioneEsameElencoAction extends Action {
             	errors.add("nome", new ActionError("elenco.prenotazione.esami.no"));
             } else {
             	messages.add("nome", new ActionMessage("elenco.prenotazione.esami.ok"));
+            	System.out.println("size pren: "+this.elencoPrenotazioniEsami.size());
+            	request.setAttribute("elencoPrenotazioniEsami", this.elencoPrenotazioniEsami);
             }
-            System.out.println("size pren: "+this.elencoPrenotazioniEsami.size());
-            request.setAttribute("elencoPrenotazioniEsami", this.elencoPrenotazioniEsami);
         } catch (Exception e) {
-            errors.add("name", new ActionError("id"));
+        	errors.add("name", new ActionError("id"));
         }
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
@@ -60,6 +60,6 @@ public class ConfermaPrenotazioneEsameElencoAction extends Action {
         	saveMessages(request, messages);
             forward = mapping.findForward("init");
         }
-        return (forward);
+        return forward;
     }
 }

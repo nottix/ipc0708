@@ -41,22 +41,26 @@ public class PrenotazioneEsameAction extends Action {
         		return mapping.findForward("main");
         	}
         	Enumeration en = request.getParameterNames();
-        	while(en.hasMoreElements()) {
-        		String name = (String)en.nextElement();
-        		if(name.equals("radio")) {
-        			System.out.println("request: "+request.getParameter(name));
-        			HttpSession session = request.getSession();
-        			session.setAttribute("idEsame", request.getParameter(name));
-        			
-        			Esame esame = control.getEsame(Long.valueOf(request.getParameter(name)));
-        			if(esame == null) {
-        				errors.add("name", new ActionError("esame.error"));
-        			} else {
-        				messages.add("name", new ActionMessage("esame.ok"));
-        				cForm.setDataEsame(esame.getDataEsame().toString());
-        				cForm.setAuleEsame(esame.getAuleEsame());
-        				cForm.setDataInizioPeriodoPrenotazione(esame.getDataInizioPeriodoPrenotazione().toString());
-        				cForm.setDataFinePeriodoPrenotazione(esame.getDataFinePeriodoPrenotazione().toString());
+        	if(en.hasMoreElements() == false) {
+        		errors.add("nome", new ActionError("radio.button.error"));
+        	} else {
+        		while(en.hasMoreElements()) {
+        			String name = (String)en.nextElement();
+        			if(name.equals("radio")) {
+        				System.out.println("request: "+request.getParameter(name));
+        				HttpSession session = request.getSession();
+        				session.setAttribute("idEsame", request.getParameter(name));
+
+        				Esame esame = control.getEsame(Long.valueOf(request.getParameter(name)));
+        				if(esame == null) {
+        					errors.add("name", new ActionError("esame.error"));
+        				} else {
+        					messages.add("name", new ActionMessage("esame.ok"));
+        					cForm.setDataEsame(esame.getDataEsame().toString());
+        					cForm.setAuleEsame(esame.getAuleEsame());
+        					cForm.setDataInizioPeriodoPrenotazione(esame.getDataInizioPeriodoPrenotazione().toString());
+        					cForm.setDataFinePeriodoPrenotazione(esame.getDataFinePeriodoPrenotazione().toString());
+        				}
         			}
         		}
         	}

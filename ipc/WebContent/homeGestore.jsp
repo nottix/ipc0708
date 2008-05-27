@@ -34,6 +34,17 @@
 				<td align="center"><html:link action="/ConfermaIscrizioneElenco">Conferma Iscrizione</html:link></td>
 			</tr>
 		</tbody>
-	</table></center>
+	</table>
+	
+     				<table>
+     					<tr>
+     					<td align=center>
+     						<font color=red>
+     							<html:errors />
+     						</font>
+     					</td>
+     					</tr>
+     				</table>
+	</center>
 	</body>
 </html:html>

@@ -39,29 +39,33 @@ public class ModificaVotiAction extends Action {
         		return mapping.findForward("main");
         	}
         	Enumeration en = request.getParameterNames();
-        	while(en.hasMoreElements()) {
-        		String name = (String)en.nextElement();
-        		if(name.equals("radio")) {
-        			PrenotazioneEsame prenotazione = control.getPrenotazioneEsame(Long.valueOf(request.getParameter(name)));
-        			if(prenotazione == null) {
-        				errors.add("nome", new ActionError("prenotazione.error"));
-        			} else {
-        				messages.add("nome", new ActionMessage("prenotazione.ok"));
-        				ModificaVotiForm cForm = (ModificaVotiForm)form;
-	        			cForm.setIdStudente(prenotazione.getIdStudente());
-	        			cForm.setDataEsame(prenotazione.getDataEsame().toString());
-	        			cForm.setDataPrenotazione(prenotazione.getDataPrenotazione().toString());
-	        			if(prenotazione.getEsaminatore()!=null)
-	        				cForm.setEsaminatore(prenotazione.getEsaminatore());
-	        			if(prenotazione.getNota()!=null)
-	        				cForm.setNota(prenotazione.getNota());
-	        			if(prenotazione.getPresenzaEsame()!=null)
-	        				cForm.setPresenzaEsame(prenotazione.getPresenzaEsame()?"on":"off");
-	        			if(prenotazione.getVotoAccettato()!=null)
-	        				cForm.setVotoAccettato(prenotazione.getVotoAccettato()?"on":"off");
-	        			if(prenotazione.getVotoEsame()!=null)
-	        				cForm.setVotoEsame(prenotazione.getVotoEsame());
-	        			request.getSession().setAttribute("idPrenotazioneEsame", Long.valueOf(request.getParameter(name)));
+        	if(en.hasMoreElements() == false) {
+        		errors.add("nome", new ActionError("radio.button.error"));
+        	} else {
+        		while(en.hasMoreElements()) {
+        			String name = (String)en.nextElement();
+        			if(name.equals("radio")) {
+        				PrenotazioneEsame prenotazione = control.getPrenotazioneEsame(Long.valueOf(request.getParameter(name)));
+        				if(prenotazione == null) {
+        					errors.add("nome", new ActionError("prenotazione.error"));
+        				} else {
+        					messages.add("nome", new ActionMessage("prenotazione.ok"));
+        					ModificaVotiForm cForm = (ModificaVotiForm)form;
+        					cForm.setIdStudente(prenotazione.getIdStudente());
+        					cForm.setDataEsame(prenotazione.getDataEsame().toString());
+        					cForm.setDataPrenotazione(prenotazione.getDataPrenotazione().toString());
+        					if(prenotazione.getEsaminatore()!=null)
+        						cForm.setEsaminatore(prenotazione.getEsaminatore());
+        					if(prenotazione.getNota()!=null)
+        						cForm.setNota(prenotazione.getNota());
+        					if(prenotazione.getPresenzaEsame()!=null)
+        						cForm.setPresenzaEsame(prenotazione.getPresenzaEsame()?"on":"off");
+        					if(prenotazione.getVotoAccettato()!=null)
+        						cForm.setVotoAccettato(prenotazione.getVotoAccettato()?"on":"off");
+        					if(prenotazione.getVotoEsame()!=null)
+        						cForm.setVotoEsame(prenotazione.getVotoEsame());
+        					request.getSession().setAttribute("idPrenotazioneEsame", Long.valueOf(request.getParameter(name)));
+        				}
         			}
         		}
         	}
@@ -70,6 +74,7 @@ public class ModificaVotiAction extends Action {
         }
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
+            forward = mapping.findForward("error");
         } else if(!messages.isEmpty()) {
         	saveMessages(request, messages);
         	forward = mapping.findForward("success");

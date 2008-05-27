@@ -28,8 +28,12 @@ public class CreazioneEsameAction extends Action {
         	Enumeration en = request.getParameterNames();
         	while(en.hasMoreElements()) {
         		String name = (String)en.nextElement();
-        		System.out.println("name: "+name+", value: "+request.getParameter(name));
+        		System.out.println("name: " + name + ", value: " + request.getParameter(name));
         		CreazioneEsameForm cForm = ((CreazioneEsameForm)form);
+        		System.out.println("Parameter " + request.getParameter(name));
+        		if(request.getParameter(name) == null) {
+        			errors.add("name", new ActionError("radio.button.error"));
+        		}
         		cForm.setAcronimo(request.getParameter(name));
         	}
         } catch (Exception e) {
@@ -37,6 +41,7 @@ public class CreazioneEsameAction extends Action {
         }
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
+            forward = mapping.findForward("error");
         } else {
         	forward = mapping.findForward("success");
         }

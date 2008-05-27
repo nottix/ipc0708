@@ -36,20 +36,24 @@ public class LoginAction extends Action {
         	if(session != null) {
         		System.err.println("Sessione esistente");
         		tipologia = (String) session.getAttribute("tipologia");
-        		System.err.println("tipologia " + tipologia);
-        		if(tipologia!=null && !tipologia.equals("")) {
+        		if(tipologia != null && tipologia.length() > 0) {
                 	forward = mapping.findForward(tipologia);
                 	System.out.println("forward " + tipologia);
                 	return forward;
         		} else {
+        			System.out.println("Sessione Invalidata");
         			session.invalidate();
         		}
         	}
-        	loginController.login(loginForm.getEmail(), loginForm.getPassword());
-        	tipologia=loginController.getTipologia();
+        	if(loginController.login(loginForm.getEmail(), loginForm.getPassword()) == false) {
+        		errors.add("tipologia", new ActionError("tipologia.error"));
+        		System.out.println("tipologia del menga");
+        	}
+        	tipologia = loginController.getTipologia();
         	if(tipologia == null) {
         		errors.add("tipologia", new ActionError("tipologia.error"));
         	} else {
+        		System.out.println("tipologia " + tipologia);
         		messages.add("tipologia", new ActionMessage("tipologia.ok"));
         		session = request.getSession(true);
             	session.setAttribute("email", loginForm.getEmail());

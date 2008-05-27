@@ -15,18 +15,11 @@ public class AttivazioneAccountStudenteForm extends ActionForm {
 	private static final long serialVersionUID = 5L;
 
     public void reset(ActionMapping mapping, HttpServletRequest request) {
-
-	// Reset field values here.
-
     }
 
     public ActionErrors validate(ActionMapping mapping,
-	    HttpServletRequest request) {
-
-	ActionErrors errors = new ActionErrors();
-	
-	
-	return errors;
-
+    							 HttpServletRequest request) {
+		ActionErrors errors = new ActionErrors();
+		return errors;
     }
 }

@@ -20,9 +20,7 @@ import org.apache.struts.action.ActionMessages;
  * @version 	1.0
  * @author
  */
-public class IscrizioneCorsoElencoAction extends Action
-
-{
+public class IscrizioneCorsoElencoAction extends Action {
 	
 	private List<Corso> elencoCorsi = null;
 	

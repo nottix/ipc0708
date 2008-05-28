@@ -62,6 +62,8 @@
 		</form-bean>
 		<form-bean name="visualizzaReportDefaultForm" type="ipc.forms.VisualizzaReportDefaultForm">
 		</form-bean>
+		<form-bean name="iscrizioneCorsoElencoForm" type="ipc.forms.IscrizioneCorsoElencoForm">
+		</form-bean>
 	</form-beans>
 
 	<!-- Eccezioni globali -->
@@ -221,7 +223,7 @@
 			<forward name="main" path="/gestioneAccount.jsp">
 			</forward>
 		</action>
-		<action path="/IscrizioneCorsoElenco" type="ipc.actions.IscrizioneCorsoElencoAction">
+		<action path="/IscrizioneCorsoElenco" type="ipc.actions.IscrizioneCorsoElencoAction" name="iscrizioneCorsoElencoForm" scope="request">
 			<forward name="init" path="/iscrizioneCorsoElenco.jsp">
 			</forward>
 			<forward name="error" path="/homeStudente.jsp">
@@ -341,6 +343,12 @@
 			<forward name="success" path="/visualizzaReportDefault.jsp">
 			</forward>
 			<forward name="error" path="/VisualizzaReportDefaultElenco.do">
+			</forward>
+		</action>
+		<action path="/AttivazioneAccountStudenteDone" type="ipc.actions.AttivazioneAccountStudenteDoneAction" name="attivazioneAccountStudenteForm" scope="request" input="/attivazioneAccountStudente.jsp">
+			<forward name="success" path="/AttivazioneAccountStudente.do">
+			</forward>
+			<forward name="error" path="/AttivazioneAccountStudente.do">
 			</forward>
 		</action>
 	</action-mappings>

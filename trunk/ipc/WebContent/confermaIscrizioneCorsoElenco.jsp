@@ -12,6 +12,10 @@
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
+<logic:notPresent name="email" scope="session">
+	<logic:redirect page="/login.jsp" />
+</logic:notPresent>
+<jsp:include page="sessionLogin.jsp" flush="true"></jsp:include>
 <html:form action="/ConfermaIscrizioneCorso">
 		<logic:present name="elencoIscrizioniCorso">
          			<table border="0" cellspacing="1" cellpadding="1" align="center" width="70%" style="border-collapse:collapse;">
@@ -39,7 +43,6 @@
      						</td>
      					</tr>
      				</table>
-     				
      				<table>
      					<tr>
      					<td align=center>

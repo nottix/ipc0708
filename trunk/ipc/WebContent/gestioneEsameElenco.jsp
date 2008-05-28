@@ -12,6 +12,8 @@
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
+
+<jsp:include page="sessionLogin.jsp" flush="true"></jsp:include>
 	<center>
 		<h1>Gestione Esame</h1>
 		<html:form action="/GestioneEsame">

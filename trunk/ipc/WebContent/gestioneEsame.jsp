@@ -13,6 +13,7 @@
 </head>
 <body>
 
+<jsp:include page="sessionLogin.jsp" flush="true"></jsp:include>
 <center>
 	<h1>Gestione Esame</h1>
 		<logic:present name="acronimo">

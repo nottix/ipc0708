@@ -3,6 +3,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html"%>
 <%@taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean"%>
+<%@taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic"%>
 <html:html>
 <head>
 <link rel="stylesheet" href="theme/Master.css" type="text/css">
@@ -11,6 +12,11 @@
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
+
+<logic:notPresent name="email" scope="session">
+	<logic:redirect page="/login.jsp" />
+</logic:notPresent>
+<jsp:include page="sessionLogin.jsp" flush="true"></jsp:include>
 	<center>
 		<h1>Conferma Iscrizione Corso</h1>
 		<html:form action="/ConfermaIscrizioneCorsoDone">
@@ -18,11 +24,11 @@
 				<tbody>
 					<tr>
 						<td>Email:</td>
-						<td><html:text property="email"></html:text></td>
+						<td><html:text property="email" readonly="true"></html:text></td>
 					</tr>
 					<tr>
 						<td>Data:</td>
-						<td><html:text property="dataIscrizione"></html:text></td>
+						<td><html:text property="dataIscrizione" readonly="true"></html:text></td>
 					</tr>
 			<tr>
 				<td colspan="2" align=center><html:reset />

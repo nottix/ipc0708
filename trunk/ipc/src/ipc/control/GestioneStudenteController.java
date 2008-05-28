@@ -27,12 +27,12 @@ public class GestioneStudenteController {
 			System.out.println("size: "+elencoCorsi.size());
 			while(i.hasNext()) {
 				corso = i.next();
-				System.out.println("corso: "+corso.getAcronimo());
+				System.out.println("status: " + corso.getStatus());
 				if( corso.getStatus()!=null && corso.getStatus().equals("attivo") && corso.isDisponibile()) {
+					System.out.println("corso: " + corso.getAcronimo());
 					this.elencoCorsiDispAttivi.add(corso);
 				}
 			}
-
 			return this.elencoCorsiDispAttivi;
 		} catch (Exception e) {
 			e.printStackTrace();

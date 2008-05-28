@@ -12,6 +12,10 @@
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
+<logic:notPresent name="email" scope="session">
+	<logic:redirect page="/login.jsp" />
+</logic:notPresent>
+<jsp:include page="sessionLogin.jsp" flush="true"></jsp:include>
 	<html:form action="/CreazioneCorso">
 	<center>
 		<h1>Creazione Corso</h1>
@@ -81,11 +85,9 @@
 
 		</tr>
 		<tr>
-		
-			<td>
-				<font color="red"><html:errors /></font>
-			</td>
-			<td align="right">
+			<td colspan=2 align="center">
+				<html:reset />
+				<html:cancel />
 				<html:submit />
 			</td>
 		</tr>

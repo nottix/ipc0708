@@ -28,13 +28,13 @@ public class LoginController {
 			SQLDAO sqlDAO = new SQLDAO();
 			unAccount = sqlDAO.getAccount(email);
 			if(unAccount==null)
-				throw new Exception("user.not.exists");
+				return false;
 			String passDB = unAccount.getPassword();
 			String passEnc = Account.convertToMD5(password);
 			if(!passEnc.equals(passDB))
-				throw new Exception("password.errata");
+				return false;
 			if(!unAccount.getStatus().equals("attivo"))
-				throw new Exception("account.disattivo");
+				return false;
 			this.tipologia = unAccount.getTipologia();
 			return unAccount.getTipologia() != null;
 		} catch (Exception e) {
@@ -51,17 +51,17 @@ public class LoginController {
 			 */
 			String tipologia = (String) data.get("tipologia");
 			if(!tipologia.equals("studente"))
-				throw new Exception("Tipologia non è Studenten");
+				return false;
 			Boolean isDirettore = (Boolean) data.get("isDirettore");
 			if(isDirettore!=null && isDirettore)
-				throw new Exception("Non può essere Direttore");
+				return false;
 //			Boolean isTitolare = (Boolean) data.get("isTitolare");
 //			if(isTitolare!=null && isTitolare)
 //				throw new Exception("Non può essere Titolare
 			String status = (String) data.get("status");
 			System.out.println("status: "+status);
 			if(!status.equals("ripristino"))
-				throw new Exception("Non richiesto ripristino");
+				return false;
 			/**
 			 * Second stage:
 			 * check if exists this student with associate email
@@ -70,7 +70,7 @@ public class LoginController {
 			Account test = null;
 			test = sqlDAO.getAccount((String) data.get("email"));
 			if (test == null)
-				throw new Exception("Account inesistente");
+				return false;
 			return sqlDAO.updateAccount((String) data.get("email"), data);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -110,7 +110,7 @@ public class LoginController {
 				return sqlDAO.createAndStoreAccount(data) != null;
 			}
 			else
-				throw new Exception("L'Account esiste");
+				return false;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

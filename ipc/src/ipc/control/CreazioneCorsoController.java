@@ -59,7 +59,7 @@ public class CreazioneCorsoController {
 				ret=false;
 			else if(dataChiusura == null)
 				ret=false;
-			else if(dataApertura.after(dataChiusura))
+			else if(dataApertura.before(new Date()) || dataApertura.after(dataChiusura))
 				ret=false;
 			else {
 				/**
@@ -99,7 +99,7 @@ public class CreazioneCorsoController {
 				
 				data.put("status", "attivo");
 				
-				ret = sqlDAO.createAndStoreCorso(data)>=0;
+				ret = (sqlDAO.createAndStoreCorso(data) >= 0);
 			}
 			return ret;
 		} catch (Exception e) {

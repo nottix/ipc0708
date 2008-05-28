@@ -21,7 +21,7 @@
 				<td align="center"><html:link page="/creazioneProfessore.jsp">Creazione Professore</html:link></td>
 			</tr>
 			<tr>
-				<td align="center"><html:link action="/CreazioneCorso">Creazione Corso</html:link></td>
+				<td align="center"><html:link page="/creazioneCorsoMenu.jsp">Creazione Corso</html:link></td>
 			</tr>
 			<%
 			if(session.getAttribute("isGestore") != null && session.getAttribute("isGestore").equals("true")) {

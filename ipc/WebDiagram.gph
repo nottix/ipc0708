@@ -329,6 +329,10 @@
       <styles xmi:type="notation:ShapeStyle" xmi:id="_F3plcSyrEd2-7b5r7ooBdg" fillColor="12246975" lineColor="8421504"/>
       <layoutConstraint xmi:type="notation:Location" xmi:id="_F3plcyyrEd2-7b5r7ooBdg" x="39237" y="32173"/>
     </children>
+    <children xmi:type="notation:Node" xmi:id="_zhb6wCy4Ed2-7b5r7ooBdg" type="com.ibm.etools.model2.diagram.web.WebPageNode" element="_zcRt8Cy4Ed2-7b5r7ooBdg">
+      <styles xmi:type="notation:ShapeStyle" xmi:id="_zhb6wSy4Ed2-7b5r7ooBdg" fillColor="16047566" lineColor="8421504"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_zhuOoCy4Ed2-7b5r7ooBdg" x="15111" y="42928"/>
+    </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_qskzoRw1Ed2A2vh338CKBQ"/>
     <edges xmi:type="notation:Edge" xmi:id="_JI22QBw-Ed2A2vh338CKBQ" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_JG4gUBw-Ed2A2vh338CKBQ" source="_AoCtAiyrEd2-7b5r7ooBdg" target="_FvuXQBw-Ed2A2vh338CKBQ">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_JI22QRw-Ed2A2vh338CKBQ" lineColor="9607834"/>
@@ -420,17 +424,17 @@
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nL72UB4VEd2pZcabMB80Kg" id="(1.0,0.59343433)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_nL72UR4VEd2pZcabMB80Kg" id="(0.41307724,0.91844976)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_cg3KYCDsEd2ho_-_GPyNzw" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_ce6poCDsEd2ho_-_GPyNzw" source="_AqoG_yyrEd2-7b5r7ooBdg" target="_DFIW4CDsEd2ho_-_GPyNzw">
+    <edges xmi:type="notation:Edge" xmi:id="_cg3KYCDsEd2ho_-_GPyNzw" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_ce6poCDsEd2ho_-_GPyNzw" source="_tSqdoCyzEd2-7b5r7ooBdg" target="_DFIW4CDsEd2ho_-_GPyNzw">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_cg3KYSDsEd2ho_-_GPyNzw" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cg3KYiDsEd2ho_-_GPyNzw" points="[-2806, -14, 11429, 0]$[-7303, 555, 6932, 569]$[-11801, -14, 2434, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cg60wCDsEd2ho_-_GPyNzw" id="(1.0,0.50473934)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_igIL4CDxEd2ho_-_GPyNzw" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_ie8gICDxEd2ho_-_GPyNzw" source="_AxgLAyyrEd2-7b5r7ooBdg" target="_iNy4YBxUEd2Qo_bREB5DrA">
+    <edges xmi:type="notation:Edge" xmi:id="_igIL4CDxEd2ho_-_GPyNzw" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_ie8gICDxEd2ho_-_GPyNzw" source="_979Y4Sy4Ed2-7b5r7ooBdg" target="_iNy4YBxUEd2Qo_bREB5DrA">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_igIL4SDxEd2ho_-_GPyNzw" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_igIL4iDxEd2ho_-_GPyNzw" points="[2909, 0, -4393, 23031]$[4496, -23045, -2806, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_igKoICDxEd2ho_-_GPyNzw" id="(1.0,0.16824645)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_ycAngCD2Ed2ho_-_GPyNzw" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_yYpxgCD2Ed2ho_-_GPyNzw" source="_AxgLBSyrEd2-7b5r7ooBdg" target="_sQ_2wCD2Ed2ho_-_GPyNzw">
+    <edges xmi:type="notation:Edge" xmi:id="_ycAngCD2Ed2ho_-_GPyNzw" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_yYpxgCD2Ed2ho_-_GPyNzw" source="_979Y4yy4Ed2-7b5r7ooBdg" target="_sQ_2wCD2Ed2ho_-_GPyNzw">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_ycAngSD2Ed2ho_-_GPyNzw" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ycAngiD2Ed2ho_-_GPyNzw" points="[2909, 0, -4393, 14829]$[4496, -14843, -2806, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ycCcsCD2Ed2ho_-_GPyNzw" id="(1.0,0.3578199)"/>
@@ -470,11 +474,6 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_P12OEiGhEd2bm87vlUVe5g" points="[2909, -14, -4499, -1364]$[4496, 1336, -2912, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_P15RYCGhEd2bm87vlUVe5g" id="(1.0,0.49052134)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_T9oi0CGhEd2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_T7AFkCGhEd2bm87vlUVe5g" source="_AzyqDyyrEd2-7b5r7ooBdg" target="_-MUEMCGjEd2bm87vlUVe5g">
-      <styles xmi:type="notation:ConnectorStyle" xmi:id="_T9oi0SGhEd2bm87vlUVe5g" lineColor="9607834"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_T9oi0iGhEd2bm87vlUVe5g" points="[-2912, -14, 19101, 1759]$[-7409, -2911, 14604, -1138]$[-14712, -1774, 7301, -1]$[-19104, -1787, 2909, -14]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_T9q_ECGhEd2bm87vlUVe5g" id="(1.0,0.36729857)"/>
-    </edges>
     <edges xmi:type="notation:Edge" xmi:id="_bLYlICGwEd2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.struts.LocalForward" element="_bI21kCGwEd2bm87vlUVe5g" source="_A0plpiyrEd2-7b5r7ooBdg" target="_PPyyUCGvEd2bm87vlUVe5g">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_bLYlISGwEd2bm87vlUVe5g" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bLYlIiGwEd2bm87vlUVe5g" points="[2909, -14, -4393, -39794]$[4496, 39779, -2806, -1]"/>
@@ -485,11 +484,6 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_tScRISGwEd2bm87vlUVe5g" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tScRIiGwEd2bm87vlUVe5g" points="[-2806, -1, 4496, 555]$[-4393, -556, 2909, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tSetYCGwEd2bm87vlUVe5g" id="(1.0,0.40758294)"/>
-    </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_5Y55YCHAEd2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.struts.LocalForward" element="_5W35ECHAEd2bm87vlUVe5g" source="_vEGpwCG1Ed2bm87vlUVe5g" target="_XxFnkCD3Ed2ho_-_GPyNzw">
-      <styles xmi:type="notation:ConnectorStyle" xmi:id="_5Y55YSHAEd2bm87vlUVe5g" lineColor="9607834"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5Y55YiHAEd2bm87vlUVe5g" points="[2909, 0, -19104, 37451]$[7301, -20942, -14712, 16509]$[14604, -28377, -7409, 9074]$[19101, -37465, -2912, -14]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5Y8VoCHAEd2bm87vlUVe5g" id="(1.0,0.52369666)"/>
     </edges>
     <edges xmi:type="notation:Edge" xmi:id="_FFElkCHBEd2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.struts.LocalForward" element="_FE4YUCHBEd2bm87vlUVe5g" source="_A1CALyyrEd2-7b5r7ooBdg" target="_sQ_2wCD2Ed2ho_-_GPyNzw">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_FFElkSHBEd2bm87vlUVe5g" lineColor="9607834"/>
@@ -536,17 +530,12 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8Egl8iJuEd2iSP-yvjDZ2w" points="[-2912, -14, 4496, 3016]$[-4499, -3030, 2909, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8EjpQCJuEd2iSP-yvjDZ2w" id="(1.0,0.549763)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_DR6D8CJzEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_DM6PMCJzEd2iSP-yvjDZ2w" source="_AxgLByyrEd2-7b5r7ooBdg" target="_-72CoCJyEd2iSP-yvjDZ2w">
-      <styles xmi:type="notation:ConnectorStyle" xmi:id="_DR6D8SJzEd2iSP-yvjDZ2w" lineColor="9607834"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_DR6D8iJzEd2iSP-yvjDZ2w" points="[2909, 0, -4393, 8837]$[4496, -8837, -2806, 0]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_DR75ICJzEd2iSP-yvjDZ2w" id="(1.0,0.24170616)"/>
-    </edges>
     <edges xmi:type="notation:Edge" xmi:id="_Gf_JgCJzEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.ActionInput" element="_GfMfUCJzEd2iSP-yvjDZ2w" source="_A1_CcCyrEd2-7b5r7ooBdg" target="_3AQsICJyEd2iSP-yvjDZ2w">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_Gf_JgSJzEd2iSP-yvjDZ2w" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Gf_wkCJzEd2iSP-yvjDZ2w" points="[2804, 0, -4499, 0]$[4391, 0, -2912, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_GgCM0CJzEd2iSP-yvjDZ2w" id="(1.0,0.4336493)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_A0hP8CJ9Ed2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_Av4AgCJ9Ed2iSP-yvjDZ2w" source="_A1y1LyyrEd2-7b5r7ooBdg" target="_-72CoCJyEd2iSP-yvjDZ2w">
+    <edges xmi:type="notation:Edge" xmi:id="_A0hP8CJ9Ed2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_Av4AgCJ9Ed2iSP-yvjDZ2w" source="_tPUOsCyzEd2-7b5r7ooBdg" target="_-72CoCJyEd2iSP-yvjDZ2w">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_A0h3ACJ9Ed2iSP-yvjDZ2w" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_A0h3ASJ9Ed2iSP-yvjDZ2w" points="[-2912, 0, 4391, 0]$[-4499, 0, 2804, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_A0uEQCJ9Ed2iSP-yvjDZ2w" id="(1.0,0.3744076)"/>
@@ -561,7 +550,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_9Upz0iKdEd2iSP-yvjDZ2w" points="[2804, -14, -4499, -4009]$[4391, 3981, -2912, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_9UrpACKdEd2iSP-yvjDZ2w" id="(1.0,0.41232228)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_-F4YQCKkEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_-B86gCKkEd2iSP-yvjDZ2w" source="_AxgLBiyrEd2-7b5r7ooBdg" target="_fC3QUCKdEd2iSP-yvjDZ2w">
+    <edges xmi:type="notation:Edge" xmi:id="_-F4YQCKkEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_-B86gCKkEd2iSP-yvjDZ2w" source="_979Y6Cy4Ed2-7b5r7ooBdg" target="_fC3QUCKdEd2iSP-yvjDZ2w">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_-F4YQSKkEd2iSP-yvjDZ2w" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_-F4YQiKkEd2iSP-yvjDZ2w" points="[2909, 0, -4393, 1653]$[4496, -1667, -2806, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-F6NcCKkEd2iSP-yvjDZ2w" id="(1.0,0.43601894)"/>
@@ -571,7 +560,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__7wUwiKkEd2iSP-yvjDZ2w" points="[-2806, -14, 4496, -1667]$[-4393, 1653, 2909, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__7yJ8CKkEd2iSP-yvjDZ2w" id="(1.0,0.2843602)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_HJlNYCKlEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_HFewgCKlEd2iSP-yvjDZ2w" source="_A2Xc7iyrEd2-7b5r7ooBdg" target="_Fy1c4CKlEd2iSP-yvjDZ2w">
+    <edges xmi:type="notation:Edge" xmi:id="_HJlNYCKlEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_HFewgCKlEd2iSP-yvjDZ2w" source="_7_Gc4SyzEd2-7b5r7ooBdg" target="_Fy1c4CKlEd2iSP-yvjDZ2w">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_HJlNYSKlEd2iSP-yvjDZ2w" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HJl0cCKlEd2iSP-yvjDZ2w" points="[-2912, -14, 4391, 303]$[-4499, -331, 2804, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HJnpoCKlEd2iSP-yvjDZ2w" id="(1.0,0.47393364)"/>
@@ -597,7 +586,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1oVb0iKyEd2iSP-yvjDZ2w" points="[2909, -15, -4393, 6045]$[4496, -6074, -2806, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1oX4ECKyEd2iSP-yvjDZ2w" id="(1.0,0.63033175)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_L_GssCK3Ed2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_L73ygCK3Ed2iSP-yvjDZ2w" source="_8HFRASyvEd2-7b5r7ooBdg" target="_Iaad8CK3Ed2iSP-yvjDZ2w">
+    <edges xmi:type="notation:Edge" xmi:id="_L_GssCK3Ed2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_L73ygCK3Ed2iSP-yvjDZ2w" source="_tSSDICyzEd2-7b5r7ooBdg" target="_Iaad8CK3Ed2iSP-yvjDZ2w">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_L_GssSK3Ed2iSP-yvjDZ2w" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_L_GssiK3Ed2iSP-yvjDZ2w" points="[-2806, -14, 4496, -15]$[-4393, -14, 2909, -15]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_L_Ih4CK3Ed2iSP-yvjDZ2w" id="(1.0,0.12559241)"/>
@@ -619,7 +608,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_qbaRkSLMEd2iSP-yvjDZ2w" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qbaRkiLMEd2iSP-yvjDZ2w" points="[2909, -14, -4301, 2539]$[4497, -2554, -2713, -1]"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_qbaRkyLMEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_qXQKUCLMEd2iSP-yvjDZ2w" source="_AzyqECyrEd2-7b5r7ooBdg" target="_a0xFUB4VEd2pZcabMB80Kg">
+    <edges xmi:type="notation:Edge" xmi:id="_qbaRkyLMEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_qXQKUCLMEd2iSP-yvjDZ2w" source="_2Tm5siyzEd2-7b5r7ooBdg" target="_a0xFUB4VEd2pZcabMB80Kg">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_qba4oCLMEd2iSP-yvjDZ2w" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qba4oSLMEd2iSP-yvjDZ2w" points="[2909, -14, -4301, -5292]$[4497, 5277, -2713, -1]"/>
     </edges>
@@ -647,7 +636,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_qbejASLMEd2iSP-yvjDZ2w" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qbejAiLMEd2iSP-yvjDZ2w" points="[2909, 0, -4301, -1641]$[4497, 1640, -2713, -1]"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_qbejAyLMEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_qV7UoCLMEd2iSP-yvjDZ2w" source="_AxgLCCyrEd2-7b5r7ooBdg" target="_a0xFUB4VEd2pZcabMB80Kg">
+    <edges xmi:type="notation:Edge" xmi:id="_qbejAyLMEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_qV7UoCLMEd2iSP-yvjDZ2w" source="_979Y5iy4Ed2-7b5r7ooBdg" target="_a0xFUB4VEd2pZcabMB80Kg">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_qbejBCLMEd2iSP-yvjDZ2w" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qbejBSLMEd2iSP-yvjDZ2w" points="[2909, 0, -26314, 10768]$[22012, 0, -7211, 10768]$[26510, -10769, -2713, -1]"/>
     </edges>
@@ -655,7 +644,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_qbfKESLMEd2iSP-yvjDZ2w" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qbfKEiLMEd2iSP-yvjDZ2w" points="[2909, -14, -4301, 14975]$[4497, -14990, -2713, -1]"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_qbhmUCLMEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_qXy84CLMEd2iSP-yvjDZ2w" source="_A0E97yyrEd2-7b5r7ooBdg" target="_a0xFUB4VEd2pZcabMB80Kg">
+    <edges xmi:type="notation:Edge" xmi:id="_qbhmUCLMEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_qXy84CLMEd2iSP-yvjDZ2w" source="_t6xmgCyzEd2-7b5r7ooBdg" target="_a0xFUB4VEd2pZcabMB80Kg">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_qbhmUSLMEd2iSP-yvjDZ2w" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qbhmUiLMEd2iSP-yvjDZ2w" points="[2909, -13, -4301, -13653]$[4497, 13639, -2713, -1]"/>
     </edges>
@@ -668,7 +657,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_l1Fp4iLQEd2iSP-yvjDZ2w" points="[2909, -15, -4393, -24806]$[4496, 24777, -2806, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_l1HfECLQEd2iSP-yvjDZ2w" id="(1.0,0.5)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_7VICcCNVEd2xP6TVl_0m1w" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_7UoTMCNVEd2xP6TVl_0m1w" source="_AxgLBCyrEd2-7b5r7ooBdg" target="_xgQ2ICNVEd2xP6TVl_0m1w">
+    <edges xmi:type="notation:Edge" xmi:id="_7VICcCNVEd2xP6TVl_0m1w" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_7UoTMCNVEd2xP6TVl_0m1w" source="_979Y4iy4Ed2-7b5r7ooBdg" target="_xgQ2ICNVEd2xP6TVl_0m1w">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_7VICcSNVEd2xP6TVl_0m1w" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7VICciNVEd2xP6TVl_0m1w" points="[2909, 0, -4393, -8639]$[4496, 8625, -2806, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_7VLs0CNVEd2xP6TVl_0m1w" id="(1.0,0.2535545)"/>
@@ -683,7 +672,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_EkEeQiNWEd2xP6TVl_0m1w" points="[2804, -14, -4499, -8798]$[4391, 8770, -2912, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_EkG6gCNWEd2xP6TVl_0m1w" id="(1.0,0.13744076)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_N6roUCNWEd2xP6TVl_0m1w" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_N6XfQCNWEd2xP6TVl_0m1w" source="_A9DTviyrEd2-7b5r7ooBdg" target="_GExcACNWEd2xP6TVl_0m1w">
+    <edges xmi:type="notation:Edge" xmi:id="_N6roUCNWEd2xP6TVl_0m1w" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_N6XfQCNWEd2xP6TVl_0m1w" source="_t02ksCyzEd2-7b5r7ooBdg" target="_GExcACNWEd2xP6TVl_0m1w">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_N6roUSNWEd2xP6TVl_0m1w" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_N6roUiNWEd2xP6TVl_0m1w" points="[-2912, -14, 18626, 1229]$[-7304, -1244, 14234, -1]$[-19104, -1244, 2434, -1]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_N6uEkCNWEd2xP6TVl_0m1w" id="(1.0,0.69905216)"/>
@@ -713,7 +702,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_bmYJAiNmEd2xP6TVl_0m1w" points="[2434, -14, -4499, 32146]$[4021, -32161, -2912, -1]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_bmalQCNmEd2xP6TVl_0m1w" id="(1.0,0.43601894)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_PJ_rYCNnEd2xP6TVl_0m1w" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_PJvzwCNnEd2xP6TVl_0m1w" source="_A9uCHiyrEd2-7b5r7ooBdg" target="_Nhy-gCNnEd2xP6TVl_0m1w">
+    <edges xmi:type="notation:Edge" xmi:id="_PJ_rYCNnEd2xP6TVl_0m1w" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_PJvzwCNnEd2xP6TVl_0m1w" source="_tWSZYCyzEd2-7b5r7ooBdg" target="_Nhy-gCNnEd2xP6TVl_0m1w">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_PJ_rYSNnEd2xP6TVl_0m1w" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PJ_rYiNnEd2xP6TVl_0m1w" points="[-2912, -1, 4021, -15]$[-4499, -1, 2434, -15]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PKCHoCNnEd2xP6TVl_0m1w" id="(1.0,0.43127963)"/>
@@ -734,7 +723,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_E0KEsiOCEd2xP6TVl_0m1w" points="[2909, -14, -4499, 2566]$[4496, -2580, -2912, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_E0NIACOCEd2xP6TVl_0m1w" id="(1.0,0.3222749)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_rfRqoCOCEd2xP6TVl_0m1w" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_rNRUoCOCEd2xP6TVl_0m1w" source="_A-GcniyrEd2-7b5r7ooBdg" target="_pzlk4COCEd2xP6TVl_0m1w">
+    <edges xmi:type="notation:Edge" xmi:id="_rfRqoCOCEd2xP6TVl_0m1w" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_rNRUoCOCEd2xP6TVl_0m1w" source="_t7QHoSyzEd2-7b5r7ooBdg" target="_pzlk4COCEd2xP6TVl_0m1w">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_rfRqoSOCEd2xP6TVl_0m1w" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rfRqoiOCEd2xP6TVl_0m1w" points="[-2912, 0, 19101, -1469]$[-7409, 463, 14604, -1006]$[-14712, 463, 7301, -1006]$[-19104, 1455, 2909, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rfTf0COCEd2xP6TVl_0m1w" id="(1.0,0.57345974)"/>
@@ -837,7 +826,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_WN-ywiTsEd2bYeFlAmSQ3w" points="[2804, -14, -4499, -5359]$[4391, 5331, -2912, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_WOB2ECTsEd2bYeFlAmSQ3w" id="(1.0,0.46682465)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_XjkQMCTtEd2bYeFlAmSQ3w" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_XjXb4CTtEd2bYeFlAmSQ3w" source="_BAHOwSyrEd2-7b5r7ooBdg" target="_WSS1kCTtEd2bYeFlAmSQ3w">
+    <edges xmi:type="notation:Edge" xmi:id="_XjkQMCTtEd2bYeFlAmSQ3w" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_XjXb4CTtEd2bYeFlAmSQ3w" source="_wG5DUCy0Ed2-7b5r7ooBdg" target="_WSS1kCTtEd2bYeFlAmSQ3w">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_Xjk3QCTtEd2bYeFlAmSQ3w" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Xjk3QSTtEd2bYeFlAmSQ3w" points="[-2912, 0, 4496, -14]$[-4499, 0, 2909, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XjnTgCTtEd2bYeFlAmSQ3w" id="(1.0,0.19668247)"/>
@@ -872,7 +861,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qwgaoiT3Ed2bYeFlAmSQ3w" points="[2909, -15, -4499, -1]$[4496, -15, -2912, -1]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qwjd8CT3Ed2bYeFlAmSQ3w" id="(1.0,0.51421803)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_1S46YCWeEd2B2JNKbK77Hg" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_1PDjQCWeEd2B2JNKbK77Hg" source="_yCzvsyyvEd2-7b5r7ooBdg" target="_zMFl8CWeEd2B2JNKbK77Hg">
+    <edges xmi:type="notation:Edge" xmi:id="_1S46YCWeEd2B2JNKbK77Hg" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_1PDjQCWeEd2B2JNKbK77Hg" source="_tJZM4SyzEd2-7b5r7ooBdg" target="_zMFl8CWeEd2B2JNKbK77Hg">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_1S46YSWeEd2B2JNKbK77Hg" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1S46YiWeEd2B2JNKbK77Hg" points="[2909, -1, -4393, 33456]$[4496, -33471, -2806, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_1S79sCWeEd2B2JNKbK77Hg" id="(1.0,0.549763)"/>
@@ -882,7 +871,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_66Jd0iWeEd2B2JNKbK77Hg" points="[2804, -14, -4499, 19856]$[4391, -19884, -2912, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_66LTACWeEd2B2JNKbK77Hg" id="(1.0,0.41469195)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_wSNZUCWfEd2B2JNKbK77Hg" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_wQKK4CWfEd2B2JNKbK77Hg" source="_AxgLASyrEd2-7b5r7ooBdg" target="_ri3VUCWfEd2B2JNKbK77Hg">
+    <edges xmi:type="notation:Edge" xmi:id="_wSNZUCWfEd2B2JNKbK77Hg" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_wQKK4CWfEd2B2JNKbK77Hg" source="_979Y5Cy4Ed2-7b5r7ooBdg" target="_ri3VUCWfEd2B2JNKbK77Hg">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_wSNZUSWfEd2B2JNKbK77Hg" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wSNZUiWfEd2B2JNKbK77Hg" points="[2909, 0, -11696, -14540]$[7301, 7078, -7304, -7462]$[11693, 14525, -2912, -15]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_wSPOgCWfEd2B2JNKbK77Hg" id="(1.0,0.5094787)"/>
@@ -892,7 +881,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_z_YOoiWfEd2B2JNKbK77Hg" points="[2909, -15, -4499, -4764]$[4496, 4748, -2912, -1]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_z_aD0CWfEd2B2JNKbK77Hg" id="(1.0,0.31753555)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_H3q80CWiEd2B2JNKbK77Hg" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_HqTPMCWiEd2B2JNKbK77Hg" source="_zsiGkSyvEd2-7b5r7ooBdg" target="_3ZOfUCWfEd2B2JNKbK77Hg">
+    <edges xmi:type="notation:Edge" xmi:id="_H3q80CWiEd2B2JNKbK77Hg" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_HqTPMCWiEd2B2JNKbK77Hg" source="_tMvb0CyzEd2-7b5r7ooBdg" target="_3ZOfUCWfEd2B2JNKbK77Hg">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_H3q80SWiEd2B2JNKbK77Hg" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_H3q80iWiEd2B2JNKbK77Hg" points="[-2912, -1, 26034, 5674]$[-7409, 568, 21537, 6243]$[-22014, 568, 6932, 6243]$[-26512, -5690, 2434, -15]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_H3syACWiEd2B2JNKbK77Hg" id="(1.0,0.25118482)"/>
@@ -912,7 +901,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Zw5rYiWmEd2B2JNKbK77Hg" points="[2434, -15, -26512, -5690]$[6932, 5687, -22014, 12]$[26034, 5687, -2912, 12]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Zw7gkCWmEd2B2JNKbK77Hg" id="(1.0,0.8080569)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_ChwcgCWsEd2B2JNKbK77Hg" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_CVZbgCWsEd2B2JNKbK77Hg" source="_BFjvfyyrEd2-7b5r7ooBdg" target="_AamiwCWsEd2B2JNKbK77Hg">
+    <edges xmi:type="notation:Edge" xmi:id="_ChwcgCWsEd2B2JNKbK77Hg" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_CVZbgCWsEd2B2JNKbK77Hg" source="_tKc80CyzEd2-7b5r7ooBdg" target="_AamiwCWsEd2B2JNKbK77Hg">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_ChwcgSWsEd2B2JNKbK77Hg" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ChwcgiWsEd2B2JNKbK77Hg" points="[-2912, -14, 4391, -14]$[-4499, -14, 2804, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Chzf0CWsEd2B2JNKbK77Hg" id="(1.0,0.4478673)"/>
@@ -927,7 +916,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QfNZYiWtEd2B2JNKbK77Hg" points="[2804, -14, -4499, -14]$[4391, -14, -2912, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QfPOkCWtEd2B2JNKbK77Hg" id="(1.0,0.1492891)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_hwxn0CWtEd2B2JNKbK77Hg" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_hs3_QCWtEd2B2JNKbK77Hg" source="_wTdR8CyvEd2-7b5r7ooBdg" target="_ffkaMCWtEd2B2JNKbK77Hg">
+    <edges xmi:type="notation:Edge" xmi:id="_hwxn0CWtEd2B2JNKbK77Hg" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_hs3_QCWtEd2B2JNKbK77Hg" source="_tJ-bsCyzEd2-7b5r7ooBdg" target="_ffkaMCWtEd2B2JNKbK77Hg">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_hwxn0SWtEd2B2JNKbK77Hg" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hwxn0iWtEd2B2JNKbK77Hg" points="[-2912, -13, 4391, 0]$[-4499, -13, 2804, 0]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hwzdACWtEd2B2JNKbK77Hg" id="(1.0,0.58056873)"/>
@@ -948,7 +937,7 @@
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_AXWO4CW2Ed2B2JNKbK77Hg" id="(1.0,0.39099526)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_AXW18CW2Ed2B2JNKbK77Hg" id="(0.5160528,0.7600973)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_cAsUACW3Ed2B2JNKbK77Hg" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_cAdDcCW3Ed2B2JNKbK77Hg" source="_yCzvsSyvEd2-7b5r7ooBdg" target="_UCIiACW3Ed2B2JNKbK77Hg">
+    <edges xmi:type="notation:Edge" xmi:id="_cAsUACW3Ed2B2JNKbK77Hg" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_cAdDcCW3Ed2B2JNKbK77Hg" source="_tJZM4CyzEd2-7b5r7ooBdg" target="_UCIiACW3Ed2B2JNKbK77Hg">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_cAsUASW3Ed2B2JNKbK77Hg" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cAsUAiW3Ed2B2JNKbK77Hg" points="[2909, -1, -4393, -4221]$[4496, 4206, -2806, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cAuJMCW3Ed2B2JNKbK77Hg" id="(1.0,0.49052134)"/>
@@ -958,12 +947,12 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_u8cW4iW4Ed2B2JNKbK77Hg" points="[2804, -14, -4499, -7343]$[4391, 7315, -2912, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_u8dlACW4Ed2B2JNKbK77Hg" id="(1.0,0.54028434)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_kLbZcCW6Ed2B2JNKbK77Hg" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_kCmNkCW6Ed2B2JNKbK77Hg" source="_2gp0ASyvEd2-7b5r7ooBdg" target="_iRAUICW6Ed2B2JNKbK77Hg">
+    <edges xmi:type="notation:Edge" xmi:id="_kLbZcCW6Ed2B2JNKbK77Hg" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_kCmNkCW6Ed2B2JNKbK77Hg" source="_tO70MCyzEd2-7b5r7ooBdg" target="_iRAUICW6Ed2B2JNKbK77Hg">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_kLbZcSW6Ed2B2JNKbK77Hg" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kLbZciW6Ed2B2JNKbK77Hg" points="[-2912, -14, 4391, -14]$[-4499, -14, 2804, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kLd1sCW6Ed2B2JNKbK77Hg" id="(1.0,0.40521327)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_hESM4CW7Ed2B2JNKbK77Hg" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_hBYC0CW7Ed2B2JNKbK77Hg" source="_09uBoSyvEd2-7b5r7ooBdg" target="_fjGuACW7Ed2B2JNKbK77Hg">
+    <edges xmi:type="notation:Edge" xmi:id="_hESM4CW7Ed2B2JNKbK77Hg" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_hBYC0CW7Ed2B2JNKbK77Hg" source="_tNH2UCyzEd2-7b5r7ooBdg" target="_fjGuACW7Ed2B2JNKbK77Hg">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_hESM4SW7Ed2B2JNKbK77Hg" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hESM4iW7Ed2B2JNKbK77Hg" points="[-2912, -14, 4391, -1]$[-4499, -14, 2804, -1]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hEUCECW7Ed2B2JNKbK77Hg" id="(1.0,0.45260665)"/>
@@ -993,7 +982,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_yXhPQiW7Ed2B2JNKbK77Hg" points="[2804, -1, -4499, 17818]$[4391, -17834, -2912, -15]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yXjrgCW7Ed2B2JNKbK77Hg" id="(1.0,0.3222749)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_5nnxwCcZEd2RKN1ooqWlMQ" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_31eesCcZEd2RKN1ooqWlMQ" source="_A9buNiyrEd2-7b5r7ooBdg" target="_v2E_MCcZEd2RKN1ooqWlMQ">
+    <edges xmi:type="notation:Edge" xmi:id="_5nnxwCcZEd2RKN1ooqWlMQ" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_31eesCcZEd2RKN1ooqWlMQ" source="_IuhV0Sy0Ed2-7b5r7ooBdg" target="_v2E_MCcZEd2RKN1ooqWlMQ">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_5nnxwScZEd2RKN1ooqWlMQ" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_5nnxwicZEd2RKN1ooqWlMQ" points="[2909, -14, -4393, -3149]$[4496, 3134, -2806, -1]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_5nvGgCcZEd2RKN1ooqWlMQ" id="(1.0,0.3744076)"/>
@@ -1003,7 +992,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_E71Q8CcaEd2RKN1ooqWlMQ" points="[2804, -1, -4499, -1549]$[4391, 1534, -2912, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_E8AQECcaEd2RKN1ooqWlMQ" id="(1.0,0.44312796)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_knfYICcfEd2RKN1ooqWlMQ" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_kbpUgCcfEd2RKN1ooqWlMQ" source="_BHqBMCyrEd2-7b5r7ooBdg" target="_inAHECcfEd2RKN1ooqWlMQ">
+    <edges xmi:type="notation:Edge" xmi:id="_knfYICcfEd2RKN1ooqWlMQ" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_kbpUgCcfEd2RKN1ooqWlMQ" source="_t4GF8iyzEd2-7b5r7ooBdg" target="_inAHECcfEd2RKN1ooqWlMQ">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_knfYIScfEd2RKN1ooqWlMQ" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_knfYIicfEd2RKN1ooqWlMQ" points="[-2912, -14, 18626, -14]$[-7304, 555, 14234, 555]$[-14606, 555, 6932, 555]$[-19104, -14, 2434, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_knibcCcfEd2RKN1ooqWlMQ" id="(1.0,0.3222749)"/>
@@ -1023,7 +1012,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_drMCcichEd2RKN1ooqWlMQ" points="[2434, -14, -4499, 72138]$[4021, -72166, -2912, -14]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_drOesCchEd2RKN1ooqWlMQ" id="(1.0,0.26777253)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_XF_aoCciEd2RKN1ooqWlMQ" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_XFtGwCciEd2RKN1ooqWlMQ" source="_BICbsCyrEd2-7b5r7ooBdg" target="_Vam24CciEd2RKN1ooqWlMQ">
+    <edges xmi:type="notation:Edge" xmi:id="_XF_aoCciEd2RKN1ooqWlMQ" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_XFtGwCciEd2RKN1ooqWlMQ" source="_t3bXkiyzEd2-7b5r7ooBdg" target="_Vam24CciEd2RKN1ooqWlMQ">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_XF_aoSciEd2RKN1ooqWlMQ" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XF_aoiciEd2RKN1ooqWlMQ" points="[-2912, -14, 4021, -1]$[-4499, -14, 2434, -1]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XGB24CciEd2RKN1ooqWlMQ" id="(1.0,0.32464454)"/>
@@ -1070,7 +1059,7 @@
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_wPJEwSfwEd2W3uXM9KGd1g" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wPJEwifwEd2W3uXM9KGd1g" points="[2909, -1, -4301, 5899]$[4497, -5901, -2713, -1]"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_wPJr0CfwEd2W3uXM9KGd1g" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_wK7TICfwEd2W3uXM9KGd1g" source="_BAHOwiyrEd2-7b5r7ooBdg" target="_a0xFUB4VEd2pZcabMB80Kg">
+    <edges xmi:type="notation:Edge" xmi:id="_wPJr0CfwEd2W3uXM9KGd1g" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_wK7TICfwEd2W3uXM9KGd1g" source="_Ws0csSy0Ed2-7b5r7ooBdg" target="_a0xFUB4VEd2pZcabMB80Kg">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_wPJr0SfwEd2W3uXM9KGd1g" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wPJr0ifwEd2W3uXM9KGd1g" points="[2909, 0, -4301, -17066]$[4497, 17065, -2713, -1]"/>
     </edges>
@@ -1092,7 +1081,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_oqFpwiiyEd2VvI7wql-flw" points="[-7, 3, 33, -165]$[36, 163, 76, -5]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oqJ7MCiyEd2VvI7wql-flw" id="(1.0,0.2914692)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_4DJZQCjEEd2tj4qo9DXt6A" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_4C2eUCjEEd2tj4qo9DXt6A" source="_AxgLAiyrEd2-7b5r7ooBdg" target="_0M7VoCjEEd2tj4qo9DXt6A">
+    <edges xmi:type="notation:Edge" xmi:id="_4DJZQCjEEd2tj4qo9DXt6A" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_4C2eUCjEEd2tj4qo9DXt6A" source="_979Y5Sy4Ed2-7b5r7ooBdg" target="_0M7VoCjEEd2tj4qo9DXt6A">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_4DJZQSjEEd2tj4qo9DXt6A" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_4DJZQijEEd2tj4qo9DXt6A" points="[-170, 3, 42, -104]$[-287, 109, -75, 2]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_4DL1gCjEEd2tj4qo9DXt6A" id="(1.0,0.26540285)"/>
@@ -1107,7 +1096,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_oV1WYijFEd2tj4qo9DXt6A" points="[-179, 0, 193, -1]$[-472, -5, -100, -6]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_oV3yoCjFEd2tj4qo9DXt6A" id="(1.0,0.4478673)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_LxxDgCjGEd2tj4qo9DXt6A" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_LoGKICjGEd2tj4qo9DXt6A" source="_BJFkniyrEd2-7b5r7ooBdg" target="_J1p8ICjGEd2tj4qo9DXt6A">
+    <edges xmi:type="notation:Edge" xmi:id="_LxxDgCjGEd2tj4qo9DXt6A" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_LoGKICjGEd2tj4qo9DXt6A" source="_uN4IsiyzEd2-7b5r7ooBdg" target="_J1p8ICjGEd2tj4qo9DXt6A">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_LxxDgSjGEd2tj4qo9DXt6A" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_LxxDgijGEd2tj4qo9DXt6A" points="[-179, -2, -97, 72]$[-108, -100, -26, -26]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_LxzfwCjGEd2tj4qo9DXt6A" id="(1.0,0.5900474)"/>
@@ -1122,7 +1111,7 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_G-qkEijKEd2tj4qo9DXt6A" points="[-178, 2, -38, -91]$[-40, 92, 100, -1]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_G-tAUCjKEd2tj4qo9DXt6A" id="(1.0,0.32938388)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_ngsr4CjKEd2tj4qo9DXt6A" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_ne8YYCjKEd2tj4qo9DXt6A" source="_BJd_ECyrEd2-7b5r7ooBdg" target="_J1p8ICjGEd2tj4qo9DXt6A">
+    <edges xmi:type="notation:Edge" xmi:id="_ngsr4CjKEd2tj4qo9DXt6A" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_ne8YYCjKEd2tj4qo9DXt6A" source="_t8rrAiyzEd2-7b5r7ooBdg" target="_J1p8ICjGEd2tj4qo9DXt6A">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_ngsr4SjKEd2tj4qo9DXt6A" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ngsr4ijKEd2tj4qo9DXt6A" points="[-184, 4, -81, -105]$[-97, 162, 6, 53]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ngvIICjKEd2tj4qo9DXt6A" id="(1.0,0.25592417)"/>
@@ -1162,7 +1151,7 @@
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_GJjbkCvsEd2EbvipDCjZWA" id="(1.0,0.40047392)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_GJjbkSvsEd2EbvipDCjZWA" id="(0.96917146,0.7950798)"/>
     </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_NyTH0CyrEd2-7b5r7ooBdg" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_NMqrMCyrEd2-7b5r7ooBdg" source="_N4OJoCyrEd2-7b5r7ooBdg" target="_F3plcCyrEd2-7b5r7ooBdg">
+    <edges xmi:type="notation:Edge" xmi:id="_NyTH0CyrEd2-7b5r7ooBdg" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_NMqrMCyrEd2-7b5r7ooBdg" source="_tHlPACyzEd2-7b5r7ooBdg" target="_F3plcCyrEd2-7b5r7ooBdg">
       <styles xmi:type="notation:ConnectorStyle" xmi:id="_NyTH0SyrEd2-7b5r7ooBdg" lineColor="9607834"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NyTH0iyrEd2-7b5r7ooBdg" points="[-7, 3, -260, 146]$[153, -142, -100, 1]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NyZOcCyrEd2-7b5r7ooBdg" id="(1.0,0.2843602)"/>
@@ -1190,6 +1179,35 @@
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TVn0MiywEd2-7b5r7ooBdg" points="[-7, 1, -132, 726]$[79, -726, -46, -1]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TVt60CywEd2-7b5r7ooBdg" id="(1.0,0.4170616)"/>
       <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TVt60SywEd2-7b5r7ooBdg" id="(0.23076923,0.7799758)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="__cO40Cy4Ed2-7b5r7ooBdg" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="__ahBkCy4Ed2-7b5r7ooBdg" source="_979Y5yy4Ed2-7b5r7ooBdg" target="_zhb6wCy4Ed2-7b5r7ooBdg">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="__cO40Sy4Ed2-7b5r7ooBdg" lineColor="9607834"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__cO40iy4Ed2-7b5r7ooBdg" points="[-7, 4, -278, 161]$[292, -182, 21, -25]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="__cU_cCy4Ed2-7b5r7ooBdg" id="(1.0,0.24881516)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_edrXoCy5Ed2-7b5r7ooBdg" type="com.ibm.etools.model2.diagram.struts.StrutsLink" element="_ec6ioCy5Ed2-7b5r7ooBdg" source="_bP3X0iy5Ed2-7b5r7ooBdg" target="_-72CoCJyEd2iSP-yvjDZ2w">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_edrXoSy5Ed2-7b5r7ooBdg" lineColor="9607834"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_edrXoiy5Ed2-7b5r7ooBdg" points="[-166, 2, 21, 162]$[-110, -161, 77, -1]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ed3k4Cy5Ed2-7b5r7ooBdg" id="(1.0,0.3510101)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ed3k4Sy5Ed2-7b5r7ooBdg" id="(0.51474345,0.7787646)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_p2zZwCy-Ed2-7b5r7ooBdg" type="com.ibm.etools.model2.diagram.struts.LocalForward" element="_oSVWUCy-Ed2-7b5r7ooBdg" source="_A0plpSyrEd2-7b5r7ooBdg" target="_uoa_4CGgEd2bm87vlUVe5g">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_p3FtoCy-Ed2-7b5r7ooBdg" lineColor="9607834"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_p3FtoSy-Ed2-7b5r7ooBdg" points="[-7, 1, -392, -13]$[359, 11, -26, -3]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_p3qVYCy-Ed2-7b5r7ooBdg" id="(1.0,0.4336493)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_p3qVYSy-Ed2-7b5r7ooBdg" id="(0.13708884,0.5203876)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_sDYmECy-Ed2-7b5r7ooBdg" type="com.ibm.etools.model2.diagram.struts.LocalForward" element="_rta9ICy-Ed2-7b5r7ooBdg" source="_A0dYbiyrEd2-7b5r7ooBdg" target="_sQ_2wCD2Ed2ho_-_GPyNzw">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_sDYmESy-Ed2-7b5r7ooBdg" lineColor="9607834"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_sDYmEiy-Ed2-7b5r7ooBdg" points="[-167, 3, 112, -41]$[-279, -2, 0, -46]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_sDessCy-Ed2-7b5r7ooBdg" id="(1.0,0.31042653)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_sDessSy-Ed2-7b5r7ooBdg" id="(0.82080925,0.29655656)"/>
+    </edges>
+    <edges xmi:type="notation:Edge" xmi:id="_b0sfACzAEd2-7b5r7ooBdg" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" element="_bymNQCzAEd2-7b5r7ooBdg" source="_VdRC4CzAEd2-7b5r7ooBdg" target="_-MUEMCGjEd2bm87vlUVe5g">
+      <styles xmi:type="notation:ConnectorStyle" xmi:id="_b0sfASzAEd2-7b5r7ooBdg" lineColor="9607834"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_b04sQCzAEd2-7b5r7ooBdg" points="[-194, -1, 638, 73]$[-832, -112, 0, -38]"/>
+      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_b04sQSzAEd2-7b5r7ooBdg" id="(1.0,0.50473934)"/>
+      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_b04sQizAEd2-7b5r7ooBdg" id="(0.9673575,0.36496103)"/>
     </edges>
   </notation:Diagram>
   <DiagramModel:Model xmi:id="_qskzohw1Ed2A2vh338CKBQ" id="com.ibm.etools.model2.diagram.web.WebDiagram">
@@ -1223,7 +1241,7 @@
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_L8NrYB3CEd2ZcJk9VvNj8A" name="struts.action.name.key" value="/ForgotPassword" editable="true"/>
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_L8NrYR3CEd2ZcJk9VvNj8A" name="struts.module.name.key" value=""/>
       </nodes>
-      <nodes xmi:type="DiagramModel:MNode" xmi:id="_bRcG8B3YEd20OddMOkbRkQ" titleProperty="_bRg_cB3YEd20OddMOkbRkQ" type="com.ibm.etools.model2.diagram.web.WebPageNode" output="_ie8gICDxEd2ho_-_GPyNzw _yYpxgCD2Ed2ho_-_GPyNzw _DM6PMCJzEd2iSP-yvjDZ2w _-B86gCKkEd2iSP-yvjDZ2w _qV7UoCLMEd2iSP-yvjDZ2w _7UoTMCNVEd2xP6TVl_0m1w _wQKK4CWfEd2B2JNKbK77Hg _4C2eUCjEEd2tj4qo9DXt6A" input="_d9uHAB3YEd20OddMOkbRkQ _JxDIYCEEEd2ho_-_GPyNzw __4SxECKkEd2iSP-yvjDZ2w _4DDZgCKsEd2iSP-yvjDZ2w _9wwXYCNVEd2xP6TVl_0m1w _cD_sYCNWEd2xP6TVl_0m1w _oBW2ECWiEd2B2JNKbK77Hg">
+      <nodes xmi:type="DiagramModel:MNode" xmi:id="_bRcG8B3YEd20OddMOkbRkQ" titleProperty="_bRg_cB3YEd20OddMOkbRkQ" type="com.ibm.etools.model2.diagram.web.WebPageNode" output="_ie8gICDxEd2ho_-_GPyNzw _yYpxgCD2Ed2ho_-_GPyNzw _-B86gCKkEd2iSP-yvjDZ2w _qV7UoCLMEd2iSP-yvjDZ2w _7UoTMCNVEd2xP6TVl_0m1w _wQKK4CWfEd2B2JNKbK77Hg _4C2eUCjEEd2tj4qo9DXt6A __ahBkCy4Ed2-7b5r7ooBdg" input="_d9uHAB3YEd20OddMOkbRkQ _JxDIYCEEEd2ho_-_GPyNzw __4SxECKkEd2iSP-yvjDZ2w _4DDZgCKsEd2iSP-yvjDZ2w _9wwXYCNVEd2xP6TVl_0m1w _cD_sYCNWEd2xP6TVl_0m1w _oBW2ECWiEd2B2JNKbK77Hg">
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_bRg_cB3YEd20OddMOkbRkQ" name="web.path.key" value="homeProfessore.jsp" editable="true"/>
       </nodes>
       <nodes xmi:type="DiagramModel:MNode" xmi:id="_ayYfsB4VEd2pZcabMB80Kg" titleProperty="_ay9HcB4VEd2pZcabMB80Kg" type="com.ibm.etools.model2.diagram.struts.StrutsActionNode" output="_nKZlQB4VEd2pZcabMB80Kg" input="_qUtMoCLMEd2iSP-yvjDZ2w _qVZJICLMEd2iSP-yvjDZ2w _qV7UoCLMEd2iSP-yvjDZ2w _qWQr0CLMEd2iSP-yvjDZ2w _qWrikCLMEd2iSP-yvjDZ2w _qWxCICLMEd2iSP-yvjDZ2w _qXQKUCLMEd2iSP-yvjDZ2w _qXVC0CLMEd2iSP-yvjDZ2w _qXy84CLMEd2iSP-yvjDZ2w _qaUscCLMEd2iSP-yvjDZ2w _wHHKICfwEd2W3uXM9KGd1g _wJFgECfwEd2W3uXM9KGd1g _wJ-Q4CfwEd2W3uXM9KGd1g _wK7TICfwEd2W3uXM9KGd1g _wLmokCfwEd2W3uXM9KGd1g">
@@ -1234,7 +1252,7 @@
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_DEVssCDsEd2ho_-_GPyNzw" name="struts.action.name.key" value="/CreazioneProfessore" editable="true"/>
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_DEVssSDsEd2ho_-_GPyNzw" name="struts.module.name.key" value=""/>
       </nodes>
-      <nodes xmi:type="DiagramModel:MNode" xmi:id="_sQ2FwCD2Ed2ho_-_GPyNzw" titleProperty="_sQ6-QCD2Ed2ho_-_GPyNzw" type="com.ibm.etools.model2.diagram.web.WebPageNode" output="_WnIV4CD3Ed2ho_-_GPyNzw __MmAQCEFEd2ho_-_GPyNzw _FXL20CGhEd2bm87vlUVe5g _4yd8wCHGEd2bm87vlUVe5g _qWQr0CLMEd2iSP-yvjDZ2w _8nWbUCOBEd2xP6TVl_0m1w" input="_yYpxgCD2Ed2ho_-_GPyNzw _FE4YUCHBEd2bm87vlUVe5g _7JhTsCHGEd2bm87vlUVe5g _65DfcCJuEd2iSP-yvjDZ2w _qZtBYCLMEd2iSP-yvjDZ2w _qpoJoCczEd2RKN1ooqWlMQ _GGaA8CvsEd2EbvipDCjZWA">
+      <nodes xmi:type="DiagramModel:MNode" xmi:id="_sQ2FwCD2Ed2ho_-_GPyNzw" titleProperty="_sQ6-QCD2Ed2ho_-_GPyNzw" type="com.ibm.etools.model2.diagram.web.WebPageNode" output="_WnIV4CD3Ed2ho_-_GPyNzw __MmAQCEFEd2ho_-_GPyNzw _FXL20CGhEd2bm87vlUVe5g _4yd8wCHGEd2bm87vlUVe5g _qWQr0CLMEd2iSP-yvjDZ2w _8nWbUCOBEd2xP6TVl_0m1w" input="_yYpxgCD2Ed2ho_-_GPyNzw _FE4YUCHBEd2bm87vlUVe5g _7JhTsCHGEd2bm87vlUVe5g _65DfcCJuEd2iSP-yvjDZ2w _qZtBYCLMEd2iSP-yvjDZ2w _qpoJoCczEd2RKN1ooqWlMQ _GGaA8CvsEd2EbvipDCjZWA _rta9ICy-Ed2-7b5r7ooBdg">
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_sQ6-QCD2Ed2ho_-_GPyNzw" name="web.path.key" value="gestioneAccount.jsp" editable="true"/>
       </nodes>
       <nodes xmi:type="DiagramModel:MNode" xmi:id="_J0E6ICD3Ed2ho_-_GPyNzw" titleProperty="_J0IkgCD3Ed2ho_-_GPyNzw" type="com.ibm.etools.model2.diagram.web.WebPageNode" output="_qWrikCLMEd2iSP-yvjDZ2w _NMqrMCyrEd2-7b5r7ooBdg" input="_KGHukCEGEd2ho_-_GPyNzw _qZkegCLMEd2iSP-yvjDZ2w _IR5k4CysEd2-7b5r7ooBdg">
@@ -1243,7 +1261,7 @@
       <nodes xmi:type="DiagramModel:MNode" xmi:id="_Th5DQCD3Ed2ho_-_GPyNzw" titleProperty="_Th8toCD3Ed2ho_-_GPyNzw" type="com.ibm.etools.model2.diagram.web.WebPageNode" output="_RXI9cCJsEd2iSP-yvjDZ2w _qWxCICLMEd2iSP-yvjDZ2w" input="_WnIV4CD3Ed2ho_-_GPyNzw _8D2eoCJuEd2iSP-yvjDZ2w">
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_Th8toCD3Ed2ho_-_GPyNzw" name="web.path.key" value="creazioneAccountGestore.jsp" editable="true"/>
       </nodes>
-      <nodes xmi:type="DiagramModel:MNode" xmi:id="_Xw9EsCD3Ed2ho_-_GPyNzw" titleProperty="_XxAvECD3Ed2ho_-_GPyNzw" type="com.ibm.etools.model2.diagram.web.WebPageNode" output="_T7AFkCGhEd2bm87vlUVe5g _qXQKUCLMEd2iSP-yvjDZ2w" input="_P0EscCGhEd2bm87vlUVe5g _qaOl0CLMEd2iSP-yvjDZ2w _5W35ECHAEd2bm87vlUVe5g">
+      <nodes xmi:type="DiagramModel:MNode" xmi:id="_Xw9EsCD3Ed2ho_-_GPyNzw" titleProperty="_XxAvECD3Ed2ho_-_GPyNzw" type="com.ibm.etools.model2.diagram.web.WebPageNode" output="_qXQKUCLMEd2iSP-yvjDZ2w _bymNQCzAEd2-7b5r7ooBdg" input="_P0EscCGhEd2bm87vlUVe5g _qaOl0CLMEd2iSP-yvjDZ2w">
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_XxAvECD3Ed2ho_-_GPyNzw" name="web.path.key" value="elencoAccountStudenti.jsp" editable="true"/>
       </nodes>
       <nodes xmi:type="DiagramModel:MNode" xmi:id="_bFuBECD3Ed2ho_-_GPyNzw" titleProperty="_bFxrcCD3Ed2ho_-_GPyNzw" type="com.ibm.etools.model2.diagram.web.WebPageNode" output="_VExQkCHOEd2bm87vlUVe5g _qXVC0CLMEd2iSP-yvjDZ2w" input="_9RXxACHGEd2bm87vlUVe5g _9p3h0CHMEd2bm87vlUVe5g">
@@ -1256,18 +1274,18 @@
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_EeIAwCEFEd2ho_-_GPyNzw" name="struts.action.name.key" value="/AttivazioneAccountStudente" editable="true"/>
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_EeIAwSEFEd2ho_-_GPyNzw" name="struts.module.name.key" value=""/>
       </nodes>
-      <nodes xmi:type="DiagramModel:MNode" xmi:id="_uoMWYCGgEd2bm87vlUVe5g" titleProperty="_uoQAwCGgEd2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.struts.StrutsActionNode" output="_P0EscCGhEd2bm87vlUVe5g _qZtBYCLMEd2iSP-yvjDZ2w" input="_FXL20CGhEd2bm87vlUVe5g">
+      <nodes xmi:type="DiagramModel:MNode" xmi:id="_uoMWYCGgEd2bm87vlUVe5g" titleProperty="_uoQAwCGgEd2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.struts.StrutsActionNode" output="_P0EscCGhEd2bm87vlUVe5g _qZtBYCLMEd2iSP-yvjDZ2w _rta9ICy-Ed2-7b5r7ooBdg" input="_FXL20CGhEd2bm87vlUVe5g _oSVWUCy-Ed2-7b5r7ooBdg">
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_uoQAwCGgEd2bm87vlUVe5g" name="struts.action.name.key" value="/ModificaAccountStudente" editable="true"/>
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_uoQAwSGgEd2bm87vlUVe5g" name="struts.module.name.key" value=""/>
       </nodes>
-      <nodes xmi:type="DiagramModel:MNode" xmi:id="_-MMIYCGjEd2bm87vlUVe5g" titleProperty="_-MN9kCGjEd2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.struts.StrutsActionNode" output="_bI21kCGwEd2bm87vlUVe5g _qaOl0CLMEd2iSP-yvjDZ2w" input="_T7AFkCGhEd2bm87vlUVe5g">
+      <nodes xmi:type="DiagramModel:MNode" xmi:id="_-MMIYCGjEd2bm87vlUVe5g" titleProperty="_-MN9kCGjEd2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.struts.StrutsActionNode" output="_bI21kCGwEd2bm87vlUVe5g _qaOl0CLMEd2iSP-yvjDZ2w _oSVWUCy-Ed2-7b5r7ooBdg" input="_bymNQCzAEd2-7b5r7ooBdg">
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_-MN9kCGjEd2bm87vlUVe5g" name="struts.action.name.key" value="/ModificaAccountStudenteSelezionato" editable="true"/>
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_-MN9kSGjEd2bm87vlUVe5g" name="struts.module.name.key" value=""/>
       </nodes>
       <nodes xmi:type="DiagramModel:MNode" xmi:id="_POo7wCGvEd2bm87vlUVe5g" titleProperty="_POvpcCGvEd2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.web.WebPageNode" output="_tReAwCGwEd2bm87vlUVe5g _qaUscCLMEd2iSP-yvjDZ2w" input="_bI21kCGwEd2bm87vlUVe5g _XUfcwCc6Ed2RKN1ooqWlMQ _wEmosCfwEd2W3uXM9KGd1g">
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_POvpcCGvEd2bm87vlUVe5g" name="web.path.key" value="modificaAccountStudenteSelezionato.jsp" editable="true"/>
       </nodes>
-      <nodes xmi:type="DiagramModel:MNode" xmi:id="_vD84wCG1Ed2bm87vlUVe5g" titleProperty="_vD-G4CG1Ed2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.struts.StrutsActionNode" output="_5W35ECHAEd2bm87vlUVe5g _FE4YUCHBEd2bm87vlUVe5g _XUfcwCc6Ed2RKN1ooqWlMQ _wEmosCfwEd2W3uXM9KGd1g" input="_tReAwCGwEd2bm87vlUVe5g">
+      <nodes xmi:type="DiagramModel:MNode" xmi:id="_vD84wCG1Ed2bm87vlUVe5g" titleProperty="_vD-G4CG1Ed2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.struts.StrutsActionNode" output="_FE4YUCHBEd2bm87vlUVe5g _XUfcwCc6Ed2RKN1ooqWlMQ _wEmosCfwEd2W3uXM9KGd1g" input="_tReAwCGwEd2bm87vlUVe5g">
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_vD-G4CG1Ed2bm87vlUVe5g" name="struts.action.name.key" value="/ModAccStud" editable="true"/>
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_vD-G4SG1Ed2bm87vlUVe5g" name="struts.module.name.key" value=""/>
       </nodes>
@@ -1286,7 +1304,7 @@
       <nodes xmi:type="DiagramModel:MNode" xmi:id="_2_11YCJyEd2iSP-yvjDZ2w" titleProperty="_3AIJQCJyEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.web.WebPageNode" output="_Av4AgCJ9Ed2iSP-yvjDZ2w" input="_GfMfUCJzEd2iSP-yvjDZ2w _WiAIsCKAEd2iSP-yvjDZ2w">
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_3AIJQCJyEd2iSP-yvjDZ2w" name="web.path.key" value="creazioneCorso.jsp" editable="true"/>
       </nodes>
-      <nodes xmi:type="DiagramModel:MNode" xmi:id="_-7s4sCJyEd2iSP-yvjDZ2w" titleProperty="_-7uG0CJyEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsActionNode" output="_GfMfUCJzEd2iSP-yvjDZ2w _WiAIsCKAEd2iSP-yvjDZ2w" input="_DM6PMCJzEd2iSP-yvjDZ2w _Av4AgCJ9Ed2iSP-yvjDZ2w">
+      <nodes xmi:type="DiagramModel:MNode" xmi:id="_-7s4sCJyEd2iSP-yvjDZ2w" titleProperty="_-7uG0CJyEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsActionNode" output="_GfMfUCJzEd2iSP-yvjDZ2w _WiAIsCKAEd2iSP-yvjDZ2w" input="_Av4AgCJ9Ed2iSP-yvjDZ2w _ec6ioCy5Ed2-7b5r7ooBdg">
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_-7uG0CJyEd2iSP-yvjDZ2w" name="struts.action.name.key" value="/CreazioneCorso" editable="true"/>
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_-7uG0SJyEd2iSP-yvjDZ2w" name="struts.module.name.key" value=""/>
       </nodes>
@@ -1482,6 +1500,9 @@
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_FzuuwCyrEd2-7b5r7ooBdg" name="struts.action.name.key" value="/AttivazioneAccountStudenteDone" editable="true"/>
         <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_FzuuwSyrEd2-7b5r7ooBdg" name="struts.module.name.key" value=""/>
       </nodes>
+      <nodes xmi:type="DiagramModel:MNode" xmi:id="_zcRt8Cy4Ed2-7b5r7ooBdg" titleProperty="_zekM8Cy4Ed2-7b5r7ooBdg" type="com.ibm.etools.model2.diagram.web.WebPageNode" output="_ec6ioCy5Ed2-7b5r7ooBdg" input="__ahBkCy4Ed2-7b5r7ooBdg">
+        <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_zekM8Cy4Ed2-7b5r7ooBdg" name="web.path.key" value="creazioneCorsoMenu.jsp" editable="true"/>
+      </nodes>
     </diagram>
     <edges xmi:type="DiagramModel:MEdge" xmi:id="_JG4gUBw-Ed2A2vh338CKBQ" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" source="_1SGggBw4Ed2A2vh338CKBQ" target="_FvefoBw-Ed2A2vh338CKBQ">
       <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_JIDlABw-Ed2A2vh338CKBQ" name="web.dup.index" value="0"/>
@@ -1570,19 +1591,12 @@
     <edges xmi:type="DiagramModel:MEdge" xmi:id="_P0EscCGhEd2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.struts.LocalForward" source="_uoMWYCGgEd2bm87vlUVe5g" target="_Xw9EsCD3Ed2ho_-_GPyNzw">
       <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_P0dG8CGhEd2bm87vlUVe5g" name="web.edgename.key" value="init"/>
     </edges>
-    <edges xmi:type="DiagramModel:MEdge" xmi:id="_T7AFkCGhEd2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.struts.StrutsLink" source="_Xw9EsCD3Ed2ho_-_GPyNzw" target="_-MMIYCGjEd2bm87vlUVe5g">
-      <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_T7OIACGhEd2bm87vlUVe5g" name="web.edgename.key" value="/ModificaAccountStudenteSelezionato"/>
-      <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_T7OIASGhEd2bm87vlUVe5g" name="web.dup.index" value="0"/>
-    </edges>
     <edges xmi:type="DiagramModel:MEdge" xmi:id="_bI21kCGwEd2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.struts.LocalForward" source="_-MMIYCGjEd2bm87vlUVe5g" target="_POo7wCGvEd2bm87vlUVe5g">
       <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_bJRFQCGwEd2bm87vlUVe5g" name="web.edgename.key" value="init"/>
     </edges>
     <edges xmi:type="DiagramModel:MEdge" xmi:id="_tReAwCGwEd2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" source="_POo7wCGvEd2bm87vlUVe5g" target="_vD84wCG1Ed2bm87vlUVe5g">
       <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_tRen0CGwEd2bm87vlUVe5g" name="web.dup.index" value="0"/>
       <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_tRf18CGwEd2bm87vlUVe5g" name="web.edgename.key" value="/ModAccStud"/>
-    </edges>
-    <edges xmi:type="DiagramModel:MEdge" xmi:id="_5W35ECHAEd2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.struts.LocalForward" source="_vD84wCG1Ed2bm87vlUVe5g" target="_Xw9EsCD3Ed2ho_-_GPyNzw">
-      <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_5XHJoCHAEd2bm87vlUVe5g" name="web.edgename.key" value="error"/>
     </edges>
     <edges xmi:type="DiagramModel:MEdge" xmi:id="_FE4YUCHBEd2bm87vlUVe5g" type="com.ibm.etools.model2.diagram.struts.LocalForward" source="_vD84wCG1Ed2bm87vlUVe5g" target="_sQ2FwCD2Ed2ho_-_GPyNzw">
       <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_FE7boCHBEd2bm87vlUVe5g" name="web.edgename.key" value="success"/>
@@ -1611,10 +1625,6 @@
     </edges>
     <edges xmi:type="DiagramModel:MEdge" xmi:id="_8D2eoCJuEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.LocalForward" source="_L_Y1oCJsEd2iSP-yvjDZ2w" target="_Th5DQCD3Ed2ho_-_GPyNzw">
       <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_8ENrACJuEd2iSP-yvjDZ2w" name="web.edgename.key" value="error"/>
-    </edges>
-    <edges xmi:type="DiagramModel:MEdge" xmi:id="_DM6PMCJzEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsLink" source="_bRcG8B3YEd20OddMOkbRkQ" target="_-7s4sCJyEd2iSP-yvjDZ2w">
-      <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_DNOYQCJzEd2iSP-yvjDZ2w" name="web.edgename.key" value="/CreazioneCorso"/>
-      <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_DNOYQSJzEd2iSP-yvjDZ2w" name="web.dup.index" value="0"/>
     </edges>
     <edges xmi:type="DiagramModel:MEdge" xmi:id="_GfMfUCJzEd2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.ActionInput" source="_-7s4sCJyEd2iSP-yvjDZ2w" target="_2_11YCJyEd2iSP-yvjDZ2w"/>
     <edges xmi:type="DiagramModel:MEdge" xmi:id="_Av4AgCJ9Ed2iSP-yvjDZ2w" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" source="_2_11YCJyEd2iSP-yvjDZ2w" target="_-7s4sCJyEd2iSP-yvjDZ2w">
@@ -1999,6 +2009,24 @@
     <edges xmi:type="DiagramModel:MEdge" xmi:id="_IR5k4CysEd2-7b5r7ooBdg" type="com.ibm.etools.model2.diagram.struts.ActionInput" source="_FzQNoCyrEd2-7b5r7ooBdg" target="_J0E6ICD3Ed2ho_-_GPyNzw"/>
     <edges xmi:type="DiagramModel:MEdge" xmi:id="_TUd9oCywEd2-7b5r7ooBdg" type="com.ibm.etools.model2.diagram.struts.LocalForward" source="_zFi5ECWeEd2B2JNKbK77Hg" target="_2j7rgCWeEd2B2JNKbK77Hg">
       <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_TVVgUCywEd2-7b5r7ooBdg" name="web.edgename.key" value="error"/>
+    </edges>
+    <edges xmi:type="DiagramModel:MEdge" xmi:id="__ahBkCy4Ed2-7b5r7ooBdg" type="com.ibm.etools.model2.diagram.struts.StrutsLink" source="_bRcG8B3YEd20OddMOkbRkQ" target="_zcRt8Cy4Ed2-7b5r7ooBdg">
+      <persistedProperties xmi:type="DiagramModel:Property" xmi:id="__ahBkSy4Ed2-7b5r7ooBdg" name="web.dup.index" value="0"/>
+      <persistedProperties xmi:type="DiagramModel:Property" xmi:id="__bR2kCy4Ed2-7b5r7ooBdg" name="web.edgename.key" value="/creazioneCorsoMenu.jsp"/>
+    </edges>
+    <edges xmi:type="DiagramModel:MEdge" xmi:id="_ec6ioCy5Ed2-7b5r7ooBdg" type="com.ibm.etools.model2.diagram.struts.StrutsLink" source="_zcRt8Cy4Ed2-7b5r7ooBdg" target="_-7s4sCJyEd2iSP-yvjDZ2w">
+      <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_ec6ioSy5Ed2-7b5r7ooBdg" name="web.dup.index" value="0"/>
+      <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_edGv4Cy5Ed2-7b5r7ooBdg" name="web.edgename.key" value="/CreazioneCorso"/>
+    </edges>
+    <edges xmi:type="DiagramModel:MEdge" xmi:id="_oSVWUCy-Ed2-7b5r7ooBdg" type="com.ibm.etools.model2.diagram.struts.LocalForward" source="_-MMIYCGjEd2bm87vlUVe5g" target="_uoMWYCGgEd2bm87vlUVe5g">
+      <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_p0Om4Cy-Ed2-7b5r7ooBdg" name="web.edgename.key" value="error"/>
+    </edges>
+    <edges xmi:type="DiagramModel:MEdge" xmi:id="_rta9ICy-Ed2-7b5r7ooBdg" type="com.ibm.etools.model2.diagram.struts.LocalForward" source="_uoMWYCGgEd2bm87vlUVe5g" target="_sQ2FwCD2Ed2ho_-_GPyNzw">
+      <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_sCt3sCy-Ed2-7b5r7ooBdg" name="web.edgename.key" value="error"/>
+    </edges>
+    <edges xmi:type="DiagramModel:MEdge" xmi:id="_bymNQCzAEd2-7b5r7ooBdg" type="com.ibm.etools.model2.diagram.struts.StrutsFormLink" source="_Xw9EsCD3Ed2ho_-_GPyNzw" target="_-MMIYCGjEd2bm87vlUVe5g">
+      <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_bymNQSzAEd2-7b5r7ooBdg" name="web.dup.index" value="0"/>
+      <persistedProperties xmi:type="DiagramModel:Property" xmi:id="_bzdI4CzAEd2-7b5r7ooBdg" name="web.edgename.key" value="/ModificaAccountStudenteSelezionato"/>
     </edges>
   </DiagramModel:Model>
 </xmi:XMI>

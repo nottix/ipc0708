@@ -118,13 +118,13 @@
 		<action path="/ModificaAccountStudente" type="ipc.actions.ModificaAccountStudenteAction" scope="session" input="/gestioneAccount.jsp" name="gestioneAccountForm">
 			<forward name="init" path="/elencoAccountStudenti.jsp">
 			</forward>
-			<forward name="error" path="/elencoAccountStudenti.jsp">
+			<forward name="error" path="/gestioneAccount.jsp">
 			</forward>
 		</action>
 		<action path="/ModificaAccountStudenteSelezionato" type="ipc.actions.ModificaAccountStudenteSelezionatoAction" scope="request" input="/elencoAccountStudenti.jsp" name="modificaAccountStudenteForm">
 			<forward name="init" path="/modificaAccountStudenteSelezionato.jsp">
 			</forward>
-			<forward name="error" path="/modificaAccountStudenteSelezionato.jsp">
+			<forward name="error" path="/ModificaAccountStudente.do">
 			</forward>
 		</action>
 		<action path="/ModAccStud" type="ipc.actions.ModAccStudAction" name="modificaAccountStudenteForm" scope="request" input="/modificaAccountStudenteSelezionato.jsp">

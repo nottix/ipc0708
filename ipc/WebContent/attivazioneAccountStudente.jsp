@@ -19,7 +19,7 @@
 <jsp:include page="sessionLogin.jsp" flush="false"></jsp:include>
 <center>
 	<h1>Attivazione Account Studente</h1>
-	<html:form action="/AttivazioneAccountStudente">
+	<html:form action="/AttivazioneAccountStudenteDone">
 	<table border="1">
 		<tbody>
 			<tr>

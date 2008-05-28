@@ -43,8 +43,10 @@ public class IscrizioneCorsoElencoAction extends Action {
             if(elencoCorsi == null) {
             	errors.add("nome", new ActionError("elenco.corsi.disponibili.attivi.no"));
             } else {
+            	System.out.println("prova " + elencoCorsi.size());
+            	
             	messages.add("nome", new ActionMessage("elenco.corsi.disponibili.attivi.ok"));
-            	request.setAttribute("elencoCorsi", this.elencoCorsi);
+            	request.getSession().setAttribute("elencoCorsi", this.elencoCorsi);
             }
         } catch (Exception e) {
             errors.add("name", new ActionError("generic.error"));
@@ -55,7 +57,6 @@ public class IscrizioneCorsoElencoAction extends Action {
         } else if(!messages.isEmpty()) {
         	saveMessages(request, messages);
             forward = mapping.findForward("init");
-
         }
         return forward;
     }

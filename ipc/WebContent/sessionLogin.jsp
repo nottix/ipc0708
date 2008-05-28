@@ -16,6 +16,7 @@
 				out.print("/ipc/homeStudente.jsp");
 			}
 			%>'>Home</a></td>
+			<td align=right><a href="javascript:history.back();">Back</a></td>
 			<td align=right><html:link action="/Logout">Logout</html:link></td>
 		</tr>
 	</tbody>

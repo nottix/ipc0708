@@ -4,7 +4,6 @@ import ipc.entity.Account;
 import ipc.control.GestioneAccountController;
 
 import java.util.List;
-import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,35 +40,21 @@ public class AttivazioneAccountStudenteAction extends Action {
         
         GestioneAccountController gestioneAccountController = new GestioneAccountController();
         try {
-        	Enumeration en = request.getParameterNames();
-        	if(en.hasMoreElements() == false) {
-        		errors.add("name", new ActionError("radio.button.error"));
+        	elencoAccountStudenti = gestioneAccountController.getElencoAccountStudentiPendent();
+        	if(elencoAccountStudenti == null) {
+        		errors.add("name", new ActionError("elenco.studenti.no"));
         	} else {
-        		while(en.hasMoreElements()) {
-        			String name = (String)en.nextElement();
-        			if (request.getParameter(name) != null && request.getParameter(name).trim().equals("on")) {
-        				if(gestioneAccountController.abilitaAccountStudente(name) == true) {
-        					messages.add("name", new ActionMessage("abilita.account.studente.ok"));
-        				} else {
-        					errors.add("name", new ActionError("abilita.account.studente.no"));
-        				}
-        			}
-        		}
-        		elencoAccountStudenti = gestioneAccountController.getElencoAccountStudentiPendent();
-        		if(elencoAccountStudenti == null) {
-        			errors.add("name", new ActionError("elenco.studenti.no"));
-        		} else {
-        			messages.add("name", new ActionMessage("elenco.studenti.ok"));
-        			request.setAttribute("elencoAccountStudenti", elencoAccountStudenti);
-        		}
+        		messages.add("name", new ActionMessage("elenco.studenti.ok"));
+        		request.setAttribute("elencoAccountStudenti", elencoAccountStudenti);
         	}
         } catch (Exception e) {
-            // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError(e.getMessage()));
+        	// Report the error using the appropriate name and ID.
+            errors.add("name", new ActionError("generic.error"));
         }
 
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
+            forward = mapping.findForward("error");
         } else if(!messages.isEmpty()) {
         	this.saveMessages(request, messages);
         	forward = mapping.findForward("init");

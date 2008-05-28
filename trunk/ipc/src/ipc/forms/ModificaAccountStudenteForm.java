@@ -120,16 +120,16 @@ public class ModificaAccountStudenteForm extends ActionForm {
     public ActionErrors validate(ActionMapping mapping,
     							 HttpServletRequest request) {
 		ActionErrors errors = new ActionErrors();
-		if((nome == null) || (nome.length() == 0))
-			errors.add("nome", new ActionError("nome.error"));
-		if((cognome == null) || (cognome.length() == 0))
-			errors.add("cognome", new ActionError("cognome.error"));
-		if((matricola == null) || (matricola.length() == 0))
-			errors.add("matricola", new ActionError("matricola.error"));
-		if((email == null) || (email.length() == 0))
-			errors.add("email", new ActionError("email.error"));
-		else if(!RichiestaRegStudenteForm.check_email(email))
-			errors.add("email", new ActionError("email.malformed"));
+		//if((nome != null) && (nome.length() == 0))
+		//	errors.add("nome", new ActionError("nome.error"));
+		//if((cognome != null) && (cognome.length() == 0))
+		//	errors.add("cognome", new ActionError("cognome.error"));
+		//if((matricola != null) && (matricola.length() == 0))
+		//	errors.add("matricola", new ActionError("matricola.error"));
+		//if((email != null) && (email.length() == 0))
+		//	errors.add("email", new ActionError("email.error"));
+		//else if(!RichiestaRegStudenteForm.check_email(email))
+		//	errors.add("email", new ActionError("email.malformed"));
 		return errors;
     }
 }

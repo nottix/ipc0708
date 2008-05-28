@@ -22,7 +22,7 @@
          					<th>N°</th>
             				<th>Data esame</th>
             				<th>Data apertura</th>
-            				<th>Data chiusura<th>
+            				<th>Data chiusura</th>
             				<th>Aule</th>
 	    				</tr>
 	    				<%boolean even = false; %>

@@ -12,8 +12,12 @@
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
 <body>
+<logic:notPresent name="email" scope="session">
+	<logic:redirect page="/login.jsp" />
+</logic:notPresent>
 	<jsp:include page="sessionLogin.jsp" flush="false"></jsp:include>
 	<center><h1>Modifica Account Studente</h1></center>
+	<html:form action="/ModificaAccountStudenteSelezionato">
 	<center><table border="1">
 		<tbody>
 			<tr>
@@ -34,19 +38,26 @@
 	    				<tr bgcolor='<%=even?"#B7D3F5":"#D6E0F5" %>'>
 	    					<td><%=counter++%></td>
 	    					<td><bean:write name="user" property="matricola" /></td>
-    						<td>
-    							<html:link page="/ModificaAccountStudenteSelezionato.do" paramId="email" paramName="user" paramProperty="email">
-    								<bean:write name="user" property="email" /></html:link>
-    						</td>
+    						<td><bean:write name="user" property="email" /></td>
     						<td><bean:write name="user" property="nome" /></td>
     						<td><bean:write name="user" property="cognome" /></td>
+    						<td>
+    							<input type="radio" name="radio" value='<bean:write name="user" property="email" />'  /> 
+    						</td>
     					</tr>
      					</logic:iterate>
      				</table>
      				
-     				<table>
+     				<table align=center>
      					<tr>
-     					<td align=center>
+     						<td align=center>
+     							<html:reset />
+     							<html:cancel />
+     							<html:submit />
+     						</td>
+     					</tr>
+     					<tr>
+     					<td>
      						<font color=red>
      							<html:errors />
      						</font>
@@ -58,7 +69,7 @@
 			</tr>
 		</tbody>
 	</table></center>
-	
+	</html:form>
 
 </body>
 </html:html>

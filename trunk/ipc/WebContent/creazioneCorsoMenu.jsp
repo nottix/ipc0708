@@ -7,7 +7,7 @@
 <html:html>
 <head>
 <link rel="stylesheet" href="theme/Master.css" type="text/css">
-<title>gestioneCorso</title>
+<title>creazioneCorsoMenu</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
@@ -15,25 +15,22 @@
 <logic:notPresent name="email" scope="session">
 	<logic:redirect page="/login.jsp" />
 </logic:notPresent>
-<jsp:include page="sessionLogin.jsp" flush="true"></jsp:include>
+<jsp:include page="sessionLogin.jsp" flush="false"></jsp:include>
 <center>
-		<h1>Gestione Corso</h1>
-		<logic:present name="acronimo">
-		<h3>Corso: <bean:write name="acronimo"/></h3>
-		<table border="1">
-			<tbody>
-				<tr>
-					<td><a href="/ipc/CreazioneEsame.do?acronimo=<bean:write name="acronimo"/>">Creazione Esame</a></td>
-				</tr>
-				<tr>
-					<td><font color="red"><html:errors /></font></td>
-				</tr>
-				<tr>
-					<td><html:submit /></td>
-				</tr>
-			</tbody>
-		</table>
-		</logic:present>
-	</center>
+<h1>Creazione Corso</h1>
+<table border="1">
+	<tbody>
+		<tr>
+			<td align="center"><html:link action="/CreazioneCorso">Creazione Corso</html:link></td>
+			<td align="center">Clonazione Corso</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<font color="red"><html:errors/></font>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</center>
 </body>
 </html:html>

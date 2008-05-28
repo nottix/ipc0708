@@ -38,7 +38,7 @@ public class PrenotazioneEsameDoneAction extends Action {
             data.put("idStudente", session.getAttribute("email"));
             data.put("idEsame", Long.valueOf((String)session.getAttribute("idEsame")));
             
-            if(control.prenotazioneEsame(data) == true) {
+            if(control.prenotazioneEsame(data) == false) {
             	errors.add("nome", new ActionError("prenotazione.esame.no"));
             } else {
             	messages.add("nome", new ActionMessage("prenotazione.esame.ok"));

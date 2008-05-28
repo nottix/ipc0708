@@ -136,13 +136,13 @@
 		<action path="/RipristinaPasswordAccount" type="ipc.actions.RipristinaPasswordAccountAction" scope="request" input="/gestioneAccount.jsp" name="gestioneAccountForm">
 			<forward name="init" path="/ripristinaPasswordAccount.jsp">
 			</forward>
-			<forward name="error" path="/ripristinaPasswordAccount.jsp">
+			<forward name="error" path="/gestioneAccount.jsp">
 			</forward>
 		</action>
 		<action path="/RipristinaPasswordAccountSelezionato" type="ipc.actions.RipristinaPasswordAccountSelezionatoAction" name="ripristinaPasswordAccount" scope="request">
-			<forward name="success" path="/ripristinaPasswordAccount.jsp">
+			<forward name="success" path="/gestioneAccount.jsp">
 			</forward>
-			<forward name="error" path="/ripristinaPasswordAccount.jsp">
+			<forward name="error" path="/RipristinaPasswordAccount.do">
 			</forward>
 		</action>
 		<action path="/CreazioneAccountGestore" type="ipc.actions.CreazioneAccountGestoreAction" name="creazioneAccountGestoreForm" scope="request">

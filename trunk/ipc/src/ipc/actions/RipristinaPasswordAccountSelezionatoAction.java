@@ -32,6 +32,7 @@ public class RipristinaPasswordAccountSelezionatoAction extends Action {
         	if(gestAcc.ripristinaPasswordAccountStudente((String)request.getParameter("email")) == false) {
         		errors.add("name", new ActionError("ripristina.password.studente.no"));
         	} else {
+        		System.out.println("ciao");
         		messages.add("name", new ActionMessage("ripristina.password.studente.ok"));
         	}
         } catch (Exception e) {
@@ -39,10 +40,7 @@ public class RipristinaPasswordAccountSelezionatoAction extends Action {
         }
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-            /**
-             * TODO: e' corretto questo???!?
-             */
-            forward = mapping.findForward("success");
+            forward = mapping.findForward("error");
         } else if(!messages.isEmpty()) {
         	saveMessages(request, messages);
         	forward = mapping.findForward("success");

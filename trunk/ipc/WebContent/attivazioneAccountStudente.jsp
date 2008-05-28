@@ -50,7 +50,7 @@
      					</logic:iterate>
      					<tr>
      						<td colspan="6" align="center">
-     							<html:submit value="AttivazioneAccountStudente"></html:submit>
+     							<html:submit value="Attiva"></html:submit>
      						</td>
      					</tr>
      				</table>

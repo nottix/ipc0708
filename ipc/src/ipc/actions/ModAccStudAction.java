@@ -1,12 +1,11 @@
 package ipc.actions;
 
-import ipc.forms.ModificaAccountStudenteForm;
 import ipc.control.GestioneAccountController;
-
-import java.util.Hashtable;
+import ipc.forms.ModificaAccountStudenteForm;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
@@ -31,16 +30,15 @@ public class ModAccStudAction extends Action {
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward();
         ActionMessages messages = new ActionMessages();
-        GestioneAccountController gestioneAccountController = new GestioneAccountController();
+        GestioneAccountController control = new GestioneAccountController();
         ModificaAccountStudenteForm modAcc = (ModificaAccountStudenteForm)form;   
         try {
-        	Hashtable<String, Object> hash = new Hashtable<String, Object>();
-        	hash.put("nome", modAcc.getNome());
-        	hash.put("cognome", modAcc.getCognome());
-        	hash.put("matricola", modAcc.getMatricola());
-        	hash.put("noteStud", modAcc.getNote());
-    		if(gestioneAccountController.modificaAccountStudente(modAcc.getEmail(), hash) == true) {
-    			messages.add("nome", new ActionMessage("account.studente.modificato.ok"));
+        	if(control.modificaAccountStudente(modAcc.getEmail(),
+        									   modAcc.getNome(),
+        									   modAcc.getCognome(),
+        									   modAcc.getMatricola(),
+        									   modAcc.getNote()) == true) {
+        		messages.add("nome", new ActionMessage("account.studente.modificato.ok"));
     		} else {
     			errors.add("nome", new ActionError("account.studente.modificato.no"));
     		}

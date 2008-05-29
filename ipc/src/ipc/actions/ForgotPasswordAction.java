@@ -2,9 +2,10 @@ package ipc.actions;
 
 import ipc.control.LoginController;
 import ipc.forms.ForgotPasswordForm;
-import java.util.Hashtable;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
@@ -31,11 +32,7 @@ public class ForgotPasswordAction extends Action {
         try {
         	ForgotPasswordForm forgotPasswordForm = (ForgotPasswordForm)form;
             LoginController loginController = new LoginController();
-            Hashtable<String, String> data = new Hashtable<String, String>();
-            data.put("tipologia", "studente");
-            data.put("email",  forgotPasswordForm.getEmail());
-            data.put("status", "ripristino");
-            if(loginController.richiestaNuovaPasswordStudente(data) == true) {
+            if(loginController.richiestaNuovaPasswordStudente(forgotPasswordForm.getEmail()) == true) {
             	messages.add("nome", new ActionMessage("richiesta.nuova.password.ok"));
             } else {
             	errors.add("nome", new ActionError("richiesta.nuova.password.no"));

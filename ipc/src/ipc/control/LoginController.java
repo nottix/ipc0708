@@ -9,7 +9,6 @@ import ipc.db.DAOFactory;
 import ipc.entity.Account;
 import ipc.entity.Corso;
 
-import java.util.Hashtable;
 import java.util.Iterator;
 
 /**
@@ -43,7 +42,7 @@ public class LoginController {
 		return false;
 	}
 	
-	public Boolean richiestaNuovaPasswordStudente(String email, Hashtable data) {
+	public Boolean richiestaNuovaPasswordStudente(String email) {
 		try {
 			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
 			AccountDAO accountDao = factory.getAccountDAO();
@@ -80,6 +79,8 @@ public class LoginController {
 				account.setMatricola(matricola);
 				account.setEmail(email);
 				account.setPassword(Account.convertToMD5(password));
+				account.setStatus("pendent");
+				account.setTipologia("studente");
 				accountDao.create(account);
 				return accountDao.create(account);
 			}

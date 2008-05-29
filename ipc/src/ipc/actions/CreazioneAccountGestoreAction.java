@@ -39,8 +39,10 @@ public class CreazioneAccountGestoreAction extends Action {
         	data.put("cognome", creazioneAccountForm.getCognome());
         	data.put("email", creazioneAccountForm.getEmail());
         	data.put("password", creazioneAccountForm.getPassword());
-        	
-            if(control.creazioneAccountGestore(data) == true) {
+        	if(control.creazioneAccountGestore(creazioneAccountForm.getEmail(), 
+        									   creazioneAccountForm.getNome(),
+        									   creazioneAccountForm.getCognome(),
+        									   creazioneAccountForm.getPassword()) == true) {
             	messages.add("name", new ActionMessage("account.created.ok"));	
             } else {
             	errors.add("name", new ActionError("account.created.no"));

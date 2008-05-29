@@ -117,11 +117,18 @@ public class GestioneEsameController {
 			
 			PrenotazioneEsame ptmp = this.getPrenotazioneEsame(idPrenotazione);
 			if(ptmp.getStatus().equals("attivo")) {
-				ptmp.setEsaminatore(esaminatore);
-				ptmp.setNota(nota);
-				ptmp.setPresenzaEsame(presenza);
 				ptmp.setVotoEsame(voto);
 				ptmp.setVotoAccettato(accettato);
+				if(presenza != null)
+					ptmp.setPresenzaEsame(presenza);
+				/**
+				 * TODO: E' corretto dire che uno studente ha ottenuto un voto
+				 * senza che sia 'presente' un esaminatore?
+				 */
+				if(esaminatore != null)
+					ptmp.setEsaminatore(esaminatore);
+				if(nota != null)
+					ptmp.setNota(nota);
 				return prenotazioneEsameDao.update(ptmp);
 			}
 		} catch (Exception e) {

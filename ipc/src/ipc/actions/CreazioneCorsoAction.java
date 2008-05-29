@@ -1,24 +1,24 @@
 package ipc.actions;
 
-import ipc.entity.Account;
 import ipc.control.CreazioneCorsoController;
+import ipc.entity.Account;
 import ipc.forms.CreazioneCorsoForm;
 
-import java.text.SimpleDateFormat;
 import java.util.Enumeration;
-import java.util.List;
 import java.util.HashSet;
-import java.util.Hashtable;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessages;
 import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
 
 /**
@@ -43,7 +43,6 @@ public class CreazioneCorsoAction extends Action {
         ActionForward forward = new ActionForward(); 
         ActionMessages messages = new ActionMessages();
         CreazioneCorsoController creazioneCorsoController = new CreazioneCorsoController();
-        Hashtable<String, Object> data = new Hashtable<String, Object>();
         HashSet<String> collaboratori = new HashSet<String>();
         HashSet<String> titolari = new HashSet<String>();
         CreazioneCorsoForm creazioneCorsoForm = (CreazioneCorsoForm)form;
@@ -69,15 +68,19 @@ public class CreazioneCorsoAction extends Action {
         		}
 
         		if(titolareCounter>1) {
-        			if(collaboratoreCounter>1)
-        				data.put("elencoCollaboratori", collaboratori);
-        			data.put("elencoTitolari", titolari);
-        			data.put("nome", creazioneCorsoForm.getNome());
-        			data.put("acronimo", creazioneCorsoForm.getAcronimo());
-        			data.put("descrizione", creazioneCorsoForm.getDescrizione());
-        			data.put("dataApertura", new SimpleDateFormat("MM/dd/yy").parse(creazioneCorsoForm.getDataApertura()));
-        			data.put("dataChiusura", new SimpleDateFormat("MM/dd/yy").parse(creazioneCorsoForm.getDataChiusura()));
-        			if(creazioneCorsoController.creazioneCorso(data) == true) {
+        			if(collaboratoreCounter == 0)
+        				collaboratori = null;
+        			/**
+        			 * TODO: Perche' i commenti non ce li facciamo mettere?
+        			 */
+        			if(creazioneCorsoController.creazioneCorso(creazioneCorsoForm.getNome(),
+        													   creazioneCorsoForm.getAcronimo(),
+        													   creazioneCorsoForm.getDataApertura(),
+        													   creazioneCorsoForm.getDataChiusura(),
+        													   null,
+        													   creazioneCorsoForm.getDescrizione(),
+        													   collaboratori,
+        													   titolari) == true) {
         				messages.add("nome", new ActionMessage("creazione.corso.ok"));
         			} else {
         				errors.add("nome", new ActionError("creazione.corso.no"));

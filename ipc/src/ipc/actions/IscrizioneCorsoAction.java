@@ -2,9 +2,8 @@ package ipc.actions;
 
 import ipc.control.GestioneStudenteController;
 
-import java.util.Date;
 import java.util.Enumeration;
-import java.util.Hashtable;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -39,9 +38,6 @@ public class IscrizioneCorsoAction extends Action {
         	if(session != null) {
         		idStudente = (String)session.getAttribute("email");
         	}
-        	Hashtable<String, Object> data = new Hashtable<String, Object>();
-        	data.put("idStudente", idStudente);
-        	data.put("dataIscrizione", new Date());
         	
         	Enumeration en = request.getParameterNames();
         	if(en.hasMoreElements() == false) {
@@ -50,10 +46,10 @@ public class IscrizioneCorsoAction extends Action {
         		while(en.hasMoreElements()) {
         			String name = (String)en.nextElement();
         			if(name.equals("radio")) {
-        				System.out.println("request: "+request.getParameter(name));
-        				String acronimo = request.getParameter(name);
-        				data.put("acronimo", acronimo);
-        				if(control.iscrizioneCorso(data) == true) {
+        				/**
+        				 * TODO: ...e la data di iscrizione? ci serve a qualcosa?
+        				 */
+        				if(control.iscrizioneCorso(idStudente, request.getParameter(name)) == true) {
         					messages.add("nome", new ActionMessage("iscrizione.corso.ok"));
         				} else {
         					errors.add("nome", new ActionError("iscrizione.corso.no"));

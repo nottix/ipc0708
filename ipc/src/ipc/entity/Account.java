@@ -95,6 +95,10 @@ public class Account {
 		return this.isGestore;
 	}
 	
+	/**
+	 * TODO: non sarebbe meglio mettere un controllo se la matricola non e' un
+	 * numero?
+	 */
 	public void setMatricola(String matricola) {
 		this.matricola = matricola;
 	}

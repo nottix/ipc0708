@@ -360,7 +360,7 @@
 			</forward>
 		</action>
 		<action path="/ModificaCorsoDone" type="ipc.actions.ModificaCorsoDoneAction" name="modificaCorsoForm" scope="request" input="/modificaCorso.jsp">
-			<forward name="success" path="/homeProfessore.jsp">
+			<forward name="success" path="/gestioneCorso.jsp">
 			</forward>
 			<forward name="error" path="/ModificaCorso.do">
 			</forward>

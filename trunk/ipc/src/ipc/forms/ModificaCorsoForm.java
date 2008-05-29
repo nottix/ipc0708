@@ -1,7 +1,5 @@
 package ipc.forms;
 
-import ipc.utils.Utils;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionError;
@@ -148,12 +146,8 @@ public class ModificaCorsoForm extends ActionForm {
 			errors.add("acronimo", new ActionError("acronimo.error"));
 		if((dataApertura != null) && (dataApertura.length() == 0))
 			errors.add("dataApertura", new ActionError("data.apertura.error"));
-		else if(dataApertura!=null && !Utils.check_data(dataApertura))
-			errors.add("dataApertura", new ActionError("data.invalid.format"));
 		if((dataChiusura != null) && (dataChiusura.length() == 0))
 			errors.add("dataChiusura", new ActionError("data.chiusura.error"));
-		else if(dataChiusura!=null && !Utils.check_data(dataChiusura))
-			errors.add("dataChiusura", new ActionError("data.invalid.format"));
 		return errors;
 	}
 }

@@ -3,12 +3,14 @@
  */
 package ipc.control;
 
-import java.util.Hashtable;
-import java.util.Iterator;
-
-import ipc.db.SQLDAO;
+import ipc.db.AccountDAO;
+import ipc.db.CorsoDAO;
+import ipc.db.DAOFactory;
 import ipc.entity.Account;
 import ipc.entity.Corso;
+
+import java.util.Hashtable;
+import java.util.Iterator;
 
 /**
  * @author Simone Notargiacomo
@@ -24,54 +26,39 @@ public class LoginController {
 	
 	public Boolean login(String email, String password) {
 		try {
-			Account unAccount = null;
-			SQLDAO sqlDAO = new SQLDAO();
-			unAccount = sqlDAO.getAccount(email);
-			if(unAccount==null)
+			Account account = null;
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			AccountDAO accountDao = factory.getAccountDAO(); 
+			account = accountDao.read(email);
+			if(account==null)
 				return false;
-			String passDB = unAccount.getPassword();
-			String passEnc = Account.convertToMD5(password);
-			if(!passEnc.equals(passDB))
-				return false;
-			if(!unAccount.getStatus().equals("attivo"))
-				return false;
-			this.tipologia = unAccount.getTipologia();
-			return unAccount.getTipologia() != null;
+			if(account.login(email, password) && account.getStatus().equals("attivo")) {
+				System.out.println("entrato");
+				this.tipologia = account.getTipologia();
+				return this.tipologia!=null;
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
 	
-	public Boolean richiestaNuovaPasswordStudente(Hashtable data) {
+	public Boolean richiestaNuovaPasswordStudente(String email, Hashtable data) {
 		try {
-			/**
-			 * First Stage:
-			 * check if the data in Hashtable are inconsistent or not
-			 */
-			String tipologia = (String) data.get("tipologia");
-			if(!tipologia.equals("studente"))
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			AccountDAO accountDao = factory.getAccountDAO();
+			Account account = null;
+			account = accountDao.read(email);
+			
+			if (account == null ||
+					!account.getTipologia().equals("studente") ||
+					account.getIsDirettore() ||
+					account.getIsGestore())
 				return false;
-			Boolean isDirettore = (Boolean) data.get("isDirettore");
-			if(isDirettore!=null && isDirettore)
-				return false;
-//			Boolean isTitolare = (Boolean) data.get("isTitolare");
-//			if(isTitolare!=null && isTitolare)
-//				throw new Exception("Non può essere Titolare
-			String status = (String) data.get("status");
-			System.out.println("status: "+status);
-			if(!status.equals("ripristino"))
-				return false;
-			/**
-			 * Second stage:
-			 * check if exists this student with associate email
-			 */
-			SQLDAO sqlDAO = new SQLDAO();
-			Account test = null;
-			test = sqlDAO.getAccount((String) data.get("email"));
-			if (test == null)
-				return false;
-			return sqlDAO.updateAccount((String) data.get("email"), data);
+			
+			account.setStatus("ripristino");
+			return accountDao.update(account);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -79,38 +66,23 @@ public class LoginController {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public Boolean richiestaRegStudente(Hashtable data) {
+	public Boolean richiestaRegStudente(String nome, String cognome, String matricola,
+			String email, String password) {
 		try {
-			/**
-			 * First Stage:
-			 * check if the data in Hashtable are inconsistent or not
-			 */
-			String tipologia = (String) data.get("tipologia");
-			if(!tipologia.equals("studente"))
-				throw new Exception("Non è uno Studenten");
-			Boolean isDirettore = (Boolean) data.get("isDirettore");
-			if(isDirettore!=null && isDirettore)
-				throw new Exception("Non può essere Direttore");
-//			Boolean isTitolare = (Boolean) data.get("isTitolare");
-//			if(isTitolare!=null && isTitolare)
-//				return false;
-			String status = (String) data.get("status");
-			if(!status.equals("pendent"))
-				throw new Exception("L'Account non è in attesa");
-			/**
-			 * Second stage:
-			 * check if exists another student with same email
-			 */
-			SQLDAO sqlDAO = new SQLDAO();
-			Account test = null;
-			test = sqlDAO.getAccount((String) data.get("email"));
-			if (test == null) {
-				String tmp = (String) data.get("password");
-				data.put("password", Account.convertToMD5(tmp));
-				return sqlDAO.createAndStoreAccount(data) != null;
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			AccountDAO accountDao = factory.getAccountDAO();
+			Account account = null;
+			account = accountDao.read(email);
+			if (account == null) {
+				account = new Account();
+				account.setNome(nome);
+				account.setCognome(cognome);
+				account.setMatricola(matricola);
+				account.setEmail(email);
+				account.setPassword(Account.convertToMD5(password));
+				accountDao.create(account);
+				return accountDao.create(account);
 			}
-			else
-				return false;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -119,8 +91,9 @@ public class LoginController {
 	
 	public Boolean isDirettore(String email) {
 		try {
-			SQLDAO sqlDAO = new SQLDAO();
-			return sqlDAO.getAccount(email).getIsDirettore();
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			AccountDAO accountDao = factory.getAccountDAO();
+			return accountDao.read(email).getIsDirettore();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -129,8 +102,9 @@ public class LoginController {
 	
 	public Boolean isGestore(String email) {
 		try {
-			SQLDAO sqlDAO = new SQLDAO();
-			return sqlDAO.getAccount(email).getIsGestore();
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			AccountDAO accountDao = factory.getAccountDAO();
+			return accountDao.read(email).getIsGestore();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -139,8 +113,9 @@ public class LoginController {
 	
 	public Boolean isTitolare(String email) {
 		try {
-			SQLDAO sqlDAO = new SQLDAO();
-			Iterator<Corso> i = sqlDAO.listCorso().iterator();
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			Iterator<Corso> i = corsoDao.getElenco().iterator();
 			while(i.hasNext()) {
 				Corso c = i.next();
 				if(c.isTitolare(email).equals(true)) 
@@ -154,8 +129,9 @@ public class LoginController {
 	
 	public Boolean isCollaboratore(String email) {
 		try {
-			SQLDAO sqlDAO = new SQLDAO();
-			Iterator<Corso> i = sqlDAO.listCorso().iterator();
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			Iterator<Corso> i = corsoDao.getElenco().iterator();
 			while(i.hasNext()) {
 				Corso c = i.next();
 				if(c.isCollaboratore(email).equals(true)) 

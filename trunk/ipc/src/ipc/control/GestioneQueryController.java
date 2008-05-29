@@ -3,13 +3,23 @@
  */
 package ipc.control;
 
-import ipc.entity.*;
+import ipc.db.AccountDAO;
+import ipc.db.CorsoDAO;
+import ipc.db.DAOFactory;
+import ipc.db.IscrizioneCorsoDAO;
+import ipc.entity.Account;
+import ipc.entity.Corso;
+import ipc.entity.IscrizioneCorso;
+import ipc.utils.AccountCognomeComparator;
+import ipc.utils.AccountEmailComparator;
+import ipc.utils.AccountMatricolaComparator;
+import ipc.utils.AccountNomeComparator;
+import ipc.utils.MultiComparator;
 
-import java.util.*;
-
-import ipc.utils.*;
-
-import ipc.db.*;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author Simone Notargiacomo
@@ -22,11 +32,11 @@ public class GestioneQueryController {
 	
 	public List<Corso> getElencoCorsi() {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
-			this.elencoCorsi = sqlDao.listCorso();
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			this.elencoCorsi = corsoDao.getElenco();
 			return this.elencoCorsi;
 		} catch (Exception e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		return null;
@@ -39,18 +49,22 @@ public class GestioneQueryController {
 	 */
 	public List<Account> queryDefault(String acronimo) {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			IscrizioneCorsoDAO iscrizioneCorsoDao = factory.getIscrizioneCorsoDAO();
+			AccountDAO accountDao = factory.getAccountDAO();
+			
 			reportDefault = new LinkedList<Account>();
-			Corso corso = sqlDao.getCorso(acronimo);
+			Corso corso = corsoDao.get(acronimo);
 			if(corso!=null) {
 				Corso cmpCorso;
 				IscrizioneCorso cmpIscr;
-				Iterator<IscrizioneCorso> i = sqlDao.listIscrizioneCorso().iterator();
+				Iterator<IscrizioneCorso> i = iscrizioneCorsoDao.getElenco().iterator();
 				while(i.hasNext()) {
 					cmpIscr = i.next();
-					cmpCorso = sqlDao.getCorso(cmpIscr.getIdCorso());
+					cmpCorso = corsoDao.read(cmpIscr.getIdCorso());
 					if(cmpCorso.getAcronimo().equals(acronimo))
-						reportDefault.add(sqlDao.getAccount(cmpIscr.getIdStudente()));
+						reportDefault.add(accountDao.read(cmpIscr.getIdStudente()));
 				}
 			}
 			return reportDefault;

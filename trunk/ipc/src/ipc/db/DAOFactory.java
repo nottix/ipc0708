@@ -1,23 +1,28 @@
 package ipc.db;
 
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-
-public class DAOFactory {
-	private static final SessionFactory sessionFactory;
-
-    static {
+public abstract class DAOFactory {
+	public static final Class HIBERNATE = ipc.db.IpcDAOFactory.class;
+	
+	//private static final SessionFactory sessionFactory;
+	
+    /**
+     * Factory method for instantiation of concrete factories.
+     */
+    public static DAOFactory instance(Class factory) {
         try {
-            // Create the SessionFactory from hibernate.cfg.xml
-            sessionFactory = new Configuration().configure().buildSessionFactory();
-        } catch (Throwable ex) {
-            // Make sure you log the exception, as it might be swallowed
-            System.err.println("Initial SessionFactory creation failed." + ex);
-            throw new ExceptionInInitializerError(ex);
+            return (DAOFactory)factory.newInstance();
+        } catch (Exception ex) {
+            throw new RuntimeException("Couldn't create DAOFactory: " + factory);
         }
     }
+    
+    // DAO interfaces
+    public abstract CorsoDAO getCorsoDAO();
+    public abstract AccountDAO getAccountDAO();
+    public abstract EsameDAO getEsameDAO();
+    public abstract IscrizioneCorsoDAO getIscrizioneCorsoDAO();
+    public abstract PrenotazioneEsameDAO getPrenotazioneEsameDAO();
+    public abstract ProgettoDAO getProgettoDAO();
+    public abstract GruppoDAO getGruppoDAO();
 
-    public static SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
 }

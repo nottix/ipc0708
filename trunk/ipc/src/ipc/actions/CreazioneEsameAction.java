@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -22,7 +24,8 @@ public class CreazioneEsameAction extends Action {
             					throws Exception {
 
         ActionErrors errors = new ActionErrors();
-        ActionForward forward = new ActionForward(); 
+        ActionForward forward = new ActionForward();
+        ActionMessages messages = new ActionMessages();
         try {
         	System.out.println("ok");
         	Enumeration en = request.getParameterNames();
@@ -33,8 +36,10 @@ public class CreazioneEsameAction extends Action {
         		System.out.println("Parameter " + request.getParameter(name));
         		if(request.getParameter(name) == null) {
         			errors.add("name", new ActionError("radio.button.error"));
+        		} else {
+        			messages.add("name", new ActionMessage("creazione.esame.ok"));
+            		cForm.setAcronimo(request.getParameter(name));
         		}
-        		cForm.setAcronimo(request.getParameter(name));
         	}
         } catch (Exception e) {
             errors.add("name", new ActionError("id"));
@@ -42,7 +47,8 @@ public class CreazioneEsameAction extends Action {
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
             forward = mapping.findForward("error");
-        } else {
+        } else if (!messages.isEmpty()){
+        	saveMessages(request, messages);
         	forward = mapping.findForward("success");
         }
         return (forward);

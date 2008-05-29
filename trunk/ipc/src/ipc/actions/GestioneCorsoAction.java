@@ -54,6 +54,7 @@ public class GestioneCorsoAction extends Action {
         					errors.add("name", new ActionError("radio.button.error"));
         				}
         				request.getSession().setAttribute("acronimo", acronimo);
+        				request.getSession().setAttribute("old_acronimo", acronimo);
         			}
         		}
         	}

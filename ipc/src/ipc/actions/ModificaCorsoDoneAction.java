@@ -52,13 +52,15 @@ public class ModificaCorsoDoneAction extends Action
         	if((old_acronimo == null) || (old_acronimo.length() == 0)) {
         		errors.add("nome", new ActionError("session.error"));
         	}
-        	
+        	System.out.println("session: " + old_acronimo);
         	Enumeration en = request.getParameterNames();
         	if(en.hasMoreElements() == false) {
+        		System.out.println("non ha molti elementi...");
         		errors.add("nome", new ActionError("radio.button.error"));
         	} else {
         		while(en.hasMoreElements()) {
         			String name = (String)en.nextElement();
+        			System.out.println("Parameter: " + name);
         			if (request.getParameter(name) != null && request.getParameter(name).trim().equals("on")) {
         				if(name.indexOf("titolare")>=0) {
         					titolari.add(name.substring(name.indexOf("-")+1));
@@ -70,21 +72,23 @@ public class ModificaCorsoDoneAction extends Action
         				}
         			}
         		}
-
-        		if(titolareCounter>1) {
-        			if(collaboratoreCounter>1)
-        				data.put("elencoCollaboratori", collaboratori);
+        		System.out.println("titolari: " + titolareCounter);
+        		System.out.println("collaboratori: " + collaboratoreCounter);
+        		if(titolareCounter > 1)
         			data.put("elencoTitolari", titolari);
-        			data.put("nome", modificaCorso.getNome());
-        			data.put("acronimo", modificaCorso.getAcronimo());
-        			data.put("descrizione", modificaCorso.getDescrizione());
-        			data.put("dataApertura", new SimpleDateFormat("MM/dd/yy").parse(modificaCorso.getDataApertura()));
-        			data.put("dataChiusura", new SimpleDateFormat("MM/dd/yy").parse(modificaCorso.getDataChiusura()));
-        			if(control.modificaCorso(old_acronimo, data) == true) {
-        				messages.add("nome", new ActionMessage("modifica.corso.ok"));
-        			} else {
-        				errors.add("nome", new ActionError("modifica.corso.no"));
-        			}
+        		if(collaboratoreCounter>1)
+        			data.put("elencoCollaboratori", collaboratori);
+        	
+        		data.put("nome", modificaCorso.getNome());
+        		data.put("acronimo", modificaCorso.getAcronimo());
+        		data.put("descrizione", modificaCorso.getDescrizione());
+        		data.put("dataApertura", new SimpleDateFormat("yyyy-dd-MM hh:mm:ss").parse(modificaCorso.getDataApertura()));
+        		data.put("dataChiusura", new SimpleDateFormat("yyyy-dd-MM hh:mm:ss").parse(modificaCorso.getDataChiusura()));
+        		data.put("comunicazioni", modificaCorso.getComunicazioni());
+        		if(control.modificaCorso(old_acronimo, data) == true) {
+        			messages.add("nome", new ActionMessage("modifica.corso.ok"));
+        		} else {
+        			errors.add("nome", new ActionError("modifica.corso.no"));
         		}
         		elencoProfessori = control.getElencoAccountProfessori();
         		if(elencoProfessori == null) {
@@ -94,33 +98,16 @@ public class ModificaCorsoDoneAction extends Action
         			request.setAttribute("elencoProfessori", elencoProfessori);	
         		}
         	}
-            // do something here
-
         } catch (Exception e) {
-
-            // Report the error using the appropriate name and ID.
-            errors.add("name", new ActionError("id"));
-
+            errors.add("name", new ActionError("generic.error"));
         }
-
-        // If a message is required, save the specified key(s)
-        // into the request for use by the <struts:errors> tag.
-
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-
-            // Forward control to the appropriate 'failure' URI (change name as desired)
-            //	forward = mapping.findForward(non riuscito");
-
-        } else {
-
-            // Forward control to the appropriate 'success' URI (change name as desired)
-            forward = mapping.findForward("riuscito");
-
+            forward = mapping.findForward("error");
+        } else if(!messages.isEmpty()) {
+        	saveMessages(request, messages);
+        	forward = mapping.findForward("success");
         }
-
-        // Finish with
-        return (forward);
-
+        return forward;
     }
 }

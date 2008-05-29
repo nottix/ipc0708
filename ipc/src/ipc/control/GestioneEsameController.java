@@ -1,10 +1,19 @@
 package ipc.control;
 
-import ipc.db.SQLDAO;
+import ipc.db.CorsoDAO;
+import ipc.db.DAOFactory;
+import ipc.db.EsameDAO;
+import ipc.db.PrenotazioneEsameDAO;
+import ipc.db.ProgettoDAO;
 import ipc.entity.Corso;
 import ipc.entity.Esame;
 import ipc.entity.PrenotazioneEsame;
-import java.util.*;
+import ipc.entity.Progetto;
+
+import java.text.SimpleDateFormat;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 public class GestioneEsameController {
 
@@ -14,16 +23,18 @@ public class GestioneEsameController {
 	private List<PrenotazioneEsame> elencoPrenotazioneEsame; 
 	private List<PrenotazioneEsame> elencoPrenotazioniEsamiCorso;
 	
-	public List<Corso> getElencoCorsi() throws Exception {
-		SQLDAO sqlDao = new SQLDAO();
-		this.elencoCorsi = sqlDao.listCorso();
+	public List<Corso> getElencoCorsi() {
+		DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+		CorsoDAO corsoDao = factory.getCorsoDAO();
+		this.elencoCorsi = corsoDao.getElenco();
 		return this.elencoCorsi;
 	}
 	
 	public PrenotazioneEsame getPrenotazioneEsame(Long id) {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
-			return sqlDao.getPrenotazioneEsame(id);
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			PrenotazioneEsameDAO prenotazioneEsameDao = factory.getPrenotazioneEsameDAO();
+			return prenotazioneEsameDao.read(id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -48,9 +59,12 @@ public class GestioneEsameController {
 	
 	public List<Esame> getElencoEsamiCorso(String acronimo) {
 		try {
-			SQLDAO sqlDAO = new SQLDAO();
-			Long idCorso = sqlDAO.getCorso(acronimo).getId();
-			Iterator<Esame> tmp = sqlDAO.listEsame().iterator();
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			EsameDAO esameDao = factory.getEsameDAO();
+			
+			Long idCorso = corsoDao.get(acronimo).getId();
+			Iterator<Esame> tmp = esameDao.getElenco().iterator();
 			this.elencoEsami = new LinkedList<Esame>();
 			while(tmp.hasNext()) {
 				Esame e = tmp.next();
@@ -66,8 +80,10 @@ public class GestioneEsameController {
 	
 	public List<PrenotazioneEsame> getPrenotatiEsame(Long idEsame) {
 		try {
-			SQLDAO sqlDAO = new SQLDAO();
-			Iterator<PrenotazioneEsame> pe = sqlDAO.listPrenotazioneEsame().iterator();
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			PrenotazioneEsameDAO prenotazioneEsameDao = factory.getPrenotazioneEsameDAO();
+			
+			Iterator<PrenotazioneEsame> pe = prenotazioneEsameDao.getElenco().iterator();
 			this.elencoPrenotazioneEsame = new LinkedList<PrenotazioneEsame>();
 			while(pe.hasNext()) {
 				PrenotazioneEsame prenotazioneEsame = pe.next();
@@ -93,31 +109,43 @@ public class GestioneEsameController {
 		return elencoPrenotazioniEsamiCorso;
 	}
 	
-	public Boolean modificaVoto(Long id, Hashtable<String, Object> data) {
+	public Boolean modificaVoto(Long idPrenotazione, String voto, String esaminatore, 
+			Boolean presenza, Boolean accettato, String nota) {
 		try {
-			System.out.println("modifica voto");
-			SQLDAO sqlDAO = new SQLDAO();
-			PrenotazioneEsame ptmp = this.getPrenotazioneEsame(id);
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			PrenotazioneEsameDAO prenotazioneEsameDao = factory.getPrenotazioneEsameDAO();
+			
+			PrenotazioneEsame ptmp = this.getPrenotazioneEsame(idPrenotazione);
 			if(ptmp.getStatus().equals("attivo")) {
-				data.put("id", id);
+				ptmp.setEsaminatore(esaminatore);
+				ptmp.setNota(nota);
+				ptmp.setPresenzaEsame(presenza);
+				ptmp.setVotoEsame(voto);
+				ptmp.setVotoAccettato(accettato);
+				return prenotazioneEsameDao.update(ptmp);
 			}
-			return sqlDAO.updatePrenotazioneEsame(id, data);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
 		
-	public Boolean creazioneProgetto(Hashtable<String, Object> data) {
+	public Boolean creazioneProgetto(String acronimo, String titolo, Integer maxUpload,
+			Integer maxDim, String dataConsegna) {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
-			String acronimo = (String)data.get("acronimo");
-			Long idCorso = sqlDao.getCorso(acronimo).getId();
-			System.out.println("ID CORSO: "+idCorso);
-			data.put("maxUploadPerStudente", Integer.valueOf((String)data.get("maxUploadPerStudente")));
-			data.put("maxDimGruppo", Integer.valueOf((String)data.get("maxDimGruppo")));
-			data.put("idCorso", idCorso);
-			return sqlDao.createAndStoreProgetto(data) != null;
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			ProgettoDAO progettoDao = factory.getProgettoDAO();
+			
+			Long idCorso = corsoDao.get(acronimo).getId();
+			Progetto progetto = new Progetto();
+			progetto.setIdCorso(idCorso);
+			progetto.setDataConsegna(new SimpleDateFormat("MM/dd/yy").parse(dataConsegna));
+			progetto.setMaxDimGruppo(maxDim);
+			progetto.setMaxUploadPerStudente(maxUpload);
+			progetto.setTitolo(titolo);
+			progetto.setStatus("attivo");
+			return progettoDao.create(progetto);
 		} catch (NumberFormatException nfe) {
 			nfe.printStackTrace();
 		} catch (Exception e) {

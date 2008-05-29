@@ -135,6 +135,14 @@ public class Account {
 		return this.noteProf;
 	}
 	
+	public Boolean login(String email, String password) {
+		if(email.equals(this.email) && convertToMD5(password).equals(this.password)) {
+			System.out.println("Logged");
+			return true;
+		}
+		return false;
+	}
+	
 	public static String convertToMD5(String p) {
 		MessageDigest md = null;
 		try {

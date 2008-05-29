@@ -1,15 +1,19 @@
 package ipc.control;
 
+import ipc.db.CorsoDAO;
+import ipc.db.DAOFactory;
+import ipc.db.EsameDAO;
+import ipc.db.IscrizioneCorsoDAO;
+import ipc.db.PrenotazioneEsameDAO;
 import ipc.entity.Corso;
 import ipc.entity.Esame;
-import ipc.db.SQLDAO;
+import ipc.entity.IscrizioneCorso;
+import ipc.entity.PrenotazioneEsame;
 
 import java.util.Date;
-import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-
 
 public class GestioneStudenteController {
 	
@@ -18,8 +22,9 @@ public class GestioneStudenteController {
 	
 	public List<Corso> getElencoCorsiDispAttivi() {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
-			List<Corso> elencoCorsi = sqlDao.listCorso();
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			List<Corso> elencoCorsi = corsoDao.getElenco();
 			this.elencoCorsiDispAttivi = new LinkedList<Corso>();
 			Corso corso;
 
@@ -42,8 +47,9 @@ public class GestioneStudenteController {
 	
 	public List<Esame> getElencoEsamiDispAttivi() {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
-			List<Esame> elencoEsami = sqlDao.listEsame();
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			EsameDAO esameDao = factory.getEsameDAO();
+			List<Esame> elencoEsami = esameDao.getElenco();
 			this.elencoEsamiDispAttivi = new LinkedList<Esame>();
 			Esame esame;
 
@@ -64,31 +70,40 @@ public class GestioneStudenteController {
 		return null;
 	}
 	
-	public Boolean iscrizioneCorso(Hashtable<String, Object> data) {
+	public Boolean iscrizioneCorso(String email, String acronimo) {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
-			String acronimo = (String)data.get("acronimo");
-			data.put("idCorso", sqlDao.getCorso(acronimo).getId());
-			data.put("status", "pendent");
-			return sqlDao.createAndStoreIscrizioneCorso(data) != null;
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			IscrizioneCorsoDAO iscrizioneCorsoDao = factory.getIscrizioneCorsoDAO();
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+
+			Corso corso = corsoDao.get(acronimo);
+			IscrizioneCorso iscrizione = new IscrizioneCorso();
+			iscrizione.setIdCorso(corso.getId());
+			iscrizione.setIdStudente(email);
+			iscrizione.setStatus("pendent");
+			iscrizione.setDataIscrizione(new Date());
+			return iscrizioneCorsoDao.create(iscrizione);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
 	
-	public Boolean prenotazioneEsame(Hashtable<String, Object> data) {
+	public Boolean prenotazioneEsame(String email, Long idEsame) {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
-			data.put("status", "pendent");
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			EsameDAO esameDao = factory.getEsameDAO();
+			PrenotazioneEsameDAO prenotazioneEsameDao = factory.getPrenotazioneEsameDAO();
+			
+			Esame esame = esameDao.read(idEsame);
+			PrenotazioneEsame prenotazione = new PrenotazioneEsame();
+			prenotazione.setDataEsame(esame.getDataEsame());
+			prenotazione.setDataPrenotazione(new Date());
+			prenotazione.setIdEsame(idEsame);
+			prenotazione.setIdStudente(email);
+			prenotazione.setStatus("pendent");
 
-			Esame esame = sqlDao.getEsame((Long)data.get("idEsame"));
-			data.put("dataEsame", esame.getDataEsame());
-			data.put("dataPrenotazione", new Date());
-			data.put("presenzaEsame", false);
-			data.put("status", "pendent");
-
-			return sqlDao.createAndStorePrenotazioneEsame(data) != null;
+			return prenotazioneEsameDao.create(prenotazione);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -97,8 +112,9 @@ public class GestioneStudenteController {
 	
 	public Esame getEsame(Long id) {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
-			return sqlDao.getEsame(id);
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			EsameDAO esameDao = factory.getEsameDAO();
+			return esameDao.read(id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

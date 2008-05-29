@@ -1,13 +1,14 @@
 package ipc.control;
 
-import ipc.entity.Corso;
+import ipc.db.AccountDAO;
+import ipc.db.CorsoDAO;
+import ipc.db.DAOFactory;
 import ipc.entity.Account;
-import ipc.db.SQLDAO;
+import ipc.entity.Corso;
 
-import java.util.List;
-import java.util.LinkedList;
-import java.util.Hashtable;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 public class GestioneAccountController {
@@ -18,8 +19,7 @@ public class GestioneAccountController {
 	
 	public List<Account> getElencoAccountStudentiPendent() {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
-			List<Account> elenco = sqlDao.listAccount();
+			List<Account> elenco = this.getElencoAccount();
 			elencoAccountStudentiPendent = new LinkedList<Account>();
 			for(int i=0; i<elenco.size(); i++) {
 				if(elenco.get(i).getTipologia().equals("studente") && elenco.get(i).getStatus().equals("pendent")) {
@@ -35,8 +35,7 @@ public class GestioneAccountController {
 	
 	public List<Account> getElencoAccountStudenti() {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
-			List<Account> elenco = sqlDao.listAccount();
+			List<Account> elenco = this.getElencoAccount();
 			elencoAccountStudenti = new LinkedList<Account>();
 			for(int i=0; i<elenco.size(); i++) {
 				if(elenco.get(i).getTipologia().equals("studente")) {
@@ -52,19 +51,10 @@ public class GestioneAccountController {
 	
 	public List<Account> getElencoAccount() {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
-			elencoAccount = sqlDao.listAccount();
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			AccountDAO accountDao = factory.getAccountDAO();
+			elencoAccount = accountDao.getElenco();
 			return elencoAccount;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-	
-	public Account getAccountStudente(String email) {
-		try {
-			SQLDAO sqlDao = new SQLDAO();
-			return sqlDao.getAccount(email);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -73,8 +63,9 @@ public class GestioneAccountController {
 	
 	public Account getAccount(String email) {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
-			return sqlDao.getAccount(email);
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			AccountDAO accountDao = factory.getAccountDAO();
+			return accountDao.read(email);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -83,8 +74,9 @@ public class GestioneAccountController {
 	
 	public List<Corso> getCorsiWhereIsTitolare(String email) {
 		try {
-			SQLDAO sqlDAO = new SQLDAO();
-			List<Corso> elencoCorsi = sqlDAO.listCorso();
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			List<Corso> elencoCorsi = corsoDao.getElenco();
 			List<Corso> elencoCorsiTitolare = new LinkedList<Corso>();
 			Set elencoTitolari;
 
@@ -114,8 +106,9 @@ public class GestioneAccountController {
 	
 	public List<Corso> getCorsiWhereIsCollaboratore(String email) {
 		try {
-			SQLDAO sqlDAO = new SQLDAO();
-			List<Corso> elencoCorsi = sqlDAO.listCorso();
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			List<Corso> elencoCorsi = corsoDao.getElenco();
 			List<Corso> elencoCorsiCollaboratore = new LinkedList<Corso>();
 			Set elencoCollaboratore;
 
@@ -143,10 +136,22 @@ public class GestioneAccountController {
 		return null;
 	}
 	
-	public Boolean modificaAccountStudente(String email, Hashtable data) {
+	public Boolean modificaAccountStudente(String email, String nome, String cognome, 
+			String matricola, String note) {
 		try {
-			SQLDAO sqlDAO = new SQLDAO();
-			return sqlDAO.updateAccount(email, data);
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			AccountDAO accountDao = factory.getAccountDAO();
+			
+			Account account = accountDao.read(email);
+			if(nome!=null)
+				account.setNome(nome);
+			if(cognome!=null)
+				account.setCognome(cognome);
+			if(matricola!=null)
+				account.setMatricola(matricola);
+			if(note!=null)
+				account.setNoteStud(note);
+			return accountDao.update(account);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -155,10 +160,12 @@ public class GestioneAccountController {
 	
 	public Boolean abilitaAccountStudente(String email) {
 		try {
-			Hashtable<String, String> data = new Hashtable<String, String>();
-			data.put("status", "attivo");
-			SQLDAO sqlDAO = new SQLDAO();
-			return sqlDAO.updateAccount(email, data);
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			AccountDAO accountDao = factory.getAccountDAO();
+			
+			Account account = accountDao.read(email);
+			account.setStatus("attivo");
+			return accountDao.update(account);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -167,28 +174,35 @@ public class GestioneAccountController {
 	
 	public Boolean ripristinaPasswordAccountStudente(String email) {
 		try {
-			Hashtable<String, String> data = new Hashtable<String, String>();
-			SQLDAO sqlDAO = new SQLDAO();
-			String passwordEnc = Account.convertToMD5(Account.generatePassword());
-			data.put("password", passwordEnc);
-			System.out.println("email "+email+", pwd "+passwordEnc);
-			return sqlDAO.updateAccount(email, data);
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			AccountDAO accountDao = factory.getAccountDAO();
+			
+			Account account = accountDao.read(email);
+			if(account!=null) {
+				account.setPassword(Account.convertToMD5(Account.generatePassword()));
+				return accountDao.update(account);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
 	
-	public Boolean creazioneAccountGestore(Hashtable<String, Object> data) {
+	public Boolean creazioneAccountGestore(String email, String nome, String cognome, String password) {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
-			if(sqlDao.getAccount((String)data.get("email"))==null) {
-				data.put("isGestore", Boolean.TRUE);
-				data.put("tipologia", "gestore");
-				data.put("password", Account.convertToMD5((String)data.get("password")));
-				data.put("status", "attivo");
-				System.out.println("isGestore");
-				return sqlDao.createAndStoreAccount(data)!=null;
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			AccountDAO accountDao = factory.getAccountDAO();
+			
+			if(accountDao.read(email) == null) {
+				Account account = new Account();
+				account.setNome(nome);
+				account.setCognome(cognome);
+				account.setEmail(email);
+				account.setPassword(Account.convertToMD5(password));
+				account.setStatus("attivo");
+				account.setTipologia("gestore");
+				account.setIsGestore(true);
+				return accountDao.create(account);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

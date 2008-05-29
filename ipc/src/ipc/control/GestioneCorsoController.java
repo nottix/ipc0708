@@ -3,13 +3,18 @@
  */
 package ipc.control;
 
+import ipc.db.AccountDAO;
+import ipc.db.CorsoDAO;
+import ipc.db.DAOFactory;
+import ipc.db.EsameDAO;
 import ipc.entity.Account;
 import ipc.entity.Corso;
-import ipc.db.SQLDAO;
+import ipc.entity.Esame;
 
-import java.util.Hashtable;
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Simone Notargiacomo
@@ -19,12 +24,14 @@ public class GestioneCorsoController {
 
 	private List<Corso> elencoCorsi = null;
 	
-private List<Account> elencoAccountProfessori = null;
+	private List<Account> elencoAccountProfessori = null;
 	
 	public List<Account> getElencoAccountProfessori() {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
-			List<Account> elenco = sqlDao.listAccount();
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			AccountDAO accountDao = factory.getAccountDAO();
+			
+			List<Account> elenco = accountDao.getElenco();
 			elencoAccountProfessori = new LinkedList<Account>();
 			for(int i=0; i<elenco.size(); i++) {
 				if(elenco.get(i).getTipologia().equals("professore"))
@@ -39,8 +46,10 @@ private List<Account> elencoAccountProfessori = null;
 	
 	public Corso getCorso(String acronimo) {
 		try {
-			SQLDAO sqlDAO = new SQLDAO();
-			return sqlDAO.getCorso(acronimo);
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			
+			return corsoDao.get(acronimo);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -49,8 +58,9 @@ private List<Account> elencoAccountProfessori = null;
 	
 	public List<Corso> getElencoCorsi() {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
-			elencoCorsi = sqlDao.listCorso();
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			elencoCorsi = corsoDao.getElenco();
 			return elencoCorsi;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -58,27 +68,56 @@ private List<Account> elencoAccountProfessori = null;
 		return null;
 	}
 	
-	public Boolean creazioneEsame(Hashtable<String, Object> data) {
+	public Boolean creazioneEsame(String acronimo, String dataEsame, String inizioPeriodo,
+			String finePeriodo, String aule) {
 		try {
-			SQLDAO sqlDao = new SQLDAO();
-			String acronimo = (String)data.get("acronimo");
-			Long idCorso = sqlDao.getCorso(acronimo).getId();
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			EsameDAO esameDao = factory.getEsameDAO();
+			
+			Long idCorso = corsoDao.get(acronimo).getId();
 			System.out.println("ID CORSO: "+idCorso);
-			data.put("idCorso", idCorso);
-			data.put("status", "attivo");
-			return sqlDao.createAndStoreEsame(data) != null;
+			
+			Esame esame = new Esame();
+			esame.setAuleEsame(aule);
+			esame.setDataEsame(new SimpleDateFormat("MM/dd/yy").parse(dataEsame));
+			esame.setDataInizioPeriodoPrenotazione(new SimpleDateFormat("MM/dd/yy").parse(inizioPeriodo));
+			esame.setDataFinePeriodoPrenotazione(new SimpleDateFormat("MM/dd/yy").parse(finePeriodo));
+			esame.setIdCorso(idCorso);
+			esame.setStatus("attivo");
+
+			return esameDao.create(esame);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return false;
 	}
 	
-	public Boolean modificaCorso(String acronimo, Hashtable<String, Object> data) {
+	public Boolean modificaCorso(String acronimo, String nome, String descrizione,
+			String comunicazioni, String dataApertura, String dataChiusura,
+			Set elencoCollaboratori, Set elencoTitolari) {
 		try {
-			SQLDAO sqlDAO = new SQLDAO();
-			Long idCorso = sqlDAO.getCorso(acronimo).getId();
-			data.put("idCorso", idCorso);
-			return sqlDAO.updateCorso(idCorso, data);
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			
+			Corso corso = corsoDao.get(acronimo);
+			corso.setAcronimo(acronimo);
+			if(nome!=null)
+				corso.setNome(nome);
+			if(descrizione!=null)
+				corso.setDescrizione(descrizione);
+			if(comunicazioni!=null)
+				corso.setComunicazioni(comunicazioni);
+			if(dataApertura!=null)
+				corso.setDataApertura(new SimpleDateFormat("MM/dd/yy").parse(dataApertura));
+			if(dataChiusura!=null)
+				corso.setDataChiusura(new SimpleDateFormat("MM/dd/yy").parse(dataChiusura));
+			if(elencoCollaboratori!=null)
+				corso.setElencoCollaboratori(elencoCollaboratori);
+			if(elencoTitolari!=null)
+				corso.setElencoTitolari(elencoTitolari);
+			
+			return corsoDao.update(corso);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

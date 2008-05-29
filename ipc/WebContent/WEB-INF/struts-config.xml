@@ -64,6 +64,8 @@
 		</form-bean>
 		<form-bean name="iscrizioneCorsoElencoForm" type="ipc.forms.IscrizioneCorsoElencoForm">
 		</form-bean>
+		<form-bean name="modificaCorsoForm" type="ipc.forms.ModificaCorsoForm">
+		</form-bean>
 	</form-beans>
 
 	<!-- Eccezioni globali -->
@@ -349,6 +351,18 @@
 			<forward name="success" path="/AttivazioneAccountStudente.do">
 			</forward>
 			<forward name="error" path="/AttivazioneAccountStudente.do">
+			</forward>
+		</action>
+		<action path="/ModificaCorso" type="ipc.actions.ModificaCorsoAction" scope="session" name="modificaCorsoForm" input="/gestioneCorso.jsp">
+			<forward name="success" path="/modificaCorso.jsp">
+			</forward>
+			<forward name="error" path="/gestioneCorso.jsp">
+			</forward>
+		</action>
+		<action path="/ModificaCorsoDone" type="ipc.actions.ModificaCorsoDoneAction" name="modificaCorsoForm" scope="request" input="/modificaCorso.jsp">
+			<forward name="success" path="/homeProfessore.jsp">
+			</forward>
+			<forward name="error" path="/ModificaCorso.do">
 			</forward>
 		</action>
 	</action-mappings>

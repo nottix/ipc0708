@@ -14,47 +14,34 @@ import org.apache.struts.action.ActionMapping;
  * @version 	1.0
  * @author
  */
-public class IscrizioneCorsoElencoForm extends ActionForm
+public class IscrizioneCorsoElencoForm extends ActionForm {
+	private static final long serialVersionUID = 28L;
 
-{
+	private String radio = null;
 
-    private String radio = null;
+	/**
+	 * Get radio
+	 * @return String
+	 */
+	public String getRadio() {
+		return radio;
+	}
 
-    /**
-     * Get radio
-     * @return String
-     */
-    public String getRadio() {
-	return radio;
-    }
+	/**
+	 * Set radio
+	 * @param <code>String</code>
+	 */
+	public void setRadio(String r) {
+		this.radio = r;
+	}
 
-    /**
-     * Set radio
-     * @param <code>String</code>
-     */
-    public void setRadio(String r) {
-	this.radio = r;
-    }
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
+		radio = null;
+	}
 
-    public void reset(ActionMapping mapping, HttpServletRequest request) {
-
-	// Reset values are provided as samples only. Change as appropriate.
-
-	radio = null;
-
-    }
-
-    public ActionErrors validate(ActionMapping mapping,
-	    HttpServletRequest request) {
-
-	ActionErrors errors = new ActionErrors();
-	// Validate the fields in your form, adding
-	// adding each error to this.errors as found, e.g.
-
-	// if ((field == null) || (field.length() == 0)) {
-	//   errors.add("field", new org.apache.struts.action.ActionError("error.field.required"));
-	// }
-	return errors;
-
-    }
+	public ActionErrors validate(ActionMapping mapping,
+								 HttpServletRequest request) {
+		ActionErrors errors = new ActionErrors();
+		return errors;
+	}
 }

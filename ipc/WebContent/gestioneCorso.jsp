@@ -21,12 +21,15 @@
 		<logic:present name="acronimo">
 		<h3>Corso: <bean:write name="acronimo"/></h3>
 		<table border="1">
-			<tbody>
+			<tbody  align=center>
+				<tr>
+					<td ><html:link action="/ModificaCorso" >Modifica Corso</html:link></td>
+				</tr>
 				<tr>
 					<td><a href="/ipc/CreazioneEsame.do?acronimo=<bean:write name="acronimo"/>">Creazione Esame</a></td>
 				</tr>
 				<tr>
-					<td><font color="red"><html:errors /></font></td>
+					<td align=left><font color="red"><html:errors /></font></td>
 				</tr>
 				<tr>
 					<td><html:submit /></td>

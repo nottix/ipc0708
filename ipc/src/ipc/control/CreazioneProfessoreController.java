@@ -3,28 +3,35 @@
  */
 package ipc.control;
 
+import ipc.db.AccountDAO;
+import ipc.db.DAOFactory;
 import ipc.entity.Account;
-import ipc.db.SQLDAO;
 
-import java.util.Hashtable;
-/**
- * @author Simone Notargiacomo
- *
- */
 public class CreazioneProfessoreController {
 
-	public Boolean creazioneProfessore(Hashtable<String, Object> hash) {
+	public Boolean creazioneProfessore(String email, String nome,
+									   String cognome, String password,
+									   Boolean isDirettore, Boolean isGestore,
+									   String noteProf) {
 		try {
-			SQLDAO sqldao = new SQLDAO();
-			if(hash.get("email")!=null) {
-				if(sqldao.getAccount((String)hash.get("email"))==null) {
-					System.out.println("Utente non esistente");
-					hash.put("status", "attivo");
-					hash.put("tipologia", "professore");
-					String pwd = (String)hash.get("password");
-					hash.put("password", Account.convertToMD5(pwd));
-					return sqldao.createAndStoreAccount(hash)!=null;
-				}
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			AccountDAO accountDao = factory.getAccountDAO();
+			
+			if(accountDao.read(email) == null) {
+				Account professore = new Account();
+				professore.setEmail(email);
+				professore.setCognome(cognome);
+				professore.setNome(nome);
+				professore.setPassword(Account.convertToMD5(password));
+				professore.setStatus("attivo");
+				professore.setTipologia("professore");
+				if(noteProf != null)
+					professore.setNoteProf(noteProf);
+				if(isDirettore != null)
+					professore.setIsDirettore(isDirettore);
+				if(isGestore != null)
+					professore.setIsGestore(isGestore);
+				return accountDao.create(professore);
 			}
 			//Invio email informativa
 		} catch (Exception e) {

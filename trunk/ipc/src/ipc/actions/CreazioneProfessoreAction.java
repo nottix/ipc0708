@@ -3,10 +3,9 @@ package ipc.actions;
 import ipc.control.CreazioneProfessoreController;
 import ipc.forms.CreazioneProfessoreForm;
 
-import java.util.Hashtable;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
@@ -31,16 +30,17 @@ public class CreazioneProfessoreAction extends Action {
         ActionMessages messages = new ActionMessages();
         CreazioneProfessoreController creazioneProfessoreController = new CreazioneProfessoreController();
         CreazioneProfessoreForm creazioneProfessoreForm = (CreazioneProfessoreForm)form;
-        
         try {
-        	Hashtable<String, Object> hash = new Hashtable<String, Object>();
-        	hash.put("nome", creazioneProfessoreForm.getNome());
-        	hash.put("cognome", creazioneProfessoreForm.getCognome());
-        	hash.put("email", creazioneProfessoreForm.getEmail());
-        	hash.put("password", creazioneProfessoreForm.getPassword());
-        	hash.put("isDirettore", creazioneProfessoreForm.getIsDirettore()!=null ? Boolean.TRUE : Boolean.FALSE);
-        	hash.put("isGestore", creazioneProfessoreForm.getIsGestore()!=null ? Boolean.TRUE : Boolean.FALSE);
-        	if(creazioneProfessoreController.creazioneProfessore(hash) == true) {
+        	/**
+        	 * TODO: Perche' non settiamo noteProf?
+        	 */
+        	if(creazioneProfessoreController.creazioneProfessore(creazioneProfessoreForm.getEmail(),
+        														 creazioneProfessoreForm.getNome(),
+        														 creazioneProfessoreForm.getCognome(),
+        														 creazioneProfessoreForm.getPassword(),
+        														 (creazioneProfessoreForm.getIsDirettore() != null) ? Boolean.TRUE : Boolean.FALSE,
+        														 (creazioneProfessoreForm.getIsGestore() != null) ? Boolean.TRUE : Boolean.FALSE,
+        														 null) == true) {
         		messages.add("nome", new ActionMessage("creazione.professore.ok"));
         	} else {
         		errors.add("nome", new ActionError("creazione.professore.no"));

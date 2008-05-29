@@ -1,12 +1,11 @@
 package ipc.actions;
 
-import ipc.forms.ModificaVotiForm;
 import ipc.control.GestioneEsameController;
-
-import java.util.Hashtable;
+import ipc.forms.ModificaVotiForm;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
@@ -16,11 +15,6 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
-
-/**
- * @version 	1.0
- * @author
- */
 public class ModificaVotiDoneAction extends Action {
 
     public ActionForward execute(ActionMapping mapping,
@@ -36,20 +30,12 @@ public class ModificaVotiDoneAction extends Action {
         ModificaVotiForm cForm = (ModificaVotiForm)form;
 
         try {
-            Hashtable<String, Object> data = new Hashtable<String, Object>();
-            data.put("votoEsame", cForm.getVotoEsame());
-            data.put("votoAccettato", cForm.getVotoAccettato().equals("on")?true:false);
-            System.out.println("voto accettato: "+cForm.getVotoAccettato());
-            if(cForm.getPresenzaEsame()!=null) {
-            	data.put("presenzaEsame", cForm.getPresenzaEsame().equals("on")?true:false);
-            	System.out.println("presenza: "+cForm.getPresenzaEsame());
-            }
-            if(cForm.getEsaminatore()!=null) {
-            	data.put("esaminatore", cForm.getEsaminatore());
-            }
-            if(cForm.getNota()!=null)
-            	data.put("nota", cForm.getNota());
-            if(control.modificaVoto((Long)request.getSession().getAttribute("idPrenotazioneEsame"), data) == true){
+        	if(control.modificaVoto((Long)request.getSession().getAttribute("idPrenotazioneEsame"),
+        							cForm.getVotoEsame(),
+        							cForm.getEsaminatore(),
+        							(cForm.getPresenzaEsame() != null) ? Boolean.TRUE : Boolean.FALSE,
+        							(cForm.getVotoAccettato() != null) ? Boolean.TRUE : Boolean.FALSE,
+        							cForm.getNota()) == true) {
             	messages.add("nome", new ActionMessage("voto.modificato.ok"));
             	request.getSession().removeAttribute("idPrenotazioneEsame");
             } else {

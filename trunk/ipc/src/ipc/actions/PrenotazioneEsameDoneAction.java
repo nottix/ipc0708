@@ -2,8 +2,6 @@ package ipc.actions;
 
 import ipc.control.GestioneStudenteController;
 
-import java.util.Hashtable;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -34,11 +32,8 @@ public class PrenotazioneEsameDoneAction extends Action {
         GestioneStudenteController control = new GestioneStudenteController();
         try {
         	HttpSession session = request.getSession();
-            Hashtable<String, Object> data = new Hashtable<String, Object>();
-            data.put("idStudente", session.getAttribute("email"));
-            data.put("idEsame", Long.valueOf((String)session.getAttribute("idEsame")));
-            
-            if(control.prenotazioneEsame(data) == false) {
+        	if(control.prenotazioneEsame((String) session.getAttribute("email"),
+        								 Long.valueOf((String) session.getAttribute("idEsame"))) == false) {
             	errors.add("nome", new ActionError("prenotazione.esame.no"));
             } else {
             	messages.add("nome", new ActionMessage("prenotazione.esame.ok"));

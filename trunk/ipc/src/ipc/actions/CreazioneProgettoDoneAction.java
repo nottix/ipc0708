@@ -3,11 +3,9 @@ package ipc.actions;
 import ipc.control.GestioneEsameController;
 import ipc.forms.CreazioneProgettoForm;
 
-import java.text.SimpleDateFormat;
-import java.util.Hashtable;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
@@ -29,16 +27,14 @@ public class CreazioneProgettoDoneAction extends Action {
     	ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward();
         ActionMessages messages = new ActionMessages();
-        GestioneEsameController cont = new GestioneEsameController();
+        GestioneEsameController control = new GestioneEsameController();
         CreazioneProgettoForm cForm = (CreazioneProgettoForm)form;
         try {
-        	Hashtable<String, Object> data = new Hashtable<String, Object>();
-            data.put("acronimo", cForm.getAcronimo());
-            data.put("titolo", cForm.getTitolo());
-            data.put("dataConsegna", new SimpleDateFormat("MM/dd/yy").parse(cForm.getDataConsegna()));
-            data.put("maxUploadPerStudente", cForm.getMaxUploadPerStudente());
-        	data.put("maxDimGruppo", cForm.getMaxDimGruppo());
-            if(cont.creazioneProgetto(data) == true) {
+        	if(control.creazioneProgetto(cForm.getAcronimo(),
+        								 cForm.getTitolo(),
+        								 Integer.valueOf(cForm.getMaxUploadPerStudente()),
+        								 Integer.valueOf(cForm.getMaxDimGruppo()),
+        								 cForm.getDataConsegna()) == true) {
             	messages.add("nome", new ActionMessage("iscrizione.corso.ok"));
             } else {
             	errors.add("nome", new ActionError("iscrizione.corso.no"));

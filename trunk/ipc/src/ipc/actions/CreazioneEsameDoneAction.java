@@ -3,24 +3,18 @@ package ipc.actions;
 import ipc.control.GestioneCorsoController;
 import ipc.forms.CreazioneEsameForm;
 
-import java.util.Hashtable;
-import java.text.SimpleDateFormat;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessages;
 import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionMessages;
 
-/**
- * @version 	1.0
- * @author
- */
 public class CreazioneEsameDoneAction extends Action {
 
     public ActionForward execute(ActionMapping mapping,
@@ -32,17 +26,14 @@ public class CreazioneEsameDoneAction extends Action {
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward();
         ActionMessages messages = new ActionMessages();
-        GestioneCorsoController cont = new GestioneCorsoController();
+        GestioneCorsoController control = new GestioneCorsoController();
         CreazioneEsameForm cForm = (CreazioneEsameForm)form;
         try {
-        	Hashtable<String, Object> data = new Hashtable<String, Object>();
-            data.put("acronimo", cForm.getAcronimo());
-            data.put("dataInizioPeriodoPrenotazione", new SimpleDateFormat("MM/dd/yy").parse(cForm.getDataInizio()));
-            data.put("dataFinePeriodoPrenotazione", new SimpleDateFormat("MM/dd/yy").parse(cForm.getDataFine()));
-            data.put("dataEsame", new SimpleDateFormat("MM/dd/yy").parse(cForm.getDataEsame()));
-        	data.put("auleEsame", cForm.getAule());
-        	System.out.println("aulaEsame: "+cForm.getAule());
-            if(cont.creazioneEsame(data) == true) {
+        	if(control.creazioneEsame(cForm.getAcronimo(),
+        							  cForm.getDataEsame(),
+        							  cForm.getDataInizio(),
+        							  cForm.getDataFine(),
+        							  cForm.getAule()) == true) {
             	request.getSession().removeAttribute("acronimo");
             	messages.add("nome", new ActionMessage("creazione.esame.ok"));
             } else {
@@ -58,6 +49,6 @@ public class CreazioneEsameDoneAction extends Action {
         	saveMessages(request, messages);
         	forward = mapping.findForward("success");
         }
-        return (forward);
+        return forward;
     }
 }

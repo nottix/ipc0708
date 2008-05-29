@@ -46,7 +46,10 @@ public class ModificaAccountStudenteSelezionatoAction extends Action {
         		while(en.hasMoreElements()) {
         			String name = (String)en.nextElement();
         			if(name.equals("radio")) {
-        				account = gestioneAccountController.getAccountStudente(request.getParameter(name));
+        				/**
+        				 * TODO: Perche' getAccountStudente e' scomparso? E' inutile?
+        				 */
+        				account = gestioneAccountController.getAccount(request.getParameter(name));
         		        if(account == null) {
         		        	errors.add("nome", new ActionError("account.studente.no"));
         		        } else {

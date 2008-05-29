@@ -3,10 +3,9 @@ package ipc.actions;
 import ipc.control.LoginController;
 import ipc.forms.RichiestaRegStudenteForm;
 
-import java.util.Hashtable;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
@@ -32,20 +31,14 @@ public class RichiestaRegStudenteAction extends Action {
         ActionForward forward = new ActionForward(); 
         ActionMessages messages = new ActionMessages();
         try {
-        	RichiestaRegStudenteForm aRegisterRequestStudentForm = (RichiestaRegStudenteForm) form;
+        	RichiestaRegStudenteForm regRequestStudentForm = (RichiestaRegStudenteForm) form;
             LoginController loginController = new LoginController();
-            Hashtable<String, String> ht = new Hashtable<String, String>();
-            ht.put("nome", aRegisterRequestStudentForm.getNome());
-            ht.put("cognome", aRegisterRequestStudentForm.getCognome());
-            ht.put("matricola", aRegisterRequestStudentForm.getMatricola());
-            ht.put("password", aRegisterRequestStudentForm.getPassword());
-            ht.put("email", aRegisterRequestStudentForm.getEmail());
-            ht.put("status", "pendent");
-            ht.put("tipologia", "studente");
-            System.out.println("Richiesta");
-            if(loginController.richiestaRegStudente(ht) == true) {
+            if(loginController.richiestaRegStudente(regRequestStudentForm.getNome(),
+            										regRequestStudentForm.getCognome(),
+            										regRequestStudentForm.getMatricola(),
+            										regRequestStudentForm.getEmail(),
+            										regRequestStudentForm.getPassword()) == true) {
             	messages.add("nome", new ActionMessage("richiesta.registrazione.studente.ok"));
-                System.out.println("Richiesta fatta");	
             } else {
             	errors.add("nome", new ActionError("richiesta.registrazione.studente.no"));
             }

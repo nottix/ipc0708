@@ -14,9 +14,12 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
+
 /**
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class PrenotazioneEsameDoneAction extends Action {
 

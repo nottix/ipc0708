@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.Date;
 
 /**
  * @author Simone Notargiacomo
@@ -77,16 +78,23 @@ public class GestioneCorsoController {
 			
 			Long idCorso = corsoDao.get(acronimo).getId();
 			System.out.println("ID CORSO: "+idCorso);
-			
-			Esame esame = new Esame();
-			esame.setAuleEsame(aule);
-			esame.setDataEsame(new SimpleDateFormat("MM/dd/yy").parse(dataEsame));
-			esame.setDataInizioPeriodoPrenotazione(new SimpleDateFormat("MM/dd/yy").parse(inizioPeriodo));
-			esame.setDataFinePeriodoPrenotazione(new SimpleDateFormat("MM/dd/yy").parse(finePeriodo));
-			esame.setIdCorso(idCorso);
-			esame.setStatus("attivo");
+			Date examDate = new SimpleDateFormat("MM/dd/yy").parse(dataEsame);
+			Date dataInizioPrenotazioni = new SimpleDateFormat("MM/dd/yy").parse(inizioPeriodo);
+			Date dataFinePrenotazioni = new SimpleDateFormat("MM/dd/yy").parse(finePeriodo);
+			if( dataInizioPrenotazioni.before(dataFinePrenotazioni) &&
+				dataInizioPrenotazioni.after(new Date()) &&
+				dataFinePrenotazioni.before(examDate)) {
+				Esame esame = new Esame();
+				esame.setAuleEsame(aule);
 
-			return esameDao.create(esame);
+				esame.setDataEsame(examDate);
+				esame.setDataInizioPeriodoPrenotazione(dataInizioPrenotazioni);
+				esame.setDataFinePeriodoPrenotazione(dataFinePrenotazioni);
+				esame.setIdCorso(idCorso);
+				esame.setStatus("attivo");
+
+				return esameDao.create(esame);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -14,6 +14,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
+ */
 public class ConfermaIscrizioneController {
 
 	private List<Corso> elencoCorsi;

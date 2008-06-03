@@ -22,7 +22,9 @@ import org.apache.struts.action.ActionMessages;
 
 /**
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class ModificaCorsoDoneAction extends Action
 

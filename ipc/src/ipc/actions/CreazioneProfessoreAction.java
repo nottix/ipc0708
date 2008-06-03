@@ -17,7 +17,9 @@ import org.apache.struts.action.ActionMessages;
 
 /**
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class CreazioneProfessoreAction extends Action {
     public ActionForward execute(ActionMapping mapping, 
@@ -31,9 +33,6 @@ public class CreazioneProfessoreAction extends Action {
         CreazioneProfessoreController creazioneProfessoreController = new CreazioneProfessoreController();
         CreazioneProfessoreForm creazioneProfessoreForm = (CreazioneProfessoreForm)form;
         try {
-        	/**
-        	 * TODO: Perche' non settiamo noteProf?
-        	 */
         	if(creazioneProfessoreController.creazioneProfessore(creazioneProfessoreForm.getEmail(),
         														 creazioneProfessoreForm.getNome(),
         														 creazioneProfessoreForm.getCognome(),

@@ -15,6 +15,12 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
+/**
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
+ */
 public class ConfermaIscrizioneCorsoDoneAction extends Action {
     public ActionForward execute(ActionMapping mapping, 
     		                     ActionForm form, 

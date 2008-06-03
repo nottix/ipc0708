@@ -14,7 +14,14 @@ import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Date;
 
+/**
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
+ */
 public class GestioneEsameController {
 
 	private List<Corso> elencoCorsi;
@@ -98,12 +105,32 @@ public class GestioneEsameController {
 		return null;
 	}
 	
+	public List<PrenotazioneEsame> getPrenotatiEsameAttivi(Long idEsame) {
+		try {
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			PrenotazioneEsameDAO prenotazioneEsameDao = factory.getPrenotazioneEsameDAO();
+			
+			Iterator<PrenotazioneEsame> pe = prenotazioneEsameDao.getElenco().iterator();
+			this.elencoPrenotazioneEsame = new LinkedList<PrenotazioneEsame>();
+			while(pe.hasNext()) {
+				PrenotazioneEsame prenotazioneEsame = pe.next();
+				if(prenotazioneEsame.getIdEsame().equals(idEsame) && prenotazioneEsame.getStatus().equals("attivo")) {
+					this.elencoPrenotazioneEsame.add(prenotazioneEsame);
+				}
+			}
+			return this.elencoPrenotazioneEsame;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	public List<PrenotazioneEsame> getElencoPrenotazioniEsamiCorso(String acronimo) {
 		getElencoEsamiCorso(acronimo);
 		Iterator<Esame> i = elencoEsami.iterator();
 		elencoPrenotazioniEsamiCorso = new LinkedList<PrenotazioneEsame>();
 		while(i.hasNext()) {
-			getPrenotatiEsame(i.next().getId());
+			getPrenotatiEsameAttivi(i.next().getId());
 			elencoPrenotazioniEsamiCorso.addAll(elencoPrenotazioneEsame);
 		}
 		return elencoPrenotazioniEsamiCorso;
@@ -121,10 +148,6 @@ public class GestioneEsameController {
 				ptmp.setVotoAccettato(accettato);
 				if(presenza != null)
 					ptmp.setPresenzaEsame(presenza);
-				/**
-				 * TODO: E' corretto dire che uno studente ha ottenuto un voto
-				 * senza che sia 'presente' un esaminatore?
-				 */
 				if(esaminatore != null)
 					ptmp.setEsaminatore(esaminatore);
 				if(nota != null)
@@ -143,16 +166,18 @@ public class GestioneEsameController {
 			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
 			CorsoDAO corsoDao = factory.getCorsoDAO();
 			ProgettoDAO progettoDao = factory.getProgettoDAO();
-			
-			Long idCorso = corsoDao.get(acronimo).getId();
-			Progetto progetto = new Progetto();
-			progetto.setIdCorso(idCorso);
-			progetto.setDataConsegna(new SimpleDateFormat("MM/dd/yy").parse(dataConsegna));
-			progetto.setMaxDimGruppo(maxDim);
-			progetto.setMaxUploadPerStudente(maxUpload);
-			progetto.setTitolo(titolo);
-			progetto.setStatus("attivo");
-			return progettoDao.create(progetto);
+			Date commitDate = new SimpleDateFormat("MM/dd/yy").parse(dataConsegna);
+			if(commitDate.after(new Date())) {
+				Long idCorso = corsoDao.get(acronimo).getId();
+				Progetto progetto = new Progetto();
+				progetto.setIdCorso(idCorso);
+				progetto.setDataConsegna(commitDate);
+				progetto.setMaxDimGruppo(maxDim);
+				progetto.setMaxUploadPerStudente(maxUpload);
+				progetto.setTitolo(titolo);
+				progetto.setStatus("attivo");
+				return progettoDao.create(progetto);
+			}
 		} catch (NumberFormatException nfe) {
 			nfe.printStackTrace();
 		} catch (Exception e) {

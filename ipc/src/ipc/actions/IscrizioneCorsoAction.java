@@ -17,6 +17,12 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
+/**
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
+ */
 public class IscrizioneCorsoAction extends Action {
 
     public ActionForward execute(ActionMapping mapping, 
@@ -46,9 +52,6 @@ public class IscrizioneCorsoAction extends Action {
         		while(en.hasMoreElements()) {
         			String name = (String)en.nextElement();
         			if(name.equals("radio")) {
-        				/**
-        				 * TODO: ...e la data di iscrizione? ci serve a qualcosa?
-        				 */
         				if(control.iscrizioneCorso(idStudente, request.getParameter(name)) == true) {
         					messages.add("nome", new ActionMessage("iscrizione.corso.ok"));
         				} else {

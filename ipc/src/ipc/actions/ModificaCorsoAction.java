@@ -19,7 +19,9 @@ import org.apache.struts.action.ActionMapping;
 
 /**
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class ModificaCorsoAction extends Action {
 

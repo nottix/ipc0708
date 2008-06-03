@@ -1,5 +1,11 @@
 package ipc.db;
 
+/**
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
+ */
 public abstract class DAOFactory {
 	public static final Class HIBERNATE = ipc.db.IpcDAOFactory.class;
 	

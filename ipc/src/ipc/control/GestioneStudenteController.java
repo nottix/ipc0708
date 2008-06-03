@@ -15,6 +15,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
+ */
 public class GestioneStudenteController {
 	
 	private List<Corso> elencoCorsiDispAttivi;
@@ -82,6 +88,7 @@ public class GestioneStudenteController {
 			iscrizione.setIdStudente(email);
 			iscrizione.setStatus("pendent");
 			iscrizione.setDataIscrizione(new Date());
+			iscrizione.setFlag("");
 			return iscrizioneCorsoDao.create(iscrizione);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -102,6 +109,7 @@ public class GestioneStudenteController {
 			prenotazione.setIdEsame(idEsame);
 			prenotazione.setIdStudente(email);
 			prenotazione.setStatus("pendent");
+			prenotazione.setPresenzaEsame(false);
 
 			return prenotazioneEsameDao.create(prenotazione);
 		} catch (Exception e) {

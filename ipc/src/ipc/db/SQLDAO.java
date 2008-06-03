@@ -1,24 +1,5 @@
 package ipc.db;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Hashtable;
-import java.util.Set;
-import java.util.Iterator;
-
-import ipc.entity.Account;
-import ipc.entity.Corso;
-import ipc.entity.Esame;
-import ipc.entity.Gruppo;
-import ipc.entity.IscrizioneCorso;
-import ipc.entity.PrenotazioneEsame;
-import ipc.entity.Progetto;
-
-import org.hibernate.Hibernate;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-import org.hibernate.type.Type;
 
 //public class SQLDAO {
 //	public Account getAccount(String email) throws Exception {

@@ -31,9 +31,6 @@
 				<tr>
 					<td align=left><font color="red"><html:errors /></font></td>
 				</tr>
-				<tr>
-					<td><html:submit /></td>
-				</tr>
 			</tbody>
 		</table>
 		</logic:present>

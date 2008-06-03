@@ -11,6 +11,7 @@ public class MultiComparator implements Comparator {
 		comparators = new Vector();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void addComparator(Comparator c) {
 		comparators.add(c);
 	}
@@ -19,6 +20,7 @@ public class MultiComparator implements Comparator {
 		comparators.remove(c);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public int compare(Object obj1, Object obj2) {
 		int result, i;
 		Comparator c;

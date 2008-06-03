@@ -76,6 +76,7 @@ public class GestioneQueryController {
 		return null;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Account> ordinamentoReport(List<String> columns, List<Account> report) {
 		String column;
 		MultiComparator multi = new MultiComparator();

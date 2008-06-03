@@ -45,7 +45,7 @@
     						<td><bean:write name="user" property="dataChiusura" /></td>
     						
     						<td>
-    							<input type="radio" name="radio" value='<bean:write name="user" property="email" />'  /> 
+    							<input type="radio" name="radio" value='<bean:write name="user" property="acronimo" />'  /> 
     						</td>
     					</tr>
      					</logic:iterate>

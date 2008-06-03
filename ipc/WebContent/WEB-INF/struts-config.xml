@@ -66,6 +66,12 @@
 		</form-bean>
 		<form-bean name="modificaCorsoForm" type="ipc.forms.ModificaCorsoForm">
 		</form-bean>
+		<form-bean name="formBean" type="ipc.forms.FormBean">
+		</form-bean>
+		<form-bean name="formBean1" type="ipc.forms.FormBean1">
+		</form-bean>
+		<form-bean name="visualizzaCorsoElencoForm" type="ipc.forms.VisualizzaCorsoElencoForm">
+		</form-bean>
 	</form-beans>
 
 	<!-- Eccezioni globali -->
@@ -363,6 +369,22 @@
 			<forward name="success" path="/gestioneCorso.jsp">
 			</forward>
 			<forward name="error" path="/ModificaCorso.do">
+			</forward>
+		</action>
+		<action path="/VisualizzaCorsoElenco" type="ipc.actions.VisualizzaCorsoElencoAction" scope="request" name="visualizzaCorsoElencoForm">
+			<forward name="error" path="/homeStudente.jsp">
+			</forward>
+			<forward name="init" path="/visualizzaCorsoElenco.jsp">
+			</forward>
+		</action>
+		<action path="/VisualizzaCorso" type="ipc.actions.VisualizzaCorsoAction" scope="request" input="/visualizzaCorsoElenco.jsp" name="visualizzaCorsoElencoForm">
+			<forward name="error" path="/visualizzaCorsoElenco.jsp">
+			</forward>
+			<forward name="vicorso" path="/visualizzaInformazioniCorso.jsp">
+			</forward>
+			<forward name="viesami" path="/visualizzaInformazioniEsami.jsp">
+			</forward>
+			<forward name="viprogetti" path="/visualizzaInformazioniProgetti.jsp">
 			</forward>
 		</action>
 	</action-mappings>

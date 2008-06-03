@@ -5,10 +5,13 @@ import ipc.db.DAOFactory;
 import ipc.db.EsameDAO;
 import ipc.db.IscrizioneCorsoDAO;
 import ipc.db.PrenotazioneEsameDAO;
+import ipc.db.ProgettoDAO;
+import ipc.entity.Account;
 import ipc.entity.Corso;
 import ipc.entity.Esame;
 import ipc.entity.IscrizioneCorso;
 import ipc.entity.PrenotazioneEsame;
+import ipc.entity.Progetto;
 
 import java.util.Date;
 import java.util.Iterator;
@@ -25,6 +28,7 @@ public class GestioneStudenteController {
 	
 	private List<Corso> elencoCorsiDispAttivi;
 	private List<Esame> elencoEsamiDispAttivi;
+	private List<Progetto> elencoProgettiAttiviCorso;
 	
 	public List<Corso> getElencoCorsiDispAttivi() {
 		try {
@@ -68,8 +72,94 @@ public class GestioneStudenteController {
 					this.elencoEsamiDispAttivi.add(esame);
 				}
 			}
-
 			return this.elencoEsamiDispAttivi;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public List<Esame> getElencoEsamiDispAttiviCorso(String acronimo) {
+		try {
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			EsameDAO esameDao = factory.getEsameDAO();
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			Corso c = corsoDao.get(acronimo);
+			List<Esame> elencoEsami = esameDao.getElenco();
+			this.elencoEsamiDispAttivi = new LinkedList<Esame>();
+			Esame esame;
+
+			Iterator<Esame> i = elencoEsami.iterator();
+			System.out.println("size: "+elencoEsami.size());
+			while(i.hasNext()) {
+				esame = i.next();
+				System.out.println("esame: "+esame.getId());
+				if( esame.getStatus()!=null && esame.getStatus().equals("attivo")  && esame.getIdCorso().equals(c.getId()) && esame.isDisponibile()) {
+					this.elencoEsamiDispAttivi.add(esame);
+				}
+			}
+			return this.elencoEsamiDispAttivi;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	public List<Progetto> getElencoProgettiDispAttiviCorso(String acronimo) {
+		try {
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			ProgettoDAO progettoDao = factory.getProgettoDAO();
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			Corso c = corsoDao.get(acronimo);
+			List<Progetto> elencoProgetti = progettoDao.getElenco();
+			this.elencoProgettiAttiviCorso = new LinkedList<Progetto>();
+			Progetto project;
+			Iterator<Progetto> i = elencoProgetti.iterator();
+			while(i.hasNext()) {
+				project = i.next();
+				if( project.getStatus()!=null && project.getStatus().equals("attivo") &&
+					project.getIdCorso().equals(c.getId())) {
+					this.elencoProgettiAttiviCorso.add(project);
+				}
+			}
+			return this.elencoProgettiAttiviCorso;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Account> getElencoTitolariCorso(String acronimo) {
+		try {
+			
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			Corso c = corsoDao.get(acronimo);
+			List<Account> elencoTitolari = new LinkedList<Account>();
+			Iterator<Account> i = c.getElencoTitolari().iterator();
+			while(i.hasNext()) {
+				elencoTitolari.add(i.next());
+			}
+			return elencoTitolari;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Account> getElencoCollaboratoriCorso(String acronimo) {
+		try {
+			DAOFactory factory = DAOFactory.instance(DAOFactory.HIBERNATE);
+			CorsoDAO corsoDao = factory.getCorsoDAO();
+			Corso c = corsoDao.get(acronimo);
+			List<Account> elencoCollaboratori = new LinkedList<Account>();
+			Iterator<Account> i = c.getElencoCollaboratori().iterator();
+			while(i.hasNext()) {
+				elencoCollaboratori.add(i.next());
+			}
+			return elencoCollaboratori;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

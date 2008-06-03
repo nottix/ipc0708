@@ -7,7 +7,7 @@
 <html:html>
 <head>
 <link rel="stylesheet" href="theme/Master.css" type="text/css">
-<title>Home Studente</title>
+<title>visualizzaInformazioniProgetti</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="GENERATOR" content="Rational Software Architect">
 </head>
@@ -15,30 +15,8 @@
 <logic:notPresent name="email" scope="session">
 	<logic:redirect page="/login.jsp" />
 </logic:notPresent>
-<jsp:include page="sessionLogin.jsp" flush="false"></jsp:include>
+<jsp:include page="sessionLogin.jsp" flush="true"></jsp:include>
 <center>
-<h1>Home Studente</h1>
-<table border="1">
-	<tbody>
-		<tr>
-			<td align="center"><html:link action="/IscrizioneCorsoElenco">Iscrizione Corso</html:link></td>
-			<td align="center"><html:link action="/PrenotazioneEsameElencoCorsi">Prenotazione Esame</html:link></td>
-			<td align="center"><html:link action="/VisualizzaCorsoElenco">Visualizza Corsi</html:link>
-		</tr>
-				<tr>
-					<td colspan="2" align="center">
-						<html:messages id="msg" message="true">
-							<bean:write name="msg"/><br>
-						</html:messages>
-					</td>
-				</tr>
-		<tr>
-			<td colspan="2">
-				<font color="red"><html:errors/></font>
-			</td>
-		</tr>
-	</tbody>
-</table>
-</center>
+
 </body>
 </html:html>

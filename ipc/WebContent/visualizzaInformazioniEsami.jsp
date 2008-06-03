@@ -17,6 +17,44 @@
 </logic:notPresent>
 <jsp:include page="sessionLogin.jsp" flush="true"></jsp:include>
 <center>
+	<h1>Informazioni Esami</h1>
+			<logic:present name="elencoEsami">
+         <table border="0" cellspacing="1" cellpadding="1" align="center" width="70%" style="border-collapse:collapse;">
+         	<tr bgcolor="#98AFCC">
+        		<th>N°</th>
+           		<th>Acronimo</th>
+           		<th>Data Esame</th>
+	         	<th>Data Inizio Pren</th>
+	           	<th>Data Fine Pren</th>
+	           	<th>Aule</th>
+	           				
+	    				</tr>
+	    				<%boolean even = false; %>
+	    				<%int counter = 1; %>
+	    				<logic:iterate id="user" name="elencoEsami">
+	    				<% even = !even; %>
+	    				<tr bgcolor="<%=even?"#B7D3F5":"#D6E0F5" %>">
+	    					<td><%=counter++%></td>
+	    					<td><%=(String)session.getAttribute("acronimo")%></td>
+    						<td><bean:write name="user" property="dataEsame" /></td>
+	    					<td><bean:write name="user" property="dataInizioPeriodoPrenotazione" /></td>
+    						<td><bean:write name="user" property="dataFinePeriodoPrenotazione" /></td>
+    						<td><bean:write name="user" property="auleEsame" /></td>
+    					</tr>
+     					</logic:iterate>
+     				</table>
+		</logic:present>
+		
+     				<table>
+     					<tr>
+     					<td align=center>
+     						<font color=red>
+     							<html:errors />
+     						</font>
+     					</td>
+     					</tr>
+     				</table>
 
+</center>
 </body>
 </html:html>

@@ -17,6 +17,44 @@
 </logic:notPresent>
 <jsp:include page="sessionLogin.jsp" flush="true"></jsp:include>
 <center>
+	<h1>Informazioni Progetti</h1>
+			<logic:present name="eelencoProgetti">
+         <table border="0" cellspacing="1" cellpadding="1" align="center" width="70%" style="border-collapse:collapse;">
+         	<tr bgcolor="#98AFCC">
+        		<th>N°</th>
+           		<th>Titolo</th>
+           		<th>Data Consegna</th>
+	         	<th>Max Upload</th>
+	           	<th>Max Dim Gruppo</th>
+	           				
+	    				</tr>
+	    				<%boolean even = false; %>
+	    				<%int counter = 1; %>
+	    				<logic:iterate id="user" name="elencoProgetti">
+	    				<% even = !even; %>
+	    				<tr bgcolor="<%=even?"#B7D3F5":"#D6E0F5" %>">
+	    					<td><%=counter++%></td>
+	    					<td><%=(String)session.getAttribute("acronimo")%></td>
+    						<td><bean:write name="user" property="titolo" /></td>
+	    					<td><bean:write name="user" property="dataConsegna" /></td>
+    						<td><bean:write name="user" property="maxUploadPerStudente" /></td>
+    						<td><bean:write name="user" property="maxDimGruppo" /></td>
+    					</tr>
+     					</logic:iterate>
+     				</table>
+		</logic:present>
+		
+     				<table>
+     					<tr>
+     					<td align=center>
+     						<font color=red>
+     							<html:errors />
+     						</font>
+     					</td>
+     					</tr>
+     				</table>
+
+</center>
 
 </body>
 </html:html>

@@ -50,12 +50,12 @@
 			<th>Cognome</th>
 			<th>Email</th>
 		</tr>
-		<% even = false; %>
-		<% counter = 1; %>
+		<% boolean even1 = false; %>
+		<% int counter1 = 1; %>
 		<logic:iterate id="collaboratore" name="elencoCollaboratori">
-			<% even = !even; %>
-			<tr bgcolor="<%=even?"#B7D3F5":"#D6E0F5" %>">
-				<td><%=counter++%></td>
+			<% even1 = !even1; %>
+			<tr bgcolor="<%=even1?"#B7D3F5":"#D6E0F5" %>">
+				<td><%=counter1++%></td>
 				<td><bean:write name="collaboratore" property="nome" /></td>
 				<td><bean:write name="collaboratore" property="cognome" /></td>
 				<td><bean:write name="collaboratore" property="email" /></td>

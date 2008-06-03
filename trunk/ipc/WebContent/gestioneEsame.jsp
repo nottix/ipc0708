@@ -38,9 +38,6 @@
 				<tr>
 					<td><font color="red"><html:errors /></font></td>
 				</tr>
-				<tr>
-					<td><html:submit></html:submit></td>
-				</tr>
 			</tbody>
 		</table>
 		<table>

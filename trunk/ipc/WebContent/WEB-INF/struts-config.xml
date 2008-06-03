@@ -206,7 +206,7 @@
 			</forward>
 		</action>
 		<action path="/CreazioneProgettoDone" type="ipc.actions.CreazioneProgettoDoneAction" name="creazioneProgettoForm" scope="request" input="/creazioneProgetto.jsp">
-			<forward name="success" path="/creazioneProgetto.jsp">
+			<forward name="success" path="/GestioneEsame.do">
 			</forward>
 			<forward name="error" path="/creazioneProgetto.jsp">
 			</forward>

@@ -18,6 +18,12 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
+/**
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
+ */
 public class ModificaAccountStudenteSelezionatoAction extends Action {
 
 	private Account account;
@@ -46,9 +52,6 @@ public class ModificaAccountStudenteSelezionatoAction extends Action {
         		while(en.hasMoreElements()) {
         			String name = (String)en.nextElement();
         			if(name.equals("radio")) {
-        				/**
-        				 * TODO: Perche' getAccountStudente e' scomparso? E' inutile?
-        				 */
         				account = gestioneAccountController.getAccount(request.getParameter(name));
         		        if(account == null) {
         		        	errors.add("nome", new ActionError("account.studente.no"));

@@ -7,6 +7,12 @@ import ipc.db.AccountDAO;
 import ipc.db.DAOFactory;
 import ipc.entity.Account;
 
+/**
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
+ */
 public class CreazioneProfessoreController {
 
 	public Boolean creazioneProfessore(String email, String nome,

@@ -1,8 +1,11 @@
 package ipc.forms;
 
+import ipc.utils.Utils;
+
 import javax.servlet.http.HttpServletRequest;
-import org.apache.struts.action.ActionErrors;
+
 import org.apache.struts.action.ActionError;
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
@@ -164,7 +167,7 @@ public class CreazioneProfessoreForm extends ActionForm {
 			errors.add("cognome", new ActionError("cognome.error"));
 		if((email != null) && (email.length() == 0))
 			errors.add("email", new ActionError("email.error"));
-		else if(!RichiestaRegStudenteForm.check_email(email))
+		else if(!Utils.check_email(email))
 			errors.add("email", new ActionError("email.malformed"));
 	    System.out.println("pwd: "+password+", cpwd: "+confPassword);
 		if((password != null) && (password.length() == 0)) {

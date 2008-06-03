@@ -1,5 +1,7 @@
 package ipc.forms;
 
+import ipc.utils.Utils;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.struts.action.ActionError;
@@ -24,102 +26,102 @@ public class CreazioneAccountGestoreForm extends ActionForm {
 	private static final long serialVersionUID = 10L;
 
 	private String nome = null;
-    private String cognome = null;
-    private String email = null;
-    private String password = null;
-    private String confPassword = null;
+	private String cognome = null;
+	private String email = null;
+	private String password = null;
+	private String confPassword = null;
 
-    /**
-     * Get nome
-     * @return String
-     */
-    public String getNome() {
-	return nome;
-    }
+	/**
+	 * Get nome
+	 * @return String
+	 */
+	public String getNome() {
+		return nome;
+	}
 
-    /**
-     * Set nome
-     * @param <code>String</code>
-     */
-    public void setNome(String n) {
-	this.nome = n;
-    }
+	/**
+	 * Set nome
+	 * @param <code>String</code>
+	 */
+	public void setNome(String n) {
+		this.nome = n;
+	}
 
-    /**
-     * Get cognome
-     * @return String
-     */
-    public String getCognome() {
-	return cognome;
-    }
+	/**
+	 * Get cognome
+	 * @return String
+	 */
+	public String getCognome() {
+		return cognome;
+	}
 
-    /**
-     * Set cognome
-     * @param <code>String</code>
-     */
-    public void setCognome(String c) {
-	this.cognome = c;
-    }
+	/**
+	 * Set cognome
+	 * @param <code>String</code>
+	 */
+	public void setCognome(String c) {
+		this.cognome = c;
+	}
 
-    /**
-     * Get email
-     * @return String
-     */
-    public String getEmail() {
-	return email;
-    }
+	/**
+	 * Get email
+	 * @return String
+	 */
+	public String getEmail() {
+		return email;
+	}
 
-    /**
-     * Set email
-     * @param <code>String</code>
-     */
-    public void setEmail(String e) {
-	this.email = e;
-    }
+	/**
+	 * Set email
+	 * @param <code>String</code>
+	 */
+	public void setEmail(String e) {
+		this.email = e;
+	}
 
-    /**
-     * Get password
-     * @return String
-     */
-    public String getPassword() {
-	return password;
-    }
+	/**
+	 * Get password
+	 * @return String
+	 */
+	public String getPassword() {
+		return password;
+	}
 
-    /**
-     * Set password
-     * @param <code>String</code>
-     */
-    public void setPassword(String p) {
-	this.password = p;
-    }
+	/**
+	 * Set password
+	 * @param <code>String</code>
+	 */
+	public void setPassword(String p) {
+		this.password = p;
+	}
 
-    /**
-     * Get confPassword
-     * @return String
-     */
-    public String getConfPassword() {
-	return confPassword;
-    }
+	/**
+	 * Get confPassword
+	 * @return String
+	 */
+	public String getConfPassword() {
+		return confPassword;
+	}
 
-    /**
-     * Set confPassword
-     * @param <code>String</code>
-     */
-    public void setConfPassword(String c) {
-	this.confPassword = c;
-    }
+	/**
+	 * Set confPassword
+	 * @param <code>String</code>
+	 */
+	public void setConfPassword(String c) {
+		this.confPassword = c;
+	}
 
-    public void reset(ActionMapping mapping, HttpServletRequest request) {
+	public void reset(ActionMapping mapping, HttpServletRequest request) {
 
-	// Reset values are provided as samples only. Change as appropriate.
+		// Reset values are provided as samples only. Change as appropriate.
 
-	nome = null;
-	cognome = null;
-	email = null;
-	password = null;
-	confPassword = null;
+		nome = null;
+		cognome = null;
+		email = null;
+		password = null;
+		confPassword = null;
 
-    }
+	}
 
     public ActionErrors validate(ActionMapping mapping,
 	    HttpServletRequest request) {
@@ -132,7 +134,7 @@ public class CreazioneAccountGestoreForm extends ActionForm {
 			errors.add("cognome", new ActionError("cognome.error"));
 		if((email != null) && (email.length() == 0))
 			errors.add("email", new ActionError("email.error"));
-		else if(!RichiestaRegStudenteForm.check_email(email))
+		else if(!Utils.check_email(email))
 			errors.add("email", new ActionError("email.malformed"));
 		if((password != null) && (password.length() == 0)) {
 			check_pass = false;

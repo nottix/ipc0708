@@ -1,6 +1,3 @@
-/**
- * 
- */
 package ipc.control;
 
 import ipc.db.AccountDAO;
@@ -12,8 +9,10 @@ import ipc.entity.Corso;
 import java.util.Iterator;
 
 /**
- * @author Simone Notargiacomo
- *
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class LoginController {
 

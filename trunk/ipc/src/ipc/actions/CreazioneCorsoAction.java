@@ -20,10 +20,11 @@ import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
 
-
 /**
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class CreazioneCorsoAction extends Action {
 
@@ -70,9 +71,6 @@ public class CreazioneCorsoAction extends Action {
         		if(titolareCounter>1) {
         			if(collaboratoreCounter == 0)
         				collaboratori = null;
-        			/**
-        			 * TODO: Perche' i commenti non ce li facciamo mettere?
-        			 */
         			if(creazioneCorsoController.creazioneCorso(creazioneCorsoForm.getNome(),
         													   creazioneCorsoForm.getAcronimo(),
         													   creazioneCorsoForm.getDataApertura(),

@@ -1,8 +1,9 @@
 package ipc.forms;
 
 import javax.servlet.http.HttpServletRequest;
-import org.apache.struts.action.ActionErrors;
+
 import org.apache.struts.action.ActionError;
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
@@ -112,8 +113,8 @@ public class ConfermaPrenotazioneEsameForm extends ActionForm {
     		errors.add("dataPrenotazione", new ActionError("data.prenotazione.error"));
     	if((email != null) && (email.length() == 0))
     		errors.add("email", new ActionError("email.error"));
-		else if(!RichiestaRegStudenteForm.check_email(email))
-			errors.add("email", new ActionError("email.malformed"));
+		//else if(!Utils.check_email(email))
+		//	errors.add("email", new ActionError("email.malformed"));
     	return errors;
     }
 }

@@ -1,6 +1,7 @@
 package ipc.forms;
 
-import java.util.regex.Pattern;
+
+import ipc.utils.Utils;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -170,17 +171,8 @@ public class RichiestaRegStudenteForm extends ActionForm {
 			errors.add("password", new ActionError("passwordmatch.error"));
 		if((email != null) && (email.length() == 0))
 			errors.add("email", new ActionError("email.error"));
-		else if(check_email(email) == false)
+		else if(Utils.check_email(email) == false)
 			errors.add("email", new ActionError("email.malformed"));
 		return errors;
-    }
-
-    /*If it returns false we have an invalid email!*/
-    public static boolean check_email(String email) {
-		boolean test1 = Pattern.compile("[a-zA-Z0-9_]+[.[a-zA-Z0-9]+]*@[a-zA-Z0-9_]+[.[a-zA-Z]+]+").matcher(email).matches();
-		boolean test2 = Pattern.compile("^\\S+@\\S+$").matcher(email).matches();
-		//boolean test3 = Pattern.compile(".+@.+\\.+").matcher(email).matches();
-		boolean test4 = Pattern.compile("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$").matcher(email).matches();
-		return test1 && test2 && /*test3 &&*/ test4;
     }
 }

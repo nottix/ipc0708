@@ -17,7 +17,9 @@ import org.apache.struts.action.ActionMessages;
 
 /**
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class CreazioneProgettoDoneAction extends Action {
 
@@ -35,19 +37,16 @@ public class CreazioneProgettoDoneAction extends Action {
         								 Integer.valueOf(cForm.getMaxUploadPerStudente()),
         								 Integer.valueOf(cForm.getMaxDimGruppo()),
         								 cForm.getDataConsegna()) == true) {
-            	messages.add("nome", new ActionMessage("iscrizione.corso.ok"));
+            	messages.add("nome", new ActionMessage("creazione.progetto.ok"));
             } else {
-            	errors.add("nome", new ActionError("iscrizione.corso.no"));
+            	errors.add("nome", new ActionError("creazione.progetto.no"));
             }
         } catch (Exception e) {
             errors.add("name", new ActionError("generic.error"));
         }
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
-            /**
-             * TODO: E' corretto questo?!?!?
-             */
-            forward = mapping.findForward("success");
+            forward = mapping.findForward("error");
         } else if(!messages.isEmpty()) {
         	saveMessages(request, messages);
         	forward = mapping.findForward("success");

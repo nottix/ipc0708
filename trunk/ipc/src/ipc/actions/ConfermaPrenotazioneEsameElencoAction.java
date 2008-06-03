@@ -20,7 +20,9 @@ import org.apache.struts.action.ActionMessages;
 
 /**
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class ConfermaPrenotazioneEsameElencoAction extends Action {
 	private List<PrenotazioneEsame> elencoPrenotazioniEsami;
@@ -41,8 +43,8 @@ public class ConfermaPrenotazioneEsameElencoAction extends Action {
         ConfermaIscrizioneController control = new ConfermaIscrizioneController();
 
         try {
-        	System.out.println("ssss");
         	HttpSession session = request.getSession();
+        	System.out.println("Acronimo: " + session.getAttribute("acronimo"));
             this.elencoPrenotazioniEsami = control.getPrenotazioniEsame((String)session.getAttribute("acronimo"));
             if(this.elencoPrenotazioniEsami == null) {
             	errors.add("nome", new ActionError("elenco.prenotazione.esami.no"));

@@ -1562,7 +1562,7 @@
             <element xsi:nil="true"/>
           </contents>
         </eAnnotations>
-        <packagedElement xmi:type="uml:UseCase" xmi:id="_EqxgQAfYEd2-ceq6feMsFQ" name="Conferme Iscrizioni"/>
+        <packagedElement xmi:type="uml:UseCase" xmi:id="_EqxgQAfYEd2-ceq6feMsFQ" name="Conferma Iscrizione"/>
         <packagedElement xmi:type="uml:UseCase" xmi:id="_J3KFkAfYEd2-ceq6feMsFQ" name="Gestione Esame"/>
         <packagedElement xmi:type="uml:Association" xmi:id="_q1nqsAfYEd2-ceq6feMsFQ" memberEnd="_q1txUAfYEd2-ceq6feMsFQ _q1z38AfYEd2-ceq6feMsFQ" navigableOwnedEnd="_q1txUAfYEd2-ceq6feMsFQ _q1z38AfYEd2-ceq6feMsFQ">
           <ownedEnd xmi:id="_q1txUAfYEd2-ceq6feMsFQ" name="" visibility="private" type="_npcCkAfYEd2-ceq6feMsFQ" association="_q1nqsAfYEd2-ceq6feMsFQ"/>

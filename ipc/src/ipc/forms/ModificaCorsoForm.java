@@ -18,11 +18,14 @@ import org.apache.struts.action.ActionMapping;
  * <li>dataChiusura - [your comment here]
  * <li>comunicazioni - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class ModificaCorsoForm extends ActionForm {
-	private static final long serialVersionUID = 27L;
+	private static final long serialVersionUID = 19L;
 	
 	private String nome = null;
 	private String acronimo = null;

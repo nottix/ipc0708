@@ -18,11 +18,14 @@ import org.apache.struts.action.ActionMapping;
  * <li>esaminatore - [your comment here]
  * <li>nota - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class ModificaVotiForm extends ActionForm {
-	private static final long serialVersionUID = 24L;
+	private static final long serialVersionUID = 21L;
 
 	private String idStudente = null;
     private String dataEsame = null;

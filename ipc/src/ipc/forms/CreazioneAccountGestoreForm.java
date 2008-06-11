@@ -19,11 +19,14 @@ import org.apache.struts.action.ActionMapping;
  * <li>password - [your comment here]
  * <li>confPassword - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class CreazioneAccountGestoreForm extends ActionForm {
-	private static final long serialVersionUID = 10L;
+	private static final long serialVersionUID = 5L;
 
 	private String nome = null;
 	private String cognome = null;

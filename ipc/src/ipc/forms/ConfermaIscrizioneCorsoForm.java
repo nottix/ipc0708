@@ -13,13 +13,16 @@ import org.apache.struts.action.ActionMapping;
  * <li>email - [your comment here]
  * <li>dataIscrizione - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class ConfermaIscrizioneCorsoForm extends ActionForm
 
 {
-	private static final long serialVersionUID = 7L;
+	private static final long serialVersionUID = 2L;
 
 	private String submit = null;
     private String email = null;

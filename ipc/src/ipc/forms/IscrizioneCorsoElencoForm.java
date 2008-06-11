@@ -11,11 +11,14 @@ import org.apache.struts.action.ActionMapping;
  * <ul>
  * <li>radio - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class IscrizioneCorsoElencoForm extends ActionForm {
-	private static final long serialVersionUID = 28L;
+	private static final long serialVersionUID = 15L;
 
 	private String radio = null;
 

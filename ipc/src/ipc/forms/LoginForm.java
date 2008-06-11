@@ -16,11 +16,14 @@ import org.apache.struts.action.ActionMapping;
  * <li>email - [your comment here]
  * <li>password - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class LoginForm extends ActionForm {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 17L;
 
 	private String email = null;
     private String password = null;

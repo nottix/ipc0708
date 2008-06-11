@@ -2,7 +2,12 @@ package ipc.utils;
 
 import java.util.Comparator;
 import java.util.*;
-
+/**
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
+ */
 public class MultiComparator implements Comparator {
 	
 	private Vector comparators;

@@ -15,11 +15,14 @@ import org.apache.struts.action.ActionMapping;
  * <li>dataEsame - [your comment here]
  * <li>auleEsame - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class PrenotazioneEsameForm extends ActionForm {
-	private static final long serialVersionUID = 21L;
+	private static final long serialVersionUID = 24L;
 	
     private String dataInizioPeriodoPrenotazione = null;
     private String dataFinePeriodoPrenotazione = null;

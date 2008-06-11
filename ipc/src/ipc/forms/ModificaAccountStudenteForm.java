@@ -16,8 +16,11 @@ import org.apache.struts.action.ActionMapping;
  * <li>email - [your comment here]
  * <li>note - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class ModificaAccountStudenteForm extends ActionForm {
 	private static final long serialVersionUID = 18L;

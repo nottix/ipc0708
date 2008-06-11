@@ -2,7 +2,12 @@ package ipc.db;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-
+/**
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
+ */
 public class HibernateUtil {
     private static final SessionFactory sessionFactory;
 

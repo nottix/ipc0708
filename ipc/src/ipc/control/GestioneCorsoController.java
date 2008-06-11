@@ -1,6 +1,3 @@
-/**
- * 
- */
 package ipc.control;
 
 import ipc.db.AccountDAO;
@@ -18,8 +15,10 @@ import java.util.Set;
 import java.util.Date;
 
 /**
- * @author Simone Notargiacomo
- *
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class GestioneCorsoController {
 

@@ -5,10 +5,11 @@ package ipc.utils;
 
 import java.util.Comparator;
 import ipc.entity.*;
-
 /**
- * @author Avenger
- *
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class AccountNomeComparator implements Comparator {
 
@@ -17,5 +18,4 @@ public class AccountNomeComparator implements Comparator {
         String nome2 = ((Account)o2).getNome();
         return nome1.compareTo(nome2);
 	}
-
 }

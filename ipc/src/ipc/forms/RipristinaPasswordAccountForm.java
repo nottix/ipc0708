@@ -4,14 +4,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
-
 /**
- * Form bean for a Struts application.
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class RipristinaPasswordAccountForm extends ActionForm {
-	private static final long serialVersionUID = 22L;
+	private static final long serialVersionUID = 26L;
 	
     public void reset(ActionMapping mapping, HttpServletRequest request) {
 

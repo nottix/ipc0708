@@ -1,7 +1,12 @@
 package ipc.db;
 
 import org.hibernate.Session;
-
+/**
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
+ */
 public class IpcDAOFactory extends DAOFactory {
 	
 	public CorsoDAO getCorsoDAO() {

@@ -12,11 +12,14 @@ import org.apache.struts.action.ActionMapping;
  * <ul>
  * <li>acronimo - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class GestioneCorsoForm extends ActionForm {
-	private static final long serialVersionUID = 15L;
+	private static final long serialVersionUID = 13L;
 	
 	private String acronimo = null;
 

@@ -28,6 +28,7 @@ public class ConfermaIscrizioneAction extends Action {
 
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward();
+        boolean corso_selected = false;
         try {
         	if (isCancelled(request)) {
         		return mapping.findForward("main");
@@ -39,12 +40,15 @@ public class ConfermaIscrizioneAction extends Action {
         		while(en.hasMoreElements()) {
         			String name = (String)en.nextElement();
         			if(name.equals("radio")) {
+        				corso_selected = true;
         				System.out.println("request: "+request.getParameter(name));
         				String acronimo = request.getParameter(name);
         				HttpSession session = request.getSession();
         				session.setAttribute("acronimo", acronimo);
         			}
         		}
+        		if(corso_selected == false)
+        			errors.add("name", new ActionError("radio.button.error"));
         	}
         } catch (Exception e) {
             errors.add("name", new ActionError("id"));

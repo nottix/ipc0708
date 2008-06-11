@@ -61,6 +61,7 @@ public class VisualizzaCorsoAction extends Action {
         ActionForward forward = new ActionForward();
         ActionMessages messages = new ActionMessages();
         String map = "";
+        boolean radio_is_set = false;
         GestioneStudenteController control = new GestioneStudenteController();
         VisualizzaCorsoElencoForm cForm = (VisualizzaCorsoElencoForm) form;
         try {
@@ -70,7 +71,9 @@ public class VisualizzaCorsoAction extends Action {
         	} else {
         		while(en.hasMoreElements()) {
         			String name = (String)en.nextElement();
+        			System.out.println(name);
         			if(name.equals("radio")) {
+        				radio_is_set = true;
         				String acronimo = request.getParameter(name);
         				request.setAttribute("acronimo", acronimo);
         				request.getSession().setAttribute("acronimo", acronimo);
@@ -112,9 +115,12 @@ public class VisualizzaCorsoAction extends Action {
                 		}
         			}
         		}
+        		if(radio_is_set == false) {
+        			errors.add("nome", new ActionError("radio.button.error"));
+        		}
             }
         } catch (Exception e) {
-            errors.add("name", new ActionError("id"));
+            errors.add("name", new ActionError("generic.error"));
         }
         if (!errors.isEmpty()) {
             saveErrors(request, errors);

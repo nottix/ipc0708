@@ -58,25 +58,13 @@ public class VisualizzaCorsoElencoForm extends ActionForm {
     }
 
     public void reset(ActionMapping mapping, HttpServletRequest request) {
-
-	// Reset values are provided as samples only. Change as appropriate.
-
-	radio = null;
-	submit = null;
-
+    	radio = null;
+		submit = null;
     }
 
     public ActionErrors validate(ActionMapping mapping,
 	    HttpServletRequest request) {
-
-	ActionErrors errors = new ActionErrors();
-	// Validate the fields in your form, adding
-	// adding each error to this.errors as found, e.g.
-
-	// if ((field == null) || (field.length() == 0)) {
-	//   errors.add("field", new org.apache.struts.action.ActionError("error.field.required"));
-	// }
-	return errors;
-
+    	ActionErrors errors = new ActionErrors();
+		return errors;
     }
 }

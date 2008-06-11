@@ -288,17 +288,17 @@
 			</forward>
 			<forward name="main" path="/homeProfessore.jsp">
 			</forward>
-			<forward name="error" path="/ConfermaIscrizioneCorso.do">
+			<forward name="error" path="/ConfermaIscrizioneElenco.do">
 			</forward>
 		</action>
 		<action path="/ConfermaIscrizioneCorso" type="ipc.actions.ConfermaIscrizioneCorsoAction" scope="request" input="/confermaIscrizioneCorsoElenco.jsp" name="confermaIscrizioneCorsoForm">
 			<forward name="success" path="/confermaIscrizioneCorso.jsp">
 			</forward>
-			<forward name="error" path="/confermaIscrizioneCorso.jsp">
+			<forward name="error" path="/ConfermaIscrizioneCorsoElenco.do">
 			</forward>
 		</action>
 		<action path="/ConfermaIscrizioneCorsoDone" type="ipc.actions.ConfermaIscrizioneCorsoDoneAction" scope="request" input="/confermaIscrizioneCorso.jsp" name="confermaIscrizioneCorsoForm">
-			<forward name="success" path="/ConfermaIscrizioneElenco.do">
+			<forward name="success" path="/confermaIscrizione.jsp">
 			</forward>
 			<forward name="error" path="/confermaIscrizioneCorso.jsp">
 			</forward>

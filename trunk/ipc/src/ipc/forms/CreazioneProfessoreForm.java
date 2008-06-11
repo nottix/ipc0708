@@ -21,12 +21,15 @@ import org.apache.struts.action.ActionMapping;
  * <li>isDirettore - [your comment here]
  * <li>isGestore - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class CreazioneProfessoreForm extends ActionForm {
 
-	private static final long serialVersionUID = 6L;
+	private static final long serialVersionUID = 8L;
 	
 	private String nome = null;
     private String cognome = null;

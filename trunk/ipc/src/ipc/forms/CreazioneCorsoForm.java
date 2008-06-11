@@ -19,12 +19,15 @@ import org.apache.struts.action.ActionMapping;
  * <li>dataChiusura - [your comment here]
  * <li><bean:write name="user" property="email" /> - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class CreazioneCorsoForm extends ActionForm {
 	
-	private static final long serialVersionUID = 11L;
+	private static final long serialVersionUID = 6L;
 	private String nome = null;
 	private String acronimo = null;
 	private String descrizione = null;

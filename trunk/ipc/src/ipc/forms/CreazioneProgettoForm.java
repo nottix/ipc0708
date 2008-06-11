@@ -16,11 +16,14 @@ import org.apache.struts.action.ActionMapping;
  * <li>maxUploadPerStudente - [your comment here]
  * <li>maxDimGruppo - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class CreazioneProgettoForm extends ActionForm {
-	private static final long serialVersionUID = 13L;
+	private static final long serialVersionUID = 9L;
 
 	private String acronimo = null;
     private String titolo = null;

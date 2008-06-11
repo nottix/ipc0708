@@ -33,7 +33,6 @@ public class CreazioneEsameAction extends Action {
         ActionForward forward = new ActionForward();
         ActionMessages messages = new ActionMessages();
         try {
-        	System.out.println("ok");
         	Enumeration en = request.getParameterNames();
         	while(en.hasMoreElements()) {
         		String name = (String)en.nextElement();
@@ -48,7 +47,7 @@ public class CreazioneEsameAction extends Action {
         		}
         	}
         } catch (Exception e) {
-            errors.add("name", new ActionError("id"));
+            errors.add("name", new ActionError("generic.error"));
         }
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
@@ -57,7 +56,7 @@ public class CreazioneEsameAction extends Action {
         	saveMessages(request, messages);
         	forward = mapping.findForward("success");
         }
-        return (forward);
+        return forward;
 
     }
 }

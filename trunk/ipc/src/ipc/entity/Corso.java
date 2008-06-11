@@ -4,7 +4,12 @@ import java.util.Date;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
-
+/**
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
+ */
 public class Corso {
 	private Long id;
 	private String nome;

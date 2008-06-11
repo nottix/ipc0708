@@ -6,12 +6,13 @@ import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 
 /**
- * Form bean for a Struts application.
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class IscrizioneCorsoForm extends ActionForm {
-	private static final long serialVersionUID = 17L;
+	private static final long serialVersionUID = 16L;
 
 	public void reset(ActionMapping mapping, HttpServletRequest request) {
 

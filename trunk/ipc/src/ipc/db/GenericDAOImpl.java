@@ -7,7 +7,12 @@ import java.lang.reflect.*;
 import java.util.List;
 import org.hibernate.criterion.*;
 import org.hibernate.Criteria;
-
+/**
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
+ */
 public abstract class GenericDAOImpl<T, ID extends Serializable> implements GenericDAO<T, ID> {
 
 	private Class<T> persistentClass;

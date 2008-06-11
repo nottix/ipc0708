@@ -1,6 +1,3 @@
-/**
- * 
- */
 package ipc.control;
 
 import ipc.db.AccountDAO;

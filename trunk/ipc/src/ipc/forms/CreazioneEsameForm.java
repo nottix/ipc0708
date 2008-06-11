@@ -15,11 +15,14 @@ import org.apache.struts.action.ActionMapping;
  * <li>dataInizio - [your comment here]
  * <li>dataFine - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class CreazioneEsameForm extends ActionForm {
-	private static final long serialVersionUID = 12L;
+	private static final long serialVersionUID = 7L;
 
 	private String acronimo = null;
     private String dataEsame = null;

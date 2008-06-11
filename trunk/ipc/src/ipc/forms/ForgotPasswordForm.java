@@ -15,11 +15,14 @@ import org.apache.struts.action.ActionMapping;
  * <ul>
  * <li>email - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class ForgotPasswordForm extends ActionForm {
-	private static final long serialVersionUID = 3L;
+	private static final long serialVersionUID = 10L;
 	
 	private String email = null;
 

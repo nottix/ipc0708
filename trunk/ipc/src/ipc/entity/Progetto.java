@@ -1,6 +1,11 @@
 package ipc.entity;
 import java.util.Date;
-
+/**
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
+ */
 public class Progetto {
 	private Long id;
 	private String titolo;

@@ -16,12 +16,15 @@ import org.apache.struts.action.ActionMapping;
  * <li>dataPrenotazione - [your comment here]
  * <li>submit - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class ConfermaPrenotazioneEsameForm extends ActionForm {
 
-	private static final long serialVersionUID = 9L;
+	private static final long serialVersionUID = 4L;
 
 	private String email = null;
 

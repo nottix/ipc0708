@@ -2,7 +2,12 @@ package ipc.entity;
 
 import java.util.HashSet;
 import java.util.Set;
-
+/**
+ * @version 	1.0
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
+ */
 public class Gruppo {
 	private Long id; // AUTOINCREMENT
 	private Integer maxStudenti;

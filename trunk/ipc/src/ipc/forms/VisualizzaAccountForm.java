@@ -16,12 +16,15 @@ import org.apache.struts.action.ActionMapping;
  * <li>note - [your comment here]
  * <li>email - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class VisualizzaAccountForm extends ActionForm {
 	
-	private static final long serialVersionUID = 6L;
+	private static final long serialVersionUID = 27L;
 
 	private String nome = null;
 

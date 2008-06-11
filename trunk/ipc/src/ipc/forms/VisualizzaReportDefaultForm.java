@@ -14,11 +14,14 @@ import org.apache.struts.action.ActionMapping;
  * <li>nomeCheck - [your comment here]
  * <li>cognomeCheck - [your comment here]
  * </ul>
+ *
  * @version 	1.0
- * @author
+ * @author		Laurenziello Vincenzo
+ * @author 		Notargiacomo Simone
+ * @author		Scenna Fabrizio
  */
 public class VisualizzaReportDefaultForm extends ActionForm {
-	private static final long serialVersionUID = 36L;
+	private static final long serialVersionUID = 29L;
 
 	private String matricola = null;
 

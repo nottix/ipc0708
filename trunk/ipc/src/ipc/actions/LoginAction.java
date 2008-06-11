@@ -49,27 +49,27 @@ public class LoginAction extends Action {
         	}
         	if(loginController.login(loginForm.getEmail(), loginForm.getPassword()) == false) {
         		errors.add("tipologia", new ActionError("tipologia.error"));
-        		System.out.println("tipologia del menga");
-        	}
-        	tipologia = loginController.getTipologia();
-        	if(tipologia == null) {
-        		errors.add("tipologia", new ActionError("tipologia.error"));
         	} else {
-        		System.out.println("tipologia " + tipologia);
-        		messages.add("tipologia", new ActionMessage("tipologia.ok"));
-        		session = request.getSession(true);
-            	session.setAttribute("email", loginForm.getEmail());
-            	session.setAttribute("tipologia", tipologia);
-            	if(tipologia.equals("professore")) {
-            		if(loginController.isDirettore(loginForm.getEmail()) == true)
-            			session.setAttribute("isDirettore", "true");
-            		if(loginController.isTitolare(loginForm.getEmail()) == true)
-            			session.setAttribute("isTitolare", "true");
-            		if(loginController.isGestore(loginForm.getEmail()) == true)
-            			session.setAttribute("isGestore", "true");
-            		if(loginController.isCollaboratore(loginForm.getEmail()) == true)
-            			session.setAttribute("isCollaboratore", "true");
-            	}
+        		tipologia = loginController.getTipologia();
+        		if(tipologia == null) {
+        			errors.add("tipologia", new ActionError("tipologia.error"));
+        		} else {
+        			System.out.println("tipologia " + tipologia);
+        			messages.add("tipologia", new ActionMessage("tipologia.ok"));
+        			session = request.getSession(true);
+        			session.setAttribute("email", loginForm.getEmail());
+        			session.setAttribute("tipologia", tipologia);
+        			if(tipologia.equals("professore")) {
+        				if(loginController.isDirettore(loginForm.getEmail()) == true)
+        					session.setAttribute("isDirettore", "true");
+        				if(loginController.isTitolare(loginForm.getEmail()) == true)
+        					session.setAttribute("isTitolare", "true");
+        				if(loginController.isGestore(loginForm.getEmail()) == true)
+        					session.setAttribute("isGestore", "true");
+        				if(loginController.isCollaboratore(loginForm.getEmail()) == true)
+        					session.setAttribute("isCollaboratore", "true");
+        			}
+        		}
         	}
         } catch (Exception e) {
             errors.add("email", new ActionError("generic.error"));

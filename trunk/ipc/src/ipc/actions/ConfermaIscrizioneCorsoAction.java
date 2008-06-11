@@ -36,7 +36,7 @@ public class ConfermaIscrizioneCorsoAction extends Action {
         ActionErrors errors = new ActionErrors();
         ActionForward forward = new ActionForward(); // return value
         ActionMessages messages = new ActionMessages();
-
+        boolean radio_is_enabled = false;
         try {
         	if (isCancelled(request)) {
         		return mapping.findForward("main");
@@ -48,6 +48,7 @@ public class ConfermaIscrizioneCorsoAction extends Action {
         		while(en.hasMoreElements()) {
         			String name = (String)en.nextElement();
         			if(name.equals("radio")) {
+        				radio_is_enabled = true;
         				System.out.println("request: " + request.getParameter(name));
         				String idIscrizioneCorso = request.getParameter(name);
         				Long id = Long.valueOf(idIscrizioneCorso);
@@ -66,12 +67,15 @@ public class ConfermaIscrizioneCorsoAction extends Action {
         				}
         			}
         		}
+        		if(radio_is_enabled == false)
+        			errors.add("name", new ActionError("radio.button.error"));
         	}
         } catch (Exception e) {
-            errors.add("name", new ActionError("id"));
+            errors.add("name", new ActionError("generic.error"));
         }
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
+            forward = mapping.findForward("error");
         } else if(!messages.isEmpty()){
         	saveMessages(request, messages);
             forward = mapping.findForward("success");

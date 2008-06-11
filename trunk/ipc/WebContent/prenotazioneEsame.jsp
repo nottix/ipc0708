@@ -23,19 +23,19 @@
 		<tbody>
 			<tr>
 				<td>Data apertura:</td>
-				<td><html:text property="dataInizioPeriodoPrenotazione"></html:text></td>
+				<td><html:text property="dataInizioPeriodoPrenotazione" readonly="true" /></td>
 			</tr>
 			<tr>
 				<td>Data chiusura:</td>
-				<td><html:text property="dataFinePeriodoPrenotazione"></html:text></td>
+				<td><html:text property="dataFinePeriodoPrenotazione" readonly="true" /></td>
 			</tr>
 			<tr>
 				<td>Data:</td>
-				<td><html:text property="dataEsame"></html:text></td>
+				<td><html:text property="dataEsame" readonly="true" /></td>
 			</tr>
 			<tr>
 				<td>Aule:</td>
-				<td><html:text property="auleEsame"></html:text></td>
+				<td><html:text property="auleEsame" readonly="true" /></td>
 			</tr>
 			<tr>
 				<td colspan="2"><font color="red"><html:errors /></font></td></tr>

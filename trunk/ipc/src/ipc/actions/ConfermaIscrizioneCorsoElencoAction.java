@@ -49,7 +49,7 @@ public class ConfermaIscrizioneCorsoElencoAction extends Action {
                 request.setAttribute("elencoIscrizioniCorso", this.elencoIscrizioniCorso);
             }
         } catch (Exception e) {
-            errors.add("name", new ActionError("id"));
+            errors.add("name", new ActionError("generic.error"));
         }
         if (!errors.isEmpty()) {
             saveErrors(request, errors);

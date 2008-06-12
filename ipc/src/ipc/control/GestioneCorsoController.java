@@ -77,12 +77,13 @@ public class GestioneCorsoController {
 			
 			Long idCorso = corsoDao.get(acronimo).getId();
 			System.out.println("ID CORSO: "+idCorso);
+
 			Date examDate = new SimpleDateFormat("MM/dd/yy").parse(dataEsame);
 			Date dataInizioPrenotazioni = new SimpleDateFormat("MM/dd/yy").parse(inizioPeriodo);
 			Date dataFinePrenotazioni = new SimpleDateFormat("MM/dd/yy").parse(finePeriodo);
 			if( dataInizioPrenotazioni.before(dataFinePrenotazioni) &&
-				dataInizioPrenotazioni.after(new Date()) &&
-				dataFinePrenotazioni.before(examDate)) {
+					dataInizioPrenotazioni.after(new Date()) &&
+					dataFinePrenotazioni.before(examDate)) {
 				Esame esame = new Esame();
 				esame.setAuleEsame(aule);
 

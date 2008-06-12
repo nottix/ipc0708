@@ -56,6 +56,7 @@ public class VisualizzaAccountAction extends Action {
         ActionMessages messages = new ActionMessages();
         GestioneAccountController control = new GestioneAccountController();
         VisualizzaAccountForm cForm = (VisualizzaAccountForm)form;
+        boolean radio_is_enabled = false;
         try {
         	System.out.println("here");
         	if (isCancelled(request)) {
@@ -69,6 +70,7 @@ public class VisualizzaAccountAction extends Action {
         		while(en.hasMoreElements()) {
         			String name = (String)en.nextElement();
         			if(name.equals("radio")) {
+        				radio_is_enabled = true;
         				System.out.println("request: "+request.getParameter(name));
         				//GestioneCorsoForm gestForm = (GestioneCorsoForm)form;
         				//gestForm.setAcronimo(request.getParameter(name));
@@ -106,6 +108,8 @@ public class VisualizzaAccountAction extends Action {
         				}
         			}
         		}
+        		if(radio_is_enabled == false)
+        			errors.add("nome", new ActionError("dev.null"));
         	}
         } catch (Exception e) {
             errors.add("name", new ActionError("generic.error"));

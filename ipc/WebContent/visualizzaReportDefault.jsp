@@ -23,7 +23,7 @@
 				<tbody>
 					<tr>
 						<td align="center" colspan="4">Ordinamento:
-							<html:checkbox property="matricola">Matricola</html:checkbox>
+							<html:checkbox property="matricola" value="Y">Matricola</html:checkbox>
 							<html:checkbox property="email">Email</html:checkbox>
 							<html:checkbox property="nome">Nome</html:checkbox>
 							<html:checkbox property="cognome">Cognome</html:checkbox>

@@ -35,16 +35,22 @@ public class CreazioneEsameDoneAction extends Action {
         GestioneCorsoController control = new GestioneCorsoController();
         CreazioneEsameForm cForm = (CreazioneEsameForm)form;
         try {
-        	if(control.creazioneEsame(cForm.getAcronimo(),
-        							  cForm.getDataEsame(),
-        							  cForm.getDataInizio(),
-        							  cForm.getDataFine(),
-        							  cForm.getAule()) == true) {
-            	request.getSession().removeAttribute("acronimo");
-            	messages.add("nome", new ActionMessage("creazione.esame.ok"));
-            } else {
-            	errors.add("nome", new ActionError("creazione.esame.no"));
-            }
+        	if(cForm.getDataEsame().length() < 8 &&
+        			cForm.getDataFine().length() < 8 &&
+        			cForm.getDataInizio().length() < 8) {
+        		errors.add("nome", new ActionError("data.error"));
+        	} else {
+        		if(control.creazioneEsame(cForm.getAcronimo(),
+        				cForm.getDataEsame(),
+        				cForm.getDataInizio(),
+        				cForm.getDataFine(),
+        				cForm.getAule()) == true) {
+        			request.getSession().removeAttribute("acronimo");
+        			messages.add("nome", new ActionMessage("creazione.esame.ok"));
+        		} else {
+        			errors.add("nome", new ActionError("creazione.esame.no"));
+        		}
+        	}
         } catch (Exception e) {
             errors.add("name", new ActionError("generic.error"));
         }

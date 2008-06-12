@@ -52,6 +52,7 @@ public class VisualizzaAccountElencoAction extends Action {
         }
         if (!errors.isEmpty()) {
             saveErrors(request, errors);
+            forward = mapping.findForward("error");
         } else if(!messages.isEmpty()){
         	saveMessages(request, messages);
             forward = mapping.findForward("init");

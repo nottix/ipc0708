@@ -49,8 +49,9 @@
      				</table>
      				<table>
      					<tr align=center>
-     						<td>
+     						<td><font color="red">
      						<html:errors />
+     						</font>
      						</td>
      					</tr>
      				</table>
